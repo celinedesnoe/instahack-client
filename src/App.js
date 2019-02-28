@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import SignupPage from "./components/SignupPage.js";
+import LoginPage from "./components/LoginPage.js";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
           WELCOME INSTAGRAM
           <Switch>
             <Route path="/accounts/signup" component={SignupPage} />
+            <Route path="/accounts/login" component={LoginPage} />
           </Switch>
         </header>
       </div>

@@ -1,0 +1,21 @@
+.blue-button {
+  background-color: #3897f0;
+  color: white;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 24px;
+}
+
+.white-button {
+  background: 0 0;
+  color: #262626;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 24px;
+}
