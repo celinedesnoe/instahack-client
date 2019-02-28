@@ -7,6 +7,7 @@ import LoginPage from "./components/LoginPage.js";
 class App extends Component {
   constructor(props) {
     super(props);
+
     // get the initial value of currentUser from localStorage
     let userInfo = localStorage.getItem("currentUser");
 
@@ -33,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.currentUser);
+    // console.log(this.state.currentUser);
     return (
       <div className="App">
         <header className="App-header">

@@ -2,20 +2,16 @@ import React, { Component } from "react";
 import "./SignupPage.css";
 import { Link } from "react-router-dom";
 import { postSignUp } from "../api.js";
+import EditEmail from "./editEmail";
 
 class SignupPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      name: "",
+      fullName: "",
       email: "",
-      originalPassword: "",
-      bio: "",
-      website: "",
-      profilePic: "",
-      phoneNumber: null,
-      gender: ""
+      originalPassword: ""
     };
   }
 
@@ -29,7 +25,6 @@ class SignupPage extends Component {
 
     postSignUp(this.state).then(response => {
       console.log("sign up result", response.data);
-
       this.props.signupSuccess(response.data);
     });
   }
@@ -43,16 +38,19 @@ class SignupPage extends Component {
     // check if email is already with an account
     // write checkEmail fnc in api.js
 
-    /*    checkEmail(email).then(response=>{
-      console.log("email not in use", response.data);
+    // checkEmail(email).then(response=>{
+    // console.log("email not in use", response.data);
+    // })
 
-      // display next screen (full name & password)
-    })
-    */
+    // assign tempUsername
+    const tempUsername = email.slice(0, email.indexOf("@"));
+    this.setState({ username: tempUsername });
+
+    // display next screen (full name & password)
   }
 
   render() {
-    const { currentUser } = this.state;
+    const { currentUser } = this.props;
 
     return (
       <section className="SignupPage">
@@ -66,21 +64,11 @@ class SignupPage extends Component {
               <img src="../images/arrowbackbold.png" alt="go back" />
               <h2>Register</h2>
             </header>
-            <form onSubmit={event => this.handleEmail(event)}>
-              <h1>SCREEN 1</h1>
+            <EditEmail
+              checkEmail={event => this.handleEmail(event)}
+              updateState={event => this.genericOnChange(event)}
+            />
 
-              <label>
-                EMAIL
-                <input
-                  onChange={event => this.genericOnChange(event)}
-                  type="email"
-                  name="email"
-                  value={this.state.email}
-                  placeholder="Email Address"
-                />
-              </label>
-              <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
-            </form>
             <form onSubmit={event => this.handleSubmit(event)}>
               <h1>SCREEN 2</h1>
               DON'T SHOW UNTIL EMAIL IS SUBMITTED
@@ -103,7 +91,7 @@ class SignupPage extends Component {
                 BEEN FILLED)
               </button>
             </form>
-            <div>
+            {/* <div>
               <h1>SCREEN 3</h1>
 
               <h3>Welcome to Instagram, [ASSIGNED USERNAME]</h3>
@@ -145,7 +133,7 @@ class SignupPage extends Component {
                 Next (TAKES YOU TO TAKE PHOTO PROCESS -- version PROFILE)
               </button>
               <Link to="#">Skip</Link>
-            </div>
+            </div> */}
           </div>
         )}
       </section>
