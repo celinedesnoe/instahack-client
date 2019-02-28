@@ -6,7 +6,9 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  padding: 0 24px;
+  /* padding: 0 24px; */
+  width: 100%;
+  text-align: center;
 }
 
 .white-button {
@@ -17,5 +19,7 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  padding: 0 24px;
+  /* padding: 0 24px; */
+  width: 100%;
+  text-align: center;
 }

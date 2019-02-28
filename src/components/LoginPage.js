@@ -4,8 +4,10 @@ import "./LoginPage.css";
 import { postLogIn } from "../api";
 
 import ButtonLink from "./ButtonLink.js";
-
 import ButtonSubmit from "./ButtonSubmit.js";
+import Footer from "./Footer.js";
+
+import myPic from "../images/Instagram_logo.png";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -34,45 +36,51 @@ class LoginPage extends Component {
   }
 
   render() {
-    return (
-      // // this.props.currentUser ? (
-      // //   <Redirect to="/" />
-      // // ) :
-      //  (
-      <div>
-        LOG IN PAGE
-        <div>
-          <img src="./images/Instagram_logo.png" />
-        </div>
+    return this.props.currentUser ? (
+      <Redirect to="/" />
+    ) : (
+      <div className="flex">
+        <img src={myPic} alt="logo IG" className="instagramlogo" />
+
         <ButtonLink
           text="Connect with Facebook"
           styling="blue-button"
           link="https://www.facebook.com"
         />
-        <div>
+        <div className="w-100 d-flex flex-row align-items-center hro">
           <hr />
-          OR <hr />
+          <p className="or">OR</p>
+          <hr />
         </div>
         <form>
-          <input
-            onChange={event => this.genericOnChange(event)}
-            value={this.state.email}
-            name="email"
-            type="text"
-            placeholder="Email"
-          />
+          <div>
+            <input
+              onChange={event => this.genericOnChange(event)}
+              value={this.state.email}
+              name="email"
+              type="text"
+              placeholder="Email"
+            />
+          </div>
+          <div>
+            <input
+              onChange={event => this.genericOnChange(event)}
+              value={this.state.originalPassword}
+              name="originalPassword"
+              type="text"
+              placeholder="Password"
+            />
+          </div>
 
-          <input
-            onChange={event => this.genericOnChange(event)}
-            value={this.state.originalPassword}
-            name="originalPassword"
-            type="text"
-            placeholder="Password"
-          />
-
-          <ButtonSubmit text="Log In" styling="white-button" />
+          <ButtonSubmit text="Log In" styling="blue-button" />
         </form>
         <a href="#">Forgot password?</a>
+
+        <Footer
+          text="Don't have an account?"
+          link="/accounts/signup"
+          textLink="Sign up"
+        />
       </div>
     );
   }
