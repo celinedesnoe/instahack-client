@@ -20,3 +20,9 @@ function errorHandler(err) {
   // cause the error again so the .then() won't be called
   throw err;
 }
+
+export function postLogIn(loginCredentials) {
+  return backendApi
+    .post("/api/process-login", loginCredentials)
+    .catch(errorHandler);
+}

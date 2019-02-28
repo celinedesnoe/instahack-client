@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./LoginPage.css";
-// import { postLogIn } from "../api";
+import { postLogIn } from "../api";
 
 import ButtonLink from "./ButtonLink.js";
 
@@ -23,18 +23,22 @@ class LoginPage extends Component {
     this.setState({ [name]: value });
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
 
-  //   //submit login info to the back-end...
-  //   postLogIn(this.state).then(response => {
-  //     console.log("Log In", response.data);
-  //     this.props.loginSuccess(response.data);
-  //   });
-  // }
+    //submit login info to the back-end...
+    postLogIn(this.state).then(response => {
+      console.log("Log In", response.data);
+      this.props.loginSuccess(response.data);
+    });
+  }
 
   render() {
     return (
+      // // this.props.currentUser ? (
+      // //   <Redirect to="/" />
+      // // ) :
+      //  (
       <div>
         LOG IN PAGE
         <div>
@@ -52,18 +56,20 @@ class LoginPage extends Component {
         <form>
           <input
             onChange={event => this.genericOnChange(event)}
-            value={this.state.email || this.state.username}
-            name={"username" || "email"}
+            value={this.state.email}
+            name="email"
             type="text"
-            placeholder="Username or email"
+            placeholder="Email"
           />
+
           <input
             onChange={event => this.genericOnChange(event)}
             value={this.state.originalPassword}
-            name="password"
+            name="originalPassword"
             type="text"
             placeholder="Password"
           />
+
           <ButtonSubmit text="Log In" styling="white-button" />
         </form>
         <a href="#">Forgot password?</a>
