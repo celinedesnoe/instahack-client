@@ -54,37 +54,16 @@ class LoginPage extends Component {
           link="https://www.facebook.com"
         />
 
-<<<<<<< HEAD
-        <div className="w-100 d-flex flex-row align-items-center hro">
-=======
         <div className="d-flex flex-row align-items-center hro">
->>>>>>> 455bc2dfb64811c7c0419533db17beb0831fc749
           <hr />
           <p className="or">OR</p>
           <hr />
         </div>
-<<<<<<< HEAD
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <div>
-            <input
-              onChange={event => this.genericOnChange(event)}
-              value={this.state.email}
-              name="email"
-              type="text"
-              placeholder="Email"
-            />
-          </div>
-          <div>
-            <input
-              onChange={event => this.genericOnChange(event)}
-              value={this.state.originalPassword}
-              name="originalPassword"
-              type="text"
-              placeholder="Password"
-            />
-=======
 
-        <form className="logInForm">
+        <form
+          className="logInForm"
+          onSubmit={event => this.handleSubmit(event)}
+        >
           <div className="formField">
             <div>
               <input
@@ -105,7 +84,6 @@ class LoginPage extends Component {
                 placeholder="Password"
               />
             </div>
->>>>>>> 455bc2dfb64811c7c0419533db17beb0831fc749
           </div>
 
           <ButtonSubmit text="Log In" styling="blue-button" />
