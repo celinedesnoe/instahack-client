@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
+import HomePage from "./components/HomePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
 
@@ -43,6 +44,8 @@ class App extends Component {
         </nav>
 
         <Switch>
+          <Route exact path="/" component={HomePage} />
+
           <Route path="/accounts/signup" component={SignupPage} />
 
           <Route
