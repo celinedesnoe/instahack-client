@@ -45,6 +45,7 @@ class App extends Component {
     console.log(this.state.currentUser);
     return (
       <div className="App">
+<<<<<<< HEAD
         <header className="App-header">WELCOME INSTAGRAM</header>
         <nav>
           {this.state.currentUser ? (
@@ -59,10 +60,27 @@ class App extends Component {
             </span>
           )}
         </nav>
+=======
+        <header className="App-header">
+          WELCOME INSTAGRAM
+          <nav>
+            <NavLink to="/accounts/login">Log In</NavLink>
+          </nav>
+        </header>
+>>>>>>> 8c8fa769c8e6fb065015c27639745eb1b2953882
 
         <Switch>
-          <Route path="/accounts/signup" component={SignupPage} />
-
+          <Route
+            path="/signup"
+            render={() => {
+              return (
+                <SignupPage
+                  currentUser={this.state.currentUser}
+                  signupSuccess={user => this.updateUser(user)}
+                />
+              );
+            }}
+          />
           <Route
             path="/accounts/login"
             render={() => {
