@@ -3,7 +3,7 @@
   color: white;
   border: 1px solid #3897f0;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 4.67vw;
   font-weight: 600;
   text-decoration: none;
   width: 100%;
@@ -17,11 +17,30 @@
   color: #262626;
   border: 1px solid #dbdbdb;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 4.67vw;
   font-weight: 600;
   text-decoration: none;
   width: 100%;
   text-align: center;
   padding-top: 1.6%;
   padding-bottom: 1.6%;
+}
+
+/* a {
+  text-decoration: none;
+} */
+
+.blue-button:active {
+  animation: blinker 1s linear;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
 }
