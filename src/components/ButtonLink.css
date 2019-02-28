@@ -26,17 +26,10 @@
   padding-bottom: 1.6%;
 }
 
-.blue-button a:hover {
+a {
   text-decoration: none;
-  color: white;
 }
 
-.blue-button a.active {
-  text-decoration: none;
-  color: white;
-}
-
-.blue-button a.hover {
-  text-decoration: none;
+.blue-button {
   color: white;
 }

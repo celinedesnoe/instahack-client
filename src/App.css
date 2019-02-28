@@ -4,3 +4,15 @@ html {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 4.67vw;
 }
+
+span.navbar {
+  text-align: center;
+}
+
+.navbar a {
+  width: 100px;
+}
+
+.navbar {
+  padding: 0;
+}

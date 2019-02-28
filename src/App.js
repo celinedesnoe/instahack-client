@@ -55,7 +55,7 @@ class App extends Component {
               <button onClick={() => this.logoutClick()}>Log Out</button>
             </span>
           ) : (
-            <span>
+            <span className="navbar">
               <NavLink to="/accounts/signup">Sign Up</NavLink>
               <NavLink to="/accounts/login">Log In</NavLink>
             </span>
