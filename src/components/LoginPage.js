@@ -40,17 +40,17 @@ class LoginPage extends Component {
       <Redirect to="/" />
     ) : (
       <div className="flex">
-        <div>
-          <img src={myPic} alt="logo IG" />
-        </div>
+        <img src={myPic} alt="logo IG" className="instagramlogo" />
+
         <ButtonLink
           text="Connect with Facebook"
           styling="blue-button"
           link="https://www.facebook.com"
         />
-        <div>
+        <div className="w-100 d-flex flex-row align-items-center hro">
           <hr />
-          OR <hr />
+          <p className="or">OR</p>
+          <hr />
         </div>
         <form>
           <div>
