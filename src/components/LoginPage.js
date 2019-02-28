@@ -4,12 +4,11 @@ import { postLogIn } from "../api";
 
 import "./LoginPage.css";
 
-import ButtonLink from "./ButtonLink.js";
+import ButtonLinkFacebook from "./ButtonLinkFacebook.js";
 import ButtonSubmit from "./ButtonSubmit.js";
-import Footer from "./Footer.js";
+import FooterBlue from "./FooterBlue.js";
 
 import InstagramLogo from "../images/Instagram_logo.png";
-import whitefb from "../images/facebookiconwhite.png";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -48,22 +47,12 @@ class LoginPage extends Component {
 
         {/* <img className="whitefb" src={whitefb} alt="facebook icon" /> */}
 
-        <ButtonLink
+        <ButtonLinkFacebook
           text="Continue with Facebook"
-          styling="blue-button btn font-size:24px"
+          styling="blue-button"
           link="https://www.facebook.com"
           className="buttonfacebook"
-        >
-          <i className="fa fa-facebook-official" />
-          <i style="font-size:24px" class="fa">
-            &#xf230;
-          </i>
-        </ButtonLink>
-
-        {/* <button style="font-size:24px">
-          <i className="fab fa-facebook" style="font-size:24px;color:white" />{" "}
-          Continue on facebook
-        </button> */}
+        />
 
         <div className="d-flex flex-row align-items-center hro">
           <hr />
@@ -104,7 +93,7 @@ class LoginPage extends Component {
           Forgot password?
         </a>
 
-        <Footer
+        <FooterBlue
           text="Don't have an account?"
           link="/accounts/signup"
           textLink="Sign up"
