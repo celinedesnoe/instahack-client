@@ -39,3 +39,13 @@ export function postLogIn(loginCredentials) {
 export function getLogOut() {
   return backendApi.get("/api/logout").catch(errorHandler);
 }
+
+// export function checkEmail(someEmail) {
+//   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
+// }
+
+// export function checkUsername(someUsername) {
+//   return backendApi
+//     .post("/api/process-username", someUsername)
+//     .catch(errorHandler);
+// }

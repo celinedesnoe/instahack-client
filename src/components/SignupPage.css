@@ -1,0 +1,10 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px;
+}
+
+.instagramlogo {
+  width: 60%;
+}
