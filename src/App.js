@@ -28,7 +28,7 @@ class App extends Component {
   updateUser(newUser) {
     if (newUser) {
       // save the user info in the localStorage if we are logging in
-      // turn it into a JSON string before we save
+      // turn it into a JSON string with name "currentuser" before we save
       localStorage.setItem("currentUser", JSON.stringify(newUser));
     } else {
       // delete the user info from localStorage if we are logging IN
