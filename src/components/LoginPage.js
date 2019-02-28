@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import "./LoginPage.css";
 import { postLogIn } from "../api";
+
+import "./LoginPage.css";
 
 import ButtonLink from "./ButtonLink.js";
 import ButtonSubmit from "./ButtonSubmit.js";
 import Footer from "./Footer.js";
 
 import InstagramLogo from "../images/Instagram_logo.png";
+import whitefb from "../images/facebookiconwhite.png";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -46,39 +48,49 @@ class LoginPage extends Component {
           alt="instagram logo"
         />
 
+        <img className="whitefb" src={whitefb} alt="facebook icon" />
+
         <ButtonLink
           text="Connect with Facebook"
           styling="blue-button"
           link="https://www.facebook.com"
         />
+
         <div className="d-flex flex-row align-items-center hro">
           <hr />
           <p className="or">OR</p>
           <hr />
         </div>
-        <form>
-          <div>
-            <input
-              onChange={event => this.genericOnChange(event)}
-              value={this.state.email}
-              name="email"
-              type="text"
-              placeholder="Email"
-            />
-          </div>
-          <div>
-            <input
-              onChange={event => this.genericOnChange(event)}
-              value={this.state.originalPassword}
-              name="originalPassword"
-              type="text"
-              placeholder="Password"
-            />
+
+        <form className="logInForm">
+          <div className="formField">
+            <div>
+              <input
+                onChange={event => this.genericOnChange(event)}
+                value={this.state.email}
+                name="email"
+                type="text"
+                placeholder="Email"
+              />
+            </div>
+
+            <div>
+              <input
+                onChange={event => this.genericOnChange(event)}
+                value={this.state.originalPassword}
+                name="originalPassword"
+                type="text"
+                placeholder="Password"
+              />
+            </div>
           </div>
 
           <ButtonSubmit text="Log In" styling="blue-button" />
         </form>
-        <a href="#">Forgot password?</a>
+
+        <a href="#" className="forgotpassword">
+          Forgot password?
+        </a>
 
         <Footer
           text="Don't have an account?"
