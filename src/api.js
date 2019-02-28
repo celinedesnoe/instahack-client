@@ -45,6 +45,10 @@ export function getPosts(someUser) {
   return backendApi.post("/api/posts", someUser).catch(errorHandler);
 }
 
+export function getPostDetails(postId) {
+  return backendApi.get(`/api/p/${postId}`).catch(errorHandler);
+}
+
 // export function checkEmail(someEmail) {
 //   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
 // }

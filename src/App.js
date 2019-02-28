@@ -6,6 +6,8 @@ import HomePage from "./components/HomePage.js";
 import ProfilePage from "./components/ProfilePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
+
+import PostDetail from "./components/PostDetail.js";
 import { getLogOut } from "./api";
 
 class App extends Component {
@@ -97,6 +99,8 @@ class App extends Component {
               return <ProfilePage currentUser={this.state.currentUser} />;
             }}
           />
+
+          <Route path="/p/:postId" component={PostDetail} />
         </Switch>
       </div>
     );

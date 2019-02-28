@@ -14,7 +14,7 @@ class ProfilePage extends Component {
     const { currentUser } = this.state;
     // console.log(currentUser);
     return (
-      <div>
+      <div className="GridView">
         PROFILE PAGE
         <GridView currentUser={currentUser} />
       </div>

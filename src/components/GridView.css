@@ -1,13 +1,6 @@
-/* .GridView {
-  display: flex;
-  padding: 0;
-}
-
-.square-image {
-  object-fit: cover;
+.GridView {
   width: 100%;
-  height: 100%;
-} */
+}
 
 .myCol {
   display: block;
