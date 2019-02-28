@@ -23,14 +23,16 @@ class GridView extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   getPosts(this.state.currentUser)
-  //     .then(response => console.log("Posts Data", response.data))
-  //     // this.setState({posts: response.data}))
-  //     .catch(() => {
-  //       alert("Sorry we can't find the posts from the user");
-  //     });
-  // }
+  componentDidMount() {
+    getPosts(this.props.currentUser)
+      .then(response =>
+        // console.log("Posts Data", response.data))
+        this.setState({ posts: response.data })
+      )
+      .catch(() => {
+        alert("Sorry we can't find the posts from the user");
+      });
+  }
 
   render() {
     // const { images } = this.state;
