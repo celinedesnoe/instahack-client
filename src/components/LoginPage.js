@@ -7,7 +7,7 @@ import ButtonLink from "./ButtonLink.js";
 import ButtonSubmit from "./ButtonSubmit.js";
 import Footer from "./Footer.js";
 
-import myPic from "../images/Instagram_logo.png";
+import InstagramLogo from "../images/Instagram_logo.png";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -39,15 +39,19 @@ class LoginPage extends Component {
     return this.props.currentUser ? (
       <Redirect to="/" />
     ) : (
-      <div className="flex">
-        <img src={myPic} alt="logo IG" className="instagramlogo" />
+      <div className="LoginPage">
+        <img
+          className="instagramlogo"
+          src={InstagramLogo}
+          alt="instagram logo"
+        />
 
         <ButtonLink
           text="Connect with Facebook"
           styling="blue-button"
           link="https://www.facebook.com"
         />
-        <div className="w-100 d-flex flex-row align-items-center hro">
+        <div className="d-flex flex-row align-items-center hro">
           <hr />
           <p className="or">OR</p>
           <hr />
