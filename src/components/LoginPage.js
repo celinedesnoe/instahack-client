@@ -4,8 +4,8 @@ import "./LoginPage.css";
 import { postLogIn } from "../api";
 
 import ButtonLink from "./ButtonLink.js";
-
 import ButtonSubmit from "./ButtonSubmit.js";
+import Footer from "./Footer.js";
 
 import myPic from "../images/Instagram_logo.png";
 
@@ -75,6 +75,12 @@ class LoginPage extends Component {
           <ButtonSubmit text="Log In" styling="blue-button" />
         </form>
         <a href="#">Forgot password?</a>
+
+        <Footer
+          text="Don't have an account?"
+          link="/accounts/signup"
+          textLink="Sign up"
+        />
       </div>
     );
   }
