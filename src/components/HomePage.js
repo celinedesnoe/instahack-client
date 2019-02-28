@@ -6,6 +6,7 @@ import DownloadApple from "../images/getinonappstore.png";
 import ButtonLink from "./ButtonLink.js";
 
 import ButtonSubmit from "./ButtonSubmit.js";
+import Footer from "./Footer.js";
 
 import "./HomePage.css";
 
@@ -43,6 +44,12 @@ class HomePage extends Component {
         >
           <img src={DownloadApple} alt="download app on apple" />
         </a>
+
+        <Footer
+          text="Have an account?"
+          link="/accounts/login"
+          textLink="Log in"
+        />
       </section>
     );
   }

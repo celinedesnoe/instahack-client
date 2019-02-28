@@ -1,0 +1,17 @@
+.Footer {
+  background-color: rgb(249, 249, 249);
+  color: #999999;
+  border-top: 1px solid darkgrey;
+  width: 100%;
+  padding: 9px 0;
+  margin-top: 10%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.Footer a {
+  color: #003569;
+  text-decoration: none;
+}
