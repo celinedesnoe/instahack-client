@@ -48,13 +48,24 @@ class LoginPage extends Component {
           alt="instagram logo"
         />
 
-        <img className="whitefb" src={whitefb} alt="facebook icon" />
+        {/* <img className="whitefb" src={whitefb} alt="facebook icon" /> */}
 
         <ButtonLink
-          text="Connect with Facebook"
-          styling="blue-button"
+          text="Continue with Facebook"
+          styling="blue-button btn font-size:24px"
           link="https://www.facebook.com"
-        />
+          className="buttonfacebook"
+        >
+          <i className="fa fa-facebook-official" />
+          <i style="font-size:24px" class="fa">
+            &#xf230;
+          </i>
+        </ButtonLink>
+
+        {/* <button style="font-size:24px">
+          <i className="fab fa-facebook" style="font-size:24px;color:white" />{" "}
+          Continue on facebook
+        </button> */}
 
         <div className="d-flex flex-row align-items-center hro">
           <hr />

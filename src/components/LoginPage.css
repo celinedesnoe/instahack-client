@@ -19,6 +19,7 @@ img.instagramlogo {
 
 .instagramlogo {
   margin-top: 16%;
+  margin-bottom: 6%;
 }
 
 hr {
@@ -29,8 +30,8 @@ hr {
 .whitefb {
   width: 5%;
   position: absolute;
-  margin-top: 33.6%;
-  margin-left: -30%;
+  margin-top: 38.2%;
+  margin-left: -31%;
 }
 
 .logInForm {
@@ -42,6 +43,10 @@ hr {
 
 input {
   width: 100%;
+  border: 1px solid rgba(122, 122, 122, 0.1);
+  box-shadow: none;
+  height: 10%;
+  background-color: rgb(249, 249, 249);
 }
 
 .formField {
@@ -54,4 +59,26 @@ input {
 
 .forgotpassword {
   margin-top: 8%;
+  color: #003569;
+}
+
+.or {
+  margin: 0;
+  color: #999999;
+  font-size: 4.67vw;
+  font-weight: 700;
+}
+
+.hro {
+  margin: 5%;
+  width: 110%;
+}
+
+.fa {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
 }
