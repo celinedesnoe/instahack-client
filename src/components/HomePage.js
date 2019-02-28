@@ -5,8 +5,6 @@ import DownloadApple from "../images/getinonappstore.png";
 
 import ButtonLink from "./ButtonLink.js";
 
-import ButtonSubmit from "./ButtonSubmit.js";
-
 import "./HomePage.css";
 
 class HomePage extends Component {
@@ -28,7 +26,7 @@ class HomePage extends Component {
           className="loginbutton"
         />
 
-        <div className="w-100 d-flex flex-row align-items-center hro">
+        <div className="d-flex flex-row align-items-center hro">
           <hr />
           <p className="or">OR</p>
           <hr />
