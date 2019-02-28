@@ -33,3 +33,8 @@ a {
 .blue-button {
   color: white;
 }
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}

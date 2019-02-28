@@ -5,12 +5,8 @@ html {
   font-size: 4.67vw;
 }
 
-span.navbar {
-  text-align: center;
-}
-
-.navbar a {
-  width: 100px;
+nav {
+  width: 40%;
 }
 
 .navbar {
