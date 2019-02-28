@@ -14,8 +14,6 @@ class LoginPage extends Component {
     super(props);
     this.state = {
       email: "",
-      username: "",
-      phoneNumber: null,
       originalPassword: ""
     };
   }
@@ -47,12 +45,13 @@ class LoginPage extends Component {
           styling="blue-button"
           link="https://www.facebook.com"
         />
+
         <div className="w-100 d-flex flex-row align-items-center hro">
           <hr />
           <p className="or">OR</p>
           <hr />
         </div>
-        <form>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <div>
             <input
               onChange={event => this.genericOnChange(event)}

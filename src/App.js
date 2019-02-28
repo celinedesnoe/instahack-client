@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import HomePage from "./components/HomePage.js";
+// import GridView from "./components/GridView.js";
+import ProfilePage from "./components/ProfilePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
 import { getLogOut } from "./api";
@@ -85,6 +87,14 @@ class App extends Component {
                   loginSuccess={user => this.updateUser(user)}
                 />
               );
+            }}
+          />
+
+          {/* PROFILE PAGE PATH TO BE MODIFIED AND ADD RENDER */}
+          <Route
+            path="/profile-page"
+            render={() => {
+              return <ProfilePage currentUser={this.state.currentUser} />;
             }}
           />
         </Switch>

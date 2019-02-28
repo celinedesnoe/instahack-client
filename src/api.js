@@ -39,3 +39,8 @@ export function postLogIn(loginCredentials) {
 export function getLogOut() {
   return backendApi.get("/api/logout").catch(errorHandler);
 }
+
+export function getPosts(someUser) {
+  // return console.log("User Info in getPosts: ", someUser);
+  return backendApi.get("/api/posts", someUser).catch(errorHandler);
+}
