@@ -45,7 +45,7 @@ class App extends Component {
 
         <Switch>
           <Route
-            path="/signup"
+            path="/accounts/signup"
             render={() => {
               return (
                 <SignupPage

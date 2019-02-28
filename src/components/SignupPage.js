@@ -24,14 +24,31 @@ class SignupPage extends Component {
     this.setState({ [name]: value });
   }
 
-  handleNext(event) {
+  handleSubmit(event) {
     event.preventDefault();
 
-    // postSignUp(this.state).then(response => {
-    //   console.log("sign up result", response.data);
+    postSignUp(this.state).then(response => {
+      console.log("sign up result", response.data);
 
-    //   this.props.signupSuccess(response.data);
-    // });
+      this.props.signupSuccess(response.data);
+    });
+  }
+
+  handleEmail(event) {
+    event.preventDefault();
+
+    // get email
+    const { email } = this.state;
+
+    // check if email is already with an account
+    // write checkEmail fnc in api.js
+
+    /*    checkEmail(email).then(response=>{
+      console.log("email not in use", response.data);
+
+      // display next screen (full name & password)
+    })
+    */
   }
 
   render() {
@@ -46,10 +63,10 @@ class SignupPage extends Component {
         ) : (
           <div>
             <header>
-              <p>LEFT ARROW ICON</p>
+              <img src="../images/arrowbackbold.png" alt="go back" />
               <h2>Register</h2>
             </header>
-            <form onSubmit={event => this.handleNext(event)}>
+            <form onSubmit={event => this.handleEmail(event)}>
               <h1>SCREEN 1</h1>
 
               <label>
@@ -64,7 +81,7 @@ class SignupPage extends Component {
               </label>
               <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
             </form>
-            <form onSubmit={event => this.handleNext(event)}>
+            <form onSubmit={event => this.handleSubmit(event)}>
               <h1>SCREEN 2</h1>
               DON'T SHOW UNTIL EMAIL IS SUBMITTED
               <input
@@ -82,7 +99,8 @@ class SignupPage extends Component {
                 placeholder="Password"
               />
               <button>
-                Next (ACTIVATE ONLY ONCE BOTH FIELDS HAVE BEEN FILLED)
+                Next (THIS IS THE SUBMIT) (ACTIVATE ONLY ONCE BOTH FIELDS HAVE
+                BEEN FILLED)
               </button>
             </form>
             <div>
