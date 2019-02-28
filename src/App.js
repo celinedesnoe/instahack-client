@@ -37,17 +37,27 @@ class App extends Component {
     console.log(this.state.currentUser);
     return (
       <div className="App">
-        <header className="App-header">WELCOME INSTAGRAM</header>
-
-        <nav>
-          <NavLink to="/accounts/login">Log In</NavLink>
-        </nav>
+        <header className="App-header">
+          WELCOME INSTAGRAM
+          <nav>
+            <NavLink to="/accounts/login">Log In</NavLink>
+          </nav>
+        </header>
 
         <Switch>
           <Route exact path="/" component={HomePage} />
 
-          <Route path="/accounts/signup" component={SignupPage} />
-
+          <Route
+            path="/accounts/signup"
+            render={() => {
+              return (
+                <SignupPage
+                  currentUser={this.state.currentUser}
+                  signupSuccess={user => this.updateUser(user)}
+                />
+              );
+            }}
+          />
           <Route
             path="/accounts/login"
             render={() => {

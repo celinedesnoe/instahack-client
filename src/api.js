@@ -21,6 +21,12 @@ function errorHandler(err) {
   throw err;
 }
 
+export function postSignUp(userSubmission) {
+  return backendApi
+    .post("/api/process-signup", userSubmission)
+    .catch(errorHandler);
+}
+
 export function postLogIn(loginCredentials) {
   return backendApi
     .post("/api/process-login", loginCredentials)
