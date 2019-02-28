@@ -26,3 +26,7 @@ export function postLogIn(loginCredentials) {
     .post("/api/process-login", loginCredentials)
     .catch(errorHandler);
 }
+
+export function getLogOut() {
+  return backendApi.get("/api/logout").catch(errorHandler);
+}

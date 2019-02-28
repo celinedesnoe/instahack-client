@@ -7,6 +7,8 @@ import ButtonLink from "./ButtonLink.js";
 
 import ButtonSubmit from "./ButtonSubmit.js";
 
+import myPic from "../images/Instagram_logo.png";
+
 class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -34,15 +36,12 @@ class LoginPage extends Component {
   }
 
   render() {
-    return (
-      // // this.props.currentUser ? (
-      // //   <Redirect to="/" />
-      // // ) :
-      //  (
-      <div>
-        LOG IN PAGE
+    return this.props.currentUser ? (
+      <Redirect to="/" />
+    ) : (
+      <div className="flex">
         <div>
-          <img src="./images/Instagram_logo.png" />
+          <img src={myPic} alt="logo IG" />
         </div>
         <ButtonLink
           text="Connect with Facebook"
@@ -54,23 +53,26 @@ class LoginPage extends Component {
           OR <hr />
         </div>
         <form>
-          <input
-            onChange={event => this.genericOnChange(event)}
-            value={this.state.email}
-            name="email"
-            type="text"
-            placeholder="Email"
-          />
+          <div>
+            <input
+              onChange={event => this.genericOnChange(event)}
+              value={this.state.email}
+              name="email"
+              type="text"
+              placeholder="Email"
+            />
+          </div>
+          <div>
+            <input
+              onChange={event => this.genericOnChange(event)}
+              value={this.state.originalPassword}
+              name="originalPassword"
+              type="text"
+              placeholder="Password"
+            />
+          </div>
 
-          <input
-            onChange={event => this.genericOnChange(event)}
-            value={this.state.originalPassword}
-            name="originalPassword"
-            type="text"
-            placeholder="Password"
-          />
-
-          <ButtonSubmit text="Log In" styling="white-button" />
+          <ButtonSubmit text="Log In" styling="blue-button" />
         </form>
         <a href="#">Forgot password?</a>
       </div>

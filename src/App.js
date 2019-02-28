@@ -3,6 +3,7 @@ import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
+import { getLogOut } from "./api";
 
 class App extends Component {
   constructor(props) {
@@ -32,14 +33,31 @@ class App extends Component {
     this.setState({ currentUser: newUser });
   }
 
+  logoutClick() {
+    getLogOut().then(response => {
+      console.log("Log Out", response.data);
+      // set the currentUser state to empty
+      this.updateUser(null);
+    });
+  }
+
   render() {
     console.log(this.state.currentUser);
     return (
       <div className="App">
         <header className="App-header">WELCOME INSTAGRAM</header>
-
         <nav>
-          <NavLink to="/accounts/login">Log In</NavLink>
+          {this.state.currentUser ? (
+            <span>
+              <b>{this.state.currentUser.email}</b>
+              <button onClick={() => this.logoutClick()}>Log Out</button>
+            </span>
+          ) : (
+            <span>
+              <NavLink to="/accounts/signup">Sign Up</NavLink>
+              <NavLink to="/accounts/login">Log In</NavLink>
+            </span>
+          )}
         </nav>
 
         <Switch>
