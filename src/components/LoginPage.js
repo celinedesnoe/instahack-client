@@ -16,8 +16,6 @@ class LoginPage extends Component {
     super(props);
     this.state = {
       email: "",
-      username: "",
-      phoneNumber: null,
       originalPassword: ""
     };
   }
@@ -73,7 +71,10 @@ class LoginPage extends Component {
           <hr />
         </div>
 
-        <form className="logInForm">
+        <form
+          className="logInForm"
+          onSubmit={event => this.handleSubmit(event)}
+        >
           <div className="formField">
             <div>
               <input

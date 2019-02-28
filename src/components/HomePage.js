@@ -4,6 +4,7 @@ import InstagramLogo from "../images/Instagram_logo.png";
 import DownloadApple from "../images/getinonappstore.png";
 
 import ButtonLink from "./ButtonLink.js";
+import Header from "./Header.js";
 
 import Footer from "./Footer.js";
 
@@ -13,6 +14,8 @@ class HomePage extends Component {
   render() {
     return (
       <section className="HomePage">
+        <Header />
+
         <img
           className="instagramlogo"
           src={InstagramLogo}

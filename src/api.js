@@ -24,13 +24,13 @@ function errorHandler(err) {
 }
 
 export function postSignUp(userSubmission) {
-  // return console.log(userSubmission);
   return backendApi
     .post("/api/process-signup", userSubmission)
     .catch(errorHandler);
 }
 
 export function postLogIn(loginCredentials) {
+  console.log(loginCredentials);
   return backendApi
     .post("/api/process-login", loginCredentials)
     .catch(errorHandler);
@@ -39,3 +39,22 @@ export function postLogIn(loginCredentials) {
 export function getLogOut() {
   return backendApi.get("/api/logout").catch(errorHandler);
 }
+
+export function getPosts(someUser) {
+  console.log("User Info in getPosts: ", someUser);
+  return backendApi.post("/api/posts", someUser).catch(errorHandler);
+}
+
+export function getPostDetails(postId) {
+  return backendApi.get(`/api/p/${postId}`).catch(errorHandler);
+}
+
+// export function checkEmail(someEmail) {
+//   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
+// }
+
+// export function checkUsername(someUsername) {
+//   return backendApi
+//     .post("/api/process-username", someUsername)
+//     .catch(errorHandler);
+// }

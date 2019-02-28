@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import HomePage from "./components/HomePage.js";
+// import GridView from "./components/GridView.js";
+import ProfilePage from "./components/ProfilePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
+
+import PostDetail from "./components/PostDetail.js";
 import { getLogOut } from "./api";
 
 class App extends Component {
@@ -26,7 +30,7 @@ class App extends Component {
   updateUser(newUser) {
     if (newUser) {
       // save the user info in the localStorage if we are logging in
-      // turn it into a JSON string before we save
+      // turn it into a JSON string with name "currentuser" before we save
       localStorage.setItem("currentUser", JSON.stringify(newUser));
     } else {
       // delete the user info from localStorage if we are logging IN
@@ -87,6 +91,16 @@ class App extends Component {
               );
             }}
           />
+
+          {/* PROFILE PAGE PATH TO BE MODIFIED AND ADD RENDER */}
+          <Route
+            path="/profile-page"
+            render={() => {
+              return <ProfilePage currentUser={this.state.currentUser} />;
+            }}
+          />
+
+          <Route path="/p/:postId" component={PostDetail} />
         </Switch>
       </div>
     );

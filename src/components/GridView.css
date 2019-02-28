@@ -1,0 +1,37 @@
+.GridView {
+  width: 100%;
+}
+
+.myCol {
+  display: block;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.square {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 100%;
+  position: relative;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.myCol:nth-child(3n) .square {
+  margin-right: 0;
+}
+
+.myCol:nth-child(-n + 3) .square {
+  margin-top: 0;
+}
+
+.square-img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
