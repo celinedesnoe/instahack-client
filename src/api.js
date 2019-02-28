@@ -2,7 +2,9 @@ import axios from "axios";
 
 // create an Axios object with pre-configured settings
 const backendApi = axios.create({
-  baseURL: "http://localhost:5555"
+  baseURL: "http://localhost:5555",
+  // send cookies to the backend on every request (for logged-in users)
+  withCredentials: true
 });
 
 // allows us to replace axios.get("http://localhost:5555/api/phones") with axios.get("/api/phones");
