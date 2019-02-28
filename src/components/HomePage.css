@@ -5,7 +5,7 @@
 }
 
 .HomePage {
-  width: 74%;
+  width: 76%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,22 +15,28 @@
 
 .signup {
   color: #999999;
-  margin-top: 2%;
-  font-size: 0.86em;
+  margin-top: 4%;
+  font-size: 4.67vw;
+  margin-bottom: 8%;
 }
 
 .instagramlogo {
-  margin-top: 28%;
+  margin-top: 26%;
+}
+
+img.instagramlogo {
+  width: 70%;
 }
 
 hr {
   width: 36%;
-  color: #999999;
+  color: rgba(172, 172, 172, 0.048);
 }
 
 a.downloadapple {
-  width: 50%;
-  margin-top: 20%;
+  width: 46%;
+  margin-top: 18%;
+  margin-bottom: 100px;
 }
 
 img {
@@ -40,17 +46,18 @@ img {
 .signupemail {
   text-decoration: none;
   color: #3897f0;
-  font-size: 0.8em;
+  font-size: 4.67vw;
   font-weight: 700;
 }
 
 .or {
   margin: 0;
   color: #999999;
+  font-size: 4.67vw;
   font-weight: 700;
 }
 
 .hro {
-  margin: 10%;
+  margin: 5%;
   width: 110%;
 }

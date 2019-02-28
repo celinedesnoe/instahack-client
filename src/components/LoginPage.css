@@ -1,10 +1,57 @@
-.flex {
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px;
+}
+
+.LoginPage {
+  width: 76%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+img.instagramlogo {
+  width: 70%;
 }
 
 .instagramlogo {
-  width: 60%;
+  margin-top: 16%;
+}
+
+hr {
+  width: 36%;
+  color: rgba(172, 172, 172, 0.048);
+}
+
+.whitefb {
+  width: 5%;
+  position: absolute;
+  margin-top: 33.6%;
+  margin-left: -30%;
+}
+
+.logInForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  width: 100%;
+}
+
+.formField {
+  padding-bottom: 6%;
+}
+
+.formField input {
+  margin-bottom: 4%;
+}
+
+.forgotpassword {
+  margin-top: 8%;
 }
