@@ -20,7 +20,7 @@ class ModifyProfile extends Component {
           <Link to="#">Change Profile Photo</Link>
         </div>
 
-        <form>
+        <form onSubmit={event => this.props.editSuccess(event)}>
           <label className="name">
             <p>Name</p>
             <input type="text" name="fullName" value={currentUser.fullName} />

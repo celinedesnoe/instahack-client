@@ -96,7 +96,7 @@ class App extends Component {
               return (
                 <ModifyProfile
                   currentUser={this.state.currentUser}
-                  loginSuccess={user => this.updateUser(user)}
+                  editSuccess={user => this.updateUser(user)}
                 />
               );
             }}
