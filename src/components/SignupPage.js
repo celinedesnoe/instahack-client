@@ -9,6 +9,8 @@ import AddUsernameAndPsw from "./AddUsernameAndPsw";
 import HeaderRegister from "./HeaderRegister.js";
 
 import "./SignupPage.css";
+import TermsAndConditions from "./TermsAndConditions.js";
+import EditProfilePhoto from "./EditProfilePhoto";
 
 class SignupPage extends Component {
   constructor(props) {
@@ -127,6 +129,14 @@ class SignupPage extends Component {
   //   }
   // }
 
+  handleAgree(event) {
+    this.setState({ agreeToTerms: true });
+  }
+
+  handleProfilePhoto(event) {
+    this.setState({ addPhoto: true });
+  }
+
   render() {
     return (
       <section className="SignupPage flex gogoback">
@@ -153,45 +163,18 @@ class SignupPage extends Component {
                 // emailSubmitted, fullNameSubmitted, & agreeToTerms are true
                 // addPhoto is false
                 // show user the screen to add a profile photo
-                <div>
-                  <h1>SCREEN 4</h1>
-                  <p>
-                    <i>(skipping phone number and connect FB steps)</i>
-                  </p>
-                  <p>[icon of person]</p>
-                  <h4>Add a profile photo</h4>
-                  <p>Add a profile photo so your friends know it's you.</p>
-                  <button>Next</button>
-                  <Link onClick={this.setState({ addPhoto: true })} to="#">
-                    Skip
-                  </Link>
-                </div>
+                <EditProfilePhoto
+                  addPhoto={event => this.handleProfilePhoto(event)}
+                />
               )
             ) : (
               // emailSubmitted & fullNameSubmitted are true
               // agreeToTerms is false
               // show terms
-              <div>
-                <h1>SCREEN 3</h1>
-
-                <h3>Welcome to Instagram, {this.state.username}!</h3>
-                <p>
-                  Find people to follow and start sharing photos. You can change
-                  your username anytime.
-                </p>
-                <Link to="#">Change username</Link>
-                <button onClick={this.setState({ agreeToTerms: true })}>
-                  Next
-                </button>
-                <p>
-                  By signing up, you agree to our <b>Terms</b>.
-                </p>
-                <p>
-                  Learn how we collect, use and share your data in our
-                  <b> Data Policy</b> and how we use cookies and similar
-                  technology in our <b>Cookies Policy</b>.
-                </p>
-              </div>
+              <TermsAndConditions
+                un={this.state.username}
+                hasAgreed={event => this.handleAgree(event)}
+              />
             )
           ) : (
             // emailSubmitted is true
