@@ -59,13 +59,14 @@ class ProfilePage extends Component {
                   text="Edit Profile"
                 />
               </div>
+            ) : // CONDITION TO CHECK IF CURRENT USER FOLLOW OR NOT THIS PROFILE PAGE
+            currentUser.following.includes(profileUser._id) ? (
+              <div>
+                <ButtonLink styling="blue-button" link="" text="Unfollow" />
+              </div>
             ) : (
               <div>
-                <ButtonLink
-                  styling="blue-button"
-                  link=""
-                  text="Follow or Unfollow"
-                />
+                <ButtonLink styling="blue-button" link="" text="Follow" />
               </div>
             )}
           </section>
