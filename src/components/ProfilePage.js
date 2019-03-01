@@ -37,7 +37,7 @@ class ProfilePage extends Component {
 
     return (
       <div className="GridView">
-        PROFILE PAGE {profileUser.username}
+        PROFILE PAGE of {profileUser.username}
         <GridView profilePosts={profilePosts} />
       </div>
     );
