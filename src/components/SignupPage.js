@@ -130,11 +130,7 @@ class SignupPage extends Component {
   render() {
     return (
       <section className="SignupPage flex gogoback">
-        <HeaderRegister
-          text="Register"
-          link="/accounts/signup"
-          textLink="Sign up"
-        />
+        <HeaderRegister text="Register" link="/accounts/signup" />
 
         {this.state.emailSubmitted ? (
           // emailSubmitted is true
