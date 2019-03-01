@@ -92,7 +92,6 @@ class App extends Component {
           />
 
           {/* BECAUSE OF RENDER, NEED to send match={props.match} */}
-
           <Route
             exact
             path="/:username"
