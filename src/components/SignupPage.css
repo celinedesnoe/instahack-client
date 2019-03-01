@@ -1,10 +1,22 @@
-.flex {
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px;
 }
 
-.instagramlogo {
-  width: 60%;
+.SignupPage {
+  width: 76%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.goback {
+  width: 10%;
+}
+
+.gogoback {
+  float: right;
 }

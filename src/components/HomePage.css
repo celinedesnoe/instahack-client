@@ -50,6 +50,13 @@ img {
   font-weight: 700;
 }
 
+.signupemail:hover {
+  text-decoration: none;
+  color: #3897f0;
+  font-size: 4.67vw;
+  font-weight: 700;
+}
+
 .or {
   margin: 0;
   color: #999999;

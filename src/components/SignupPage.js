@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import "./SignupPage.css";
 import { Link, Redirect } from "react-router-dom";
 import { postSignUp, checkEmail, checkUsername } from "../api.js";
-import EditEmail from "./EditEmail";
 import { backButton } from "../images/arrowbackbold.png";
+
+import EditEmail from "./EditEmail";
 import AddUsernameAndPsw from "./AddUsernameAndPsw";
+import ArrowGoBack from "../images/arrowbackbold.png";
+
+import "./SignupPage.css";
 
 class SignupPage extends Component {
   constructor(props) {
@@ -127,7 +130,8 @@ class SignupPage extends Component {
     return (
       <section className="SignupPage flex">
         <header>
-          <img src={backButton} alt="go back" />
+          <img className="goback" src={ArrowGoBack} alt="Arrow Go Back" />
+          <p className="gogoback">go back</p>
           <h2>Register</h2>
         </header>
 
