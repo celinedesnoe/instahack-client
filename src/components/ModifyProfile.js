@@ -1,13 +1,43 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { editUser } from "../api.js";
 
 class ModifyProfile extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      fullName: this.props.currentUser.fullName,
+      username: this.props.currentUser.username,
+      website: this.props.currentUser.website,
+      bio: this.props.currentUser.bio,
+      email: this.props.currentUser.email,
+      phoneNumber: this.props.currentUser.phoneNumber,
+      gender: this.props.currentUser.gender
+    };
   }
+
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const updatedUser = {
+      newInfo: this.state,
+      oldInfo: this.props.currentUser
+    };
+
+    editUser(updatedUser).then(response => {
+      console.log("edit result", response.data);
+      this.props.editSuccess(response.data);
+    });
+  }
+
   render() {
     const { currentUser } = this.props;
+
     return (
       <section className="ModifyProfile">
         <header className="PageHeader">
@@ -20,41 +50,71 @@ class ModifyProfile extends Component {
           <Link to="#">Change Profile Photo</Link>
         </div>
 
-        <form onSubmit={event => this.props.editSuccess(event)}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <label className="name">
             <p>Name</p>
-            <input type="text" name="fullName" value={currentUser.fullName} />
+            <input
+              onChange={event => this.genericOnChange(event)}
+              type="text"
+              name="fullName"
+              value={this.state.fullName}
+            />
           </label>
           <label className="username">
             <p>Username</p>
-            <input type="text" name="username" value={currentUser.username} />
+            <input
+              onChange={event => this.genericOnChange(event)}
+              type="text"
+              name="username"
+              value={this.state.username}
+            />
           </label>
           <label className="website">
             <p>Website</p>
-            <input type="url" name="website" value={currentUser.website} />
+            <input
+              onChange={event => this.genericOnChange(event)}
+              type="url"
+              name="website"
+              value={this.state.website}
+            />
           </label>
           <label className="bio">
             <p>Bio</p>
-            <textarea Rows="2" name="bio" value="hwassuuuuuuuuuuup" />
+            <textarea
+              onChange={event => this.genericOnChange(event)}
+              rows="2"
+              name="bio"
+              value={this.state.bio}
+            />
           </label>
           <h6>Private Information</h6>
           <label className="email">
             <p>Email</p>
-            <input type="email" name="email" value={currentUser.email} />
+            <input
+              onChange={event => this.genericOnChange(event)}
+              type="email"
+              name="email"
+              value={this.state.email}
+            />
           </label>
           <label className="phone-number">
             <p>Phone Number</p>
             <input
+              onChange={event => this.genericOnChange(event)}
               type="number"
               name="phoneNumber"
-              value={currentUser.phoneNumber}
+              value={this.state.phoneNumber}
             />
           </label>
           <br />
           <label className="gender">
             <p>Gender</p>
-            <select name="Gender">
-              <option value="prefer-not-to-say">Prefer not to say</option>
+            <select
+              onChange={event => this.genericOnChange(event)}
+              name="gender"
+            >
+              <option value={this.state.gender}>{this.state.gender}</option>
+              <option value="Prefer not to say">Prefer not to say</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
