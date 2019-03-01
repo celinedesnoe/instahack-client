@@ -39,8 +39,8 @@ class SignupPage extends Component {
 
     postSignUp(this.state).then(response => {
       console.log("sign up result", response.data);
+      this.setState({ fullNameSubmitted: true, passwordSubmitted: true });
       this.props.signupSuccess(response.data);
-      this.setState({ usernameSubmitted: true, passwordSubmitted: true });
     });
   }
 
@@ -64,67 +64,67 @@ class SignupPage extends Component {
     // display next screen (full name & password)
   }
 
-  handleDisplay() {
-    if (!this.state.emailSubmitted) {
-      return (
-        <EditEmail
-          checkEmail={event => this.handleEmail(event)}
-          updateState={event => this.genericOnChange(event)}
-        />
-      );
-    }
+  // handleDisplay() {
+  //   if (!this.state.emailSubmitted) {
+  //     return (
+  //       <EditEmail
+  //         checkEmail={event => this.handleEmail(event)}
+  //         updateState={event => this.genericOnChange(event)}
+  //       />
+  //     );
+  //   }
 
-    if (this.props.currentUser) {
-      return (
-        <AddUsernameAndPsw
-          updateState={event => this.genericOnChange(event)}
-          submitForm={event => this.handleSubmit(event)}
-        />
-      );
-    }
+  //   if (this.props.currentUser) {
+  //     return (
+  //       <AddUsernameAndPsw
+  //         updateState={event => this.genericOnChange(event)}
+  //         submitForm={event => this.handleSubmit(event)}
+  //       />
+  //     );
+  //   }
 
-    if (!this.state.agreeToTerms) {
-      return (
-        <div>
-          <h1>SCREEN 3</h1>
+  //   if (!this.state.agreeToTerms) {
+  //     return (
+  //       <div>
+  //         <h1>SCREEN 3</h1>
 
-          <h3>Welcome to Instagram, {this.state.username}!</h3>
-          <p>
-            Find people to follow and start sharing photos. You can change your
-            username anytime.
-          </p>
-          <Link to="#">Change username</Link>
-          <button onClick={this.setState({ agreeToTerms: true })}>Next</button>
-          <p>
-            By signing up, you agree to our <b>Terms</b>.
-          </p>
-          <p>
-            Learn how we collect, use and share your data in our
-            <b> Data Policy</b> and how we use cookies and similar technology in
-            our <b>Cookies Policy</b>.
-          </p>
-        </div>
-      );
-    }
+  //         <h3>Welcome to Instagram, {this.state.username}!</h3>
+  //         <p>
+  //           Find people to follow and start sharing photos. You can change your
+  //           username anytime.
+  //         </p>
+  //         <Link to="#">Change username</Link>
+  //         <button onClick={this.setState({ agreeToTerms: true })}>Next</button>
+  //         <p>
+  //           By signing up, you agree to our <b>Terms</b>.
+  //         </p>
+  //         <p>
+  //           Learn how we collect, use and share your data in our
+  //           <b> Data Policy</b> and how we use cookies and similar technology in
+  //           our <b>Cookies Policy</b>.
+  //         </p>
+  //       </div>
+  //     );
+  //   }
 
-    if (!this.state.addPhoto) {
-      return (
-        <div>
-          <h1>SCREEN 4</h1>
-          <p>
-            <i>(skipping phone number and connect FB steps)</i>
-          </p>
-          <p>[icon of person]</p>
-          <h4>Add a profile photo</h4>
-          <p>Add a profile photo so your friends know it's you.</p>
-          <button>Next</button>
-          <Link onClick={this.setState({ addPhoto: true })} to="#">
-            Skip
-          </Link>
-        </div>
-      );
-    }
-  }
+  //   if (!this.state.addPhoto) {
+  //     return (
+  //       <div>
+  //         <h1>SCREEN 4</h1>
+  //         <p>
+  //           <i>(skipping phone number and connect FB steps)</i>
+  //         </p>
+  //         <p>[icon of person]</p>
+  //         <h4>Add a profile photo</h4>
+  //         <p>Add a profile photo so your friends know it's you.</p>
+  //         <button>Next</button>
+  //         <Link onClick={this.setState({ addPhoto: true })} to="#">
+  //           Skip
+  //         </Link>
+  //       </div>
+  //     );
+  //   }
+  // }
 
   render() {
     return (
@@ -135,28 +135,79 @@ class SignupPage extends Component {
           <h2>Register</h2>
         </header>
 
-      {this.state.emailSubmitted ? (this.state.fullNameSubmitted ? (<div>
-        {/* show Terms */}
-      </div>
+        {this.state.emailSubmitted ? (
+          // emailSubmitted is true
+          // check if user has submitted their name/psw
+          this.state.fullNameSubmitted ? (
+            // emaillSubmitted & fullNameSubmitted are true
+            // check if user has agreed to terms
+            this.state.agreeToTerms ? (
+              // emailSubmitted, fullNameSubmitted, & agreeToTerms are true
+              // check if user has added a profile pic
+              this.state.addPhoto ? (
+                // emailSubmitted, fullNameSubmitted, agreeToTerms, & addPhoto are true
+                // signup is complete and the user goes to newsfeed
+                <div class="Newsfeed">Redirect to Newsfeed</div>
+              ) : (
+                // emailSubmitted, fullNameSubmitted, & agreeToTerms are true
+                // addPhoto is false
+                // show user the screen to add a profile photo
+                <div>
+                  <h1>SCREEN 4</h1>
+                  <p>
+                    <i>(skipping phone number and connect FB steps)</i>
+                  </p>
+                  <p>[icon of person]</p>
+                  <h4>Add a profile photo</h4>
+                  <p>Add a profile photo so your friends know it's you.</p>
+                  <button>Next</button>
+                  <Link onClick={this.setState({ addPhoto: true })} to="#">
+                    Skip
+                  </Link>
+                </div>
+              )
+            ) : (
+              // emailSubmitted & fullNameSubmitted are true
+              // agreeToTerms is false
+              // show terms
+              <div>
+                <h1>SCREEN 3</h1>
 
-
-  ):(<div>
-    {/* show UN & psw */}
-  </div>)):(<div></div>
-    // code to display email field
-    )
-
-    this.state.agreeToTerms ? (<div>
-      this.state.addPhoto ? (<div> 
-        {/* labyrinth solved!!! */}
-         </div>) : (<div></div>)
-    </div>) : (<div></div>
-
-
-    )
-}
-
-
+                <h3>Welcome to Instagram, {this.state.username}!</h3>
+                <p>
+                  Find people to follow and start sharing photos. You can change
+                  your username anytime.
+                </p>
+                <Link to="#">Change username</Link>
+                <button onClick={this.setState({ agreeToTerms: true })}>
+                  Next
+                </button>
+                <p>
+                  By signing up, you agree to our <b>Terms</b>.
+                </p>
+                <p>
+                  Learn how we collect, use and share your data in our
+                  <b> Data Policy</b> and how we use cookies and similar
+                  technology in our <b>Cookies Policy</b>.
+                </p>
+              </div>
+            )
+          ) : (
+            // emailSubmitted is true
+            // fullNameSubmitted is false
+            // show form to add full name and password
+            <AddUsernameAndPsw
+              updateState={event => this.genericOnChange(event)}
+              submitForm={event => this.handleSubmit(event)}
+            />
+          )
+        ) : (
+          //  emailSubmitted is false: show EditEmail form
+          <EditEmail
+            checkEmail={event => this.handleEmail(event)}
+            updateState={event => this.genericOnChange(event)}
+          />
+        )}
         {/* <form>
           {this.handleDisplay()}
           <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
