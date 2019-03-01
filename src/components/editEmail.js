@@ -7,16 +7,19 @@ class EditEmail extends Component {
   }
   render() {
     return (
-      <label>
-        EMAIL
-        <input
-          onChange={event => this.props.updateState(event)}
-          type="email"
-          name="email"
-          value={this.state.email}
-          placeholder="Email Address"
-        />
-      </label>
+      <form onSubmit={event => this.props.checkEmail(event)}>
+        <label>
+          EMAIL
+          <input
+            onChange={event => this.props.updateState(event)}
+            type="email"
+            name="email"
+            value={this.state.email}
+            placeholder="Email Address"
+          />
+        </label>
+        <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
+      </form>
     );
   }
 }
