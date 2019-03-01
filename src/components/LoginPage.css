@@ -57,6 +57,12 @@ input {
 .forgotpassword {
   margin-top: 8%;
   color: #003569;
+  margin-bottom: 80px;
+}
+
+.forgotpassword:hover {
+  margin-top: 8%;
+  color: #003569;
 }
 
 .or {
