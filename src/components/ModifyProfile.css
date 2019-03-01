@@ -1,0 +1,10 @@
+.ModifyProfile {
+  padding: 5vh;
+}
+
+.ModifyProfile input,
+.ModifyProfile textarea,
+.ModifyProfile select {
+  background-color: white;
+  border: 1px solid grey;
+}

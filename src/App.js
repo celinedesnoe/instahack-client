@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 import { getLogOut } from "./api";
 
 import HomePage from "./components/HomePage.js";
 import ProfilePage from "./components/ProfilePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
-// import GridView from "./components/GridView.js";
 import PostDetail from "./components/PostDetail.js";
+import ModifyProfile from "./components/ModifyProfile";
 
 import "./App.css";
 
@@ -56,7 +56,11 @@ class App extends Component {
           {this.state.currentUser ? (
             <span>
               <b>{this.state.currentUser.email}</b>
-              <button onClick={() => this.logoutClick()}>Log Out</button>
+              <button onClick={() => this.logoutClick()}>
+                <Link exact to="/">
+                  Log Out
+                </Link>
+              </button>
             </span>
           ) : (
             <span className="navbar">
@@ -86,6 +90,17 @@ class App extends Component {
                 <LoginPage
                   currentUser={this.state.currentUser}
                   loginSuccess={user => this.updateUser(user)}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/accounts/edit"
+            render={() => {
+              return (
+                <ModifyProfile
+                  currentUser={this.state.currentUser}
+                  editSuccess={user => this.updateUser(user)}
                 />
               );
             }}

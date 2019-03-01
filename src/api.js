@@ -59,6 +59,10 @@ export function getUserToUnfollow(userId) {
 export function getUserToFollow(userId) {
   return backendApi.post("/api/process-unfollow", userId).catch(errorHandler);
 }
+export function editUser(editedUser) {
+  return backendApi.post("/api/process-edit", editedUser).catch(errorHandler);
+}
+
 // export function checkEmail(someEmail) {
 //   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
 // }
