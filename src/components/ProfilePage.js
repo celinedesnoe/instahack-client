@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import ProfilePic from "./ProfilePic.js";
 import ButtonLink from "./ButtonLink.js";
+import ProfileStatistics from "./ProfileStatistics";
 import GridView from "./GridView.js";
 
 import "./ProfilePage.css";
@@ -58,13 +59,14 @@ class ProfilePage extends Component {
                   text="Edit Profile"
                 />
               </div>
+            ) : // CONDITION TO CHECK IF CURRENT USER FOLLOW OR NOT THIS PROFILE PAGE
+            currentUser.following.includes(profileUser._id) ? (
+              <div>
+                <ButtonLink styling="blue-button" link="" text="Unfollow" />
+              </div>
             ) : (
               <div>
-                <ButtonLink
-                  styling="blue-button"
-                  link=""
-                  text="Follow or Unfollow"
-                />
+                <ButtonLink styling="blue-button" link="" text="Follow" />
               </div>
             )}
           </section>
@@ -73,6 +75,11 @@ class ProfilePage extends Component {
           <p>{profileUser.fullName}</p>
           <p>{profileUser.bio}</p>
         </div>
+
+        <ProfileStatistics
+          profileUser={profileUser}
+          profilePosts={profilePosts}
+        />
 
         <GridView profilePosts={profilePosts} />
       </div>
