@@ -17,14 +17,10 @@ header {
   width: 100%;
 }
 
-.goback {
-  width: 10%;
-}
-
 .gogoback {
   float: right;
 }
 
-form {
+form.EditEmail {
   margin-top: 120px;
 }

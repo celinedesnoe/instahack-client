@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 import "./FooterBlue.css";
 
-class Footer extends Component {
+class FooterBlue extends Component {
   render() {
     return (
-      <div className="Footer">
+      <div className="FooterBlue">
         {this.props.text}
         <a href={this.props.link}> {this.props.textLink}</a>
       </div>
@@ -14,4 +14,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default FooterBlue;

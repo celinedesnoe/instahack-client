@@ -3,14 +3,14 @@ import { Link, Redirect } from "react-router-dom";
 import { postSignUp, checkEmail, checkUsername } from "../api.js";
 import { backButton } from "../images/arrowbackbold.png";
 
+import HeaderRegister from "./HeaderRegister.js";
+import TermsAndConditions from "./TermsAndConditions.js";
+
 import EditEmail from "./EditEmail";
 import AddUsernameAndPsw from "./AddUsernameAndPsw";
-
-import HeaderRegister from "./HeaderRegister.js";
+import EditProfilePhoto from "./EditProfilePhoto";
 
 import "./SignupPage.css";
-import TermsAndConditions from "./TermsAndConditions.js";
-import EditProfilePhoto from "./EditProfilePhoto";
 
 class SignupPage extends Component {
   constructor(props) {
@@ -186,6 +186,7 @@ class SignupPage extends Component {
           <EditEmail
             checkEmail={event => this.handleEmail(event)}
             updateState={event => this.genericOnChange(event)}
+            className="editEmail"
           />
         )}
         {/* <form>
