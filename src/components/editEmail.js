@@ -7,7 +7,10 @@ class EditEmail extends Component {
   }
   render() {
     return (
-      <form onSubmit={event => this.props.checkEmail(event)}>
+      <form
+        className="EditEmail"
+        onSubmit={event => this.props.checkEmail(event)}
+      >
         <label>
           EMAIL
           <input
