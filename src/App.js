@@ -93,12 +93,7 @@ class App extends Component {
           />
 
           {/* PROFILE PAGE PATH TO BE MODIFIED AND ADD RENDER */}
-          <Route
-            path="/profile-page"
-            render={() => {
-              return <ProfilePage currentUser={this.state.currentUser} />;
-            }}
-          />
+          <Route exact path="/:username" component={ProfilePage} />
 
           <Route path="/p/:postId" component={PostDetail} />
         </Switch>

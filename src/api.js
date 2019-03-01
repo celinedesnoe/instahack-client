@@ -40,10 +40,13 @@ export function getLogOut() {
   return backendApi.get("/api/logout").catch(errorHandler);
 }
 
-export function getPosts(someUser) {
-  console.log("User Info in getPosts: ", someUser);
-  return backendApi.post("/api/posts", someUser).catch(errorHandler);
+export function getUserProfile(username) {
+  return backendApi.get(`/api/${username}`).catch(errorHandler);
 }
+
+// export function getPosts(someUser) {
+//   return backendApi.post("/api/posts", someUser).catch(errorHandler);
+// }
 
 export function getPostDetails(postId) {
   return backendApi.get(`/api/p/${postId}`).catch(errorHandler);
