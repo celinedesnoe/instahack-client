@@ -13,6 +13,10 @@
   text-align: center;
 }
 
+header {
+  width: 100%;
+}
+
 .goback {
   width: 10%;
 }

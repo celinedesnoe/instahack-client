@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
+import { getLogOut } from "./api";
+
 import HomePage from "./components/HomePage.js";
-// import GridView from "./components/GridView.js";
 import ProfilePage from "./components/ProfilePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
-
+// import GridView from "./components/GridView.js";
 import PostDetail from "./components/PostDetail.js";
-import { getLogOut } from "./api";
+
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -51,7 +52,6 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        <header className="App-header">WELCOME INSTAGRAM</header>
         <nav>
           {this.state.currentUser ? (
             <span>

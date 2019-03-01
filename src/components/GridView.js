@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import "./GridView.css";
+
 import { Link } from "react-router-dom";
+
+import "./GridView.css";
 
 class GridView extends Component {
   render() {
