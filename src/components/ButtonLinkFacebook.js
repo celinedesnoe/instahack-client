@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import "./ButtonLinkFacebook.css";
+
 import whitefb from "../images/facebookiconwhite.png";
+
+import "./ButtonLinkFacebook.css";
 
 class ButtonLink extends Component {
   render() {

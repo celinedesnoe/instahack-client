@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { postLogIn } from "../api";
 
-import "./LoginPage.css";
-
 import ButtonLinkFacebook from "./ButtonLinkFacebook.js";
 import ButtonSubmit from "./ButtonSubmit.js";
 import FooterBlue from "./FooterBlue.js";
 
 import InstagramLogo from "../images/Instagram_logo.png";
+
+import "./LoginPage.css";
 
 class LoginPage extends Component {
   constructor(props) {

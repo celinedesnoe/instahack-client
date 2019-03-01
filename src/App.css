@@ -12,3 +12,9 @@ nav {
 .navbar {
   padding: 0;
 }
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

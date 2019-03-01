@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import "./ProfilePage.css";
-import GridView from "./GridView.js";
 import { Link } from "react-router-dom";
+
+import GridView from "./GridView.js";
+
+import "./ProfilePage.css";
 
 class ProfilePage extends Component {
   constructor(props) {

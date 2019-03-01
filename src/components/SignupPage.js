@@ -5,7 +5,8 @@ import { backButton } from "../images/arrowbackbold.png";
 
 import EditEmail from "./EditEmail";
 import AddUsernameAndPsw from "./AddUsernameAndPsw";
-import ArrowGoBack from "../images/arrowbackbold.png";
+
+import HeaderRegister from "./HeaderRegister.js";
 
 import "./SignupPage.css";
 
@@ -122,12 +123,12 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <section className="SignupPage flex">
-        <header>
-          <img className="goback" src={ArrowGoBack} alt="Arrow Go Back" />
-          <p className="gogoback">go back</p>
-          <h2>Register</h2>
-        </header>
+      <section className="SignupPage flex gogoback">
+        <HeaderRegister
+          text="Register"
+          link="/accounts/signup"
+          textLink="Sign up"
+        />
         {this.handleDisplay()}
       </section>
     );
