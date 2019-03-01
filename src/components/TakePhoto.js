@@ -9,6 +9,12 @@ class TakePhoto extends Component {
     return (
       <section className="TakePhoto">
         <h2>TAKE PHOTO COMPONENT</h2>
+
+        {/* Photo input */}
+        <label>
+          take a photo
+          <input type="file" accept="image/*" capture="camera" />
+        </label>
       </section>
     );
   }
