@@ -60,7 +60,6 @@ class App extends Component {
             </span>
           ) : (
             <span className="navbar">
-              <NavLink to="/accounts/signup">Sign Up</NavLink>
               <NavLink to="/accounts/login">Log In</NavLink>
             </span>
           )}
