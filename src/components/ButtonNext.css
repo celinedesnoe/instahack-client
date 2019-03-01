@@ -1,0 +1,33 @@
+.blue-button {
+  background-color: #3897f0;
+  color: white;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  font-size: 4.67vw;
+  font-weight: 600;
+  text-decoration: none;
+  /* padding: 0 24px; */
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 1.6%;
+}
+
+.white-button {
+  background: 0 0;
+  color: #262626;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  font-size: 4.67vw;
+  font-weight: 600;
+  text-decoration: none;
+  /* padding: 0 24px; */
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 1.6%;
+}
+
+.large {
+  height: 44px;
+}

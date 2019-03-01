@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+import ButtonNext from "./ButtonNext.js";
+
+import "./EditEmail.css";
+
 class EditEmail extends Component {
   constructor(props) {
     super(props);
@@ -12,16 +16,31 @@ class EditEmail extends Component {
         onSubmit={event => this.props.checkEmail(event)}
       >
         <label>
-          EMAIL
+          <p className="email">EMAIL</p>
+          <hr className="hrEmail" />
           <input
             onChange={event => this.props.updateState(event)}
             type="email"
             name="email"
             value={this.state.email}
             placeholder="Email Address"
+            className="formEmail"
           />
+          <div className="bigdiv">
+            <button href="#" className="autoEmail">
+              @gmail.com
+            </button>
+            <button href="#" className="autoEmail">
+              @hotmail.com
+            </button>
+          </div>
+          <ButtonNext
+            text="Next"
+            styling="blue-button large"
+            link="/accounts/login"
+          />
+          {/*(ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED) */}
         </label>
-        <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
       </form>
     );
   }

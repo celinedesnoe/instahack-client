@@ -1,0 +1,74 @@
+input {
+  width: 100%;
+  border: 1px solid rgba(122, 122, 122, 0.1);
+  box-shadow: none;
+  height: 10%;
+  background-color: rgb(249, 249, 249);
+}
+
+.formEmail {
+  padding-bottom: 6%;
+}
+
+input.formEmail {
+  width: 100%;
+  margin-bottom: 4%;
+  height: 38px;
+  padding: 3% 3%;
+  font-size: 4vw;
+  box-shadow: none;
+}
+
+p.email {
+  font-weight: 600;
+  margin-bottom: 6%;
+}
+
+.hrEmail {
+  width: 48%;
+  color: black;
+  background-color: black;
+  margin: 0 auto 14%;
+}
+
+label {
+  width: 100%;
+  margin: 0;
+}
+
+.formEmail {
+  text-decoration: none;
+  color: #3897f0;
+  font-size: 4.67vw;
+  font-weight: 700;
+}
+
+.formEmail:hover {
+  text-decoration: none;
+  color: #3897f0;
+  font-size: 4.67vw;
+  font-weight: 700;
+}
+
+.bigdiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12%;
+}
+
+.autoEmail {
+  border: 1px solid rgba(122, 122, 122, 0.301);
+  box-shadow: none;
+  height: 30px;
+  color: black;
+  font-size: 4.2vw;
+  background-color: white;
+  font-weight: 500;
+  padding: 2% 3%;
+  background: 0 0;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+.FooterFbBlue {
+  background-color: #3897f0;
+  color: white;
+  border-top: 1px solid #3897f0;
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 4.67vw;
+}
+
+.FooterFbBlue a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.FooterFbBlue a.active {
+  text-decoration: none;
+  color: white;
+}
+
+img.fbicon2 {
+  width: 5%;
+  margin-right: 3%;
+  margin-top: -3px;
+}

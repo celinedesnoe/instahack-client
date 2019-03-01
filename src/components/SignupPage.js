@@ -5,6 +5,7 @@ import { backButton } from "../images/arrowbackbold.png";
 
 import HeaderRegister from "./HeaderRegister.js";
 import TermsAndConditions from "./TermsAndConditions.js";
+import FooterFbBlue from "./FooterFbBlue.js";
 
 import EditEmail from "./EditEmail";
 import AddUsernameAndPsw from "./AddUsernameAndPsw";
@@ -139,7 +140,7 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <section className="SignupPage flex gogoback">
+      <section className="SignupPage flex">
         <HeaderRegister text="Register" link="/accounts/signup" />
 
         {this.state.emailSubmitted ? (
@@ -183,11 +184,17 @@ class SignupPage extends Component {
           )
         ) : (
           //  emailSubmitted is false: show EditEmail form
-          <EditEmail
-            checkEmail={event => this.handleEmail(event)}
-            updateState={event => this.genericOnChange(event)}
-            className="editEmail"
-          />
+          <div className="emailPage">
+            <EditEmail
+              checkEmail={event => this.handleEmail(event)}
+              updateState={event => this.genericOnChange(event)}
+              className="EditEmail"
+            />
+            <FooterFbBlue
+              text="Sign up with Facebook"
+              link="https://www.facebook.com"
+            />
+          </div>
         )}
         {/* <form>
           {this.handleDisplay()}

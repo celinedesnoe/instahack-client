@@ -17,10 +17,31 @@ header {
   width: 100%;
 }
 
-.gogoback {
-  float: right;
-}
-
 form.EditEmail {
   margin-top: 120px;
+  width: 100%;
+}
+
+.emailPage {
+  width: 100%;
+}
+
+.blue-button:active {
+  animation: blinker 1s linear;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+input.formEmail:hover {
+  text-decoration: none;
+  color: black;
 }
