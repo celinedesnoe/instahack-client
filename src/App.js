@@ -102,8 +102,19 @@ class App extends Component {
             }}
           />
 
-          {/* PROFILE PAGE PATH TO BE MODIFIED AND ADD RENDER */}
-          <Route exact path="/:username" component={ProfilePage} />
+          {/* BECAUSE OF RENDER, NEED to send match={props.match} */}
+          <Route
+            exact
+            path="/:username"
+            render={props => {
+              return (
+                <ProfilePage
+                  currentUser={this.state.currentUser}
+                  match={props.match}
+                />
+              );
+            }}
+          />
 
           <Route path="/p/:postId" component={PostDetail} />
         </Switch>
