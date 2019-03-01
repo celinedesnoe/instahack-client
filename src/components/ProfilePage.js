@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getUserProfile } from "../api";
 import { Link } from "react-router-dom";
 
+import ProfilePic from "./ProfilePic.js";
 import GridView from "./GridView.js";
 
 import "./ProfilePage.css";
@@ -37,6 +38,7 @@ class ProfilePage extends Component {
 
     return (
       <div className="GridView">
+        <ProfilePic profilePic={profileUser.profilePic} size="profilePage" />
         PROFILE PAGE of {profileUser.username}
         <GridView profilePosts={profilePosts} />
       </div>
