@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { getUserProfile } from "../api";
+import { getUserProfile, getUserToUnfollow, getUserToFollow } from "../api";
 import { Link } from "react-router-dom";
 
 import ProfilePic from "./ProfilePic.js";
+import ButtonSubmit from "./ButtonSubmit.js";
 import ButtonLink from "./ButtonLink.js";
 import ProfileStatistics from "./ProfileStatistics";
 import GridView from "./GridView.js";
@@ -14,7 +15,8 @@ class ProfilePage extends Component {
     super(props);
     this.state = {
       profileUser: {},
-      profilePosts: []
+      profilePosts: [],
+      currentUser: this.props.currentUser
     };
   }
 
@@ -30,6 +32,30 @@ class ProfilePage extends Component {
       )
       .catch(() => {
         alert("Sorry cannot find the details of this profile");
+      });
+  }
+
+  unfollowClick() {
+    getUserToUnfollow(this.state)
+      .then(response =>
+        this.setState({
+          currentUser: response.data.userDoc
+        })
+      )
+      .catch(() => {
+        alert("Sorry cannot cannot unfollow the profile");
+      });
+  }
+
+  followClick() {
+    getUserToFollow(this.state)
+      .then(response =>
+        this.setState({
+          currentUser: response.data.userDoc
+        })
+      )
+      .catch(() => {
+        alert("Sorry cannot cannot unfollow the profile");
       });
   }
 
@@ -62,11 +88,21 @@ class ProfilePage extends Component {
             ) : // CONDITION TO CHECK IF CURRENT USER FOLLOW OR NOT THIS PROFILE PAGE
             currentUser.following.includes(profileUser._id) ? (
               <div>
-                <ButtonLink styling="blue-button" link="" text="Unfollow" />
+                <ButtonSubmit
+                  styling="blue-button"
+                  link=""
+                  text="Unfollow"
+                  onClick={() => this.unfollowClick()}
+                />
               </div>
             ) : (
               <div>
-                <ButtonLink styling="blue-button" link="" text="Follow" />
+                <ButtonSubmit
+                  styling="blue-button"
+                  link=""
+                  text="Follow"
+                  onClick={() => this.followClick()}
+                />
               </div>
             )}
           </section>

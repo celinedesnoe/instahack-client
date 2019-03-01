@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 import { getLogOut } from "./api";
 
 import HomePage from "./components/HomePage.js";
@@ -56,7 +56,11 @@ class App extends Component {
           {this.state.currentUser ? (
             <span>
               <b>{this.state.currentUser.email}</b>
-              <button onClick={() => this.logoutClick()}>Log Out</button>
+              <button onClick={() => this.logoutClick()}>
+                <Link exact to="/">
+                  Log Out
+                </Link>
+              </button>
             </span>
           ) : (
             <span className="navbar">
