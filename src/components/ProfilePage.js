@@ -30,8 +30,8 @@ class ProfilePage extends Component {
 
   render() {
     const { profileUser, profilePosts } = this.state;
-    console.log("The user profile from profile page", profileUser);
-    console.log("The posts form the user on profile page are: ", profilePosts);
+    // console.log("The user profile from profile page", profileUser);
+    // console.log("The posts form the user on profile page are: ", profilePosts);
 
     return (
       <div className="GridView">
