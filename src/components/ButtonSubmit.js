@@ -4,7 +4,11 @@ import "./ButtonLink.css";
 
 class ButtonLink extends Component {
   render() {
-    return <button className={this.props.styling}>{this.props.text}</button>;
+    return (
+      <button className={this.props.styling} onClick={this.props.onClick}>
+        {this.props.text}
+      </button>
+    );
   }
 }
 
