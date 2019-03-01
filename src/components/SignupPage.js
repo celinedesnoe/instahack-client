@@ -69,14 +69,18 @@ class SignupPage extends Component {
           updateState={event => this.genericOnChange(event)}
         />
       );
-    } else if (this.props.currentUser) {
+    }
+
+    if (this.props.currentUser) {
       return (
         <AddUsernameAndPsw
           updateState={event => this.genericOnChange(event)}
           submitForm={event => this.handleSubmit(event)}
         />
       );
-    } else if (!this.state.agreeToTerms) {
+    }
+
+    if (!this.state.agreeToTerms) {
       return (
         <div>
           <h1>SCREEN 3</h1>
@@ -98,7 +102,9 @@ class SignupPage extends Component {
           </p>
         </div>
       );
-    } else if (!this.state.addPhoto) {
+    }
+
+    if (!this.state.addPhoto) {
       return (
         <div>
           <h1>SCREEN 4</h1>
@@ -124,7 +130,33 @@ class SignupPage extends Component {
           <img src={backButton} alt="go back" />
           <h2>Register</h2>
         </header>
-        {this.handleDisplay()}
+
+      {this.state.emailSubmitted ? (this.state.fullNameSubmitted ? (<div>
+        {/* show Terms */}
+      </div>
+
+
+  ):(<div>
+    {/* show UN & psw */}
+  </div>)):(<div></div>
+    // code to display email field
+    )
+
+    this.state.agreeToTerms ? (<div>
+      this.state.addPhoto ? (<div> 
+        {/* labyrinth solved!!! */}
+         </div>) : (<div></div>)
+    </div>) : (<div></div>
+
+
+    )
+}
+
+
+        {/* <form>
+          {this.handleDisplay()}
+          <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
+        </form> */}
       </section>
     );
   }
