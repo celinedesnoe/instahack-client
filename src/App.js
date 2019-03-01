@@ -6,8 +6,8 @@ import HomePage from "./components/HomePage.js";
 import ProfilePage from "./components/ProfilePage.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
-// import GridView from "./components/GridView.js";
 import PostDetail from "./components/PostDetail.js";
+import ModifyProfile from "./components/ModifyProfile";
 
 import "./App.css";
 
@@ -90,9 +90,31 @@ class App extends Component {
               );
             }}
           />
+          <Route
+            path="/accounts/edit"
+            render={() => {
+              return (
+                <ModifyProfile
+                  currentUser={this.state.currentUser}
+                  editSuccess={user => this.updateUser(user)}
+                />
+              );
+            }}
+          />
 
-          {/* PROFILE PAGE PATH TO BE MODIFIED AND ADD RENDER */}
-          <Route exact path="/:username" component={ProfilePage} />
+          {/* BECAUSE OF RENDER, NEED to send match={props.match} */}
+          <Route
+            exact
+            path="/:username"
+            render={props => {
+              return (
+                <ProfilePage
+                  currentUser={this.state.currentUser}
+                  match={props.match}
+                />
+              );
+            }}
+          />
 
           <Route path="/p/:postId" component={PostDetail} />
         </Switch>

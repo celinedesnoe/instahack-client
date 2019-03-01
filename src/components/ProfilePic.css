@@ -1,4 +1,17 @@
-.ProfilePic .profilePage {
-  width: 70px;
+.ProfilePic {
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
   height: 70px;
+  width: 70px;
+}
+
+.ProfilePic .profilePage {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  position: absolute;
 }
