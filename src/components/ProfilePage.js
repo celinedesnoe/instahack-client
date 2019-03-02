@@ -39,7 +39,8 @@ class ProfilePage extends Component {
     getUserToUnfollow(this.state)
       .then(response =>
         this.setState({
-          currentUser: response.data.userDoc
+          currentUser: response.data.currentUserDoc,
+          profileUser: response.data.profileUserDoc
         })
       )
       .catch(() => {
@@ -51,7 +52,8 @@ class ProfilePage extends Component {
     getUserToFollow(this.state)
       .then(response =>
         this.setState({
-          currentUser: response.data.userDoc
+          currentUser: response.data.currentUserDoc,
+          profileUser: response.data.profileUserDoc
         })
       )
       .catch(() => {
@@ -60,10 +62,10 @@ class ProfilePage extends Component {
   }
 
   render() {
-    const { profileUser, profilePosts } = this.state;
-    const { currentUser } = this.props;
-    // console.log("The user profile from profile page", profileUser);
-    // console.log("The posts form the user on profile page are: ", profilePosts);
+    const { profileUser, profilePosts, currentUser } = this.state;
+
+    console.log("The user profile from profile page", profileUser);
+    console.log("The posts form the user on profile page are: ", profilePosts);
 
     return (
       <div className="ProfilePage">
