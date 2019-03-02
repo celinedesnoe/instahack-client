@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+
 import { Link } from "react-router-dom";
+import ProfilePic from "./ProfilePic.js";
+
 import { editUser } from "../api.js";
 
 class ModifyProfile extends Component {
@@ -45,7 +48,9 @@ class ModifyProfile extends Component {
           <h2>Edit Profile</h2>
         </header>
         <div>
-          <img className="user-thumbnail" src={currentUser.profilePic} />
+          <ProfilePic profilePic={currentUser.profilePic} size="profilePage" />
+
+          {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
           <h3>{currentUser.username}</h3>
           <Link to="#">Change Profile Photo</Link>
         </div>
