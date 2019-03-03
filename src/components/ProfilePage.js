@@ -16,12 +16,14 @@ class ProfilePage extends Component {
     this.state = {
       profileUser: {},
       profilePosts: [],
+
       currentUser: this.props.currentUser
     };
   }
 
   componentDidMount() {
     const { params } = this.props.match;
+
     getUserProfile(params.username)
       .then(response =>
         // console.log("Profile Details", response.data)
@@ -50,12 +52,12 @@ class ProfilePage extends Component {
 
   followClick() {
     getUserToFollow(this.state)
-      .then(response =>
+      .then(response => {
         this.setState({
           currentUser: response.data.currentUserDoc,
           profileUser: response.data.profileUserDoc
-        })
-      )
+        });
+      })
       .catch(() => {
         alert("Sorry cannot cannot unfollow the profile");
       });
@@ -63,9 +65,6 @@ class ProfilePage extends Component {
 
   render() {
     const { profileUser, profilePosts, currentUser } = this.state;
-
-    console.log("The user profile from profile page", profileUser);
-    console.log("The posts form the user on profile page are: ", profilePosts);
 
     return (
       <div className="ProfilePage">

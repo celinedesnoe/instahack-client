@@ -48,6 +48,10 @@ class App extends Component {
     });
   }
 
+  // handleCurrentUser(currentUser) {
+  //   this.setState({ currentUser: currentUser });
+  // }
+
   render() {
     // console.log(this.state.currentUser);
     return (
