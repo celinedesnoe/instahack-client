@@ -44,6 +44,10 @@ export function getUserProfile(username) {
   return backendApi.get(`/api/${username}`).catch(errorHandler);
 }
 
+export function getUserProfileFollowers(username) {
+  return backendApi.get(`/api/${username}/followers`).catch(errorHandler);
+}
+
 // export function getPosts(someUser) {
 //   return backendApi.post("/api/posts", someUser).catch(errorHandler);
 // }
