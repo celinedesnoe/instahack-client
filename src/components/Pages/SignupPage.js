@@ -29,10 +29,10 @@ class SignupPage extends Component {
       profilePic: "",
       phoneNumber: "",
       gender: "Prefer not to say",
-      emailSubmitted: true,
-      fullNameSubmitted: true,
-      agreeToTerms: true,
-      moreThanEighteen: true,
+      emailSubmitted: false,
+      fullNameSubmitted: false,
+      agreeToTerms: false,
+      moreThanEighteen: false,
       connectToFacebook: false,
       addPhoto: false,
       addPhoneNumber: false
@@ -155,8 +155,7 @@ class SignupPage extends Component {
                 <div className="MoreThanEighteen">
                   {/* <HeaderAge text="" link="/" /> */}
                   <MoreThanEighteen
-                    un={this.state.age}
-                    hasAgreed={event => this.moreThanEighteen(event)}
+                    ageStatus={event => this.handleOlder(event)}
                   />
                   <FooterFbBlue
                     text="Sign up with Facebook"
@@ -191,6 +190,7 @@ class SignupPage extends Component {
         ) : (
           //  emailSubmitted is false: show EditEmail form
           <div className="emailPage">
+            <HeaderRegister text="Register" link="/accounts/signup" />
             <EditEmail
               checkEmail={event => this.handleEmail(event)}
               updateState={event => this.genericOnChange(event)}

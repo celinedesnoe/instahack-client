@@ -4,6 +4,7 @@ import { postLogIn } from "../../api";
 
 import ButtonLinkFacebook from "../General/ButtonLinkFacebook.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
+import Header from "../HeadersAndFooters/Header.js";
 import FooterBlue from "../HeadersAndFooters/FooterBlue.js";
 
 import InstagramLogo from "../../images/Instagram_logo.png";
@@ -39,59 +40,64 @@ class LoginPage extends Component {
       <Redirect to="/" />
     ) : (
       <div className="LoginPage">
-        <img
-          className="instagramlogo"
-          src={InstagramLogo}
-          alt="instagram logo"
-        />
+        <Header />
+        <div className="LoginPageBody">
+          <img
+            className="instagramlogo"
+            src={InstagramLogo}
+            alt="instagram logo"
+          />
 
-        {/* <img className="whitefb" src={whitefb} alt="facebook icon" /> */}
+          {/* <img className="whitefb" src={whitefb} alt="facebook icon" /> */}
 
-        <ButtonLinkFacebook
-          text="Continue with Facebook"
-          styling="blue-button"
-          link="https://www.facebook.com"
-          className="buttonfacebook"
-        />
+          <ButtonLinkFacebook
+            text="Continue with Facebook"
+            styling="blue-button"
+            link="https://www.facebook.com"
+            className="buttonfacebook"
+          />
 
-        <div className="d-flex flex-row align-items-center hro">
-          <hr />
-          <p className="or">OR</p>
-          <hr />
-        </div>
-
-        <form
-          className="logInForm"
-          onSubmit={event => this.handleSubmit(event)}
-        >
-          <div className="formField">
-            <div>
-              <input
-                onChange={event => this.genericOnChange(event)}
-                value={this.state.email}
-                name="email"
-                type="text"
-                placeholder="Email"
-              />
-            </div>
-
-            <div>
-              <input
-                onChange={event => this.genericOnChange(event)}
-                value={this.state.originalPassword}
-                name="originalPassword"
-                type="text"
-                placeholder="Password"
-              />
-            </div>
+          <div className="d-flex flex-row align-items-center hropo">
+            <hr className="hroi1" />
+            <p className="oro">OR</p>
+            <hr className="hroi2" />
           </div>
 
-          <ButtonSubmit text="Log In" styling="blue-button" />
-        </form>
+          <form
+            className="logInForm"
+            onSubmit={event => this.handleSubmit(event)}
+          >
+            <div className="formField">
+              <div>
+                <input
+                  onChange={event => this.genericOnChange(event)}
+                  value={this.state.email}
+                  name="email"
+                  type="text"
+                  placeholder="Email"
+                  className="formLogin"
+                />
+              </div>
 
-        <a href="#" className="forgotpassword">
-          Forgot password?
-        </a>
+              <div>
+                <input
+                  onChange={event => this.genericOnChange(event)}
+                  value={this.state.originalPassword}
+                  name="originalPassword"
+                  type="text"
+                  placeholder="Password"
+                  className="formLogin"
+                />
+              </div>
+            </div>
+
+            <ButtonSubmit text="Log In" styling="blue-button" />
+          </form>
+
+          <a href="#" className="forgotpassword">
+            Forgot password?
+          </a>
+        </div>
 
         <FooterBlue
           text="Don't have an account?"

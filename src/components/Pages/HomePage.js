@@ -15,38 +15,44 @@ class HomePage extends Component {
     return (
       <section className="HomePage">
         <Header />
+        <div className="HomePageBody">
+          <img
+            className="instagramlogofirstpage"
+            src={InstagramLogo}
+            alt="instagram logo"
+          />
+          <p className="signup">
+            Sign up to see photos and videos from your friends.
+          </p>
+          <ButtonLink
+            text="Log In"
+            styling="blue-button"
+            link="/accounts/login"
+            className="loginbutton"
+          />
 
-        <img
-          className="instagramlogo"
-          src={InstagramLogo}
-          alt="instagram logo"
-        />
-        <p className="signup">
-          Sign up to see photos and videos from your friends.
-        </p>
-        <ButtonLink
-          text="Log In"
-          styling="blue-button"
-          link="/accounts/login"
-          className="loginbutton"
-        />
+          <div className="d-flex flex-row align-items-center hrop">
+            <hr className="hroi1" />
+            <p className="oro">OR</p>
+            <hr className="hroi2" />
+          </div>
 
-        <div className="d-flex flex-row align-items-center hro">
-          <hr />
-          <p className="or">OR</p>
-          <hr />
+          <div className="sectiondown">
+            <Link to="/accounts/signup" className="signupemail">
+              Sign up with email
+            </Link>
+            <a
+              href="https://itunes.apple.com/app/instagram/id389801252?mt=8&vt=lo"
+              className="downloadapple"
+            >
+              <img
+                src={DownloadApple}
+                alt="download app on apple"
+                className="imageapple"
+              />
+            </a>
+          </div>
         </div>
-
-        <Link to="/accounts/signup" className="signupemail">
-          Sign up with email
-        </Link>
-        <a
-          href="https://itunes.apple.com/app/instagram/id389801252?mt=8&vt=lo"
-          className="downloadapple"
-        >
-          <img src={DownloadApple} alt="download app on apple" />
-        </a>
-
         <Footer
           text="Have an account?"
           link="/accounts/login"

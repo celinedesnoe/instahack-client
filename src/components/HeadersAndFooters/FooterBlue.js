@@ -8,7 +8,9 @@ class FooterBlue extends Component {
     return (
       <div className="FooterBlue">
         {this.props.text}
-        <a href={this.props.link}> {this.props.textLink}</a>
+        <a href={this.props.link} className="linkpadding">
+          {this.props.textLink}
+        </a>
       </div>
     );
   }

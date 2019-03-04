@@ -6,9 +6,11 @@ import "./Footer.css";
 class Footer extends Component {
   render() {
     return (
-      <div className="Footer">
+      <div className="Footerfirstscreen">
         {this.props.text}
-        <a href={this.props.link}> {this.props.textLink}</a>
+        <a href={this.props.link} className="linkpadding">
+          {this.props.textLink}
+        </a>
       </div>
     );
   }

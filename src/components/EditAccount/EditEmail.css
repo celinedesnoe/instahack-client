@@ -1,30 +1,54 @@
-/* input {
+.App {
   width: 100%;
-  border: 1px solid rgba(122, 122, 122, 0.1);
-  box-shadow: none;
-  height: 10%;
-  background-color: rgb(249, 249, 249);
-} */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emailforminput {
+  width: 74%;
+  display: flex;
+  flex-direction: column;
+}
+
+form.EditEmail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 26px 0 0;
+}
 
 input.formEmail {
-  width: 100%;
-  margin-bottom: 4%;
-  height: 38px;
-  padding: 3% 3%;
-  font-size: 4vw;
+  border: 1px solid rgba(122, 122, 122, 0.1);
   box-shadow: none;
+  background-color: rgb(249, 249, 249);
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 p.email {
-  font-weight: 600;
-  margin-bottom: 6%;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .hrEmail {
   width: 48%;
   color: black;
   background-color: black;
-  margin: 0 auto 14%;
+  margin: 0 auto 32px;
 }
 
 label {
@@ -34,37 +58,37 @@ label {
 
 .formEmail {
   text-decoration: none;
-  color: #3897f0;
-  font-size: 4.67vw;
-  font-weight: 700;
+  color: black;
 }
 
 .formEmail:hover {
   text-decoration: none;
-  color: #3897f0;
-  font-size: 4vw;
-  font-weight: 700;
+  color: black;
 }
 
 .bigdiv {
-  width: 100%;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 12%;
+  margin-bottom: 30px;
+  padding: 0 1px;
 }
 
 .autoEmail {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
   border: 1px solid rgba(122, 122, 122, 0.301);
-  box-shadow: none;
   height: 30px;
   color: black;
-  font-size: 4.2vw;
+
   background-color: white;
   font-weight: 500;
-  padding: 2% 3%;
   background: 0 0;
   border-radius: 4px;
-  font-weight: 600;
   text-decoration: none;
   text-align: center;
+}
+
+.HeaderEnglish {
+  margin-top: 46px;
 }
