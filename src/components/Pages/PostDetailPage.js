@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getPostDetails } from "../../api";
+import { getPostDetails, postComment } from "../../api";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
@@ -15,7 +15,8 @@ class PostDetail extends Component {
       postItem: {},
       postUser: {},
       allComments: [],
-      showComment: false
+      showComment: false,
+      newComment: ""
     };
   }
 
@@ -39,7 +40,6 @@ class PostDetail extends Component {
 
   showCommentBox(event) {
     this.setState({ showComment: true });
-    console.log(this.state.postItem._id);
   }
 
   likePost(event) {
@@ -54,12 +54,42 @@ class PostDetail extends Component {
     console.log(addLike);
   }
 
-  appendComment(event) {}
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  appendComment(event) {
+    // send comment content to back end along with: poster's id, post id, & content (write function in api.js)
+    // set the state of showComment (in parent) to false
+
+    const { newComment } = this.state;
+    const posterId = this.props.currentUser._id;
+    const postId = this.state.postItem._id;
+
+    // console.log(newComment);
+    // console.log(posterId);
+    // console.log(postId);
+
+    const commentInfo = {
+      username_id: posterId,
+      post_id: postId,
+      content: newComment
+    };
+
+    console.log("COMMENT INFO: ", commentInfo);
+
+    postComment(commentInfo).then(response => {
+      console.log("comment added to array: ", response.data);
+    });
+
+    this.setState({ showComment: false });
+  }
 
   render() {
     const { postItem, postUser, allComments } = this.state;
     // console.log("Current User in Post Details: ", this.props.currentUser);
-    console.log("COMMENTS in PDP: ", allComments);
+    // console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetail">
         POST DETAIL PAGE
@@ -115,7 +145,11 @@ class PostDetail extends Component {
         <p>placeholder for date post was posted</p>
         {this.state.showComment ? (
           // true, therefore render the Comment component
-          <AddComment />
+          <AddComment
+            updateState={event => this.genericOnChange(event)}
+            saveComment={event => this.appendComment(event)}
+            originalPost={this.state.postItem._id}
+          />
         ) : (
           // false, therefore show nothing
           <div />
