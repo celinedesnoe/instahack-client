@@ -9,6 +9,7 @@ import SignupPage from "./components/Pages/SignupPage.js";
 import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
+import NewsfeedPage from "./components/Pages/NewsfeedPage.js";
 
 import "./App.css";
 
@@ -75,8 +76,11 @@ class App extends Component {
         </nav>
 
         <Switch>
-          <Route exact path="/" component={HomePage} />
-
+          {this.state.currentUser ? (
+            <Route exact path="/" component={NewsfeedPage} />
+          ) : (
+            <Route exact path="/" component={HomePage} />
+          )}
           <Route
             path="/accounts/signup"
             render={() => {
