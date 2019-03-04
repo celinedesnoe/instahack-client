@@ -16,7 +16,7 @@ class ProfilePage extends Component {
     this.state = {
       profileUser: {},
       profilePosts: [],
-      currentUser: this.props.currentUser
+      isLoaded: false
     };
   }
 
@@ -28,7 +28,8 @@ class ProfilePage extends Component {
         // console.log("Profile Details", response.data)
         this.setState({
           profileUser: response.data.userDoc,
-          profilePosts: response.data.postResults
+          profilePosts: response.data.postResults,
+          isLoaded: true
         })
       )
       .catch(() => {
@@ -37,7 +38,9 @@ class ProfilePage extends Component {
   }
 
   buttonFollowUnfollow() {
-    const { profileUser, currentUser } = this.state;
+    const { profileUser } = this.state;
+    const { currentUser } = this.props;
+
     if (profileUser._id === currentUser._id) {
       return (
         <div>
@@ -50,9 +53,15 @@ class ProfilePage extends Component {
       );
     }
 
-    if (profileUser.username) {
-      console.log("USERNAME", profileUser.username);
+    if (this.state.isLoaded) {
+      console.log("Is Following?", profileUser._id, currentUser.following);
+      // console.log("USERNAME", profileUser.username);
+
       if (currentUser.following.includes(profileUser._id)) {
+        console.log(
+          "Is Following?",
+          currentUser.following.includes(profileUser._id)
+        );
         return (
           <div>
             <ButtonSubmit
@@ -82,12 +91,13 @@ class ProfilePage extends Component {
 
   unfollowClick() {
     getUserToUnfollow(this.state)
-      .then(response =>
+      .then(response => {
         this.setState({
-          currentUser: response.data.currentUserDoc,
           profileUser: response.data.profileUserDoc
-        })
-      )
+        });
+
+        this.props.onFollow(response.data.currentUserDoc);
+      })
       .catch(() => {
         alert("Sorry cannot cannot unfollow the profile");
       });
@@ -97,9 +107,10 @@ class ProfilePage extends Component {
     getUserToFollow(this.state)
       .then(response => {
         this.setState({
-          currentUser: response.data.currentUserDoc,
           profileUser: response.data.profileUserDoc
         });
+
+        this.props.onFollow(response.data.currentUserDoc);
       })
       .catch(() => {
         alert("Sorry cannot cannot unfollow the profile");
@@ -107,10 +118,10 @@ class ProfilePage extends Component {
   }
 
   render() {
-    const { profileUser, profilePosts, currentUser } = this.state;
+    const { profileUser, profilePosts } = this.state;
+    const { currentUser } = this.props;
     console.log("Current User is", currentUser);
     console.log("Profile User is", profileUser);
-    console.log("Profile User is", profileUser._id);
 
     return (
       <div className="ProfilePage">

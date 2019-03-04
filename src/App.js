@@ -119,6 +119,7 @@ class App extends Component {
               return (
                 <ProfilePage
                   currentUser={this.state.currentUser}
+                  onFollow={user => this.updateUser(user)}
                   match={props.match}
                 />
               );

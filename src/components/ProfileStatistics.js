@@ -7,15 +7,21 @@ import ProfilesList from "./ProfilesList";
 class ProfileStatistics extends Component {
   render() {
     const { profileUser, profilePosts, currentUser } = this.props;
-    console.log(currentUser);
+    // console.log(currentUser);
     return (
-      <div className="ProfileStatistics">
-        <div>{profilePosts.length} posts</div>
+      <div className="ProfileStatistics d-flex flex-row">
+        <div>
+          <b>{profilePosts.length}</b> <br />
+          posts
+        </div>
 
         {/* NEED  TO CHECK IF THERE IS FOLLOWING USERS TO AVOID ERROR */}
         {profileUser.following && profileUser.following.length > 0 && (
           <Link to={"/" + profileUser.username + "/following"}>
-            <div>{profileUser.following.length} following</div>
+            <div>
+              <b>{profileUser.following.length}</b> <br />
+              following
+            </div>
           </Link>
         )}
 
@@ -27,7 +33,10 @@ class ProfileStatistics extends Component {
 
         {profileUser.followers && profileUser.followers.length > 0 && (
           <Link to={"/" + profileUser.username + "/followers"}>
-            <div>{profileUser.followers.length} followers</div>
+            <div>
+              <b>{profileUser.followers.length}</b> <br />
+              followers
+            </div>
           </Link>
         )}
 
