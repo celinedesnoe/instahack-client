@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import ProfilePic from "./ProfilePic.js";
+import ProfilePic from "../General/ProfilePic.js";
 
 import "./ProfileRow.css";
 

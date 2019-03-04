@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { getUserProfile, getUserToUnfollow, getUserToFollow } from "../api";
+import {
+  getUserProfile,
+  getUserToUnfollow,
+  getUserToFollow
+} from "../../api.js";
 import { Link } from "react-router-dom";
 
-import ProfilePic from "./ProfilePic.js";
-import ButtonSubmit from "./ButtonSubmit.js";
-import ButtonLink from "./ButtonLink.js";
-import ProfileStatistics from "./ProfileStatistics";
-import GridView from "./GridView.js";
+import ProfilePic from "../General/ProfilePic.js";
+import ButtonSubmit from "../General/ButtonSubmit.js";
+import ButtonLink from "../General/ButtonLink.js";
+import ProfileStatistics from "../General/ProfileStatistics";
+import GridView from "../General/GridView.js";
 
 import "./ProfilePage.css";
 

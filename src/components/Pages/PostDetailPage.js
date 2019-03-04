@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import GridView from "./GridView.js";
 import { Link } from "react-router-dom";
-import { getPostDetails } from "../api";
+import { getPostDetails } from "../../api";
 
 import "./PostDetail.css";
 
