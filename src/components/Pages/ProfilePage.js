@@ -56,25 +56,49 @@ class ProfilePage extends Component {
     return (
       <div className="ProfilePage">
         <header className="d-flex">
-          <ProfilePic profilePic={profileUser.profilePic} size="profilePage" />
+          <span className="profile-pic">
+            <ProfilePic
+              profilePic={profileUser.profilePic}
+              size="profile-page"
+            />
+          </span>
+
           <section>
-            <div>
+            <div className="d-flex row username-settings">
               <h1>{profileUser.username}</h1>
               <div>O</div>
             </div>
-            {/* IF USER LOGGED IN TO CHANGE THE BUTTON  */}
+            {/* BUTTON EDIT PROFILE */}
 
-            <ButtonFollowUnfollow
-              profileUser={profileUser}
-              currentUser={currentUser}
-              onFollowProfile={user => this.updateProfileUser(user)}
-              onFollowCurrentUser={user => this.props.onFollowCurrentUser(user)}
-            />
+            {profileUser._id === currentUser._id && (
+              <div>
+                <ButtonLink
+                  styling="white-button"
+                  link="/accounts/edit"
+                  text="Edit Profile"
+                />
+              </div>
+            )}
+
+            {/* BUTTON FOLLOW UNFOLLOW  */}
+            <span className="d-flex justify-content-start button">
+              <ButtonFollowUnfollow
+                profileUser={profileUser}
+                currentUser={currentUser}
+                onFollowProfile={user => this.updateProfileUser(user)}
+                onFollowCurrentUser={user =>
+                  this.props.onFollowCurrentUser(user)
+                }
+              />
+            </span>
           </section>
         </header>
-        <div>
-          <p>{profileUser.fullName}</p>
-          <p>{profileUser.bio}</p>
+        <div className="name-bio">
+          <span>
+            <b>{profileUser.fullName}</b>
+          </span>
+          <br />
+          <span>{profileUser.bio}</span>
         </div>
 
         <ProfileStatistics

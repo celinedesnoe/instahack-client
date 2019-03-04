@@ -1,3 +1,34 @@
 .ProfilePage {
   width: 100%;
+  background-color: rgb(249, 249, 249);
+}
+
+.ProfilePage header {
+  margin: 30px 24px 16px 16px;
+}
+
+.ProfilePage .profile-pic {
+  margin-right: 28px;
+  flex-shrink: 0;
+}
+
+.ProfilePage h1 {
+  font-size: 28px;
+  font-size: 28px;
+  line-height: 32px;
+  margin: -5px 0 -6px;
+}
+
+.ProfilePage .name-bio {
+  padding: 0 21px 16px 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ProfilePage .username-settings {
+  margin-bottom: 12px;
+}
+
+.ProfilePage .button {
+  width: 100%;
 }

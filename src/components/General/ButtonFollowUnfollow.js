@@ -14,15 +14,7 @@ class ButtonFollowUnfollow extends Component {
     const { currentUser } = this.props;
 
     if (profileUser._id === currentUser._id) {
-      return (
-        <div>
-          <ButtonLink
-            styling="white-button"
-            link="/accounts/edit"
-            text="Edit Profile"
-          />
-        </div>
-      );
+      return <div />;
     }
 
     if (profileUser) {
@@ -36,9 +28,9 @@ class ButtonFollowUnfollow extends Component {
         return (
           <div>
             <ButtonSubmit
-              styling="blue-button"
+              styling="white-button"
               link=""
-              text="Unfollow"
+              text="Following"
               onClick={() => this.unfollowClick()}
             />
           </div>

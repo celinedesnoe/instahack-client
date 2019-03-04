@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "./ButtonLink.css";
+import "./ButtonSubmit.css";
 
-class ButtonLink extends Component {
+class ButtonSubmit extends Component {
   render() {
     return (
       <button className={this.props.styling} onClick={this.props.onClick}>
@@ -12,4 +12,4 @@ class ButtonLink extends Component {
   }
 }
 
-export default ButtonLink;
+export default ButtonSubmit;
