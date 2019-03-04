@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ProfilePic from "../General/ProfilePic.js";
 
 import { editUser } from "../../api.js";
+import ButtonSubmit from "../General/ButtonSubmit.js";
 
 class ModifyProfile extends Component {
   constructor(props) {
@@ -136,7 +137,7 @@ class ModifyProfile extends Component {
           </label>
           <div>
             <Link to={"/" + currentUser.username}>
-              <button>Submit</button>
+              <ButtonSubmit text="Submit" styling="blue-button" />
             </Link>
             <Link to={"#"}>Temporarily disable my account</Link>
           </div>
