@@ -7,9 +7,9 @@ class ProfilePic extends Component {
     const { profilePic, size } = this.props;
 
     return (
-      <div className="ProfilePic">
+      <div className={`ProfilePic ${size}`}>
         PROFILE PIC
-        <img src={profilePic} alt="Profile Pic" className={size} />
+        <img src={profilePic} alt="ProfilePic" className="img-in-circle" />
       </div>
     );
   }

@@ -36,7 +36,7 @@ class ProfilesList extends Component {
 
     console.log("Current User", currentUser);
     return (
-      <div>
+      <div className="ProfilesList">
         <Switch>
           {/************ FOR FOLLOWERS PAGE *************/}
           {profileUser.followers && (
@@ -48,13 +48,14 @@ class ProfilesList extends Component {
                     Page for followers
                     {profileUser.followers.map(oneFollower => {
                       return (
-                        <div key={oneFollower._id} className="col-4 myCol p-0">
-                          <ProfileRow
-                            profileUser={oneFollower}
-                            currentUser={currentUser}
-                            onFollowCurrentUser={this.props.onFollowCurrentUser}
-                          />
-                        </div>
+                        // <div key={oneFollower._id} className="col-4 myCol p-0">
+                        <ProfileRow
+                          profileUser={oneFollower}
+                          currentUser={currentUser}
+                          onFollowCurrentUser={this.props.onFollowCurrentUser}
+                          key={oneFollower._id}
+                        />
+                        // </div>
                       );
                     })}
                   </div>
@@ -73,13 +74,14 @@ class ProfilesList extends Component {
                     Page for following
                     {profileUser.following.map(oneFollowing => {
                       return (
-                        <div key={oneFollowing._id} className="col-4 myCol p-0">
-                          <ProfileRow
-                            profileUser={oneFollowing}
-                            currentUser={currentUser}
-                            onFollowCurrentUser={this.props.onFollowCurrentUser}
-                          />
-                        </div>
+                        // <div key={oneFollowing._id} className="col-4 myCol p-0">
+                        <ProfileRow
+                          profileUser={oneFollowing}
+                          currentUser={currentUser}
+                          onFollowCurrentUser={this.props.onFollowCurrentUser}
+                          key={oneFollowing._id}
+                        />
+                        // </div>
                       );
                     })}
                   </div>
