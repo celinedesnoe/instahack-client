@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { getPostDetails } from "../../api";
 
 import AddComment from "../General/AddComment.js";
+import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
 
 import "./PostDetailPage.css";
 
@@ -17,7 +18,9 @@ class PostDetail extends Component {
   }
 
   componentDidMount() {
-    const { params } = this.props.match;
+    const { params } = this.props.postInfo.match;
+    console.log("Props in PDP: ", this.props);
+    console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response =>
         // console.log("Post Details", response.data)
@@ -31,8 +34,28 @@ class PostDetail extends Component {
       });
   }
 
+  showCommentBox(event) {
+    this.setState({ showComment: true });
+    console.log(this.state.postItem._id);
+  }
+
+  likePost(event) {
+    // - put currentUser id in the post's likedBy array
+    console.log("coucou LIKE!");
+    const addLike = {
+      post: this.state.postItem._id,
+      liker: this.props.currentUser._id
+    };
+    console.log(this.state.postItem._id);
+    console.log(this.props.currentUser._id);
+    console.log(addLike);
+  }
+
+  appendComment(event) {}
+
   render() {
     const { postItem, postUser } = this.state;
+    // console.log("Current User in Post Details: ", this.props.currentUser);
 
     // console.log(user);
     return (
@@ -41,9 +64,13 @@ class PostDetail extends Component {
         <div>{postUser.username}</div>
         <div>{postUser.profilePic}</div>
         <img src={postItem.image} />
-        <div>
-          Like/Comment Bar goes here
-          {/* placeholder for Like/Comment Bar
+        <LikesAndCommentBar
+          allLikers={postItem.likedBy}
+          commentBox={event => this.showCommentBox(event)}
+          addLike={event => this.likePost(event)}
+        />
+        {/* Like/Comment Bar goes here */}
+        {/* placeholder for Like/Comment Bar
           - onClick for Like
             - put currentUser id in the posts likedBy array
           - onClick for the Comment
@@ -52,7 +79,6 @@ class PostDetail extends Component {
             - submitComment takes: id of the post on which the comment was made, id of the current user , & content of the comment
             - sends all to the back end through api.js
           */}
-        </div>
         <p>
           x likes
           {/* placeholder for Link that goes to the Likes page

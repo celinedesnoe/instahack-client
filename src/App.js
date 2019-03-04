@@ -143,7 +143,17 @@ class App extends Component {
             }}
           />
 
-          <Route path="/p/:postId" component={PostDetailPage} />
+          <Route
+            path="/p/:postId"
+            render={props => {
+              return (
+                <PostDetailPage
+                  postInfo={props}
+                  currentUser={this.state.currentUser}
+                />
+              );
+            }}
+          />
           <Route path="/p/:postId/liked_by" component={LikesPage} />
         </Switch>
       </div>

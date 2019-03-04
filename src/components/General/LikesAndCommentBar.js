@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import LikeButton from "../../images/likelinebold.png";
+import CommentButton from "../../images/chatwhitelittle.png";
+
+import "./LikesAndCommentBar.css";
 
 class LikesAndCommentBar extends Component {
   constructor(props) {
@@ -8,13 +12,24 @@ class LikesAndCommentBar extends Component {
   render() {
     return (
       <section className="LikesAndCommentBar">
-        <img className="Like" src="../../images/" alt="like this photo" />
+        <img
+          onClick={event => this.props.addLike(event)}
+          className="Like"
+          src={LikeButton}
+          alt="to like"
+        />
         {/*
           - onClick for Like
             - put currentUser id in the posts likedBy array
+            - conditional render transparent heart vs red heart if currentUser._id is in the post's likedBy array
           */}
 
-        <img className="Comment" src="../../images/" alt="add a comment" />
+        <img
+          onClick={event => this.props.commentBox(event)}
+          className="Comment"
+          src={CommentButton}
+          alt="to add a comment"
+        />
         {/*
           - onClick for the Comment
             - change conditional render boolean for showComments to "true"
