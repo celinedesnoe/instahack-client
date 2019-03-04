@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { postLogIn } from "../api";
+import { postLogIn } from "../../api";
 
 import ButtonLinkFacebook from "../General/ButtonLinkFacebook.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
