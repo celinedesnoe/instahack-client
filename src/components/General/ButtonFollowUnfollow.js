@@ -63,10 +63,13 @@ class ButtonFollowUnfollow extends Component {
   unfollowClick() {
     getUserToUnfollow(this.props.profileUser)
       .then(response => {
-        this.props.onFollowProfile(response.data.profileUserDoc);
+        if (this.props.onFollowProfile) {
+          this.props.onFollowProfile(response.data.profileUserDoc);
+        }
         this.props.onFollowCurrentUser(response.data.currentUserDoc);
       })
-      .catch(() => {
+      .catch(err => {
+        console.log("wat unfollow", err);
         alert("Sorry cannot cannot unfollow the profile");
       });
   }
@@ -74,11 +77,14 @@ class ButtonFollowUnfollow extends Component {
   followClick() {
     getUserToFollow(this.props.profileUser)
       .then(response => {
-        this.props.onFollowProfile(response.data.profileUserDoc);
+        if (this.props.onFollowProfile) {
+          this.props.onFollowProfile(response.data.profileUserDoc);
+        }
         this.props.onFollowCurrentUser(response.data.currentUserDoc);
       })
-      .catch(() => {
-        alert("Sorry cannot cannot unfollow the profile");
+      .catch(err => {
+        console.log("wat follow", err);
+        alert("Sorry cannot cannot follow the profile");
       });
   }
 

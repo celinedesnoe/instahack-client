@@ -14,6 +14,10 @@ import ButtonFollowUnfollow from "../General/ButtonFollowUnfollow.js";
 import "./ProfileRow.css";
 
 class ProfileRow extends Component {
+  // updateProfileUser(newUser) {
+  //   this.setState({ profileUser: newUser });
+  // }
+
   render() {
     const { profileUser, currentUser } = this.props;
     return (
@@ -24,8 +28,9 @@ class ProfileRow extends Component {
         <ButtonFollowUnfollow
           profileUser={profileUser}
           currentUser={currentUser}
-          onFollowProfile={user => this.props.updateProfileUser(user)}
-          onFollowCurrentUser={user => this.props.onFollowCurrentUser(user)}
+          // onFollowProfile={user => this.props.updateProfileUser(user)}
+          // onFollowProfile={user => this.updateProfileUser(user)}
+          onFollowCurrentUser={this.props.onFollowCurrentUser}
         />
       </div>
     );

@@ -126,20 +126,7 @@ class App extends Component {
           />
 
           <Route
-            path="/:username/following"
-            render={props => {
-              return (
-                <ProfilesList
-                  currentUser={this.state.currentUser}
-                  onFollowCurrentUser={user => this.updateUser(user)}
-                  match={props.match}
-                />
-              );
-            }}
-          />
-
-          <Route
-            path="/:username/followers"
+            path="/:username/:status(followers|following)"
             render={props => {
               return (
                 <ProfilesList
