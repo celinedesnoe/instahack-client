@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { postSignUp, checkEmail, checkUsername } from "../api.js";
+import { postSignUp, checkEmail, checkUsername } from "../../api.js";
 
-import HeaderInstagram from "./HeaderInstagram.js";
-import HeaderRegister from "./HeaderRegister.js";
+import HeaderInstagram from "../HeadersAndFooters/HeaderInstagram";
+import HeaderRegister from "../HeadersAndFooters/HeaderRegister";
 // import Header from "./Header";
-import FooterFbBlue from "./FooterFbBlue.js";
-import EditEmail from "./EditEmail.js";
-import AddUsernameAndPsw from "./AddUsernameAndPsw.js";
-import TermsAndConditions from "./TermsAndConditions.js";
-import MoreThanEighteen from "./MoreThanEighteen.js";
-import ConnectToFacebook from "./ConnectToFacebook.js";
-import EditProfilePhoto from "./EditProfilePhoto.js";
-import AddPhoneNumber from "./AddPhoneNumber.js";
+import FooterFbBlue from "../HeadersAndFooters/FooterFbBlue";
+import EditEmail from "../EditAccount/EditEmail";
+import AddUsernameAndPsw from "../EditAccount/AddUsernameAndPsw";
+import TermsAndConditions from "../Pages/TermsAndConditionsPage";
+import MoreThanEighteen from "../Pages/MoreThanEighteenPage";
+import ConnectToFacebook from "../Pages/ConnectToFacebookPage";
+import EditProfilePhoto from "../EditAccount/EditProfilePhoto";
+import AddPhoneNumber from "../EditAccount/AddPhoneNumber";
 
 import "./SignupPage.css";
 
