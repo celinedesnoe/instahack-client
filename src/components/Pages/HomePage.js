@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 import ButtonLink from "../General/ButtonLink.js";
 import Header from "../HeadersAndFooters/Header.js";
-import Footer from "..HeadersAndFooters/Footer.js";
+import Footer from "../HeadersAndFooters/Footer.js";
 
 import InstagramLogo from "../../images/Instagram_logo.png";
-import DownloadApple from "../images/getinonappstore.png";
+import DownloadApple from "../../images/getinonappstore.png";
 
 import "./HomePage.css";
 

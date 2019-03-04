@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPostDetails } from "../../api";
 
-import "./PostDetail.css";
+import "./PostDetailPage.css";
 
 class PostDetail extends Component {
   constructor(props) {

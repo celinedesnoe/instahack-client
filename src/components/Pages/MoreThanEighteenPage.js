@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./MoreThanEighteen.css";
+import "./MoreThanEighteenPage.css";
 
 class MoreThanEighteen extends Component {
   constructor() {

@@ -6,7 +6,7 @@ import ButtonLinkFacebook from "../General/ButtonLinkFacebook.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
 import FooterBlue from "../HeadersAndFooters/FooterBlue.js";
 
-import InstagramLogo from "../images/Instagram_logo.png";
+import InstagramLogo from "../../images/Instagram_logo.png";
 
 import "./LoginPage.css";
 

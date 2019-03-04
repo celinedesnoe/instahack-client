@@ -7,8 +7,8 @@ import ProfilePage from "./components/Pages/ProfilePage.js";
 import ProfilesList from "./components/Pages/ProfilesList.js";
 import SignupPage from "./components/Pages/SignupPage.js";
 import LoginPage from "./components/Pages/LoginPage.js";
-import PostDetail from "./components/Pages/PostDetail.js";
-import ModifyProfile from "./components/EditAccount/ModifyProfile";
+import PostDetailPage from "./components/Pages/PostDetailPage.js";
+import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
 
 import "./App.css";
 
@@ -103,7 +103,7 @@ class App extends Component {
             path="/accounts/edit"
             render={() => {
               return (
-                <ModifyProfile
+                <ModifyProfilePage
                   currentUser={this.state.currentUser}
                   editSuccess={user => this.updateUser(user)}
                 />
@@ -142,7 +142,7 @@ class App extends Component {
             }}
           />
 
-          <Route path="/p/:postId" component={PostDetail} />
+          <Route path="/p/:postId" component={PostDetailPage} />
         </Switch>
       </div>
     );

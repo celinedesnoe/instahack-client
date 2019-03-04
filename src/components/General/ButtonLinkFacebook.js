@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import whitefb from "../images/facebookiconwhite.png";
+import whitefb from "../../images/facebookiconwhite.png";
 
 import "./ButtonLinkFacebook.css";
 

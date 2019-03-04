@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import circlefacebook from "../../images/roundfacebookline.png";
 
-import "./ConnectToFacebook.css";
+import "./ConnectToFacebookPage.css";
 
 class ConnectToFacebook extends Component {
   constructor(props) {
