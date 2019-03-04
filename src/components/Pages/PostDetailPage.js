@@ -60,7 +60,7 @@ class PostDetail extends Component {
     const { postItem, postUser, allComments } = this.state;
     // console.log("Current User in Post Details: ", this.props.currentUser);
 
-    // console.log(user);
+    console.log(this.props);
     return (
       <div className="PostDetail">
         POST DETAIL PAGE
