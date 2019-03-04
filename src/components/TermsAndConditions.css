@@ -1,0 +1,39 @@
+.findpeople {
+  margin-bottom: 2%;
+  margin-top: 6%;
+  font-size: 4.4vw;
+  color: #999999;
+  padding: 0 10%;
+}
+
+.TermsAndConditions {
+  height: 100%;
+  width: 100%;
+  margin-top: 29%;
+}
+
+.welcome {
+  font-size: 4.6vw;
+  font-weight: 600;
+}
+
+.topText {
+  margin-bottom: 8%;
+}
+
+.changeusername {
+  font-size: 3.5vw;
+  font-weight: 600;
+  color: #3897f0;
+}
+
+.bysigning {
+  margin-top: 10%;
+  color: #999999;
+  font-size: 3.6vw;
+  padding: 0 10%;
+}
+
+.blackwords {
+  color: black;
+}

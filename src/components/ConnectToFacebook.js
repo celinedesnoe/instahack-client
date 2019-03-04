@@ -1,34 +1,34 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import profileperson from "../images/roundprofileline.png";
+import circlefacebook from "../images/roundfacebookline.png";
 
-import "./EditProfilePhoto.css";
+import "./ConnectToFacebook.css";
 
-class EditProfilePhoto extends Component {
+class ConnectToFacebook extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
     return (
-      <div className="EditProfilePhoto">
+      <div className="ConnectToFacebook">
         <div className="helptheskip">
           <img
-            src={profileperson}
-            alt="person in a circle"
-            className="profileperson"
+            src={circlefacebook}
+            alt="facebook in a circle"
+            className="circlefacebook"
           />
-          <h4 className="addprofilephoto">Add a profile photo</h4>
+          <h4 className="addprofilephoto">Connect to Facebook</h4>
           <p className="soyourfriends">
-            Add a profile photo so your friends know it's you.
+            Connect to Facebook to find friends to follow.
           </p>
           <button
             onClick={event => this.props.addPhoto(event)}
             className="blue-button"
           >
-            Next
-          </button>{" "}
+            Connect to Facebook
+          </button>
         </div>
         <Link
           onClick={event => this.props.addPhoto(event)}
@@ -42,4 +42,4 @@ class EditProfilePhoto extends Component {
   }
 }
 
-export default EditProfilePhoto;
+export default ConnectToFacebook;

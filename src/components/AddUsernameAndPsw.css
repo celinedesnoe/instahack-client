@@ -13,13 +13,13 @@ form.EditNamePsw {
   margin-top: 60px;
 }
 
-input {
+/* input {
   width: 100%;
   border: 1px solid rgba(122, 122, 122, 0.1);
   box-shadow: none;
   height: 10%;
   background-color: rgb(249, 249, 249);
-}
+} */
 
 .EditNamePsw input {
   margin-bottom: 4%;

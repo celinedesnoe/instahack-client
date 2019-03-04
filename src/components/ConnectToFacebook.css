@@ -3,11 +3,11 @@
   height: 100%;
 }
 
-.EditProfilePhoto {
-  margin-top: 61%;
+.circlefacebook {
+  margin-top: 60%;
 }
 
-img.profileperson {
+img.circlefacebook {
   width: 24%;
 }
 
@@ -25,10 +25,4 @@ img.profileperson {
 
 .helptheskip {
   margin-bottom: 8%;
-}
-
-a.skip {
-  color: #3897f0;
-  font-size: 4.4vw;
-  font-weight: 600;
 }

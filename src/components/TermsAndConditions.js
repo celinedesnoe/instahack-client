@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import "./TermsAndConditions.css";
+
 class TermsAndConditions extends Component {
   constructor(props) {
     super(props);
@@ -9,22 +11,28 @@ class TermsAndConditions extends Component {
   render() {
     return (
       <div className="TermsAndConditions">
-        <h1>SCREEN 3</h1>
-
-        <h3>Welcome to Instagram, {this.props.un}!</h3>
-        <p>
-          Find people to follow and start sharing photos. You can change your
-          username anytime.
-        </p>
-        <Link to="#">Change username</Link>
-        <button onClick={event => this.props.hasAgreed(event)}>Next</button>
-        <p>
-          By signing up, you agree to our <b>Terms</b>.
-        </p>
-        <p>
+        <div className="topText">
+          <h3 className="welcome">Welcome to Instagram, {this.props.un}</h3>
+          <p className="findpeople">
+            Find people to follow and start sharing photos. You can change your
+            username anytime.
+          </p>
+          <Link to="#" className="changeusername">
+            Change username
+          </Link>
+        </div>
+        <button
+          onClick={event => this.props.hasAgreed(event)}
+          className="blue-button large"
+        >
+          Next
+        </button>
+        <p className="bysigning">
+          By signing up, you agree to our <b className="blackwords">Terms</b>.
           Learn how we collect, use and share your data in our
-          <b> Data Policy</b> and how we use cookies and similar technology in
-          our <b>Cookies Policy</b>.
+          <b className="blackwords"> Data Policy</b> and how we use cookies and
+          similar technology in our <b className="blackwords">Cookies Policy</b>
+          .
         </p>
       </div>
     );

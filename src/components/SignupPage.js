@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { postSignUp, checkEmail, checkUsername } from "../api.js";
-import { backButton } from "../images/arrowbackbold.png";
 
+import HeaderInstagram from "./HeaderInstagram.js";
 import HeaderRegister from "./HeaderRegister.js";
-import TermsAndConditions from "./TermsAndConditions.js";
+// import Header from "./Header";
 import FooterFbBlue from "./FooterFbBlue.js";
-
-import EditEmail from "./EditEmail";
-import AddUsernameAndPsw from "./AddUsernameAndPsw";
-import EditProfilePhoto from "./EditProfilePhoto";
+import EditEmail from "./EditEmail.js";
+import AddUsernameAndPsw from "./AddUsernameAndPsw.js";
+import TermsAndConditions from "./TermsAndConditions.js";
+import MoreThanEighteen from "./MoreThanEighteen.js";
+import ConnectToFacebook from "./ConnectToFacebook.js";
+import EditProfilePhoto from "./EditProfilePhoto.js";
+import AddPhoneNumber from "./AddPhoneNumber.js";
 
 import "./SignupPage.css";
 
@@ -29,7 +32,10 @@ class SignupPage extends Component {
       emailSubmitted: false,
       fullNameSubmitted: false,
       agreeToTerms: false,
-      addPhoto: false
+      moreThanEighteen: false,
+      connectToFacebook: false,
+      addPhoto: false,
+      addPhoneNumber: false
     };
   }
 
@@ -68,80 +74,30 @@ class SignupPage extends Component {
     // display next screen (full name & password)
   }
 
-  // handleDisplay() {
-  //   if (!this.state.emailSubmitted) {
-  //     return (
-  //       <EditEmail
-  //         checkEmail={event => this.handleEmail(event)}
-  //         updateState={event => this.genericOnChange(event)}
-  //       />
-  //     );
-  //   }
-
-  //   if (this.props.currentUser) {
-  //     return (
-  //       <AddUsernameAndPsw
-  //         updateState={event => this.genericOnChange(event)}
-  //         submitForm={event => this.handleSubmit(event)}
-  //       />
-  //     );
-  //   }
-
-  //   if (!this.state.agreeToTerms) {
-  //     return (
-  //       <div>
-  //         <h1>SCREEN 3</h1>
-
-  //         <h3>Welcome to Instagram, {this.state.username}!</h3>
-  //         <p>
-  //           Find people to follow and start sharing photos. You can change your
-  //           username anytime.
-  //         </p>
-  //         <Link to="#">Change username</Link>
-  //         <button onClick={this.setState({ agreeToTerms: true })}>Next</button>
-  //         <p>
-  //           By signing up, you agree to our <b>Terms</b>.
-  //         </p>
-  //         <p>
-  //           Learn how we collect, use and share your data in our
-  //           <b> Data Policy</b> and how we use cookies and similar technology in
-  //           our <b>Cookies Policy</b>.
-  //         </p>
-  //       </div>
-  //     );
-  //   }
-
-  //   if (!this.state.addPhoto) {
-  //     return (
-  //       <div>
-  //         <h1>SCREEN 4</h1>
-  //         <p>
-  //           <i>(skipping phone number and connect FB steps)</i>
-  //         </p>
-  //         <p>[icon of person]</p>
-  //         <h4>Add a profile photo</h4>
-  //         <p>Add a profile photo so your friends know it's you.</p>
-  //         <button>Next</button>
-  //         <Link onClick={this.setState({ addPhoto: true })} to="#">
-  //           Skip
-  //         </Link>
-  //       </div>
-  //     );
-  //   }
-  // }
-
   handleAgree(event) {
     this.setState({ agreeToTerms: true });
+  }
+
+  handleOlder(event) {
+    this.setState({ moreThanEighteen: true });
+  }
+
+  handleConnectFacebook(event) {
+    this.setState({ connectToFacebook: true });
   }
 
   handleProfilePhoto(event) {
     this.setState({ addPhoto: true });
   }
 
+  handlePhoneNumber(event) {
+    this.setState({ addPhoneNumber: true });
+  }
+
   render() {
     return (
       <section className="SignupPage flex">
-        <HeaderRegister text="Register" link="/accounts/signup" />
+        {/* <HeaderRegister text="Register" link="/accounts/signup" /> */}
 
         {this.state.emailSubmitted ? (
           // emailSubmitted is true
@@ -151,36 +107,86 @@ class SignupPage extends Component {
             // check if user has agreed to terms
             this.state.agreeToTerms ? (
               // emailSubmitted, fullNameSubmitted, & agreeToTerms are true
-              // check if user has added a profile pic
-              this.state.addPhoto ? (
-                // emailSubmitted, fullNameSubmitted, agreeToTerms, & addPhoto are true
-                // signup is complete and the user goes to newsfeed
-                <div class="Newsfeed">Redirect to Newsfeed</div>
+              // check if the user is less or more than 18
+              this.state.moreThanEighteen ? (
+                // emailSubmitted, fullNameSubmitted, agreeToTerms & moreThanEighteen are true
+                // check if the user wants to connect with facebook
+                this.state.connectToFacebook ? (
+                  // emailSubmitted, fullNameSubmitted, agreeToTerms, moreThanEighteen & ConnectToFacebook are true
+                  // check if user has added a profile pic
+                  this.state.addPhoto ? (
+                    // emailSubmitted, fullNameSubmitted, agreeToTerms, moreThanEighteen, ConnectToFacebook & addPhoto are true
+                    // check if user has added a number
+                    this.state.addPhoneNumber ? (
+                      // signup is complete and the user goes to newsfeed
+                      <div class="Newsfeed">Redirect to Newsfeed</div>
+                    ) : (
+                      <div className="AddPhoneNumber">
+                        <HeaderInstagram text="" link="/" />
+                        <AddPhoneNumber
+                          addNumber={event => this.handlePhoneNumber(event)}
+                        />
+                      </div>
+                    )
+                  ) : (
+                    // emailSubmitted, fullNameSubmitted, & agreeToTerms are true
+                    // addPhoto is false
+                    // show user the screen to add a profile photo
+                    <div className="AddPhoto">
+                      <HeaderInstagram text="" link="/" />
+                      <EditProfilePhoto
+                        addPhoto={event => this.handleProfilePhoto(event)}
+                      />
+                    </div>
+                  )
+                ) : (
+                  //
+                  <div className="ConnectToFacebook">
+                    <HeaderInstagram text="" link="/" />
+                    <ConnectToFacebook
+                      addPhoto={event => this.handleConnectFacebook(event)}
+                    />
+                  </div>
+                )
               ) : (
                 // emailSubmitted, fullNameSubmitted, & agreeToTerms are true
-                // addPhoto is false
-                // show user the screen to add a profile photo
-                <EditProfilePhoto
-                  addPhoto={event => this.handleProfilePhoto(event)}
-                />
+                // MoreThanEighteen is false
+                // show user the screen to check if more than 18
+                <div className="MoreThanEighteen">
+                  {/* <HeaderAge text="" link="/" /> */}
+                  <MoreThanEighteen
+                    un={this.state.age}
+                    hasAgreed={event => this.moreThanEighteen(event)}
+                  />
+                  <FooterFbBlue
+                    text="Sign up with Facebook"
+                    link="https://www.facebook.com"
+                  />
+                </div>
               )
             ) : (
               // emailSubmitted & fullNameSubmitted are true
               // agreeToTerms is false
               // show terms
-              <TermsAndConditions
-                un={this.state.username}
-                hasAgreed={event => this.handleAgree(event)}
-              />
+              <div className="TermsConditionsPage">
+                <HeaderRegister text="Register" link="/accounts/signup" />
+                <TermsAndConditions
+                  un={this.state.username}
+                  hasAgreed={event => this.handleAgree(event)}
+                />
+              </div>
             )
           ) : (
             // emailSubmitted is true
             // fullNameSubmitted is false
             // show form to add full name and password
-            <AddUsernameAndPsw
-              updateState={event => this.genericOnChange(event)}
-              submitForm={event => this.handleSubmit(event)}
-            />
+            <div className="AddUsernamePage">
+              <HeaderRegister text="Register" link="/accounts/signup" />
+              <AddUsernameAndPsw
+                updateState={event => this.genericOnChange(event)}
+                submitForm={event => this.handleSubmit(event)}
+              />
+            </div>
           )
         ) : (
           //  emailSubmitted is false: show EditEmail form

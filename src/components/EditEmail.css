@@ -1,14 +1,10 @@
-input {
+/* input {
   width: 100%;
   border: 1px solid rgba(122, 122, 122, 0.1);
   box-shadow: none;
   height: 10%;
   background-color: rgb(249, 249, 249);
-}
-
-.formEmail {
-  padding-bottom: 6%;
-}
+} */
 
 input.formEmail {
   width: 100%;
@@ -46,7 +42,7 @@ label {
 .formEmail:hover {
   text-decoration: none;
   color: #3897f0;
-  font-size: 4.67vw;
+  font-size: 4vw;
   font-weight: 700;
 }
 

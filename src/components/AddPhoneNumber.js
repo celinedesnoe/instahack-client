@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import profileperson from "../images/roundprofileline.png";
+import circlephone from "../images/roundphoneline.png";
 
-import "./EditProfilePhoto.css";
+import "./AddPhoneNumber.css";
 
 class EditProfilePhoto extends Component {
   constructor(props) {
@@ -12,22 +12,24 @@ class EditProfilePhoto extends Component {
   }
   render() {
     return (
-      <div className="EditProfilePhoto">
+      <div className="EditPhoneNumber">
         <div className="helptheskip">
           <img
-            src={profileperson}
-            alt="person in a circle"
-            className="profileperson"
+            src={circlephone}
+            alt="phone in a circle"
+            className="circlephone"
           />
-          <h4 className="addprofilephoto">Add a profile photo</h4>
+          <h4 className="addprofilephoto">Add phone number</h4>
           <p className="soyourfriends">
-            Add a profile photo so your friends know it's you.
+            Adding your number will help you log in more easily, recover your
+            account, and find people to follow.
           </p>
+          <input type="Number" placeholder="Phone Number" />
           <button
             onClick={event => this.props.addPhoto(event)}
             className="blue-button"
           >
-            Next
+            Add phone number
           </button>{" "}
         </div>
         <Link
@@ -37,6 +39,9 @@ class EditProfilePhoto extends Component {
         >
           Skip
         </Link>
+        <p className="youmayreceive">
+          You may receive SMS updates from Instagram and can opt out at anytime.
+        </p>
       </div>
     );
   }
