@@ -1,0 +1,6 @@
+.LikesAndCommentBar img {
+  height: 2vh;
+  width: auto;
+  border: 1px solid blue;
+  margin-right: 2vw;
+}

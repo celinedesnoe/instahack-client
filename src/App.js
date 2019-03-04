@@ -11,6 +11,7 @@ import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
 import ButtonSubmit from "./components/General/ButtonSubmit.js";
 import ButtonLink from "./components/General/ButtonLink.js";
+import LikesPage from "./components/Pages/LikesPage";
 
 import "./App.css";
 
@@ -150,7 +151,18 @@ class App extends Component {
             }}
           />
 
-          <Route path="/p/:postId" component={PostDetailPage} />
+          <Route
+            path="/p/:postId"
+            render={props => {
+              return (
+                <PostDetailPage
+                  postInfo={props}
+                  currentUser={this.state.currentUser}
+                />
+              );
+            }}
+          />
+          <Route path="/p/:postId/liked_by" component={LikesPage} />
         </Switch>
       </div>
     );
