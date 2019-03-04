@@ -25,7 +25,7 @@ class PostDetail extends Component {
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response => {
-        console.log("Post Details", response.data.comments);
+        console.log("Post Details", response.data);
         this.setState({
           postItem: response.data.post,
           postUser: response.data.post.username_id,
@@ -59,8 +59,7 @@ class PostDetail extends Component {
   render() {
     const { postItem, postUser, allComments } = this.state;
     // console.log("Current User in Post Details: ", this.props.currentUser);
-
-    console.log(this.props);
+    console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetail">
         POST DETAIL PAGE
@@ -95,13 +94,13 @@ class PostDetail extends Component {
           <b>{postUser.username} </b>
           {postItem.caption}
         </div>
-        <div>
-          Comments List goes here
-          {allComments.forEach(oneComment => {
+        <div className="comment-list">
+          {allComments.map(oneComment => {
             return (
               <Comment
-                pic={oneComment.thumbnail}
-                commenter={oneComment.username}
+                key={oneComment._id}
+                pic={oneComment.username_id.profilePic}
+                commenter={oneComment.username_id.username}
                 comment={oneComment.content}
               />
             );
