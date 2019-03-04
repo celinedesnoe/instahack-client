@@ -13,7 +13,7 @@ class GridView extends Component {
         <div className="row">
           {profilePosts.map(onePost => {
             return (
-              <div key={onePost} className="col-4 myCol p-0">
+              <div key={onePost._id} className="col-4 myCol p-0">
                 <div className="square">
                   <Link to={"/p/" + onePost._id}>
                     <img

@@ -4,6 +4,7 @@ import { getLogOut } from "./api";
 
 import HomePage from "./components/HomePage.js";
 import ProfilePage from "./components/ProfilePage.js";
+import ProfilesList from "./components/ProfilesList.js";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
 import PostDetail from "./components/PostDetail.js";
@@ -47,6 +48,10 @@ class App extends Component {
       this.updateUser(null);
     });
   }
+
+  // handleCurrentUser(currentUser) {
+  //   this.setState({ currentUser: currentUser });
+  // }
 
   render() {
     // console.log(this.state.currentUser);
@@ -113,6 +118,23 @@ class App extends Component {
             render={props => {
               return (
                 <ProfilePage
+                  currentUser={this.state.currentUser}
+                  onFollow={user => this.updateUser(user)}
+                  match={props.match}
+                />
+              );
+            }}
+          />
+
+          <Route path="/:username/following" component={ProfilesList} />
+
+          {/* <Route path="/:username/followers" component={ProfilesList} /> */}
+
+          <Route
+            path="/:username/followers"
+            render={props => {
+              return (
+                <ProfilesList
                   currentUser={this.state.currentUser}
                   match={props.match}
                 />
