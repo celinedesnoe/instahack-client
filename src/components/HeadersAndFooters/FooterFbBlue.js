@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import whitefb from "../images/facebookiconwhite.png";
+import whitefb from "../../images/facebookiconwhite.png";
 
 import "./FooterFbBlue.css";
 
