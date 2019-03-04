@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import circlefacebook from "../images/roundfacebookline.png";
+import circlefacebook from "../../images/roundfacebookline.png";
 
 import "./ConnectToFacebook.css";
 

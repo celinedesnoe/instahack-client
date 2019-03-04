@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 import { getLogOut } from "./api";
 
-import HomePage from "./components/HomePage.js";
-import ProfilePage from "./components/ProfilePage.js";
-import ProfilesList from "./components/ProfilesList.js";
-import SignupPage from "./components/SignupPage.js";
-import LoginPage from "./components/LoginPage.js";
-import PostDetail from "./components/PostDetail.js";
-import ModifyProfile from "./components/ModifyProfile";
+import HomePage from "./components/Pages/HomePage.js";
+import ProfilePage from "./components/Pages/ProfilePage.js";
+import ProfilesList from "./components/Pages/ProfilesList.js";
+import SignupPage from "./components/Pages/SignupPage.js";
+import LoginPage from "./components/Pages/LoginPage.js";
+import PostDetail from "./components/Pages/PostDetail.js";
+import ModifyProfile from "./components/EditAccount/ModifyProfile";
 
 import "./App.css";
 

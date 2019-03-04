@@ -202,10 +202,6 @@ class SignupPage extends Component {
             />
           </div>
         )}
-        {/* <form>
-          {this.handleDisplay()}
-          <button>Next (ACTIVATE ONLY ONCE FIELD HAS BEEN FILLED)</button>
-        </form> */}
       </section>
     );
   }

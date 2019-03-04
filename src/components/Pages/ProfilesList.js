@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import { getUserProfileFollowers } from "../api";
-import ProfileRow from "./ProfileRow";
+import { getUserProfileFollowers } from "../../api";
+import ProfileRow from "../General/ProfileRow";
 import "./ProfilesList.css";
 
 class ProfilesList extends Component {

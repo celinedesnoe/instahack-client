@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./ProfileStatistics.css";
-import ProfilesList from "./ProfilesList";
+// import ProfilesList from "./ProfilesList";
 
 class ProfileStatistics extends Component {
   render() {

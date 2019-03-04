@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import profileperson from "../images/roundprofileline.png";
+import profileperson from "../../images/roundprofileline.png";
 
 import "./EditProfilePhoto.css";
 
