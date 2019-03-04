@@ -15,7 +15,7 @@ class GridView extends Component {
             return (
               <div key={onePost._id} className="col-4 myCol p-0">
                 <div className="square">
-                  <Link to={"/p/" + onePost._id}>
+                  <Link postId={onePost._id} to={"/p/" + onePost._id}>
                     <img
                       src={onePost.image}
                       alt="oneImage"

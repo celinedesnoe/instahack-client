@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 import { getLogOut } from "./api";
-
+import { getUserProfile, getUserToUnfollow, getUserToFollow } from "./api.js";
 import HomePage from "./components/Pages/HomePage.js";
 import ProfilePage from "./components/Pages/ProfilePage.js";
 import ProfilesList from "./components/Pages/ProfilesList.js";
@@ -10,6 +10,9 @@ import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
 import NewsfeedPage from "./components/Pages/NewsfeedPage.js";
+import ButtonSubmit from "./components/General/ButtonSubmit.js";
+import ButtonLink from "./components/General/ButtonLink.js";
+import LikesPage from "./components/Pages/LikesPage";
 
 import "./App.css";
 
@@ -49,10 +52,6 @@ class App extends Component {
       this.updateUser(null);
     });
   }
-
-  // handleCurrentUser(currentUser) {
-  //   this.setState({ currentUser: currentUser });
-  // }
 
   render() {
     // console.log(this.state.currentUser);
@@ -123,30 +122,38 @@ class App extends Component {
               return (
                 <ProfilePage
                   currentUser={this.state.currentUser}
-                  onFollow={user => this.updateUser(user)}
+                  onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}
                 />
               );
             }}
           />
 
-          <Route path="/:username/following" component={ProfilesList} />
-
-          {/* <Route path="/:username/followers" component={ProfilesList} /> */}
-
           <Route
-            path="/:username/followers"
+            path="/:username/:status(followers|following)"
             render={props => {
               return (
                 <ProfilesList
                   currentUser={this.state.currentUser}
+                  onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}
                 />
               );
             }}
           />
 
-          <Route path="/p/:postId" component={PostDetailPage} />
+          <Route
+            path="/p/:postId"
+            render={props => {
+              return (
+                <PostDetailPage
+                  postInfo={props}
+                  currentUser={this.state.currentUser}
+                />
+              );
+            }}
+          />
+          <Route path="/p/:postId/liked_by" component={LikesPage} />
         </Switch>
       </div>
     );

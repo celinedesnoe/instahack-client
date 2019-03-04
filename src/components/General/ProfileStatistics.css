@@ -1,0 +1,11 @@
+.ProfileStatistics {
+  border-top: 1px solid #efefef;
+  line-height: 18px;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.ProfileStatistics span {
+  color: #999999;
+  line-height: 18px;
+}

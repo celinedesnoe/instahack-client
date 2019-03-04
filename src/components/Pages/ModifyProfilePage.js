@@ -40,6 +40,7 @@ class ModifyProfile extends Component {
 
   render() {
     const { currentUser } = this.props;
+    const { profilePic } = this.props.currentUser;
 
     return (
       <section className="ModifyProfile">
@@ -48,7 +49,7 @@ class ModifyProfile extends Component {
           <h2>Edit Profile</h2>
         </header>
         <div>
-          <ProfilePic profilePic={currentUser.profilePic} size="profilePage" />
+          <ProfilePic profilePic={profilePic} size="profile-page" />
 
           {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
           <h3>{currentUser.username}</h3>
@@ -134,8 +135,10 @@ class ModifyProfile extends Component {
             <input type="checkbox" />
           </label>
           <div>
-            <button>Submit</button>
-            <Link to="#">Temporarily disable my account</Link>
+            <Link to={"/" + currentUser.username}>
+              <button>Submit</button>
+            </Link>
+            <Link to={"#"}>Temporarily disable my account</Link>
           </div>
         </form>
       </section>

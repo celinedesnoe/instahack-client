@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import { getUserProfileFollowers } from "../../api";
 import ProfileRow from "../General/ProfileRow";
 import "./ProfilesList.css";
@@ -9,8 +9,7 @@ class ProfilesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileUser: {},
-      currentUser: this.props.currentUser
+      profileUser: {}
     };
   }
 
@@ -29,8 +28,8 @@ class ProfilesList extends Component {
   }
 
   render() {
-    const { profileUser, currentUser } = this.state;
-
+    const { profileUser } = this.state;
+    const { currentUser } = this.props;
     // console.log(this.props.match);
     console.log("Profile User", profileUser);
     console.log("Profile User FOLLOWERS", profileUser.followers);
@@ -38,41 +37,57 @@ class ProfilesList extends Component {
     console.log("Current User", currentUser);
     return (
       <div>
-        {/************ FOR FOLLOWERS PAGE *************/}
-        {this.props.match.path === "/:username/followers" &&
-          (profileUser.followers && (
-            <div>
-              Page for followers
-              {profileUser.followers.map(oneFollower => {
+        <Switch>
+          {/************ FOR FOLLOWERS PAGE *************/}
+          {profileUser.followers && (
+            <Route
+              path="/:username/followers"
+              render={() => {
                 return (
-                  <div key={oneFollower._id} className="col-4 myCol p-0">
-                    <ProfileRow
-                      profileUserRow={oneFollower}
-                      currentUser={currentUser}
-                    />
+                  <div>
+                    Page for followers
+                    {profileUser.followers.map(oneFollower => {
+                      return (
+                        <div key={oneFollower._id} className="col-4 myCol p-0">
+                          <ProfileRow
+                            profileUser={oneFollower}
+                            currentUser={currentUser}
+                            onFollowCurrentUser={this.props.onFollowCurrentUser}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 );
-              })}
-            </div>
-          ))}
+              }}
+            />
+          )}
 
-        {/************ FOR FOLLOWING PAGE *************/}
-        {this.props.match.path === "/:username/following" &&
-          (profileUser.following && (
-            <div>
-              Page for followers
-              {profileUser.following.map(oneFollowing => {
+          {/************ FOR FOLLOWING PAGE *************/}
+          {profileUser.following && (
+            <Route
+              path="/:username/following"
+              render={() => {
                 return (
-                  <div key={oneFollowing._id} className="col-4 myCol p-0">
-                    <ProfileRow
-                      profileUserRow={oneFollowing}
-                      currentUser={currentUser}
-                    />
+                  <div>
+                    Page for following
+                    {profileUser.following.map(oneFollowing => {
+                      return (
+                        <div key={oneFollowing._id} className="col-4 myCol p-0">
+                          <ProfileRow
+                            profileUser={oneFollowing}
+                            currentUser={currentUser}
+                            onFollowCurrentUser={this.props.onFollowCurrentUser}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 );
-              })}
-            </div>
-          ))}
+              }}
+            />
+          )}
+        </Switch>
       </div>
     );
   }
