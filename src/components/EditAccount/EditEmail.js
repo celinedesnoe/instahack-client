@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ButtonNext from "./ButtonNext.js";
+import ButtonNext from "../General/ButtonNext";
 
 import "./EditEmail.css";
 
