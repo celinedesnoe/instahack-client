@@ -1,11 +1,13 @@
 .App {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .HomePage {
-  width: 76%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -13,58 +15,77 @@
   text-align: center;
 }
 
-.signup {
-  color: #999999;
-  margin-top: 4%;
-  font-size: 4.67vw;
-  margin-bottom: 8%;
+.HomePageBody {
+  width: 74%;
 }
 
-.instagramlogo {
+.signup {
+  width: 100%;
+  color: #999999;
+  margin-top: 4%;
+  font-size: 13px;
+  margin-bottom: 7%;
+}
+
+.instagramlogofirstpage {
   margin-top: 26%;
 }
 
-img.instagramlogo {
-  width: 70%;
+img.instagramlogofirstpage {
+  width: 190px;
 }
 
-hr {
-  width: 36%;
+.hroi1 {
+  margin-right: 8%;
+  width: 42%;
+  color: rgba(172, 172, 172, 0.048);
+}
+
+.hroi2 {
+  margin-left: 8%;
+  width: 42%;
   color: rgba(172, 172, 172, 0.048);
 }
 
 a.downloadapple {
-  width: 46%;
-  margin-top: 18%;
+  margin-top: 80px;
   margin-bottom: 100px;
 }
 
-img {
-  width: 100%;
+img.imageapple {
+  margin-bottom: 100px;
+  width: 132px;
 }
 
 .signupemail {
   text-decoration: none;
   color: #3897f0;
-  font-size: 4.67vw;
-  font-weight: 700;
+  font-size: 13.6px;
+  font-weight: 600;
 }
 
 .signupemail:hover {
   text-decoration: none;
   color: #3897f0;
-  font-size: 4.67vw;
-  font-weight: 700;
+  font-size: 13.6px;
+  font-weight: 600;
 }
 
-.or {
+.oro {
   margin: 0;
   color: #999999;
-  font-size: 4.67vw;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.hro {
-  margin: 5%;
-  width: 110%;
+.hrop {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.sectiondown {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./MoreThanEighteenPage.css";
 
@@ -26,8 +27,6 @@ class MoreThanEighteen extends Component {
   }
 
   render() {
-    const { moreThanEighteen } = this.props;
-
     return (
       <div className="MoreThanEighteen">
         <h3>Are You 18 Years or Older?</h3>
@@ -37,25 +36,29 @@ class MoreThanEighteen extends Component {
           affects the resources we offer and the way we use your data for ads.
         </p>
 
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="radio"
-            className="gender"
-            checked={this.state.age === "plus"}
-            onChange={this.handleChange}
-            value="plus"
-          />{" "}
-          18 or older
-          <br />
-          <input
-            type="radio"
-            className="gender"
-            checked={this.state.age === "less"}
-            onChange={this.handleChange}
-            value="less"
-          />{" "}
-          Under 18
-        </form>
+        <Link to="/accounts/signup">
+          <form onSubmit={this.handleSubmit}>
+            <input
+              onClick={event => this.props.ageStatus(event)}
+              type="radio"
+              className="age"
+              checked={this.state.age === "plus"}
+              onChange={this.handleChange}
+              value="plus"
+            />
+            18 or older
+            <br />
+            <input
+              onClick={event => this.props.ageStatus(event)}
+              type="radio"
+              className="age"
+              checked={this.state.age === "less"}
+              onChange={this.handleChange}
+              value="less"
+            />
+            Under 18
+          </form>
+        </Link>
       </div>
     );
   }
