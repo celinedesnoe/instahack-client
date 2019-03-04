@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { postLogIn } from "../api";
 
-import ButtonLinkFacebook from "./ButtonLinkFacebook.js";
-import ButtonSubmit from "./ButtonSubmit.js";
-import FooterBlue from "./FooterBlue.js";
+import ButtonLinkFacebook from "../General/ButtonLinkFacebook.j";
+import ButtonSubmit from "../General/ButtonSubmit.js";
+import FooterBlue from "../HeadersAndFooters/FooterBlue.js";
 
 import InstagramLogo from "../images/Instagram_logo.png";
 
