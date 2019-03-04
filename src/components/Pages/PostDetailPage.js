@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPostDetails } from "../../api";
 
+import AddComment from "../General/AddComment.js";
+
 import "./PostDetailPage.css";
 
 class PostDetail extends Component {
@@ -9,7 +11,8 @@ class PostDetail extends Component {
     super(props);
     this.state = {
       postItem: {},
-      postUser: {}
+      postUser: {},
+      showComment: false
     };
   }
 
@@ -72,6 +75,14 @@ class PostDetail extends Component {
             3. send content, username, & profile picture back in a res.json to be rendered in a Comment component
         */}
         </div>
+        <p>placeholder for date post was posted</p>
+        {this.state.showComment ? (
+          // true, therefore render the Comment component
+          <AddComment />
+        ) : (
+          // false, therefore show nothing
+          <div />
+        )}
       </div>
     );
   }
