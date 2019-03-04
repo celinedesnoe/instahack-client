@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getPostDetails } from "../../api";
+import { getPostDetails, postComment } from "../../api";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
+import Comment from "../General/Comment.js";
 
 import "./PostDetailPage.css";
 
@@ -13,7 +14,9 @@ class PostDetail extends Component {
     this.state = {
       postItem: {},
       postUser: {},
-      showComment: false
+      allComments: [],
+      showComment: false,
+      newComment: ""
     };
   }
 
@@ -22,13 +25,14 @@ class PostDetail extends Component {
     console.log("Props in PDP: ", this.props);
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
-      .then(response =>
-        // console.log("Post Details", response.data)
+      .then(response => {
+        console.log("Post Details", response.data);
         this.setState({
-          postItem: response.data,
-          postUser: response.data.username_id
-        })
-      )
+          postItem: response.data.post,
+          postUser: response.data.post.username_id,
+          allComments: response.data.comments
+        });
+      })
       .catch(() => {
         alert("Sorry cannot find the details of this post");
       });
@@ -36,7 +40,6 @@ class PostDetail extends Component {
 
   showCommentBox(event) {
     this.setState({ showComment: true });
-    console.log(this.state.postItem._id);
   }
 
   likePost(event) {
@@ -51,13 +54,42 @@ class PostDetail extends Component {
     console.log(addLike);
   }
 
-  appendComment(event) {}
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  appendComment(event) {
+    // send comment content to back end along with: poster's id, post id, & content (write function in api.js)
+    // set the state of showComment (in parent) to false
+
+    const { newComment } = this.state;
+    const posterId = this.props.currentUser._id;
+    const postId = this.state.postItem._id;
+
+    // console.log(newComment);
+    // console.log(posterId);
+    // console.log(postId);
+
+    const commentInfo = {
+      username_id: posterId,
+      post_id: postId,
+      content: newComment
+    };
+
+    console.log("COMMENT INFO: ", commentInfo);
+
+    postComment(commentInfo).then(response => {
+      console.log("comment added to array: ", response.data);
+    });
+
+    this.setState({ showComment: false });
+  }
 
   render() {
-    const { postItem, postUser } = this.state;
+    const { postItem, postUser, allComments } = this.state;
     // console.log("Current User in Post Details: ", this.props.currentUser);
-
-    console.log(this.props);
+    // console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetail">
         POST DETAIL PAGE
@@ -92,8 +124,17 @@ class PostDetail extends Component {
           <b>{postUser.username} </b>
           {postItem.caption}
         </div>
-        <div>
-          Comments List goes here
+        <div className="comment-list">
+          {allComments.map(oneComment => {
+            return (
+              <Comment
+                key={oneComment._id}
+                pic={oneComment.username_id.profilePic}
+                commenter={oneComment.username_id.username}
+                comment={oneComment.content}
+              />
+            );
+          })}
           {/* 
             TO RENDER COMMENTS ON A POST
             1. query Comments in db for documents with post_Id matching that of the current post — to retrieve commentDoc, which will contain the content and id of person who commented, ordered from oldest to youngest
@@ -104,7 +145,11 @@ class PostDetail extends Component {
         <p>placeholder for date post was posted</p>
         {this.state.showComment ? (
           // true, therefore render the Comment component
-          <AddComment />
+          <AddComment
+            updateState={event => this.genericOnChange(event)}
+            saveComment={event => this.appendComment(event)}
+            originalPost={this.state.postItem._id}
+          />
         ) : (
           // false, therefore show nothing
           <div />
