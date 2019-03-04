@@ -4,6 +4,7 @@ import { getPostDetails } from "../../api";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
+import Comment from "../General/Comment.js";
 
 import "./PostDetailPage.css";
 
@@ -13,6 +14,7 @@ class PostDetail extends Component {
     this.state = {
       postItem: {},
       postUser: {},
+      allComments: [],
       showComment: false
     };
   }
@@ -22,13 +24,14 @@ class PostDetail extends Component {
     console.log("Props in PDP: ", this.props);
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
-      .then(response =>
-        // console.log("Post Details", response.data)
+      .then(response => {
+        console.log("Post Details", response.data.comments);
         this.setState({
-          postItem: response.data,
-          postUser: response.data.username_id
-        })
-      )
+          postItem: response.data.post,
+          postUser: response.data.post.username_id,
+          allComments: response.data.comments
+        });
+      })
       .catch(() => {
         alert("Sorry cannot find the details of this post");
       });
@@ -54,7 +57,7 @@ class PostDetail extends Component {
   appendComment(event) {}
 
   render() {
-    const { postItem, postUser } = this.state;
+    const { postItem, postUser, allComments } = this.state;
     // console.log("Current User in Post Details: ", this.props.currentUser);
 
     // console.log(user);
@@ -94,6 +97,15 @@ class PostDetail extends Component {
         </div>
         <div>
           Comments List goes here
+          {allComments.forEach(oneComment => {
+            return (
+              <Comment
+                pic={oneComment.thumbnail}
+                commenter={oneComment.username}
+                comment={oneComment.content}
+              />
+            );
+          })}
           {/* 
             TO RENDER COMMENTS ON A POST
             1. query Comments in db for documents with post_Id matching that of the current post — to retrieve commentDoc, which will contain the content and id of person who commented, ordered from oldest to youngest
