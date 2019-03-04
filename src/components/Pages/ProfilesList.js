@@ -9,8 +9,7 @@ class ProfilesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileUser: {},
-      currentUser: this.props.currentUser
+      profileUser: {}
     };
   }
 
@@ -28,9 +27,13 @@ class ProfilesList extends Component {
       });
   }
 
-  render() {
-    const { profileUser, currentUser } = this.state;
+  updateProfileUser(newUser) {
+    this.setState({ profileUser: newUser });
+  }
 
+  render() {
+    const { profileUser } = this.state;
+    const { currentUser } = this.props;
     // console.log(this.props.match);
     console.log("Profile User", profileUser);
     console.log("Profile User FOLLOWERS", profileUser.followers);
@@ -47,8 +50,12 @@ class ProfilesList extends Component {
                 return (
                   <div key={oneFollower._id} className="col-4 myCol p-0">
                     <ProfileRow
-                      profileUserRow={oneFollower}
+                      profileUser={oneFollower}
                       currentUser={currentUser}
+                      onFollowCurrentUser={user =>
+                        this.props.onFollowCurrentUser(user)
+                      }
+                      onFollowProfile={user => this.updateProfileUser(user)}
                     />
                   </div>
                 );
@@ -65,7 +72,7 @@ class ProfilesList extends Component {
                 return (
                   <div key={oneFollowing._id} className="col-4 myCol p-0">
                     <ProfileRow
-                      profileUserRow={oneFollowing}
+                      profileUser={oneFollowing}
                       currentUser={currentUser}
                     />
                   </div>

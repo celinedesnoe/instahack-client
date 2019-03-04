@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import ProfilePic from "../General/ProfilePic.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
 import ButtonLink from "../General/ButtonLink.js";
+import ButtonFollowUnfollow from "../General/ButtonFollowUnfollow.js";
+
 import ProfileStatistics from "../General/ProfileStatistics";
 import GridView from "../General/GridView.js";
 
@@ -41,84 +43,8 @@ class ProfilePage extends Component {
       });
   }
 
-  buttonFollowUnfollow() {
-    const { profileUser } = this.state;
-    const { currentUser } = this.props;
-
-    if (profileUser._id === currentUser._id) {
-      return (
-        <div>
-          <ButtonLink
-            styling="white-button"
-            link="/accounts/edit"
-            text="Edit Profile"
-          />
-        </div>
-      );
-    }
-
-    if (this.state.isLoaded) {
-      console.log("Is Following?", profileUser._id, currentUser.following);
-      // console.log("USERNAME", profileUser.username);
-
-      if (currentUser.following.includes(profileUser._id)) {
-        console.log(
-          "Is Following?",
-          currentUser.following.includes(profileUser._id)
-        );
-        return (
-          <div>
-            <ButtonSubmit
-              styling="blue-button"
-              link=""
-              text="Unfollow"
-              onClick={() => this.unfollowClick()}
-            />
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            <ButtonSubmit
-              styling="blue-button"
-              link=""
-              text="Follow"
-              onClick={() => this.followClick()}
-            />
-          </div>
-        );
-      }
-    } else {
-      return <div>Loading</div>;
-    }
-  }
-
-  unfollowClick() {
-    getUserToUnfollow(this.state)
-      .then(response => {
-        this.setState({
-          profileUser: response.data.profileUserDoc
-        });
-
-        this.props.onFollow(response.data.currentUserDoc);
-      })
-      .catch(() => {
-        alert("Sorry cannot cannot unfollow the profile");
-      });
-  }
-
-  followClick() {
-    getUserToFollow(this.state)
-      .then(response => {
-        this.setState({
-          profileUser: response.data.profileUserDoc
-        });
-
-        this.props.onFollow(response.data.currentUserDoc);
-      })
-      .catch(() => {
-        alert("Sorry cannot cannot unfollow the profile");
-      });
+  updateProfileUser(newUser) {
+    this.setState({ profileUser: newUser });
   }
 
   render() {
@@ -136,39 +62,14 @@ class ProfilePage extends Component {
               <h1>{profileUser.username}</h1>
               <div>O</div>
             </div>
-            {/* CONDITION IF USER LOGGED IN TO CHANGE THE BUTTON IN HEADER  */}
+            {/* IF USER LOGGED IN TO CHANGE THE BUTTON  */}
 
-            {this.buttonFollowUnfollow()}
-
-            {/* {profileUser._id === currentUser._id ? (
-              <div>
-                <ButtonLink
-                  styling="white-button"
-                  link="/accounts/edit"
-                  text="Edit Profile"
-                />
-              </div>
-            ) : // CONDITION TO CHECK IF CURRENT USER FOLLOW OR NOT THIS PROFILE PAGE
-            profileUser._id &&
-              currentUser.following.includes(profileUser._id) ? (
-              <div>
-                <ButtonSubmit
-                  styling="blue-button"
-                  link=""
-                  text="Unfollow"
-                  onClick={() => this.unfollowClick()}
-                />
-              </div>
-            ) : (
-              <div>
-                <ButtonSubmit
-                  styling="blue-button"
-                  link=""
-                  text="Follow"
-                  onClick={() => this.followClick()}
-                />
-              </div>
-            )} */}
+            <ButtonFollowUnfollow
+              profileUser={profileUser}
+              currentUser={currentUser}
+              onFollowProfile={user => this.updateProfileUser(user)}
+              onFollowCurrentUser={user => this.props.onFollowCurrentUser(user)}
+            />
           </section>
         </header>
         <div>

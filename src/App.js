@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 import { getLogOut } from "./api";
-
+import { getUserProfile, getUserToUnfollow, getUserToFollow } from "./api.js";
 import HomePage from "./components/Pages/HomePage.js";
 import ProfilePage from "./components/Pages/ProfilePage.js";
 import ProfilesList from "./components/Pages/ProfilesList.js";
@@ -9,6 +9,8 @@ import SignupPage from "./components/Pages/SignupPage.js";
 import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
+import ButtonSubmit from "./components/General/ButtonSubmit.js";
+import ButtonLink from "./components/General/ButtonLink.js";
 
 import "./App.css";
 
@@ -48,10 +50,6 @@ class App extends Component {
       this.updateUser(null);
     });
   }
-
-  // handleCurrentUser(currentUser) {
-  //   this.setState({ currentUser: currentUser });
-  // }
 
   render() {
     // console.log(this.state.currentUser);
@@ -119,16 +117,25 @@ class App extends Component {
               return (
                 <ProfilePage
                   currentUser={this.state.currentUser}
-                  onFollow={user => this.updateUser(user)}
+                  onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}
                 />
               );
             }}
           />
 
-          <Route path="/:username/following" component={ProfilesList} />
-
-          {/* <Route path="/:username/followers" component={ProfilesList} /> */}
+          <Route
+            path="/:username/following"
+            render={props => {
+              return (
+                <ProfilesList
+                  currentUser={this.state.currentUser}
+                  onFollowCurrentUser={user => this.updateUser(user)}
+                  match={props.match}
+                />
+              );
+            }}
+          />
 
           <Route
             path="/:username/followers"
@@ -136,6 +143,7 @@ class App extends Component {
               return (
                 <ProfilesList
                   currentUser={this.state.currentUser}
+                  onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}
                 />
               );

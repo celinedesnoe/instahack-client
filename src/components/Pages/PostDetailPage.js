@@ -31,7 +31,7 @@ class PostDetail extends Component {
   render() {
     const { postItem, postUser } = this.state;
 
-    // console.log(user);
+    console.log(this.props);
     return (
       <div className="PostDetail">
         POST DETAIL PAGE

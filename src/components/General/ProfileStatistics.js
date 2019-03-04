@@ -9,7 +9,7 @@ class ProfileStatistics extends Component {
     const { profileUser, profilePosts, currentUser } = this.props;
     // console.log(currentUser);
     return (
-      <div className="ProfileStatistics d-flex flex-row">
+      <div className="ProfileStatistics d-flex flex-row justify-content-around align-items-center">
         <div>
           <b>{profilePosts.length}</b> <br />
           posts
@@ -26,7 +26,10 @@ class ProfileStatistics extends Component {
         )}
 
         {profileUser.following && profileUser.following.length === 0 && (
-          <div>No following</div>
+          <div>
+            No <br />
+            following
+          </div>
         )}
 
         {/* NEED  TO CHECK IF THERE IS FOLLOWER USERS TO AVOID ERROR */}
