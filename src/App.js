@@ -9,6 +9,7 @@ import SignupPage from "./components/Pages/SignupPage.js";
 import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
+import LikesPage from "./components/Pages/LikesPage";
 
 import "./App.css";
 
@@ -143,6 +144,7 @@ class App extends Component {
           />
 
           <Route path="/p/:postId" component={PostDetailPage} />
+          <Route path="/p/:postId/liked_by" component={LikesPage} />
         </Switch>
       </div>
     );
