@@ -5,6 +5,9 @@ import ProfilePic from "../General/ProfilePic.js";
 
 import { editUser } from "../../api.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
+import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack";
+
+import "./ModifyProfilePage.css";
 
 class ModifyProfile extends Component {
   constructor(props) {
@@ -45,11 +48,8 @@ class ModifyProfile extends Component {
 
     return (
       <section className="ModifyProfile">
-        <header className="PageHeader">
-          <img className="#" src="#" />
-          <h2>Edit Profile</h2>
-        </header>
-        <div>
+        <HeaderArrowBack text="Edit Profile" position="position-top" />
+        <div className="header-edit">
           <ProfilePic profilePic={profilePic} size="profile-page" />
 
           {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
@@ -67,6 +67,7 @@ class ModifyProfile extends Component {
               value={this.state.fullName}
             />
           </label>
+
           <label className="username">
             <p>Username</p>
             <input

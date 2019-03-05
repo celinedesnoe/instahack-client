@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { postSignUp, checkEmail, checkUsername } from "../../api.js";
 
 import HeaderInstagram from "../HeadersAndFooters/HeaderInstagram";
-import HeaderRegister from "../HeadersAndFooters/HeaderRegister";
+import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack";
 // import Header from "./Header";
 import FooterFbBlue from "../HeadersAndFooters/FooterFbBlue";
 import EditEmail from "../EditAccount/EditEmail";
@@ -97,7 +97,7 @@ class SignupPage extends Component {
   render() {
     return (
       <section className="SignupPage flex">
-        {/* <HeaderRegister text="Register" link="/accounts/signup" /> */}
+        {/* <HeaderArrowBack text="Register" link="/accounts/signup" /> */}
 
         {this.state.emailSubmitted ? (
           // emailSubmitted is true
@@ -168,7 +168,7 @@ class SignupPage extends Component {
               // agreeToTerms is false
               // show terms
               <div className="TermsConditionsPage">
-                <HeaderRegister text="Register" link="/accounts/signup" />
+                <HeaderArrowBack text="Register" link="/accounts/signup" />
                 <TermsAndConditions
                   un={this.state.username}
                   hasAgreed={event => this.handleAgree(event)}
@@ -180,7 +180,7 @@ class SignupPage extends Component {
             // fullNameSubmitted is false
             // show form to add full name and password
             <div className="AddUsernamePage">
-              <HeaderRegister text="Register" link="/accounts/signup" />
+              <HeaderArrowBack text="Register" link="/accounts/signup" />
               <AddUsernameAndPsw
                 updateState={event => this.genericOnChange(event)}
                 submitForm={event => this.handleSubmit(event)}
@@ -190,7 +190,7 @@ class SignupPage extends Component {
         ) : (
           //  emailSubmitted is false: show EditEmail form
           <div className="emailPage">
-            <HeaderRegister text="Register" link="/accounts/signup" />
+            <HeaderArrowBack text="Register" link="/accounts/signup" />
             <EditEmail
               checkEmail={event => this.handleEmail(event)}
               updateState={event => this.genericOnChange(event)}
