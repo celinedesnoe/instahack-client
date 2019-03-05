@@ -144,6 +144,7 @@ class App extends Component {
           />
 
           <Route
+            exact
             path="/p/:postId"
             render={props => {
               return (
@@ -154,7 +155,19 @@ class App extends Component {
               );
             }}
           />
-          <Route path="/p/:postId/liked_by" component={LikesPage} />
+          {/* <Route path="/p/:postId/liked_by" component={LikesPage} /> */}
+          <Route
+            path="/p/:postId/liked_by"
+            render={props => {
+              return (
+                <LikesPage
+                  currentUser={this.state.currentUser}
+                  onFollowCurrentUser={user => this.updateUser(user)}
+                  match={props.match}
+                />
+              );
+            }}
+          />
         </Switch>
 
         <footer>{!this.state.currentUser && <FooterLogged />}</footer>
