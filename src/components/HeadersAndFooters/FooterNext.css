@@ -1,0 +1,23 @@
+.App {
+  height: 100%;
+  width: 100%;
+}
+
+.FooterNext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  color: #999999;
+  border-top: 1px solid rgba(122, 122, 122, 0.1);
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.linkNext {
+  width: 94%;
+}

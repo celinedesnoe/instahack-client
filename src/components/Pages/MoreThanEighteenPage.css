@@ -4,5 +4,71 @@
 }
 
 .MoreThanEighteen {
-  margin-top: 20%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body18 {
+  width: 92%;
+  margin-top: 67px;
+}
+
+.areyou18 {
+  font-size: 16px;
+  font-weight: 720;
+  margin-bottom: 7px;
+}
+
+.youcanstill {
+  font-size: 12px;
+  color: #999999;
+  margin-bottom: 8px;
+}
+
+.alignleft {
+  text-align: left;
+}
+
+.age {
+  margin-top: 14px;
+  padding-left: 2px;
+  font-size: 14px;
+}
+
+input.moreage,
+input.lessage {
+  background-color: white;
+  border: 2px solid #99999970;
+  margin-right: 12px;
+  float: left;
+}
+
+.moreAge,
+.lessAge {
+  float: left;
+  margin-bottom: 0;
+  font-weight: 550;
+  color: black;
+}
+
+input.lessage {
+  margin-top: 7px;
+}
+
+.lessAge {
+  margin-top: 7px;
+}
+
+input.moreage:active {
+  background-color: blue;
+  color: blue;
+}
+
+.buttonnext1 {
+  bottom: 15px;
+  position: absolute;
+  z-index: 102;
 }
