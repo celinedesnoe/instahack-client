@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getPostDetails, postComment, likePost, unlikePost } from "../../api";
 
 import AddComment from "../General/AddComment.js";
@@ -8,7 +8,7 @@ import Comment from "../General/Comment.js";
 
 import "./PostDetailPage.css";
 
-class PostDetail extends Component {
+class PostDetailPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +17,7 @@ class PostDetail extends Component {
       allComments: [],
       showComment: false,
       newComment: "",
+      numberOfLikes: "",
       liked: false
     };
   }
@@ -25,7 +26,7 @@ class PostDetail extends Component {
     const { params } = this.props.postInfo.match;
     console.log("Props in PDP: ", this.props);
     console.log("Post Id in PDP: ", params.postId);
-    getPostDetails(params.postId, this.props.currentUser._id)
+    getPostDetails(params.postId)
       .then(response => {
         var likeState = false;
         if (
@@ -33,11 +34,15 @@ class PostDetail extends Component {
         ) {
           likeState = true;
         }
+
+        const currentLikes = response.data.post.likedBy.length;
+
         console.log("Post Details", response.data);
         this.setState({
           postItem: response.data.post,
           postUser: response.data.post.username_id,
           allComments: response.data.comments,
+          numberOfLikes: currentLikes,
           liked: likeState
         });
       })
@@ -60,7 +65,7 @@ class PostDetail extends Component {
 
     likePost(addLike).then(response => {
       console.log("RESPONSE TO LIKE: ", response.data);
-      this.setState({ liked: true });
+      this.setState({ liked: true, postItem: response.data });
     });
   }
 
@@ -72,9 +77,10 @@ class PostDetail extends Component {
       unliker: this.props.currentUser._id
     };
 
+    // use exported function from api.js in order to send the data
     unlikePost(removeLike).then(response => {
       console.log("RESPONSE TO UNLIKE: ", response.data);
-      this.setState({ liked: false });
+      this.setState({ liked: false, postItem: response.data });
     });
   }
 
@@ -105,6 +111,8 @@ class PostDetail extends Component {
 
     postComment(commentInfo).then(response => {
       console.log("comment added to array: ", response.data);
+      const updatedComments = this.state.allComments.unshift(response.data);
+      this.setState({ allComments: updatedComments });
     });
 
     this.setState({ showComment: false });
@@ -115,7 +123,7 @@ class PostDetail extends Component {
     // console.log("Current User in Post Details: ", this.props.currentUser);
     // console.log("COMMENTS in PDP: ", allComments);
     return (
-      <div className="PostDetail">
+      <div className="PostDetailPage">
         POST DETAIL PAGE
         <div>{postUser.username}</div>
         <div>{postUser.profilePic}</div>
@@ -138,7 +146,20 @@ class PostDetail extends Component {
             - sends all to the back end through api.js
           */}
         <p>
-          x likes
+          {this.state.liked ? (
+            <Link to={`/p/${postItem._id}/liked_by`}>
+              <div>
+                {postItem.likedBy.length}
+                <span> likes</span>
+              </div>
+            </Link>
+          ) : (
+            <Link to={`/p/${postItem._id}/liked_by`}>
+              <div>
+                0<span> likes</span>
+              </div>
+            </Link>
+          )}
           {/* placeholder for Link that goes to the Likes page
           - onClick for the link
             - go to route /p/:postId/liked_by
@@ -155,7 +176,6 @@ class PostDetail extends Component {
             return (
               <Comment
                 key={oneComment._id}
-                pic={oneComment.username_id.profilePic}
                 commenter={oneComment.username_id.username}
                 comment={oneComment.content}
               />
@@ -185,4 +205,4 @@ class PostDetail extends Component {
   }
 }
 
-export default PostDetail;
+export default PostDetailPage;
