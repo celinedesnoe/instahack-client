@@ -48,8 +48,12 @@ class ModifyProfile extends Component {
 
     return (
       <section className="ModifyProfile">
-        <HeaderArrowBack text="Edit Profile" position="position-top" />
-        <div className="header-edit">
+        <HeaderArrowBack
+          text="Edit Profile"
+          position="position-top"
+          link={`/${currentUser.username}`}
+        />
+        <div className="header-edit d-flex">
           <ProfilePic profilePic={profilePic} size="profile-page" />
 
           {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}

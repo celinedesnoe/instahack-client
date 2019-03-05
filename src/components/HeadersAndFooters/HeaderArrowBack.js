@@ -9,9 +9,13 @@ class HeaderArrowBack extends Component {
   render() {
     return (
       <div className={`header ${this.props.position}`}>
-        <img className="goback" src={ArrowGoBack} alt="Arrow Go Back" />
+        <p>
+          <a href={this.props.link}>
+            <img className="goback" src={ArrowGoBack} alt="Arrow Go Back" />
+          </a>
+        </p>
+
         <p className="text-arrow">{this.props.text}</p>
-        <a href={this.props.link}> {this.props.textLink}</a>
       </div>
     );
   }
