@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { getPostDetails, postComment } from "../../api";
+// import { Link } from "react-router-dom";
+import { getPostDetails, postComment, likePost, unlikePost } from "../../api";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
@@ -16,7 +16,8 @@ class PostDetail extends Component {
       postUser: {},
       allComments: [],
       showComment: false,
-      newComment: ""
+      newComment: "",
+      liked: false
     };
   }
 
@@ -24,13 +25,20 @@ class PostDetail extends Component {
     const { params } = this.props.postInfo.match;
     console.log("Props in PDP: ", this.props);
     console.log("Post Id in PDP: ", params.postId);
-    getPostDetails(params.postId)
+    getPostDetails(params.postId, this.props.currentUser._id)
       .then(response => {
+        var likeState = false;
+        if (
+          response.data.post.likedBy.indexOf(this.props.currentUser._id) > -1
+        ) {
+          likeState = true;
+        }
         console.log("Post Details", response.data);
         this.setState({
           postItem: response.data.post,
           postUser: response.data.post.username_id,
-          allComments: response.data.comments
+          allComments: response.data.comments,
+          liked: likeState
         });
       })
       .catch(() => {
@@ -42,16 +50,32 @@ class PostDetail extends Component {
     this.setState({ showComment: true });
   }
 
-  likePost(event) {
+  like(event) {
     // - put currentUser id in the post's likedBy array
     console.log("coucou LIKE!");
     const addLike = {
       post: this.state.postItem._id,
       liker: this.props.currentUser._id
     };
-    console.log(this.state.postItem._id);
-    console.log(this.props.currentUser._id);
-    console.log(addLike);
+
+    likePost(addLike).then(response => {
+      console.log("RESPONSE TO LIKE: ", response.data);
+      this.setState({ liked: true });
+    });
+  }
+
+  unlike(event) {
+    // - remove currentUser id from the post's likedBy array
+    console.log("coucou UNLIKE!");
+    const removeLike = {
+      post: this.state.postItem._id,
+      unliker: this.props.currentUser._id
+    };
+
+    unlikePost(removeLike).then(response => {
+      console.log("RESPONSE TO UNLIKE: ", response.data);
+      this.setState({ liked: false });
+    });
   }
 
   genericOnChange(event) {
@@ -97,9 +121,11 @@ class PostDetail extends Component {
         <div>{postUser.profilePic}</div>
         <img src={postItem.image} />
         <LikesAndCommentBar
+          liked={this.state.liked}
           allLikers={postItem.likedBy}
           commentBox={event => this.showCommentBox(event)}
-          addLike={event => this.likePost(event)}
+          addLike={event => this.like(event)}
+          removeLike={event => this.unlike(event)}
         />
         {/* Like/Comment Bar goes here */}
         {/* placeholder for Like/Comment Bar
