@@ -1,0 +1,7 @@
+.Comment {
+  line-height: 2vh;
+  margin-top: 1vh;
+}
+.Comment .content {
+  margin-left: 1vh;
+}

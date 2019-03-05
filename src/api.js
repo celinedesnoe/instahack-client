@@ -78,6 +78,14 @@ export function postComment(newComment) {
     .catch(errorHandler);
 }
 
+export function likePost(action) {
+  return backendApi.post("/api/process-like", action);
+}
+
+export function unlikePost(action) {
+  return backendApi.post("/api/process-unlike", action);
+}
+
 // export function checkEmail(someEmail) {
 //   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
 // }
