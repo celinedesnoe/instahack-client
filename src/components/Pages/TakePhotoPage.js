@@ -44,8 +44,6 @@ class TakePhotoPage extends Component {
 
         {image === "" ? (
           <div>
-            <h2>TAKE PHOTO COMPONENT</h2>
-
             <form className=" upload-btn-wrapper">
               <input
                 class="edit-button"

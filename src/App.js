@@ -184,7 +184,9 @@ class App extends Component {
           />
         </Switch>
 
-        {/* <footer>{this.state.currentUser && <FooterLogged />}</footer> */}
+        <div className="footerprofilelogged">
+          {this.state.currentUser && <FooterLogged />}
+        </div>
       </div>
     );
   }
