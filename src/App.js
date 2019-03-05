@@ -144,6 +144,7 @@ class App extends Component {
           />
 
           <Route
+            exact
             path="/p/:postId"
             render={props => {
               return (
@@ -159,7 +160,7 @@ class App extends Component {
             path="/p/:postId/liked_by"
             render={props => {
               return (
-                <ProfilesList
+                <LikesPage
                   currentUser={this.state.currentUser}
                   onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}

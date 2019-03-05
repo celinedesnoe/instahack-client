@@ -57,21 +57,19 @@ class PostDetailPage extends Component {
 
   like(event) {
     // - put currentUser id in the post's likedBy array
-    console.log("coucou LIKE!");
     const addLike = {
       post: this.state.postItem._id,
       liker: this.props.currentUser._id
     };
 
     likePost(addLike).then(response => {
-      console.log("RESPONSE TO LIKE: ", response.data);
+      // console.log("RESPONSE TO LIKE: ", response.data);
       this.setState({ liked: true, postItem: response.data });
     });
   }
 
   unlike(event) {
     // - remove currentUser id from the post's likedBy array
-    console.log("coucou UNLIKE!");
     const removeLike = {
       post: this.state.postItem._id,
       unliker: this.props.currentUser._id
@@ -79,7 +77,7 @@ class PostDetailPage extends Component {
 
     // use exported function from api.js in order to send the data
     unlikePost(removeLike).then(response => {
-      console.log("RESPONSE TO UNLIKE: ", response.data);
+      // console.log("RESPONSE TO UNLIKE: ", response.data);
       this.setState({ liked: false, postItem: response.data });
     });
   }
@@ -107,15 +105,14 @@ class PostDetailPage extends Component {
       content: newComment
     };
 
-    console.log("COMMENT INFO: ", commentInfo);
+    // console.log("COMMENT INFO: ", commentInfo);
 
     postComment(commentInfo).then(response => {
       console.log("comment added to array: ", response.data);
-      const updatedComments = this.state.allComments.unshift(response.data);
-      this.setState({ allComments: updatedComments });
+      this.state.allComments.unshift(response.data);
+      // console.log("UPDATED COMMENTS: ", updatedComments);
+      this.setState({ showComment: false });
     });
-
-    this.setState({ showComment: false });
   }
 
   render() {
@@ -148,16 +145,12 @@ class PostDetailPage extends Component {
         <p>
           {this.state.liked ? (
             <Link to={`/p/${postItem._id}/liked_by`}>
-              <div>
-                {postItem.likedBy.length}
-                <span> likes</span>
-              </div>
+              {postItem.likedBy.length}
+              <span> likes</span>
             </Link>
           ) : (
             <Link to={`/p/${postItem._id}/liked_by`}>
-              <div>
-                0<span> likes</span>
-              </div>
+              0<span> likes</span>
             </Link>
           )}
           {/* placeholder for Link that goes to the Likes page
@@ -188,7 +181,7 @@ class PostDetailPage extends Component {
             3. send content, username, & profile picture back in a res.json to be rendered in a Comment component
         */}
         </div>
-        <p>placeholder for date post was posted</p>
+        <p>{postItem.createdAt}</p>
         {this.state.showComment ? (
           // true, therefore render the Comment component
           <AddComment
