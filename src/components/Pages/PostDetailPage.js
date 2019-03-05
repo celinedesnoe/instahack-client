@@ -7,6 +7,10 @@ import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
 import Comment from "../General/Comment.js";
 
 import "./PostDetailPage.css";
+import ProfilePic from "../General/ProfilePic";
+import threeDotsBlack from "../../images/3dots.png";
+
+// to add: following, not following
 
 class PostDetailPage extends Component {
   constructor(props) {
@@ -15,9 +19,8 @@ class PostDetailPage extends Component {
       postItem: {},
       postUser: {},
       allComments: [],
-      showComment: false,
+      showComment: true,
       newComment: "",
-      numberOfLikes: "",
       liked: false
     };
   }
@@ -35,14 +38,11 @@ class PostDetailPage extends Component {
           likeState = true;
         }
 
-        const currentLikes = response.data.post.likedBy.length;
-
         console.log("Post Details", response.data);
         this.setState({
           postItem: response.data.post,
           postUser: response.data.post.username_id,
           allComments: response.data.comments,
-          numberOfLikes: currentLikes,
           liked: likeState
         });
       })
@@ -56,28 +56,39 @@ class PostDetailPage extends Component {
   }
 
   like(event) {
-    // - put currentUser id in the post's likedBy array
+    // aggregate the necessary info in order to put the currentUser in the post's likedBy array
+    // - post ID
+    // - ID of the current user
     const addLike = {
       post: this.state.postItem._id,
       liker: this.props.currentUser._id
     };
 
+    // send this info to the back end (fnc exported from api.js)
     likePost(addLike).then(response => {
-      // console.log("RESPONSE TO LIKE: ", response.data);
+      console.log("RESPONSE TO LIKE: ", response.data);
+
+      // update boolean in order to show the right like button
+      // update the postItem in order to display the right number of likes
       this.setState({ liked: true, postItem: response.data });
     });
   }
 
   unlike(event) {
-    // - remove currentUser id from the post's likedBy array
+    // aggregating the necessary info in order to remove currentUser from the post's likedBy array
+    // - post ID
+    // - ID of the current user
     const removeLike = {
       post: this.state.postItem._id,
       unliker: this.props.currentUser._id
     };
 
-    // use exported function from api.js in order to send the data
+    // send this info to the back end (fnc exported from api.js)
     unlikePost(removeLike).then(response => {
-      // console.log("RESPONSE TO UNLIKE: ", response.data);
+      console.log("RESPONSE TO UNLIKE: ", response.data);
+
+      // update boolean in order to show the right like button
+      // update the postItem in order to display the right number of likes
       this.setState({ liked: false, postItem: response.data });
     });
   }
@@ -89,28 +100,20 @@ class PostDetailPage extends Component {
 
   appendComment(event) {
     // send comment content to back end along with: poster's id, post id, & content (write function in api.js)
-    // set the state of showComment (in parent) to false
-
-    const { newComment } = this.state;
-    const posterId = this.props.currentUser._id;
-    const postId = this.state.postItem._id;
-
-    // console.log(newComment);
-    // console.log(posterId);
-    // console.log(postId);
-
     const commentInfo = {
-      username_id: posterId,
-      post_id: postId,
-      content: newComment
+      username_id: this.props.currentUser._id,
+      post_id: this.state.postItem._id,
+      content: this.state.newComment
     };
 
     // console.log("COMMENT INFO: ", commentInfo);
 
     postComment(commentInfo).then(response => {
       console.log("comment added to array: ", response.data);
+      // add new comment info to the front of the comments array to be rendered at the top
       this.state.allComments.unshift(response.data);
-      // console.log("UPDATED COMMENTS: ", updatedComments);
+
+      // set the state of showComment (in parent) to false
       this.setState({ showComment: false });
     });
   }
@@ -120,11 +123,38 @@ class PostDetailPage extends Component {
     // console.log("Current User in Post Details: ", this.props.currentUser);
     // console.log("COMMENTS in PDP: ", allComments);
     return (
-      <div className="PostDetailPage">
-        POST DETAIL PAGE
-        <div>{postUser.username}</div>
-        <div>{postUser.profilePic}</div>
-        <img src={postItem.image} />
+      <div className="PostDetailPage w-100">
+        {/* show poster's profilepic & username */}
+        <div className="ProfileRow d-flex row justify-content-between m-0">
+          <div className="d-flex flex-row">
+            <Link
+              to={"/" + postUser.username}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <div>
+                <ProfilePic
+                  profilePic={postUser.profilePic}
+                  size="profile-row"
+                />
+              </div>
+            </Link>
+            <Link
+              to={"/" + postUser.username}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <div className="poster-name">
+                <div>{postUser.username}</div>
+              </div>
+            </Link>
+            <p>• Following</p>
+          </div>
+          <img src={threeDotsBlack} alt="menu" className="post-menu" />
+        </div>
+
+        {/* show the actual pic of the post */}
+        <img src={postItem.image} alt="mainpic" className="mainpic" />
+
+        {/* component that allows viewers of a post to like or comment */}
         <LikesAndCommentBar
           liked={this.state.liked}
           allLikers={postItem.likedBy}
@@ -132,67 +162,72 @@ class PostDetailPage extends Component {
           addLike={event => this.like(event)}
           removeLike={event => this.unlike(event)}
         />
-        {/* Like/Comment Bar goes here */}
-        {/* placeholder for Like/Comment Bar
-          - onClick for Like
-            - put currentUser id in the posts likedBy array
-          - onClick for the Comment
-            - conditional render at the bottom of the page brings up an single-input form, placeholder: Add a comment… with a Link that says “Post”
-            - onSubmit of the “Post” , activate submitComment function
-            - submitComment takes: id of the post on which the comment was made, id of the current user , & content of the comment
-            - sends all to the back end through api.js
-          */}
-        <p>
-          {this.state.liked ? (
-            <Link to={`/p/${postItem._id}/liked_by`}>
-              {postItem.likedBy.length}
-              <span> likes</span>
-            </Link>
-          ) : (
-            <Link to={`/p/${postItem._id}/liked_by`}>
-              0<span> likes</span>
-            </Link>
-          )}
-          {/* placeholder for Link that goes to the Likes page
-          - onClick for the link
+
+        <div className="comment-list">
+          {/* info about the number of likes and the pictures of those who have liked
+            - onClick for the link
             - go to route /p/:postId/liked_by
             - get all people in the likedBy array for a post with :postId
             - render profileRow for each (send username, profilePic, follow/unfollow)
-          */}
-        </p>
-        <div>
-          <b>{postUser.username} </b>
-          {postItem.caption}
-        </div>
-        <div className="comment-list">
-          {allComments.map(oneComment => {
-            return (
-              <Comment
-                key={oneComment._id}
-                commenter={oneComment.username_id.username}
-                comment={oneComment.content}
-              />
-            );
-          })}
-          {/* 
-            TO RENDER COMMENTS ON A POST
-            1. query Comments in db for documents with post_Id matching that of the current post — to retrieve commentDoc, which will contain the content and id of person who commented, ordered from oldest to youngest
-            2. within this query, query Users for documents with with _id matching that of the person who commented — to retrieve their username and profile picture
-            3. send content, username, & profile picture back in a res.json to be rendered in a Comment component
         */}
+          <div className="comment-info">
+            <div className="margin-bottom-10">
+              {this.state.liked ? (
+                <Link to={`/p/${postItem._id}/liked_by`}>
+                  <b>
+                    {" "}
+                    {postItem.likedBy.length}
+                    <span> likes</span>
+                  </b>
+                </Link>
+              ) : (
+                <Link to={`/p/${postItem._id}/liked_by`}>
+                  <b>
+                    {" "}
+                    0<span> likes</span>
+                  </b>
+                </Link>
+              )}
+            </div>
+            {/* the poster's username & caption */}
+            <div>
+              <b>{postUser.username} </b>
+              {postItem.caption}
+            </div>
+            {/* displaying all comments on a post */}
+            <p className="margin-top-10 color-gray">
+              View all {allComments.length} comments
+            </p>
+            {allComments.map(oneComment => {
+              return (
+                <Comment
+                  key={oneComment._id}
+                  commenter={oneComment.username_id.username}
+                  comment={oneComment.content}
+                />
+              );
+            })}
+          </div>
+
+          {/* the date at which the post was originally posted */}
+          <p>{postItem.createdAt}</p>
+
+          {/* the component through which a user can add a comment
+          - displays after the comment button is clicked on the LikesAndCommentBar component above
+         */}
+          <hr className="w-100" />
+          {this.state.showComment ? (
+            // true, therefore render the Comment component
+            <AddComment
+              updateState={event => this.genericOnChange(event)}
+              saveComment={event => this.appendComment(event)}
+              originalPost={this.state.postItem._id}
+            />
+          ) : (
+            // false, therefore show nothing
+            <div />
+          )}
         </div>
-        <p>{postItem.createdAt}</p>
-        {this.state.showComment ? (
-          // true, therefore render the Comment component
-          <AddComment
-            updateState={event => this.genericOnChange(event)}
-            saveComment={event => this.appendComment(event)}
-            originalPost={this.state.postItem._id}
-          />
-        ) : (
-          // false, therefore show nothing
-          <div />
-        )}
       </div>
     );
   }

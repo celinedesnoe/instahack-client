@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import "./AddComment.css";
+
 class AddComment extends Component {
   constructor(props) {
     super(props);
@@ -11,9 +13,11 @@ class AddComment extends Component {
   render() {
     return (
       <section className="AddComment">
-        <input
+        <textarea
+          class="comment-input"
           onChange={event => this.props.updateState(event)}
           type="text"
+          rows="1"
           name="newComment"
           placeholder="Add a comment..."
         />
@@ -21,7 +25,7 @@ class AddComment extends Component {
           onClick={event => this.props.saveComment(event)}
           to={`/p/${this.props.originalPost}`}
         >
-          Submit
+          Post
         </Link>
       </section>
     );

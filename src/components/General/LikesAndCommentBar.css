@@ -1,5 +1,9 @@
+.LikesAndCommentBar {
+  margin: 15px;
+}
 .LikesAndCommentBar img {
-  height: 2vh;
+  object-fit: contain;
+  height: 25px;
   width: auto;
-  margin-right: 2vw;
+  margin-right: 15px;
 }

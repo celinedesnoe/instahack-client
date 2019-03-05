@@ -20,14 +20,14 @@ class LikesAndCommentBar extends Component {
         {this.props.liked ? (
           <img
             onClick={event => this.props.removeLike(event)}
-            className="Unlike"
+            // className="Unlike"
             src={UnlikeButton}
             alt="to unlike"
           />
         ) : (
           <img
             onClick={event => this.props.addLike(event)}
-            className="Like"
+            // className="Like"
             src={LikeButton}
             alt="to like"
           />
@@ -40,7 +40,7 @@ class LikesAndCommentBar extends Component {
 
         <img
           onClick={event => this.props.commentBox(event)}
-          className="Comment"
+          // className="Comment"
           src={CommentButton}
           alt="to add a comment"
         />

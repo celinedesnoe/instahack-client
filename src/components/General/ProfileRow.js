@@ -17,7 +17,7 @@ class ProfileRow extends Component {
   render() {
     const { profileUser, currentUser } = this.props;
     return (
-      <div className="ProfileRow d-flex row justify-content-between">
+      <div className="ProfileRow d-flex row justify-content-start">
         <Link
           to={"/" + profileUser.username}
           style={{ textDecoration: "none", color: "black" }}

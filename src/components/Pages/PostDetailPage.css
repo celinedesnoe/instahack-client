@@ -1,4 +1,32 @@
-.PostDetailPage img {
-  max-width: 50%;
+.PostDetailPage .mainpic {
+  width: 100%;
   max-height: 50%;
+}
+
+.poster-name {
+  margin: 0 10px;
+}
+
+.post-menu {
+  object-fit: contain;
+}
+
+.comment-list {
+  margin: 15px;
+}
+
+.comment-info a {
+  color: black;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.color-gray {
+  color: gray;
 }

@@ -8,7 +8,6 @@ class ProfilePic extends Component {
 
     return (
       <div className={`ProfilePic ${size}`}>
-        PROFILE PIC
         <img src={profilePic} alt="ProfilePic" className="img-in-circle" />
       </div>
     );
