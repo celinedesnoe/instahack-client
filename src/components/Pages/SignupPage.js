@@ -4,7 +4,6 @@ import { postSignUp, checkEmail, checkUsername } from "../../api.js";
 
 import HeaderInstagram from "../HeadersAndFooters/HeaderInstagram";
 import HeaderRegister from "../HeadersAndFooters/HeaderRegister";
-// import Header from "./Header";
 import FooterFbBlue from "../HeadersAndFooters/FooterFbBlue";
 import EditEmail from "../EditAccount/EditEmail";
 import AddUsernameAndPsw from "../EditAccount/AddUsernameAndPsw";

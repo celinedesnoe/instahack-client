@@ -4,7 +4,7 @@ import { postLogIn } from "../../api";
 
 import ButtonLinkFacebook from "../General/ButtonLinkFacebook.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
-import Header from "../HeadersAndFooters/Header.js";
+import HeaderLanguage from "../HeadersAndFooters/HeaderLanguage.js";
 import FooterBlue from "../HeadersAndFooters/FooterBlue.js";
 
 import InstagramLogo from "../../images/Instagram_logo.png";
@@ -40,7 +40,7 @@ class LoginPage extends Component {
       <Redirect to="/" />
     ) : (
       <div className="LoginPage">
-        <Header />
+        <HeaderLanguage />
         <div className="LoginPageBody">
           <img
             className="instagramlogo"

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import ButtonLink from "../General/ButtonLink.js";
-import Header from "../HeadersAndFooters/Header.js";
+import HeaderLanguage from "../HeadersAndFooters/HeaderLanguage.js";
 import Footer from "../HeadersAndFooters/Footer.js";
 
 import InstagramLogo from "../../images/Instagram_logo.png";
@@ -14,7 +14,7 @@ class HomePage extends Component {
   render() {
     return (
       <section className="HomePage">
-        <Header />
+        <HeaderLanguage />
         <div className="HomePageBody">
           <img
             className="instagramlogofirstpage"
