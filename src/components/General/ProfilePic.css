@@ -1,27 +1,27 @@
+/* NEW CLASSES TO BE DEFINED FOR PROFILEROW AND FOR LIKES*/
+
 .ProfilePic {
   border-radius: 50%;
   box-sizing: border-box;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+}
+
+.profile-page {
   height: 70px;
   width: 70px;
 }
 
-.ProfilePic .profile-page {
+.profile-row {
+  height: 40px;
+  width: 40px;
+}
+
+.ProfilePic .img-in-circle {
   height: 100%;
   left: 0;
   top: 0;
   width: 100%;
   position: absolute;
 }
-
-.ProfilePic .profile-row {
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
-  position: absolute;
-}
-
-/* NEW CLASSES TO BE DEFINED FOR PROFILEROW AND FOR LIKES*/
