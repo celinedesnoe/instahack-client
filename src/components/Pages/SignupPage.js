@@ -6,6 +6,7 @@ import HeaderInstagram from "../HeadersAndFooters/HeaderInstagram";
 import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack";
 // import Header from "./Header";
 import FooterFbBlue from "../HeadersAndFooters/FooterFbBlue";
+import FooterNext from "../HeadersAndFooters/FooterNext";
 import EditEmail from "../EditAccount/EditEmail";
 import AddUsernameAndPsw from "../EditAccount/AddUsernameAndPsw";
 import TermsAndConditions from "../Pages/TermsAndConditionsPage";
@@ -29,9 +30,9 @@ class SignupPage extends Component {
       profilePic: "",
       phoneNumber: "",
       gender: "Prefer not to say",
-      emailSubmitted: false,
-      fullNameSubmitted: false,
-      agreeToTerms: false,
+      emailSubmitted: true,
+      fullNameSubmitted: true,
+      agreeToTerms: true,
       moreThanEighteen: false,
       connectToFacebook: false,
       addPhoto: false,
@@ -157,10 +158,7 @@ class SignupPage extends Component {
                   <MoreThanEighteen
                     ageStatus={event => this.handleOlder(event)}
                   />
-                  <FooterFbBlue
-                    text="Sign up with Facebook"
-                    link="https://www.facebook.com"
-                  />
+                  <FooterNext />
                 </div>
               )
             ) : (
