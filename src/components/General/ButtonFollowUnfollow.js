@@ -28,7 +28,7 @@ class ButtonFollowUnfollow extends Component {
         return (
           <div>
             <ButtonSubmit
-              styling="white-button"
+              styling="white-button "
               link=""
               text="Following"
               onClick={() => this.unfollowClick()}
@@ -39,7 +39,7 @@ class ButtonFollowUnfollow extends Component {
         return (
           <div>
             <ButtonSubmit
-              styling="blue-button"
+              styling="blue-button "
               link=""
               text="Follow"
               onClick={() => this.followClick()}
@@ -82,7 +82,7 @@ class ButtonFollowUnfollow extends Component {
 
   render() {
     console.log(this.props.profileUser);
-    return <div>{this.buttonFollowUnfollow()}</div>;
+    return <div className={this.props.size}>{this.buttonFollowUnfollow()}</div>;
   }
 }
 

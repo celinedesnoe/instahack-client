@@ -5,8 +5,8 @@ import "./ButtonLink.css";
 class ButtonLink extends Component {
   render() {
     return (
-      <a className={this.props.styling} href={this.props.link}>
-        {this.props.text}
+      <a href={this.props.link}>
+        <button className={this.props.styling}> {this.props.text}</button>
       </a>
     );
   }

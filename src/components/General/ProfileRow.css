@@ -1,7 +1,16 @@
 .ProfileRow {
   width: 100%;
-  padding: 8px 16px;
   font-size: 14px;
+  margin: 0;
+  padding: 8px 20px;
+}
+
+.username-marg {
+  margin-left: 10px;
+}
+
+.grey {
+  color: #999;
 }
 
 /* .ProfilePage .profile-pic {

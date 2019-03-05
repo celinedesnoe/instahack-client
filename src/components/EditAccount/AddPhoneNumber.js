@@ -24,24 +24,31 @@ class EditProfilePhoto extends Component {
             Adding your number will help you log in more easily, recover your
             account, and find people to follow.
           </p>
-          <input type="Number" placeholder="Phone Number" />
+          <input
+            type="Number"
+            placeholder="Phone Number"
+            className="addphoneinput"
+          />
           <button
             onClick={event => this.props.addPhoto(event)}
             className="blue-button"
           >
             Add phone number
-          </button>{" "}
+          </button>
+          <div className="holdtheskip">
+            <Link
+              onClick={event => this.props.addPhoto(event)}
+              to="#"
+              className="skip"
+            >
+              Skip
+            </Link>
+            <p className="youmayreceive">
+              You may receive SMS updates from Instagram and can opt out at
+              anytime.
+            </p>
+          </div>
         </div>
-        <Link
-          onClick={event => this.props.addPhoto(event)}
-          to="#"
-          className="skip"
-        >
-          Skip
-        </Link>
-        <p className="youmayreceive">
-          You may receive SMS updates from Instagram and can opt out at anytime.
-        </p>
       </div>
     );
   }

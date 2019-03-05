@@ -32,9 +32,10 @@ class ProfilesList extends Component {
     const { currentUser } = this.props;
     // console.log(this.props.match);
     console.log("Profile User", profileUser);
-    console.log("Profile User FOLLOWERS", profileUser.followers);
 
+    console.log("Profile User FOLLOWERS", profileUser.followers);
     console.log("Current User", currentUser);
+
     return (
       <div className="ProfilesList">
         <Switch>

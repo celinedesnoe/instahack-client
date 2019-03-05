@@ -13,14 +13,14 @@ class ConnectToFacebook extends Component {
   render() {
     return (
       <div className="ConnectToFacebook">
-        <div className="helptheskip">
+        <div className="connecttofacebook">
           <img
             src={circlefacebook}
             alt="facebook in a circle"
             className="circlefacebook"
           />
-          <h4 className="addprofilephoto">Connect to Facebook</h4>
-          <p className="soyourfriends">
+          <h4 className="connecttoFacebook">Connect to Facebook</h4>
+          <p className="connecttofriends">
             Connect to Facebook to find friends to follow.
           </p>
           <button
@@ -33,7 +33,7 @@ class ConnectToFacebook extends Component {
         <Link
           onClick={event => this.props.addPhoto(event)}
           to="#"
-          className="skip"
+          className="skip1"
         >
           Skip
         </Link>

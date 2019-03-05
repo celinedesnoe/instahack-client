@@ -45,7 +45,6 @@ class ProfilesList extends Component {
               render={() => {
                 return (
                   <div>
-                    Page for followers
                     {profileUser.followers.map(oneFollower => {
                       return (
                         // <div key={oneFollower._id} className="col-4 myCol p-0">
@@ -71,7 +70,6 @@ class ProfilesList extends Component {
               render={() => {
                 return (
                   <div>
-                    Page for following
                     {profileUser.following.map(oneFollowing => {
                       return (
                         // <div key={oneFollowing._id} className="col-4 myCol p-0">
@@ -89,6 +87,8 @@ class ProfilesList extends Component {
               }}
             />
           )}
+
+          {/************ FOR LIKERS PAGE *************/}
         </Switch>
       </div>
     );

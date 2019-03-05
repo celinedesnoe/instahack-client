@@ -47,28 +47,26 @@ class MoreThanEighteen extends Component {
               onSubmit={event => this.props.ageStatus(event)}
               className="age"
             >
-              {/* <label className="moreAge">
-                18 or older */}
-              <input
-                type="radio"
-                className="moreage"
-                checked={this.state.age === "plus"}
-                onChange={this.handleChange}
-                value="plus"
-              />
-              <p className="moreAge">18 or older</p> {/* </label> */}
-              <br />
-              {/* <label className="lessAge">
-                Under 18 */}
-              <input
-                type="radio"
-                className="lessage"
-                checked={this.state.age === "less"}
-                onChange={this.handleChange}
-                value="less"
-              />
-              <p className="lessAge">Under 18</p>
-              {/* </label> */}
+              <label className="d-flex flex-row align-items-center">
+                <input
+                  type="radio"
+                  className="moreage"
+                  checked={this.state.age === "plus"}
+                  onChange={this.handleChange}
+                  value="plus"
+                />
+                <p className="moreAge">18 or older</p>
+              </label>
+              <label className="d-flex flex-row align-items-center">
+                <input
+                  type="radio"
+                  className="lessage"
+                  checked={this.state.age === "less"}
+                  onChange={this.handleChange}
+                  value="less"
+                />
+                <p className="lessAge">Under 18</p>
+              </label>
               <div className="buttonnext1">
                 <ButtonNext
                   text="Next"
