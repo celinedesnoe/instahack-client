@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import ProfilePic from "../General/ProfilePic.js";
 
 import { editUser } from "../../api.js";
@@ -19,7 +19,8 @@ class ModifyProfile extends Component {
       bio: this.props.currentUser.bio,
       email: this.props.currentUser.email,
       phoneNumber: this.props.currentUser.phoneNumber,
-      gender: this.props.currentUser.gender
+      gender: this.props.currentUser.gender,
+      isSubmit: false
     };
   }
 
@@ -39,6 +40,7 @@ class ModifyProfile extends Component {
     editUser(updatedUser).then(response => {
       console.log("edit result", response.data);
       this.props.editSuccess(response.data);
+      this.setState({ isSubmit: true });
     });
   }
 
@@ -46,7 +48,9 @@ class ModifyProfile extends Component {
     const { currentUser } = this.props;
     const { profilePic } = this.props.currentUser;
 
-    return (
+    return this.state.isSubmit ? (
+      <Redirect to={`/${currentUser.username}`} />
+    ) : (
       <section className="ModifyProfile">
         <HeaderArrowBack
           text="Edit Profile"
@@ -176,9 +180,8 @@ class ModifyProfile extends Component {
             </div>
           </label>
           <div>
-            <Link to={"/" + currentUser.username}>
-              <ButtonSubmit text="Submit" styling="blue-button" />
-            </Link>
+            <ButtonSubmit text="Submit" styling="blue-button" />
+
             <Link to={"#"}>Temporarily disable my account</Link>
           </div>
         </form>

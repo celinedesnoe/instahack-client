@@ -5,7 +5,11 @@ import "./ButtonSubmit.css";
 class ButtonSubmit extends Component {
   render() {
     return (
-      <button className={this.props.styling} onClick={this.props.onClick}>
+      <button
+        className={this.props.styling}
+        onClick={this.props.onClick}
+        type="submit"
+      >
         {this.props.text}
       </button>
     );
