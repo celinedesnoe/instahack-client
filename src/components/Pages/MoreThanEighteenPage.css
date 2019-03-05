@@ -69,6 +69,7 @@ input.moreage:active {
 
 .buttonnext1 {
   bottom: 15px;
-  position: absolute;
+  position: fixed;
   z-index: 102;
+  width: 90%;
 }

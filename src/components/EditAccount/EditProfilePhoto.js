@@ -17,10 +17,10 @@ class EditProfilePhoto extends Component {
           <img
             src={profileperson}
             alt="person in a circle"
-            className="profileperson"
+            className="profileperson1"
           />
-          <h4 className="addprofilephoto">Add a profile photo</h4>
-          <p className="soyourfriends">
+          <h4 className="addprofilephoto1">Add a profile photo</h4>
+          <p className="soyourfriends1">
             Add a profile photo so your friends know it's you.
           </p>
           <button
@@ -28,12 +28,12 @@ class EditProfilePhoto extends Component {
             className="blue-button"
           >
             Next
-          </button>{" "}
+          </button>
         </div>
         <Link
           onClick={event => this.props.addPhoto(event)}
           to="#"
-          className="skip"
+          className="skip2"
         >
           Skip
         </Link>
