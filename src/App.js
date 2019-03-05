@@ -61,7 +61,7 @@ class App extends Component {
         <nav>
           {this.state.currentUser ? (
             <span>
-              {/* <b>{this.state.currentUser.email}</b> */}
+              <b>{this.state.currentUser.email}</b>
               <button onClick={() => this.logoutClick()}>
                 <Link exact to="/">
                   Log Out
@@ -70,7 +70,7 @@ class App extends Component {
             </span>
           ) : (
             <span className="navbar">
-              {/* <NavLink to="/accounts/login">Log In</NavLink> */}
+              <NavLink to="/accounts/login">Log In</NavLink>
             </span>
           )}
         </nav>

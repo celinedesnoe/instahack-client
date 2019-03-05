@@ -4,10 +4,10 @@ import "./ProfilePic.css";
 
 class ProfilePic extends Component {
   render() {
-    const { profilePic, size } = this.props;
+    const { profilePic, size, margin } = this.props;
 
     return (
-      <div className={`ProfilePic ${size}`}>
+      <div className={`ProfilePic ${size} ${margin}`}>
         PROFILE PIC
         <img src={profilePic} alt="ProfilePic" className="img-in-circle" />
       </div>
