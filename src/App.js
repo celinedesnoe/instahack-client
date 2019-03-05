@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 import { getLogOut } from "./api";
-import { getUserProfile, getUserToUnfollow, getUserToFollow } from "./api.js";
+// import { getUserProfile, getUserToUnfollow, getUserToFollow } from "./api.js";
 import HomePage from "./components/Pages/HomePage.js";
 import ProfilePage from "./components/Pages/ProfilePage.js";
 import ProfilesList from "./components/Pages/ProfilesList.js";
@@ -10,9 +10,10 @@ import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
 import NewsfeedPage from "./components/Pages/NewsfeedPage.js";
-import ButtonSubmit from "./components/General/ButtonSubmit.js";
-import ButtonLink from "./components/General/ButtonLink.js";
-import LikesPage from "./components/Pages/LikesPage";
+// import ButtonSubmit from "./components/General/ButtonSubmit.js";
+// import ButtonLink from "./components/General/ButtonLink.js";
+import LikesPage from "./components/Pages/LikesPage.js";
+import EditPicturePage from "./components/Pages/EditPicturePage.js";
 
 import "./App.css";
 import FooterLogged from "./components/HeadersAndFooters/FooterLogged";
@@ -164,6 +165,19 @@ class App extends Component {
                   currentUser={this.state.currentUser}
                   onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}
+                />
+              );
+            }}
+          />
+
+          <Route
+            exact
+            path="/create/style/"
+            render={props => {
+              return (
+                <EditPicturePage
+                  currentUser={this.state.currentUser}
+                  props={props}
                 />
               );
             }}

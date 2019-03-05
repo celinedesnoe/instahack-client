@@ -15,6 +15,7 @@ import ProfileStatistics from "../General/ProfileStatistics";
 import GridView from "../General/GridView.js";
 
 import "./ProfilePage.css";
+import TakePhotoPage from "./TakePhotoPage.js";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -108,6 +109,8 @@ class ProfilePage extends Component {
         />
 
         <GridView profilePosts={profilePosts} />
+
+        <TakePhotoPage />
       </div>
     );
   }

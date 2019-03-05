@@ -52,9 +52,11 @@ export function getUserProfileFollowing(username) {
   return backendApi.get(`/api/${username}/following`).catch(errorHandler);
 }
 
-// export function postPicture(picture) {
-
-// }
+export function postPicture(files) {
+  const uploadData = new FormData();
+  uploadData.append("userFile", files[0]);
+  return backendApi.post("/api/single-upload", uploadData).catch(errorHandler);
+}
 
 // export function getPosts(someUser) {
 //   return backendApi.post("/api/posts", someUser).catch(errorHandler);

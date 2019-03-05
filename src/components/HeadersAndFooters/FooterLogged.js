@@ -11,7 +11,6 @@ class FooterLogged extends Component {
         <form className=" upload-btn-wrapper">
           <input class="edit-button" type="file" />
           <button class="btn">
-            {" "}
             <img src={profilewhite} alt="profile icon" />
             CAMERA
           </button>
