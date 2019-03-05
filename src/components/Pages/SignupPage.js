@@ -3,8 +3,12 @@ import { Link, Redirect } from "react-router-dom";
 import { postSignUp, checkEmail, checkUsername } from "../../api.js";
 
 import HeaderInstagram from "../HeadersAndFooters/HeaderInstagram";
+<<<<<<< HEAD
 import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack";
 // import Header from "./Header";
+=======
+import HeaderRegister from "../HeadersAndFooters/HeaderRegister";
+>>>>>>> 37697876ee2c709af02fe605bd0192ecdb66ae3c
 import FooterFbBlue from "../HeadersAndFooters/FooterFbBlue";
 import EditEmail from "../EditAccount/EditEmail";
 import AddUsernameAndPsw from "../EditAccount/AddUsernameAndPsw";

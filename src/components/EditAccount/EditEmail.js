@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Header from "../HeadersAndFooters/Header";
+import HeaderLanguage from "../HeadersAndFooters/HeaderLanguage.js";
 import ButtonNext from "../General/ButtonNext";
 
 import "./EditEmail.css";
@@ -13,7 +13,7 @@ class EditEmail extends Component {
   render() {
     return (
       <div className="HeaderEnglish">
-        <Header />
+        <HeaderLanguage />
         <form
           className="EditEmail"
           onSubmit={event => this.props.checkEmail(event)}
