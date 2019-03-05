@@ -15,6 +15,7 @@ import ButtonLink from "./components/General/ButtonLink.js";
 import LikesPage from "./components/Pages/LikesPage";
 
 import "./App.css";
+import FooterLogged from "./components/HeadersAndFooters/FooterLogged";
 
 class App extends Component {
   constructor(props) {
@@ -167,6 +168,8 @@ class App extends Component {
             }}
           />
         </Switch>
+
+        <footer>{this.state.currentUser && <FooterLogged />}</footer>
       </div>
     );
   }
