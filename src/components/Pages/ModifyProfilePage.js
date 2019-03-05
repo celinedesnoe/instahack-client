@@ -54,73 +54,104 @@ class ModifyProfile extends Component {
           link={`/${currentUser.username}`}
         />
         <div className="header-edit d-flex">
-          <ProfilePic profilePic={profilePic} size="profile-page" />
+          <ProfilePic
+            profilePic={profilePic}
+            size="profile-page"
+            margin="m-20"
+          />
 
           {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
-          <h3>{currentUser.username}</h3>
-          <Link to="#">Change Profile Photo</Link>
+
+          <div className="d-flex flex-column justify-content-center">
+            <h3>{currentUser.username}</h3>
+            <Link to="#">
+              <p className="smaller-size">
+                <b>Change profile picture</b>
+              </p>
+            </Link>
+          </div>
         </div>
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label className="name">
-            <p>Name</p>
+            <p>
+              <b>Name</b>
+            </p>
             <input
               onChange={event => this.genericOnChange(event)}
               type="text"
               name="fullName"
               value={this.state.fullName}
+              className="w-100"
             />
           </label>
 
           <label className="username">
-            <p>Username</p>
+            <p>
+              <b>Username</b>
+            </p>
             <input
               onChange={event => this.genericOnChange(event)}
               type="text"
               name="username"
               value={this.state.username}
+              className="w-100"
             />
           </label>
           <label className="website">
-            <p>Website</p>
+            <p>
+              <b>Website</b>
+            </p>
             <input
               onChange={event => this.genericOnChange(event)}
               type="url"
               name="website"
               value={this.state.website}
+              className="w-100"
             />
           </label>
           <label className="bio">
-            <p>Bio</p>
+            <p>
+              <b>Bio</b>
+            </p>
             <textarea
               onChange={event => this.genericOnChange(event)}
               rows="2"
               name="bio"
               value={this.state.bio}
+              className="w-100"
             />
           </label>
           <h6>Private Information</h6>
           <label className="email">
-            <p>Email</p>
+            <p>
+              <b>Email</b>
+            </p>
             <input
               onChange={event => this.genericOnChange(event)}
               type="email"
               name="email"
               value={this.state.email}
+              className="w-100"
             />
           </label>
           <label className="phone-number">
-            <p>Phone Number</p>
+            <p>
+              <b>Phone Number</b>
+            </p>
             <input
               onChange={event => this.genericOnChange(event)}
               type="number"
               name="phoneNumber"
               value={this.state.phoneNumber}
+              className="w-100"
             />
           </label>
           <br />
           <label className="gender">
-            <p>Gender</p>
+            <p>
+              <b>Gender</b>
+            </p>
             <select
               onChange={event => this.genericOnChange(event)}
               name="gender"
@@ -132,13 +163,17 @@ class ModifyProfile extends Component {
               <option value="other">Other</option>
             </select>
           </label>
-          <p> Similar Account Suggestions</p>
           <label className="similar-accounts">
             <p>
-              Include your account when recommending similar accounts people
-              might want to follow.
+              <b>Similar Account Suggestions</b>
             </p>
-            <input type="checkbox" />
+            <div className="d-flex direction-row">
+              <input type="checkbox" className="checkbox" />
+              <p>
+                Include your account when recommending similar accounts people
+                might want to follow.
+              </p>
+            </div>
           </label>
           <div>
             <Link to={"/" + currentUser.username}>

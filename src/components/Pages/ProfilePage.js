@@ -63,15 +63,14 @@ class ProfilePage extends Component {
             />
           </span>
 
-          <section>
+          <section className="w-70">
             <div className="d-flex row username-settings">
               <h1>{profileUser.username}</h1>
-              <div>O</div>
             </div>
             {/* BUTTON EDIT PROFILE */}
 
             {profileUser._id === currentUser._id && (
-              <div>
+              <div className="w-90">
                 <ButtonLink
                   styling="white-button"
                   link="/accounts/edit"
@@ -83,6 +82,7 @@ class ProfilePage extends Component {
             {/* BUTTON FOLLOW UNFOLLOW  */}
             <span className="d-flex justify-content-start button">
               <ButtonFollowUnfollow
+                size="w-90"
                 profileUser={profileUser}
                 currentUser={currentUser}
                 onFollowProfile={user => this.updateProfileUser(user)}

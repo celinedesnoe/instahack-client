@@ -3,7 +3,6 @@
 .ProfilePic {
   border-radius: 50%;
   box-sizing: border-box;
-  margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
@@ -24,4 +23,8 @@
   top: 0;
   width: 100%;
   position: absolute;
+}
+
+.m-20 {
+  margin: 0 20px;
 }

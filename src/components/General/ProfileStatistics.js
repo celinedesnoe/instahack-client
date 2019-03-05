@@ -18,7 +18,7 @@ class ProfileStatistics extends Component {
         {/* NEED  TO CHECK IF THERE IS FOLLOWING USERS TO AVOID ERROR */}
         {profileUser.following && profileUser.following.length > 0 && (
           <Link
-            to={"/" + profileUser.username + "/following"}
+            to={`/${profileUser.username}/following`}
             style={{ textDecoration: "none", color: "black" }}
           >
             <div className="text-center">
@@ -39,7 +39,7 @@ class ProfileStatistics extends Component {
 
         {profileUser.followers && profileUser.followers.length > 0 && (
           <Link
-            to={"/" + profileUser.username + "/followers"}
+            to={`/${profileUser.username}/followers`}
             style={{ textDecoration: "none", color: "black" }}
           >
             <div className="text-center">

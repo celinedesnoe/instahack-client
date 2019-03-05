@@ -21,7 +21,7 @@
   -webkit-flex: 0 1 355px;
   -ms-flex: 0 1 355px;
   flex: 0 1 355px;
-  font-size: 16px;
+  font-size: 15px;
   height: 32px;
   padding: 0 10px;
 }
@@ -37,7 +37,7 @@
   -webkit-flex: 0 1 355px;
   -ms-flex: 0 1 355px;
   flex: 0 1 355px;
-  font-size: 16px;
+  font-size: 15px;
   height: 32px;
   padding: 0 10px;
   height: 60px;
@@ -47,4 +47,36 @@
 
 .ModifyProfile .header-edit {
   margin-top: 30;
+}
+
+.ModifyProfile p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.ModifyProfile h3 {
+  font-size: 22px;
+  margin: 3px 0;
+}
+
+.ModifyProfile label {
+  margin-top: 8px;
+}
+
+.ModifyProfile select {
+  border: 1px solid #efefef;
+  background-color: white;
+  width: 100%;
+  height: 32px;
+}
+
+.ModifyProfile .checkbox {
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  border: none;
+}
+
+.smaller-size {
+  font-size: 13px;
 }
