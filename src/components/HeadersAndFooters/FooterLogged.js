@@ -33,14 +33,6 @@ class FooterLogged extends Component {
       <div className="FooterLogged">
         <div className="home">
           <button class="buton">
-<<<<<<< HEAD
-            {/* <Redirect
-              to={{
-                pathname: "/create/style/"
-              }}
-            /> */}
-=======
->>>>>>> 4b26f125dedf734b03aac43d70460509adb5b7bd
             {<Newsfeed /> ? (
               <img src={homefull} alt="home icon" className="okbutton" />
             ) : (
