@@ -63,7 +63,7 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        <nav>
+        {/* <nav>
           {this.state.currentUser ? (
             <span>
               <b>{this.state.currentUser.email}</b>
@@ -78,7 +78,7 @@ class App extends Component {
               <NavLink to="/accounts/login">Log In</NavLink>
             </span>
           )}
-        </nav>
+        </nav> */}
 
         <Switch>
           {this.state.currentUser ? (
@@ -86,7 +86,12 @@ class App extends Component {
               exact
               path="/"
               render={() => {
-                return <NewsfeedPage currentUser={this.state.currentUser} />;
+                return (
+                  <NewsfeedPage
+                    currentUser={this.state.currentUser}
+                    rerouteUrl="/"
+                  />
+                );
               }}
             />
           ) : (
@@ -169,6 +174,7 @@ class App extends Component {
                 <PostDetailPage
                   postInfo={props}
                   currentUser={this.state.currentUser}
+                  rerouteUrl="/p/:postId"
                 />
               );
             }}
