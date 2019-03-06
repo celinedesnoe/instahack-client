@@ -84,7 +84,7 @@ class LoginPage extends Component {
                   onChange={event => this.genericOnChange(event)}
                   value={this.state.originalPassword}
                   name="originalPassword"
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   className="formLogin"
                 />
