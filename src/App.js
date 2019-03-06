@@ -92,6 +92,7 @@ class App extends Component {
           ) : (
             <Route exact path="/" component={HomePage} />
           )}
+
           <Route
             path="/accounts/signup"
             render={() => {
@@ -103,6 +104,7 @@ class App extends Component {
               );
             }}
           />
+
           <Route
             path="/accounts/login"
             render={() => {

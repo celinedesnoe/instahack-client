@@ -32,7 +32,7 @@ class EditPicturePage extends Component {
       <div className="EditPicturePage w-100">
         {/* HEADER */}
         <div className={`headerAge ${this.props.position}`}>
-          <a href={this.props.link}>
+          <a href="#!">
             <img className="gocross" src={CrossBlack} alt="Arrow Go Back" />
           </a>
 
