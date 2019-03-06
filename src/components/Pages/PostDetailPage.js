@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPostDetails, postComment, likePost, unlikePost } from "../../api";
-// import moment from "moment";
+import moment from "moment";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
@@ -211,11 +211,11 @@ class PostDetailPage extends Component {
           </div>
 
           {/* the date at which the post was originally posted */}
-          {/* <p>
+          <p>
             {moment(postItem.createdAt)
               .startOf("hour")
               .fromNow()}
-          </p> */}
+          </p>
 
           {/* the component through which a user can add a comment
           - displays after the comment button is clicked on the LikesAndCommentBar component above
