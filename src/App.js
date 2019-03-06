@@ -155,18 +155,11 @@ class App extends Component {
             path="/:username"
             render={props => {
               return (
-                <div className="profilepagediv">
-                  <HeaderLogged
-                    text="Profile"
-                    className="headerprofilelogged"
-                  />
-
-                  <ProfilePage
-                    currentUser={this.state.currentUser}
-                    onFollowCurrentUser={user => this.updateUser(user)}
-                    match={props.match}
-                  />
-                </div>
+                <ProfilePage
+                  currentUser={this.state.currentUser}
+                  onFollowCurrentUser={user => this.updateUser(user)}
+                  match={props.match}
+                />
               );
             }}
           />

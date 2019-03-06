@@ -1,5 +1,4 @@
 .ProfilePage {
-  margin-top: 45px;
   width: 100%;
   height: 100%;
   background-color: rgb(249, 249, 249);
@@ -45,6 +44,7 @@ header.flex {
 }
 
 .headerprofilepage {
-  padding: 30px 16px 0;
+  padding: 0 16px 0;
   height: 130px;
+  margin-top: 70px;
 }
