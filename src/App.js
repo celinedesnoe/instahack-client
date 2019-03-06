@@ -77,7 +77,13 @@ class App extends Component {
 
         <Switch>
           {this.state.currentUser ? (
-            <Route exact path="/" component={NewsfeedPage} />
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return <NewsfeedPage currentUser={this.state.currentUser} />;
+              }}
+            />
           ) : (
             <Route exact path="/" component={HomePage} />
           )}

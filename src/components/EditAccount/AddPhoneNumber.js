@@ -30,19 +30,18 @@ class EditProfilePhoto extends Component {
             className="addphoneinput"
           />
           <button
-            onClick={event => this.props.addPhoto(event)}
+            onClick={event => this.props.addNumber(event)}
             className="blue-button"
           >
             Add phone number
           </button>
           <div className="holdtheskip">
-            <Link
-              onClick={event => this.props.addPhoto(event)}
-              to="#"
+            <button
+              onClick={event => this.props.addNumber(event)}
               className="skip"
             >
               Skip
-            </Link>
+            </button>
             <p className="youmayreceive">
               You may receive SMS updates from Instagram and can opt out at
               anytime.
