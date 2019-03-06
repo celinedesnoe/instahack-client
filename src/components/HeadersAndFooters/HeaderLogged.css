@@ -27,6 +27,7 @@
 
 .position-top {
   top: 0;
+  z-index: 150;
 }
 
 .header a {

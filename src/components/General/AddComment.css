@@ -2,3 +2,17 @@
   width: 85%;
   margin-right: 3%;
 }
+
+.topost {
+  font-weight: 500;
+}
+
+.topost:active,
+.topost:visited {
+  font-weight: 500;
+  color: #3897f0;
+}
+
+.comment-input:focus {
+  outline: none;
+}

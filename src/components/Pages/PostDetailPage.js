@@ -4,6 +4,7 @@ import { getPostDetails, postComment, likePost, unlikePost } from "../../api";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
+import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack.js";
 import Comment from "../General/Comment.js";
 
 import ProfilePic from "../General/ProfilePic";
@@ -125,6 +126,7 @@ class PostDetailPage extends Component {
     // console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetailPage w-100">
+        <HeaderArrowBack />
         {/* show poster's profilepic & username */}
         <div className="ProfileRow d-flex row justify-content-between m-0">
           <div className="d-flex flex-row">
@@ -144,10 +146,9 @@ class PostDetailPage extends Component {
               style={{ textDecoration: "none", color: "black" }}
             >
               <div className="poster-name">
-                <div>{postUser.username}</div>
+                <div className="bold">{postUser.username}</div>
               </div>
             </Link>
-            <p>• Following</p>
           </div>
           <img src={threeDotsBlack} alt="menu" className="post-menu" />
         </div>
