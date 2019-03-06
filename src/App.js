@@ -82,6 +82,8 @@ class App extends Component {
 
         <Switch>
           {this.state.currentUser ? (
+            <Route exact path="/" component={NewsfeedPage} />
+          ) : (
             <Route
               exact
               path="/"
@@ -89,8 +91,6 @@ class App extends Component {
                 return <NewsfeedPage currentUser={this.state.currentUser} />;
               }}
             />
-          ) : (
-            <Route exact path="/" component={HomePage} />
           )}
           <Route
             path="/accounts/signup"
