@@ -18,6 +18,7 @@ import FooterLogged from "./components/HeadersAndFooters/FooterLogged.js";
 // import ButtonSubmit from "./components/General/ButtonSubmit.js";
 // import ButtonLink from "./components/General/ButtonLink.js";
 import EditPicturePage from "./components/Pages/EditPicturePage.js";
+import EditPostDetailsPage from "./components/Pages/EditPostDetailsPage.js";
 
 import "./App.css";
 
@@ -182,6 +183,19 @@ class App extends Component {
             render={props => {
               return (
                 <EditPicturePage
+                  currentUser={this.state.currentUser}
+                  props={props}
+                />
+              );
+            }}
+          />
+
+          <Route
+            exact
+            path="/create/details/"
+            render={props => {
+              return (
+                <EditPostDetailsPage
                   currentUser={this.state.currentUser}
                   props={props}
                 />
