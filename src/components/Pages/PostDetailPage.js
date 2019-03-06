@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPostDetails, postComment, likePost, unlikePost } from "../../api";
+import moment from "moment";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
@@ -23,7 +24,8 @@ class PostDetailPage extends Component {
       allComments: [],
       showComment: true,
       newComment: "",
-      liked: false
+      liked: false,
+      homed: false
     };
   }
 
@@ -55,6 +57,10 @@ class PostDetailPage extends Component {
 
   showCommentBox(event) {
     this.setState({ showComment: true });
+  }
+
+  home(event) {
+    this.setState({ homed: true });
   }
 
   like(event) {
@@ -177,7 +183,6 @@ class PostDetailPage extends Component {
               {this.state.liked ? (
                 <Link to={`/p/${postItem._id}/liked_by`}>
                   <b>
-                    {" "}
                     {postItem.likedBy.length}
                     <span> likes</span>
                   </b>
@@ -185,7 +190,6 @@ class PostDetailPage extends Component {
               ) : (
                 <Link to={`/p/${postItem._id}/liked_by`}>
                   <b>
-                    {" "}
                     0<span> likes</span>
                   </b>
                 </Link>
@@ -212,7 +216,11 @@ class PostDetailPage extends Component {
           </div>
 
           {/* the date at which the post was originally posted */}
-          <p>{postItem.createdAt}</p>
+          <p>
+            {moment(postItem.createdAt)
+              .startOf("hour")
+              .fromNow()}
+          </p>
 
           {/* the component through which a user can add a comment
           - displays after the comment button is clicked on the LikesAndCommentBar component above
