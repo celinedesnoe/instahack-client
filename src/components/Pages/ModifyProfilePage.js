@@ -126,7 +126,7 @@ class ModifyProfile extends Component {
               className="w-100"
             />
           </label>
-          <h6>Private Information</h6>
+          <h6 className="privateinformation">Private Information</h6>
           <label className="email">
             <p>
               <b>Email</b>
@@ -171,18 +171,20 @@ class ModifyProfile extends Component {
             <p>
               <b>Similar Account Suggestions</b>
             </p>
-            <div className="d-flex direction-row">
+            <div className="d-flex direction-row bye">
               <input type="checkbox" className="checkbox" />
-              <p>
+              <p className="Include">
                 Include your account when recommending similar accounts people
                 might want to follow.
               </p>
             </div>
           </label>
-          <div>
-            <ButtonSubmit text="Submit" styling="blue-button" />
+          <div className="divfinale">
+            <ButtonSubmit text="Submit" styling="blue-button2" />
 
-            <Link to={"#"}>Temporarily disable my account</Link>
+            <Link to={"#"} className="temporarily">
+              Temporarily disable my account
+            </Link>
           </div>
         </form>
       </section>
