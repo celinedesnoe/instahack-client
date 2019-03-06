@@ -56,6 +56,7 @@ class App extends Component {
       console.log("Log Out", response.data);
       // set the currentUser state to empty
       this.updateUser(null);
+      return <Redirect exact to="/" />;
     });
   }
 
@@ -63,7 +64,7 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        <nav>
+        {/* <nav>
           {this.state.currentUser ? (
             <span>
               <button onClick={() => this.logoutClick()}>
@@ -77,20 +78,35 @@ class App extends Component {
               <NavLink to="/accounts/login">Log In</NavLink>
             </span>
           )}
-        </nav>
+        </nav> */}
 
         <Switch>
+          {/* ########################################
+              ROUTES FOR HOMEPAGE (LOGGED/NOT LOGGED)
+              ########################################
+          */}
+
           {this.state.currentUser ? (
             <Route
               exact
               path="/"
               render={() => {
-                return <NewsfeedPage currentUser={this.state.currentUser} />;
+                return (
+                  <NewsfeedPage
+                    currentUser={this.state.currentUser}
+                    rerouteUrl="/"
+                  />
+                );
               }}
             />
           ) : (
             <Route exact path="/" component={HomePage} />
           )}
+
+          {/* ######################################
+              ROUTES FOR ACCOUNT AUTHORIZATION/MODIFICATION
+              ######################################
+          */}
 
           <Route
             path="/accounts/signup"
@@ -115,6 +131,7 @@ class App extends Component {
               );
             }}
           />
+
           <Route
             path="/accounts/edit"
             render={() => {
@@ -128,6 +145,11 @@ class App extends Component {
           />
 
           {/* BECAUSE OF RENDER, NEED to send match={props.match} */}
+          {/* ######################################
+              ROUTES TO VIEW USER PROFILE DETAILS
+              ######################################
+          */}
+
           <Route
             exact
             path="/:username"
@@ -162,6 +184,11 @@ class App extends Component {
             }}
           />
 
+          {/* ######################################
+              ROUTES TO VIEW ONE POST'S DETAILS
+              ######################################
+          */}
+
           <Route
             exact
             path="/p/:postId"
@@ -170,6 +197,7 @@ class App extends Component {
                 <PostDetailPage
                   postInfo={props}
                   currentUser={this.state.currentUser}
+                  rerouteUrl="/p/:postId"
                 />
               );
             }}
@@ -187,6 +215,11 @@ class App extends Component {
               );
             }}
           />
+
+          {/* ######################################
+              ROUTES TO CREATE A POST
+              ######################################
+          */}
 
           <Route
             exact

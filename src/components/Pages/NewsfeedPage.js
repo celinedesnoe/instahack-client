@@ -3,6 +3,8 @@ import { getNewsfeedPosts } from "../../api.js";
 
 import "./NewsfeedPage.css";
 import PostDetailPage from "./PostDetailPage.js";
+import HeaderLogged from "../HeadersAndFooters/HeaderLogged.js";
+import HeaderCross from "../HeadersAndFooters/HeaderCross.js";
 
 class Newsfeed extends Component {
   constructor(props) {
@@ -21,6 +23,8 @@ class Newsfeed extends Component {
         return { match: { params: { postId: oneId } } };
       });
 
+      console.log(this.props);
+
       // this.state.postsToRender.unshift(response.data);
       this.setState({ postsToRender: allPostIds });
     });
@@ -32,11 +36,13 @@ class Newsfeed extends Component {
 
     return (
       <section className="Newsfeed">
+        {/* <HeaderCross /> */}
         {postsToRender.map(onePost => {
           return (
             <PostDetailPage
               postInfo={onePost}
               currentUser={this.props.currentUser}
+              rerouteUrl={this.props.rerouteUrl}
             />
           );
         })}

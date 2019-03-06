@@ -22,7 +22,7 @@ class PostDetailPage extends Component {
       postItem: {},
       postUser: {},
       allComments: [],
-      showComment: true,
+      showComment: false,
       newComment: "",
       liked: false
     };
@@ -220,13 +220,13 @@ class PostDetailPage extends Component {
           {/* the component through which a user can add a comment
           - displays after the comment button is clicked on the LikesAndCommentBar component above
          */}
-          <hr className="w-100" />
           {this.state.showComment ? (
             // true, therefore render the Comment component
             <AddComment
               updateState={event => this.genericOnChange(event)}
               saveComment={event => this.appendComment(event)}
               originalPost={this.state.postItem._id}
+              rerouteUrl={this.props.rerouteUrl}
             />
           ) : (
             // false, therefore show nothing
