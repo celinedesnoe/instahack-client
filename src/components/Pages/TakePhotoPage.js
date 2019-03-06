@@ -24,24 +24,6 @@ class TakePhotoPage extends Component {
     console.log(image);
     return (
       <section className="TakePhoto">
-        {/* <div>
-          <h2>TAKE PHOTO COMPONENT</h2>
-
-          <form className=" upload-btn-wrapper">
-            <input
-              class="edit-button"
-              type="file"
-              onChange={event => this.uploadChange(event)}
-            />
-            <button class="btn">
-              <img src="" alt="profile icon" />
-              CAMERA
-            </button>
-          </form>
-        </div>
-
-        <img src={image} /> */}
-
         {image === "" ? (
           <div>
             <form className=" upload-btn-wrapper">
@@ -58,19 +40,6 @@ class TakePhotoPage extends Component {
             </form>
           </div>
         ) : (
-          // <Redirect
-          //   exact
-          //   path="/create/style/"
-          //   render={() => {
-          //     return (
-          //       <EditPicturePage
-          //         currentUser={this.state.currentUser}
-          //         image={image}
-          //       />
-          //     );
-          //   }}
-          // />
-
           <Redirect
             to={{
               pathname: "/create/style/",

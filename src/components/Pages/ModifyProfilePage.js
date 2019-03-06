@@ -41,6 +41,12 @@ class ModifyProfile extends Component {
       console.log("edit result", response.data);
       this.props.editSuccess(response.data);
       this.setState({ isSubmit: true });
+      if (this.state.profilePic === "") {
+        this.setState({
+          profilePic:
+            "https://scontent-frx5-1.cdninstagram.com/vp/973f5d72a5217d4b771ed4a941e6f138/5D0566F1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com"
+        });
+      }
     });
   }
 
