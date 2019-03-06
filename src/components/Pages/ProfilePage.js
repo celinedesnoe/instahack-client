@@ -56,6 +56,7 @@ class ProfilePage extends Component {
 
     return (
       <div className="ProfilePage">
+        <HeaderLogged text="Profile" className="headerprofilelogged" />
         <header className="d-flex headerprofilepage">
           <span className="profile-pic">
             <ProfilePic
