@@ -1,7 +1,41 @@
-.EditPicturePage img {
+.EditPicturePage .main-pic {
   width: 100%;
+  max-height: 50%;
+  display: block;
+  margin-top: 45px;
 }
 
-.EditPicturePage {
-  margin-top: 30px;
+.EditPicturePage .gocross {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 18px;
+}
+
+.EditPicturePage .link-next {
+  position: absolute;
+  right: 14px;
+}
+
+.newPhotoPost {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+.EditPicturePage .square {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 100%;
+  position: relative;
+  margin-top: 45px;
+}
+
+.EditPicturePage .square-img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
