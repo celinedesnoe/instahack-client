@@ -5,6 +5,7 @@ import searchblack from "../../images/searchblack.png";
 import plusblack from "../../images/plusblack.png";
 import likeblack from "../../images/like2black.png";
 import profileblack from "../../images/profileblack.png";
+import TakePhotoPage from "../Pages/TakePhotoPage.js";
 
 import "./FooterLogged.css";
 
@@ -25,12 +26,7 @@ class FooterLogged extends Component {
         </div>
 
         <div className="plus">
-          <form className="upload-btn-wrapper home">
-            <input class="edit-button" type="file" />
-            <button class="buton">
-              <img src={plusblack} alt="profile icon" className="okbutton" />
-            </button>
-          </form>
+          <TakePhotoPage />
         </div>
 
         <div className="likes">

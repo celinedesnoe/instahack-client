@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { postPicture } from "../../api.js";
 import EditPicturePage from "../Pages/EditPicturePage.js";
+import plusblack from "../../images/plusblack.png";
 
 import "./TakePhotoPage.css";
 
@@ -25,19 +26,18 @@ class TakePhotoPage extends Component {
     return (
       <section className="TakePhoto">
         {image === "" ? (
-          <div>
-            <form className=" upload-btn-wrapper">
-              <input
-                class="edit-button"
-                type="file"
-                onChange={event => this.uploadChange(event)}
-                name="image"
-              />
-              <button class="btn">
-                <img src="" alt="profile icon" />
-                CAMERA
-              </button>
-            </form>
+          <div className="upload-btn-wrapper">
+            {/* <form className=" upload-btn-wrapper"> */}
+            <input
+              class="edit-button"
+              type="file"
+              onChange={event => this.uploadChange(event)}
+              name="image"
+            />
+            <button class="btn">
+              <img src={plusblack} alt="profile icon" className="okbutton" />
+            </button>
+            {/* </form> */}
           </div>
         ) : (
           <Redirect
@@ -48,11 +48,7 @@ class TakePhotoPage extends Component {
           />
         )}
 
-        {/* Photo input */}
-        {/* <label>
-          take a photo
-          <input type="file" accept="image/*" capture="camera" />
-        </label> */}
+        {/* <input type="file" accept="image/*" capture="camera" /> */}
       </section>
     );
   }

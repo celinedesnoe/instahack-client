@@ -109,8 +109,6 @@ class ProfilePage extends Component {
         />
 
         <GridView profilePosts={profilePosts} />
-
-        <TakePhotoPage />
       </div>
     );
   }
