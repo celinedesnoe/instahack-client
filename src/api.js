@@ -58,6 +58,10 @@ export function postPicture(files) {
   return backendApi.post("/api/single-upload", uploadData).catch(errorHandler);
 }
 
+export function newPost(newPost) {
+  return backendApi.post("/api/process-post", newPost).catch(errorHandler);
+}
+
 // export function getPosts(someUser) {
 //   return backendApi.post("/api/posts", someUser).catch(errorHandler);
 // }
