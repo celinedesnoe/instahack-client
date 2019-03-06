@@ -6,8 +6,10 @@ import homefull from "../../images/homefull.png";
 import searchempty from "../../images/searchempty.png";
 import likeempty from "../../images/likeempty.png";
 import profileempty from "../../images/profileempty.png";
+import profilefull from "../../images/profilefull.png";
 
 import Newsfeed from "../Pages/NewsfeedPage.js";
+import Profile from "../Pages/ProfilePage.js";
 import TakePhotoPage from "../Pages/TakePhotoPage.js";
 
 import "./FooterLogged.css";
@@ -24,16 +26,13 @@ class FooterLogged extends Component {
     this.setState({ homed: true });
   }
 
+  onClick(event) {}
+
   render() {
     return (
       <div className="FooterLogged">
         <div className="home">
           <button class="buton">
-            <Redirect
-              to={{
-                pathname: "/create/style/"
-              }}
-            />
             {<Newsfeed /> ? (
               <img src={homefull} alt="home icon" className="okbutton" />
             ) : (
@@ -60,7 +59,11 @@ class FooterLogged extends Component {
 
         <div className="profile">
           <button class="buton">
-            <img src={profileempty} alt="profile icon" className="okbutton" />
+            {<Profile /> ? (
+              <img src={profilefull} alt="profile icon" className="okbutton" />
+            ) : (
+              <img src={profileempty} alt="profile icon" className="okbutton" />
+            )}
           </button>
         </div>
       </div>
