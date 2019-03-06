@@ -66,7 +66,6 @@ class App extends Component {
         <nav>
           {this.state.currentUser ? (
             <span>
-              <b>{this.state.currentUser.email}</b>
               <button onClick={() => this.logoutClick()}>
                 <Link exact to="/">
                   Log Out
@@ -217,7 +216,9 @@ class App extends Component {
         </Switch>
 
         <footer className="footerprofilelogged">
-          {this.state.currentUser && <FooterLogged />}
+          {this.state.currentUser && (
+            <FooterLogged currentUser={this.state.currentUser} />
+          )}
         </footer>
       </div>
     );
