@@ -131,7 +131,7 @@ class FooterLogged extends Component {
                 alt="like empty"
                 className="okbutton"
               />
-              <Redirect to="/accounts/login" />
+              <Redirect to="/accounts/signup" />
             </button>
           ) : (
             <button class="buton">
