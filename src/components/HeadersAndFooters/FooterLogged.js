@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-import homeblack from "../../images/homeblack.png";
-import searchblack from "../../images/searchblack.png";
-import plusblack from "../../images/plusblack.png";
-import likeblack from "../../images/like2black.png";
-import profileblack from "../../images/profileblack.png";
+import homeempty from "../../images/homeempty.png";
+import searchempty from "../../images/searchempty.png";
+import likeempty from "../../images/likeempty.png";
+import profileempty from "../../images/profileempty.png";
 import TakePhotoPage from "../Pages/TakePhotoPage.js";
 
 import "./FooterLogged.css";
@@ -15,13 +14,13 @@ class FooterLogged extends Component {
       <div className="FooterLogged">
         <div className="home">
           <button class="buton">
-            <img src={homeblack} alt="home icon" className="okbutton" />
+            <img src={homeempty} alt="home icon" className="okbutton" />
           </button>
         </div>
 
         <div className="search">
           <button class="buton">
-            <img src={searchblack} alt="search icon" className="okbutton" />
+            <img src={searchempty} alt="search icon" className="okbutton" />
           </button>
         </div>
 
@@ -31,13 +30,13 @@ class FooterLogged extends Component {
 
         <div className="likes">
           <button class="buton">
-            <img src={likeblack} alt="like icon" className="okbutton" />
+            <img src={likeempty} alt="like icon" className="okbutton" />
           </button>
         </div>
 
         <div className="profile">
           <button class="buton">
-            <img src={profileblack} alt="profile icon" className="okbutton" />
+            <img src={profileempty} alt="profile icon" className="okbutton" />
           </button>
         </div>
       </div>

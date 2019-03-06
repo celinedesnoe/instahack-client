@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { postPicture } from "../../api.js";
 import EditPicturePage from "../Pages/EditPicturePage.js";
-import plusblack from "../../images/plusblack.png";
+import plus from "../../images/plus.png";
 
 import "./TakePhotoPage.css";
 
@@ -34,8 +34,8 @@ class TakePhotoPage extends Component {
               onChange={event => this.uploadChange(event)}
               name="image"
             />
-            <button class="btn">
-              <img src={plusblack} alt="profile icon" className="okbutton" />
+            <button class="buton">
+              <img src={plus} alt="profile icon" className="okbutton" />
             </button>
             {/* </form> */}
           </div>

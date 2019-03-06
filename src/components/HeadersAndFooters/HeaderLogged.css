@@ -9,7 +9,17 @@
   width: 100%;
   left: 0;
   height: 46px;
-  background-color: rgb(249, 249, 249);
+  color: black;
+  border-bottom: 1px solid rgba(122, 122, 122, 0.1);
+  position: fixed;
+}
+
+.header2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  left: 0;
+  height: 46px;
   color: black;
   border-bottom: 1px solid rgba(122, 122, 122, 0.1);
   position: fixed;

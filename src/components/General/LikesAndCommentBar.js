@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LikeButton from "../../images/likelinebold.png";
+import LikeButton from "../../images/likeempty.png";
 import CommentButton from "../../images/chatline.png";
 import UnlikeButton from "../../images/likefullred.png";
 
