@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPostDetails, postComment, likePost, unlikePost } from "../../api";
+import moment from "moment";
 
 import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
+import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack.js";
 import Comment from "../General/Comment.js";
 
 import ProfilePic from "../General/ProfilePic";
@@ -27,8 +29,8 @@ class PostDetailPage extends Component {
   }
 
   componentDidMount() {
-    const { params } = this.props.postInfo.match;
     console.log("Props in PDP: ", this.props);
+    const { params } = this.props.postInfo.match;
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response => {
@@ -125,6 +127,7 @@ class PostDetailPage extends Component {
     // console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetailPage w-100">
+        <HeaderArrowBack />
         {/* show poster's profilepic & username */}
         <div className="ProfileRow d-flex row justify-content-between m-0">
           <div className="d-flex flex-row">
@@ -144,10 +147,9 @@ class PostDetailPage extends Component {
               style={{ textDecoration: "none", color: "black" }}
             >
               <div className="poster-name">
-                <div>{postUser.username}</div>
+                <div className="bold">{postUser.username}</div>
               </div>
             </Link>
-            <p>• Following</p>
           </div>
           <img src={threeDotsBlack} alt="menu" className="post-menu" />
         </div>
@@ -176,7 +178,6 @@ class PostDetailPage extends Component {
               {this.state.liked ? (
                 <Link to={`/p/${postItem._id}/liked_by`}>
                   <b>
-                    {" "}
                     {postItem.likedBy.length}
                     <span> likes</span>
                   </b>
@@ -184,7 +185,6 @@ class PostDetailPage extends Component {
               ) : (
                 <Link to={`/p/${postItem._id}/liked_by`}>
                   <b>
-                    {" "}
                     0<span> likes</span>
                   </b>
                 </Link>
@@ -211,7 +211,11 @@ class PostDetailPage extends Component {
           </div>
 
           {/* the date at which the post was originally posted */}
-          <p>{postItem.createdAt}</p>
+          <p>
+            {moment(postItem.createdAt)
+              .startOf("hour")
+              .fromNow()}
+          </p>
 
           {/* the component through which a user can add a comment
           - displays after the comment button is clicked on the LikesAndCommentBar component above

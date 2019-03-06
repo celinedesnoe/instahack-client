@@ -96,6 +96,10 @@ export function unlikePost(action) {
   return backendApi.post("/api/process-unlike", action);
 }
 
+export function getNewsfeedPosts(userInfo) {
+  return backendApi.post("api/process-newsfeed", userInfo);
+}
+
 // export function checkEmail(someEmail) {
 //   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
 // }

@@ -1,20 +1,44 @@
 import React, { Component } from "react";
+import { Redirect, Route } from "react-router-dom";
 
 import homeempty from "../../images/homeempty.png";
+import homefull from "../../images/homefull.png";
 import searchempty from "../../images/searchempty.png";
 import likeempty from "../../images/likeempty.png";
 import profileempty from "../../images/profileempty.png";
+
+import Newsfeed from "../Pages/NewsfeedPage.js";
 import TakePhotoPage from "../Pages/TakePhotoPage.js";
 
 import "./FooterLogged.css";
 
 class FooterLogged extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      homed: false
+    };
+  }
+
+  home(event) {
+    this.setState({ homed: true });
+  }
+
   render() {
     return (
       <div className="FooterLogged">
         <div className="home">
           <button class="buton">
-            <img src={homeempty} alt="home icon" className="okbutton" />
+            <Redirect
+              to={{
+                pathname: "/create/style/"
+              }}
+            />
+            {<Newsfeed /> ? (
+              <img src={homefull} alt="home icon" className="okbutton" />
+            ) : (
+              <img src={homeempty} alt="home icon" className="okbutton" />
+            )}
           </button>
         </div>
 
