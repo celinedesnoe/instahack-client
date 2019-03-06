@@ -24,8 +24,7 @@ class PostDetailPage extends Component {
       allComments: [],
       showComment: true,
       newComment: "",
-      liked: false,
-      homed: false
+      liked: false
     };
   }
 
@@ -57,10 +56,6 @@ class PostDetailPage extends Component {
 
   showCommentBox(event) {
     this.setState({ showComment: true });
-  }
-
-  home(event) {
-    this.setState({ homed: true });
   }
 
   like(event) {
