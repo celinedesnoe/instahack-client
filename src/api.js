@@ -92,7 +92,7 @@ export function unlikePost(action) {
   return backendApi.post("/api/process-unlike", action);
 }
 
-export function newsfeed(userInfo) {
+export function getNewsfeedPosts(userInfo) {
   return backendApi.post("api/process-newsfeed", userInfo);
 }
 

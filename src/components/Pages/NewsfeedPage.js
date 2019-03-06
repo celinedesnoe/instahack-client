@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { newsfeed } from "../../api.js";
+import { getNewsfeedPosts } from "../../api.js";
 
 import "./NewsfeedPage.css";
 import PostDetailPage from "./PostDetailPage.js";
@@ -15,24 +15,28 @@ class Newsfeed extends Component {
   componentDidMount() {
     // fnc exported from api.js
     // queries to get a giant array of posts from each user someone is following
-    newsfeed(this.props.currentUser).then(response => {
+    getNewsfeedPosts(this.props.currentUser).then(response => {
       console.log("ALL POSTS in NEWSFEED: ", response.data);
-      this.setState({ postsToRender: response.data });
+      const allPostIds = response.data.map(oneId => {
+        return { match: { params: { postId: oneId } } };
+      });
+
+      // this.state.postsToRender.unshift(response.data);
+      this.setState({ postsToRender: allPostIds });
     });
   }
 
   render() {
     const { postsToRender } = this.state;
-    console.log("IN THE RENDER OF NEWSFEED BIIIIIH! : ", postsToRender);
+    console.log("POSTSTORENDER in NEWSFEED RENDER: ", postsToRender);
 
     return (
       <section className="Newsfeed">
-        <h3>Newsfeed</h3>
         {postsToRender.map(onePost => {
           return (
             <PostDetailPage
-              currentUser={this.props.currentUser}
               postInfo={onePost}
+              currentUser={this.props.currentUser}
             />
           );
         })}
