@@ -13,6 +13,7 @@ import ButtonFollowUnfollow from "../General/ButtonFollowUnfollow.js";
 import ProfileStatistics from "../General/ProfileStatistics";
 import GridView from "../General/GridView.js";
 import TakePhotoPage from "./TakePhotoPage.js";
+import HeaderLogged from "../HeadersAndFooters/HeaderLogged.js";
 
 import "./ProfilePage.css";
 

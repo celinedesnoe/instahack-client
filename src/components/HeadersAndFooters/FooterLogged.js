@@ -154,7 +154,7 @@ class FooterLogged extends Component {
                 alt="profile empty"
                 className="okbutton"
               />
-              <Redirect to="/:username" />
+              <Redirect to={`/${this.props.currentUser.username}`} />
             </button>
           ) : (
             <button class="buton">
