@@ -10,12 +10,11 @@ import ProfilePic from "../General/ProfilePic.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
 import ButtonLink from "../General/ButtonLink.js";
 import ButtonFollowUnfollow from "../General/ButtonFollowUnfollow.js";
-
 import ProfileStatistics from "../General/ProfileStatistics";
 import GridView from "../General/GridView.js";
+import TakePhotoPage from "./TakePhotoPage.js";
 
 import "./ProfilePage.css";
-import TakePhotoPage from "./TakePhotoPage.js";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -109,8 +108,6 @@ class ProfilePage extends Component {
         />
 
         <GridView profilePosts={profilePosts} />
-
-        <TakePhotoPage />
       </div>
     );
   }

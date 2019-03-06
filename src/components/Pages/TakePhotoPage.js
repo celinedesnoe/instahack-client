@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { postPicture } from "../../api.js";
 import EditPicturePage from "../Pages/EditPicturePage.js";
+import plus from "../../images/plus.png";
 
 import "./TakePhotoPage.css";
 
@@ -24,53 +25,21 @@ class TakePhotoPage extends Component {
     console.log(image);
     return (
       <section className="TakePhoto">
-        {/* <div>
-          <h2>TAKE PHOTO COMPONENT</h2>
-
-          <form className=" upload-btn-wrapper">
+        {image === "" ? (
+          <div className="upload-btn-wrapper">
+            {/* <form className=" upload-btn-wrapper"> */}
             <input
               class="edit-button"
               type="file"
               onChange={event => this.uploadChange(event)}
+              name="image"
             />
-            <button class="btn">
-              <img src="" alt="profile icon" />
-              CAMERA
+            <button class="buton">
+              <img src={plus} alt="profile icon" className="okbutton" />
             </button>
-          </form>
-        </div>
-
-        <img src={image} /> */}
-
-        {image === "" ? (
-          <div>
-            <form className=" upload-btn-wrapper">
-              <input
-                class="edit-button"
-                type="file"
-                onChange={event => this.uploadChange(event)}
-                name="image"
-              />
-              <button class="btn">
-                <img src="" alt="profile icon" />
-                CAMERA
-              </button>
-            </form>
+            {/* </form> */}
           </div>
         ) : (
-          // <Redirect
-          //   exact
-          //   path="/create/style/"
-          //   render={() => {
-          //     return (
-          //       <EditPicturePage
-          //         currentUser={this.state.currentUser}
-          //         image={image}
-          //       />
-          //     );
-          //   }}
-          // />
-
           <Redirect
             to={{
               pathname: "/create/style/",
@@ -79,11 +48,7 @@ class TakePhotoPage extends Component {
           />
         )}
 
-        {/* Photo input */}
-        {/* <label>
-          take a photo
-          <input type="file" accept="image/*" capture="camera" />
-        </label> */}
+        {/* <input type="file" accept="image/*" capture="camera" /> */}
       </section>
     );
   }

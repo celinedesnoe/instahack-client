@@ -18,6 +18,7 @@ import FooterLogged from "./components/HeadersAndFooters/FooterLogged.js";
 // import ButtonSubmit from "./components/General/ButtonSubmit.js";
 // import ButtonLink from "./components/General/ButtonLink.js";
 import EditPicturePage from "./components/Pages/EditPicturePage.js";
+import EditPostDetailsPage from "./components/Pages/EditPostDetailsPage.js";
 
 import "./App.css";
 
@@ -62,9 +63,6 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        <header className="headerprofilelogged">
-          {this.state.currentUser && <HeaderLogged text="Profile" />}
-        </header>
         <nav>
           {this.state.currentUser ? (
             <span>
@@ -134,11 +132,18 @@ class App extends Component {
             path="/:username"
             render={props => {
               return (
-                <ProfilePage
-                  currentUser={this.state.currentUser}
-                  onFollowCurrentUser={user => this.updateUser(user)}
-                  match={props.match}
-                />
+                <div className="profilepagediv">
+                  <HeaderLogged
+                    text="Profile"
+                    className="headerprofilelogged"
+                  />
+
+                  <ProfilePage
+                    currentUser={this.state.currentUser}
+                    onFollowCurrentUser={user => this.updateUser(user)}
+                    match={props.match}
+                  />
+                </div>
               );
             }}
           />
@@ -188,6 +193,19 @@ class App extends Component {
             render={props => {
               return (
                 <EditPicturePage
+                  currentUser={this.state.currentUser}
+                  props={props}
+                />
+              );
+            }}
+          />
+
+          <Route
+            exact
+            path="/create/details/"
+            render={props => {
+              return (
+                <EditPostDetailsPage
                   currentUser={this.state.currentUser}
                   props={props}
                 />

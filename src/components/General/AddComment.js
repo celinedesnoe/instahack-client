@@ -24,6 +24,7 @@ class AddComment extends Component {
         <Link
           onClick={event => this.props.saveComment(event)}
           to={`/p/${this.props.originalPost}`}
+          className="topost"
         >
           Post
         </Link>
