@@ -46,16 +46,6 @@ class SignupPage extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    postSignUp(this.state).then(response => {
-      console.log("sign up result", response.data);
-      this.setState({ fullNameSubmitted: true, passwordSubmitted: true });
-      this.props.signupSuccess(response.data);
-    });
-  }
-
   handleEmail(event) {
     event.preventDefault();
 
@@ -74,6 +64,16 @@ class SignupPage extends Component {
     this.setState({ username: tempUsername, emailSubmitted: true });
 
     // display next screen (full name & password)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    postSignUp(this.state).then(response => {
+      console.log("sign up result", response.data);
+      this.setState({ fullNameSubmitted: true, passwordSubmitted: true });
+      this.props.signupSuccess(response.data);
+    });
   }
 
   handleAgree(event) {
@@ -121,7 +121,7 @@ class SignupPage extends Component {
                     // check if user has added a number
                     this.state.addPhoneNumber ? (
                       // signup is complete and the user goes to newsfeed
-                      <div class="Newsfeed">Redirect to Newsfeed</div>
+                      <Redirect to={`/${this.state.username}`} />
                     ) : (
                       <div className="AddPhoneNumber">
                         <HeaderInstagram text="" link="/" />

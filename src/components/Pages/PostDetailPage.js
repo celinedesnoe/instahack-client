@@ -29,8 +29,8 @@ class PostDetailPage extends Component {
   }
 
   componentDidMount() {
-    const { params } = this.props.postInfo.match;
     console.log("Props in PDP: ", this.props);
+    const { params } = this.props.postInfo.match;
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response => {
