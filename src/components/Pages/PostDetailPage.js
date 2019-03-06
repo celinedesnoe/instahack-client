@@ -6,9 +6,10 @@ import AddComment from "../General/AddComment.js";
 import LikesAndCommentBar from "../General/LikesAndCommentBar.js";
 import Comment from "../General/Comment.js";
 
-import "./PostDetailPage.css";
 import ProfilePic from "../General/ProfilePic";
 import threeDotsBlack from "../../images/3dots.png";
+
+import "./PostDetailPage.css";
 
 // to add: following, not following
 

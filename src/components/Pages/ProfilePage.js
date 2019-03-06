@@ -55,7 +55,7 @@ class ProfilePage extends Component {
 
     return (
       <div className="ProfilePage">
-        <header className="d-flex">
+        <header className="d-flex headerprofilepage">
           <span className="profile-pic">
             <ProfilePic
               profilePic={profileUser.profilePic}
@@ -64,8 +64,8 @@ class ProfilePage extends Component {
           </span>
 
           <section className="w-70">
-            <div className="d-flex row username-settings">
-              <h1>{profileUser.username}</h1>
+            <div className="d-flex username-settings">
+              <h1 className="profileusername">{profileUser.username}</h1>
             </div>
             {/* BUTTON EDIT PROFILE */}
 
