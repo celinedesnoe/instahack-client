@@ -6,8 +6,8 @@
 } */
 
 .ModifyProfile form {
-  margin: 16px 0;
-  padding: 0 20px;
+  margin: 16px 0 60px;
+  padding: 0 16px;
 }
 
 .ModifyProfile input {
@@ -46,7 +46,7 @@
 }
 
 .ModifyProfile .header-edit {
-  margin-top: 30;
+  margin-top: 56px;
 }
 
 .ModifyProfile p {
@@ -72,11 +72,57 @@
 
 .ModifyProfile .checkbox {
   height: 20px;
-  width: 20px;
   padding: 0;
   border: none;
 }
 
 .smaller-size {
   font-size: 13px;
+}
+
+.privateinformation {
+  font-size: 14px;
+  color: #999999;
+}
+
+input.checkbox {
+  width: 10px;
+}
+
+p.Include {
+  width: 400%;
+  font-weight: 600;
+  padding-right: 40px;
+  line-height: 16px;
+}
+
+.blue-button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3897f0;
+  color: white;
+  border: 1px solid #3897f0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+}
+
+.bye {
+  margin-top: 10px;
+}
+
+.divfinale {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.temporarily {
+  font-size: 14px;
+  padding-left: 8px;
 }

@@ -10,13 +10,16 @@ import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
 import NewsfeedPage from "./components/Pages/NewsfeedPage.js";
+import ButtonSubmit from "./components/General/ButtonSubmit.js";
+import ButtonLink from "./components/General/ButtonLink.js";
+import LikesPage from "./components/Pages/LikesPage.js";
+import HeaderLogged from "./components/HeadersAndFooters/HeaderLogged.js";
+import FooterLogged from "./components/HeadersAndFooters/FooterLogged.js";
 // import ButtonSubmit from "./components/General/ButtonSubmit.js";
 // import ButtonLink from "./components/General/ButtonLink.js";
-import LikesPage from "./components/Pages/LikesPage.js";
 import EditPicturePage from "./components/Pages/EditPicturePage.js";
 
 import "./App.css";
-import FooterLogged from "./components/HeadersAndFooters/FooterLogged";
 
 class App extends Component {
   constructor(props) {
@@ -59,6 +62,9 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
+        <header className="headerprofilelogged">
+          {this.state.currentUser && <HeaderLogged text="Profile" />}
+        </header>
         <nav>
           {this.state.currentUser ? (
             <span>
@@ -184,9 +190,9 @@ class App extends Component {
           />
         </Switch>
 
-        <div className="footerprofilelogged">
+        <footer className="footerprofilelogged">
           {this.state.currentUser && <FooterLogged />}
-        </div>
+        </footer>
       </div>
     );
   }
