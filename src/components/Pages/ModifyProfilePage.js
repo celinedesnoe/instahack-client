@@ -66,16 +66,16 @@ class ModifyProfile extends Component {
         <div className="header-edit d-flex">
           <ProfilePic
             profilePic={profilePic}
-            size="profile-page"
+            size="profile-page-litle"
             margin="m-20"
           />
 
           {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
 
           <div className="d-flex flex-column justify-content-center">
-            <h3>{currentUser.username}</h3>
+            <h3 className="currentusername">{currentUser.username}</h3>
             <Link to="#">
-              <p className="smaller-size">
+              <p className="smaller-size paragraph">
                 <b>Change profile picture</b>
               </p>
             </Link>
@@ -84,7 +84,7 @@ class ModifyProfile extends Component {
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label className="name">
-            <p>
+            <p className="paragraph">
               <b>Name</b>
             </p>
             <input
@@ -97,7 +97,7 @@ class ModifyProfile extends Component {
           </label>
 
           <label className="username">
-            <p>
+            <p className="paragraph">
               <b>Username</b>
             </p>
             <input
@@ -109,7 +109,7 @@ class ModifyProfile extends Component {
             />
           </label>
           <label className="website">
-            <p>
+            <p className="paragraph">
               <b>Website</b>
             </p>
             <input
@@ -121,7 +121,7 @@ class ModifyProfile extends Component {
             />
           </label>
           <label className="bio">
-            <p>
+            <p className="paragraph">
               <b>Bio</b>
             </p>
             <textarea
@@ -134,7 +134,7 @@ class ModifyProfile extends Component {
           </label>
           <h6 className="privateinformation">Private Information</h6>
           <label className="email">
-            <p>
+            <p className="paragraph">
               <b>Email</b>
             </p>
             <input
@@ -146,7 +146,7 @@ class ModifyProfile extends Component {
             />
           </label>
           <label className="phone-number">
-            <p>
+            <p className="paragraph">
               <b>Phone Number</b>
             </p>
             <input
@@ -159,7 +159,7 @@ class ModifyProfile extends Component {
           </label>
           <br />
           <label className="gender">
-            <p>
+            <p className="paragraph">
               <b>Gender</b>
             </p>
             <select
@@ -174,14 +174,14 @@ class ModifyProfile extends Component {
             </select>
           </label>
           <label className="similar-accounts">
-            <p>
+            <p className="paragraph">
               <b>Similar Account Suggestions</b>
             </p>
             <div className="d-flex direction-row bye">
-              <input type="checkbox" className="checkbox" />
+              <input type="checkbox" className="checkbox jules" />
               <p className="Include">
                 Include your account when recommending similar accounts people
-                might want to follow.
+                might want to follow. <span className="bluecolor">[?]</span>
               </p>
             </div>
           </label>

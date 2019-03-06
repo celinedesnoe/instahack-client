@@ -12,6 +12,12 @@
   width: 70px;
 }
 
+.profile-page-litle {
+  height: 40px;
+  width: 40px;
+  background-color: blue;
+}
+
 .profile-row {
   height: 40px;
   width: 40px;

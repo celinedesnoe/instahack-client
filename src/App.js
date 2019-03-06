@@ -62,9 +62,6 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        <header className="headerprofilelogged">
-          {this.state.currentUser && <HeaderLogged text="Profile" />}
-        </header>
         <nav>
           {this.state.currentUser ? (
             <span>
@@ -128,11 +125,18 @@ class App extends Component {
             path="/:username"
             render={props => {
               return (
-                <ProfilePage
-                  currentUser={this.state.currentUser}
-                  onFollowCurrentUser={user => this.updateUser(user)}
-                  match={props.match}
-                />
+                <div className="profilepagediv">
+                  <HeaderLogged
+                    text="Profile"
+                    className="headerprofilelogged"
+                  />
+
+                  <ProfilePage
+                    currentUser={this.state.currentUser}
+                    onFollowCurrentUser={user => this.updateUser(user)}
+                    match={props.match}
+                  />
+                </div>
               );
             }}
           />
