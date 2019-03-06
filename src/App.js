@@ -56,6 +56,7 @@ class App extends Component {
       console.log("Log Out", response.data);
       // set the currentUser state to empty
       this.updateUser(null);
+      return <Redirect exact to="/" />;
     });
   }
 
@@ -66,7 +67,6 @@ class App extends Component {
         {/* <nav>
           {this.state.currentUser ? (
             <span>
-              <b>{this.state.currentUser.email}</b>
               <button onClick={() => this.logoutClick()}>
                 <Link exact to="/">
                   Log Out
@@ -81,6 +81,11 @@ class App extends Component {
         </nav> */}
 
         <Switch>
+          {/* ########################################
+              ROUTES FOR HOMEPAGE (LOGGED/NOT LOGGED)
+              ########################################
+          */}
+
           {this.state.currentUser ? (
             <Route
               exact
@@ -97,6 +102,11 @@ class App extends Component {
           ) : (
             <Route exact path="/" component={HomePage} />
           )}
+
+          {/* ######################################
+              ROUTES FOR ACCOUNT AUTHORIZATION/MODIFICATION
+              ######################################
+          */}
 
           <Route
             path="/accounts/signup"
@@ -121,6 +131,7 @@ class App extends Component {
               );
             }}
           />
+
           <Route
             path="/accounts/edit"
             render={() => {
@@ -134,6 +145,11 @@ class App extends Component {
           />
 
           {/* BECAUSE OF RENDER, NEED to send match={props.match} */}
+          {/* ######################################
+              ROUTES TO VIEW USER PROFILE DETAILS
+              ######################################
+          */}
+
           <Route
             exact
             path="/:username"
@@ -168,6 +184,11 @@ class App extends Component {
             }}
           />
 
+          {/* ######################################
+              ROUTES TO VIEW ONE POST'S DETAILS
+              ######################################
+          */}
+
           <Route
             exact
             path="/p/:postId"
@@ -194,6 +215,11 @@ class App extends Component {
               );
             }}
           />
+
+          {/* ######################################
+              ROUTES TO CREATE A POST
+              ######################################
+          */}
 
           <Route
             exact
