@@ -13,6 +13,7 @@ class AddComment extends Component {
   render() {
     return (
       <section className="AddComment">
+        <hr className="w-100" />
         <textarea
           class="comment-input"
           onChange={event => this.props.updateState(event)}
@@ -23,7 +24,7 @@ class AddComment extends Component {
         />
         <Link
           onClick={event => this.props.saveComment(event)}
-          to={`/p/${this.props.originalPost}`}
+          to={this.props.rerouteUrl}
           className="topost"
         >
           Post

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // create an Axios object with pre-configured settings
 const backendApi = axios.create({
-  baseURL: "http://localhost:5555",
+  baseURL: process.env.REACT_APP_BACKEND_URL,
   // send cookies to the backend on every request (for logged-in users)
   withCredentials: true
 });
