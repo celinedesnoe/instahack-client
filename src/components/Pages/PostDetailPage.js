@@ -35,15 +35,20 @@ class PostDetailPage extends Component {
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response => {
-        var likeState,
-          lastPageNewsfeed = false;
-        if (
-          response.data.post.likedBy.indexOf(this.props.currentUser._id) > -1
-        ) {
-          likeState = true;
-        }
+        var likeState = false;
+        // console.log(response.data.post.likedBy);
+
+        // response.data.post.likedBy.forEach(oneLiker => {
+        //   if (oneLiker.id.equals(this.props.currentUser._id)) {
+        //     console.log("already liked");
+        //     likeState = true;
+        //   }
+        // });
+
+        var lastPageNewsfeed = false;
 
         if (this.props.rerouteUrl === "/") {
+          console.log("last page newsfeed");
           lastPageNewsfeed = true;
         }
 
