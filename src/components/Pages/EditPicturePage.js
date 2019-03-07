@@ -24,6 +24,10 @@ class EditPicturePage extends Component {
     normalSelect: false
   };
 
+  // componentDidMount() {
+  //   this.props.props.location.state.resetImage();
+  // }
+
   uploadChangeBW() {
     fetch(this.state.bw)
       .then(res => res.blob())

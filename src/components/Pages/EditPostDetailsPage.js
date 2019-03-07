@@ -83,18 +83,26 @@ class EditPostDetailsPage extends Component {
               alt="uploaded"
               className="col-3 w-100 contain-img"
             />
-            <div className="d-flex column w-100">
+
+            <div className="d-flex column w-100 m-t-20">
               <div className="container">
                 <div className="row">
-                  <div className="col-6 ">
-                    <p>Add location</p>
-                    <img src={ArrowNextLightGreyEmpty} alt="arrow" />
+                  <div className="col-12 d-flex justify-content-between align-items-center laura">
+                    <p className="sizepLaura">Add location</p>
+                    <img
+                      src={ArrowNextLightGreyEmpty}
+                      alt="arrow"
+                      className="sizeArrowLaura"
+                    />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    <p>Tag People</p>
-                    <img src={ArrowNextLightGreyEmpty} alt="arrow" />
+
+                  <div className="col-12 d-flex justify-content-between align-items-center laura">
+                    <p className="sizepLaura">Tag People</p>
+                    <img
+                      src={ArrowNextLightGreyEmpty}
+                      alt="arrow"
+                      className="sizeArrowLaura"
+                    />
                   </div>
                 </div>
               </div>

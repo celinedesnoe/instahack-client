@@ -26,7 +26,7 @@ class HomePage extends Component {
           </p>
           <ButtonLink
             text="Log In"
-            styling="blue-button"
+            styling="blue-button large"
             link="/accounts/login"
             className="loginbutton"
           />

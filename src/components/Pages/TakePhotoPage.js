@@ -20,6 +20,10 @@ class TakePhotoPage extends Component {
     });
   }
 
+  resetImage() {
+    this.setState({ image: "" });
+  }
+
   render() {
     const { image } = this.state;
     console.log(image);
@@ -43,7 +47,7 @@ class TakePhotoPage extends Component {
           <Redirect
             to={{
               pathname: "/create/style/",
-              state: { image: this.state.image }
+              state: { image: this.state.image, resetImage: this.resetImage() }
             }}
           />
         )}

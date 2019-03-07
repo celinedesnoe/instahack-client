@@ -121,7 +121,7 @@ class PostDetailPage extends Component {
     postComment(commentInfo).then(response => {
       console.log("comment added to array: ", response.data);
       // add new comment info to the front of the comments array to be rendered at the top
-      this.state.allComments.unshift(response.data);
+      this.state.allComments.push(response.data);
 
       // set the state of showComment (in parent) to false
       this.setState({ showComment: false });

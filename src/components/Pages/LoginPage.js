@@ -52,7 +52,7 @@ class LoginPage extends Component {
 
           <ButtonLinkFacebook
             text="Continue with Facebook"
-            styling="blue-button"
+            styling="blue-button large"
             link="https://www.facebook.com"
             className="buttonfacebook"
           />
@@ -91,7 +91,7 @@ class LoginPage extends Component {
               </div>
             </div>
 
-            <ButtonSubmit text="Log In" styling="blue-button" />
+            <ButtonSubmit text="Log In" styling="blue-button large" />
           </form>
 
           <a href="#" className="forgotpassword">

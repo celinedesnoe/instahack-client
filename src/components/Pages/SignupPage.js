@@ -125,7 +125,7 @@ class SignupPage extends Component {
                     // check if user has added a number
                     this.state.addPhoneNumber ? (
                       // signup is complete and the user goes to newsfeed
-                      <Redirect to={`/`} />
+                      <Redirect to={`/${this.state.username}`} />
                     ) : (
                       <div className="AddPhoneNumber">
                         <HeaderInstagram text="" link="/" />
