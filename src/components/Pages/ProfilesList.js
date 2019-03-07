@@ -30,6 +30,7 @@ class ProfilesList extends Component {
   render() {
     const { profileUser } = this.state;
     const { currentUser } = this.props;
+
     // console.log(this.props.match);
     console.log("Profile User", profileUser);
     console.log("Profile User FOLLOWERS", profileUser.followers);
@@ -89,31 +90,6 @@ class ProfilesList extends Component {
           )}
 
           {/************ FOR LIKERS PAGE *************/}
-
-          {/************ FOR SEARCH PAGE BY USERNAME *************/}
-          {/* {profileUser.following && (
-            <Route
-              path="/explore/search/"
-              render={() => {
-                return (
-                  <div>
-                    {profileUser.following.map(oneFollowing => {
-                      return (
-                        // <div key={oneFollowing._id} className="col-4 myCol p-0">
-                        <ProfileRow
-                          profileUser={oneFollowing}
-                          currentUser={currentUser}
-                          onFollowCurrentUser={this.props.onFollowCurrentUser}
-                          key={oneFollowing._id}
-                        />
-                        // </div>
-                      );
-                    })}
-                  </div>
-                );
-              }}
-            />
-          )} */}
         </Switch>
       </div>
     );

@@ -9,10 +9,10 @@ import "./HeaderLogged.css";
 class HeaderLogged extends Component {
   render() {
     return (
-      <div className={`header ${this.props.position}`}>
-        <p className="nop">
+      <section className={`blop`}>
+        <p className="nope">
           <a href={this.props.link}>
-            <img className="optionss" src={optionpicture} alt="Arrow Go Back" />
+            <img src={optionpicture} alt="Arrow Go Back" />
           </a>
         </p>
 
@@ -20,12 +20,30 @@ class HeaderLogged extends Component {
 
         <p className="nope">
           <a href={this.props.link}>
-            <img className="optionsss" src={plusprofile} alt="Arrow Go Back" />
+            <img src={plusprofile} alt="Arrow Go Back" />
           </a>
         </p>
-      </div>
+      </section>
     );
   }
 }
 
 export default HeaderLogged;
+
+{
+  /* <nav>
+  {this.state.currentUser ? (
+    <span>
+      <button onClick={() => this.logoutClick()}>
+        <Link exact to="/">
+          Log Out
+        </Link>
+      </button>
+    </span>
+  ) : (
+    <span className="navbar">
+      <NavLink to="/accounts/login">Log In</NavLink>
+    </span>
+  )}
+</nav>; */
+}
