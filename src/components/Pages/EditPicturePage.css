@@ -23,15 +23,35 @@
   margin: 0;
 }
 
-.EditPicturePage .square {
+.EditPicturePage .square-main {
   display: block;
   overflow: hidden;
-  padding-bottom: 100%;
+  /* padding-bottom: 100%; */
   position: relative;
   margin-top: 45px;
 }
 
 .EditPicturePage .square-img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.EditPicturePage .square-hot-balloon {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  margin-top: 45px;
+  width: 30%;
+  padding: 10%;
+  height: auto;
+  margin: 50px;
+}
+
+.EditPicturePage .square-hot-balloon-img {
   height: 100%;
   object-fit: cover;
   width: 100%;
