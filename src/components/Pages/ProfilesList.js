@@ -48,7 +48,6 @@ class ProfilesList extends Component {
               render={() => {
                 return (
                   <div>
-                    {" "}
                     <HeaderFollow text="Followers" />
                     {profileUser.followers.map(oneFollower => {
                       return (
