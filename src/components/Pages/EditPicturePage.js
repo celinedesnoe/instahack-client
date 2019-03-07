@@ -73,7 +73,7 @@ class EditPicturePage extends Component {
           </Link>
         </div>
 
-        <div className="square w-100">
+        <div className="square w-100 m-top-45">
           <img
             src={this.props.props.location.state.image}
             alt="uploaded"
