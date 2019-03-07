@@ -103,7 +103,7 @@ class FooterLogged extends Component {
                 alt="search empty"
                 className="okbutton"
               />
-              <Redirect to="#" />
+              <Redirect to="/explore/search" />
             </div>
           ) : (
             <div class="buton">
