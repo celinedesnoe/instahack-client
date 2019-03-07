@@ -24,7 +24,8 @@ class PostDetailPage extends Component {
       allComments: [],
       showComment: false,
       newComment: "",
-      liked: false
+      liked: false,
+      fromNewsfeed: false
     };
   }
 
@@ -34,11 +35,16 @@ class PostDetailPage extends Component {
     console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response => {
-        var likeState = false;
+        var likeState,
+          lastPageNewsfeed = false;
         if (
           response.data.post.likedBy.indexOf(this.props.currentUser._id) > -1
         ) {
           likeState = true;
+        }
+
+        if (this.props.rerouteUrl === "/") {
+          lastPageNewsfeed = true;
         }
 
         console.log("Post Details", response.data);
@@ -46,7 +52,8 @@ class PostDetailPage extends Component {
           postItem: response.data.post,
           postUser: response.data.post.username_id,
           allComments: response.data.comments,
-          liked: likeState
+          liked: likeState,
+          fromNewsfeed: lastPageNewsfeed
         });
       })
       .catch(() => {
@@ -127,7 +134,7 @@ class PostDetailPage extends Component {
     // console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetailPage w-100">
-        <HeaderArrowBack text="Photo" />
+        {this.state.fromNewsfeed ? <div /> : <HeaderArrowBack text="Photo" />}
         {/* show poster's profilepic & username */}
         <div className="ProfileRow d-flex row justify-content-between m-0">
           <div className="d-flex flex-row">

@@ -18,9 +18,8 @@ class EditPicturePage extends Component {
   //   err: null
   // };
 
-  // uploadChange(event) {
-  //   const { name, files } = event.target;
-  //   postPicture(files[0]).then(response => {
+  // uploadChange(src, err) {
+  //   postPicture(src).then(response => {
   //     this.setState({ [name]: response.data.fileUrl });
   //   });
   // }
@@ -59,20 +58,20 @@ class EditPicturePage extends Component {
           />
         </div>
 
-        {/* <ProcessImage
-            image={this.props.props.location.state.image}
-            // resize={{ width: 200, height: 200, mode: "bicubic" }}
-            // crop={{ w: 200, h: 200, x: 20, y: 40 }}
-            cover={{ width: 200, height: 200, mode: "horizontal_center" }}
-            greyscale={true}
-            // colors={{
-            //   mix: {
-            //     color: "mistyrose",
-            //     amount: 20
-            //   }
-            // }}
-            processedImage={(src, err) => this.setState({ src, err })}
-          /> */}
+        <ProcessImage
+          image={this.props.props.location.state.image}
+          // resize={{ width: 200, height: 200, mode: "bicubic" }}
+          // crop={{ w: 200, h: 200, x: 20, y: 40 }}
+          cover={{ width: 200, height: 200, mode: "horizontal_center" }}
+          greyscale={true}
+          // colors={{
+          //   mix: {
+          //     color: "mistyrose",
+          //     amount: 20
+          //   }
+          // }}
+          processedImage={(src, err) => this.setState({ src, err })}
+        />
       </div>
     );
   }
