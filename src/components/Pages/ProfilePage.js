@@ -107,10 +107,9 @@ class ProfilePage extends Component {
           profilePosts={profilePosts}
           currentUser={currentUser}
         />
+        <MiddleNavBar className="middlenavbarlogged" />
 
         <GridView profilePosts={profilePosts} />
-
-        <MiddleNavBar className="middlenavbarlogged" />
       </div>
     );
   }
