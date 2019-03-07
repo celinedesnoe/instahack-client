@@ -59,3 +59,19 @@
   position: absolute;
   top: 0;
 }
+
+.filters-row {
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* .oneFilter {
+  width: 100px;
+  height: 139.5px;
+}
+
+.oneFilter-fit {
+  object-fit: cover;
+} */
