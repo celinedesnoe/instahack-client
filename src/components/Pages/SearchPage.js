@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { getAllUsers } from "../../api.js";
+
 import SearchResults from "../Pages/SearchResults.js";
+
 import "./SearchPage.css";
 
 class SearchPage extends Component {
@@ -42,20 +44,27 @@ class SearchPage extends Component {
   render() {
     const { allUsers, searchUser } = this.state;
     return (
-      <div>
+      <div className="SearchPage">
         {/* <SearchBar
           search={this.state.searchUser}
           searchChange={event => this.updateSearch(event)}
         /> */}
 
-        <input
-          onChange={event => this.updateSearch(event)}
-          name="search"
-          value={searchUser}
-          type="text"
-          placeholder="Search"
-        />
+        <div className="searchheader">
+          <div className="searchbar">
+            <input
+              onChange={event => this.updateSearch(event)}
+              name="search"
+              value={searchUser}
+              type="text"
+              placeholder="Search"
+              className="searchinput"
+            />
+          </div>
+          <p className="bold cancel">Cancel</p>
+        </div>
 
+        <p className="suggested">Suggested</p>
         <SearchResults allUsers={this.searchUser()} />
 
         {/* {allUsers.map(oneUser => {

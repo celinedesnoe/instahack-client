@@ -14,31 +14,32 @@ class SearchResults extends Component {
           {allUsers.map(oneUser => {
             return (
               // <div key={oneFollower._id} className="col-4 myCol p-0">
-              <div className="d-flex row m-0">
-                <Link
-                  to={"/" + oneUser.username}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <div>
-                    <ProfilePic
-                      profilePic={oneUser.profilePic}
-                      size="profile-row"
-                    />
-                  </div>
-                </Link>
-                <Link
-                  to={"/" + oneUser.username}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <div className="username-marg">
+              <div className="ProfileRow d-flex row justify-content-between">
+                <div className="d-flex row m-0">
+                  <Link
+                    to={"/" + oneUser.username}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
                     <div>
-                      <b>{oneUser.username}</b>
+                      <ProfilePic
+                        profilePic={oneUser.profilePic}
+                        size="profile-row"
+                      />
                     </div>
-                    <div className="grey">{oneUser.fullName} </div>
-                  </div>
-                </Link>
+                  </Link>
+                  <Link
+                    to={"/" + oneUser.username}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <div className="username-marg">
+                      <div>
+                        <b>{oneUser.username}</b>
+                      </div>
+                      <div className="grey">{oneUser.fullName} </div>
+                    </div>
+                  </Link>
+                </div>
               </div>
-              // </div>
             );
           })}
         </div>
