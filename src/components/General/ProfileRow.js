@@ -26,7 +26,7 @@ class ProfileRow extends Component {
             <div>
               <ProfilePic
                 profilePic={profileUser.profilePic}
-                size="profile-row"
+                size="profile-row2"
               />
             </div>
           </Link>

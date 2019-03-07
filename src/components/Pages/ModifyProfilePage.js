@@ -103,7 +103,7 @@ class ModifyProfile extends Component {
                   text="Change profile picture"
                 />
 
-                <p className="smaller-size paragraph changeprofilepic">
+                <p className="smaller-size paragraph changeprofilepic textlink">
                   Change profile picture
                 </p>
               </div>
