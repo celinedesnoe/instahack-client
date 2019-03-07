@@ -72,7 +72,7 @@
 
 .ModifyProfile select {
   border: 1px solid #efefef;
-  background-color: white;
+  background-color: rgb(249, 249, 249);
   width: 100%;
   height: 32px;
 }
