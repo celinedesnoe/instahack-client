@@ -34,6 +34,7 @@ class EditPicturePage extends Component {
   render() {
     console.log("Image received", this.props.props.location.state.image);
     console.log(this.state.src);
+    const { imageUploaded } = this.state;
     return (
       <div className="EditPicturePage w-100">
         {/* HEADER */}
@@ -49,38 +50,48 @@ class EditPicturePage extends Component {
             to={{
               pathname: "/create/details/",
               // state: { image: this.state.src }
-              state: { image: this.props.props.location.state.image }
+              state: { image: imageUploaded }
             }}
           >
             Next
           </Link>
         </div>
-        {/* TO PUT IN THE NAV BAR */}
+
         <div className="square w-100">
           <img
             src={this.props.props.location.state.image}
             alt="uploaded"
             className="square-img"
+            onClick={() =>
+              this.setState({
+                imageUploaded: this.props.props.location.state.image
+              })
+            }
           />
         </div>
-        <ProcessImage
-          image={this.props.props.location.state.image}
-          // resize={{ width: 200, height: 200, mode: "bicubic" }}
-          // crop={{ w: 200, h: 200, x: 20, y: 40 }}
-          cover={{ width: 200, height: 200, mode: "horizontal_center" }}
-          greyscale={true}
-          // colors={{
-          //   mix: {
-          //     color: "mistyrose",
-          //     amount: 20
-          //   }
-          // }}
-          processedImage={(src, err) => {
-            this.setState({ bw: src, err });
-            // this.uploadChange(src);
-          }}
-        />
-        <button onClick={() => this.uploadChange()}>SEND BW </button>
+
+        <div>
+          Black & White
+          <ProcessImage
+            image={this.props.props.location.state.image}
+            // resize={{ width: 200, height: 200, mode: "bicubic" }}
+            // crop={{ w: 200, h: 200, x: 20, y: 40 }}
+            cover={{ width: 200, height: 200, mode: "horizontal_center" }}
+            greyscale={true}
+            // colors={{
+            //   mix: {
+            //     color: "mistyrose",
+            //     amount: 20
+            //   }
+            // }}
+            processedImage={(src, err) => {
+              this.setState({ bw: src, err });
+              // this.uploadChange(src);
+            }}
+            onClick={() => this.uploadChange()}
+          />
+          {/* <button onClick={() => this.uploadChange()}>SEND BW </button> */}
+        </div>
       </div>
     );
   }

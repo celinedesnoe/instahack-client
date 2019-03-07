@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getPostDetails } from "../../api.js";
 import ProfilePic from "../General/ProfilePic";
+import ButtonFollowUnfollow from "../General/ProfilePic";
 import "./LikesPage.css";
 
 class LikesPage extends Component {
@@ -20,7 +21,8 @@ class LikesPage extends Component {
       .then(response =>
         // console.log("Profile Details", response.data)
         this.setState({
-          post: response.data
+          post: response.data.post,
+          likers: response.data.post.likedBy
         })
       )
       .catch(() => {
@@ -29,41 +31,58 @@ class LikesPage extends Component {
   }
 
   render() {
-    const { post } = this.state;
+    const { likers } = this.state;
+    const { currentUser } = this.props;
+    console.log(this.state);
+    console.log("CURRENT USER", currentUser._id);
+    console.log("PROFILE USER", likers[0]);
     return (
       <div className="ProfilesList">
-        {/* <div>
-          {allUsers.map(oneUser => {
+        <div>
+          {likers.map(oneLiker => {
+            console.log(
+              "ONE LIKER ID",
+              oneLiker._id,
+              "CURRENT USER ID",
+              currentUser._id
+            );
             return (
-              // <div key={oneFollower._id} className="col-4 myCol p-0">
-              <div className="d-flex row m-0">
-                <Link
-                  to={"/" + oneUser.username}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <div>
-                    <ProfilePic
-                      profilePic={oneUser.profilePic}
-                      size="profile-row"
-                    />
-                  </div>
-                </Link>
-                <Link
-                  to={"/" + oneUser.username}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <div className="username-marg">
+              <div className="ProfileRow d-flex row justify-content-between">
+                <div className="d-flex row m-0">
+                  <Link
+                    to={"/" + oneLiker.username}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
                     <div>
-                      <b>{oneUser.username}</b>
+                      <ProfilePic
+                        profilePic={oneLiker.profilePic}
+                        size="profile-row"
+                      />
                     </div>
-                    <div className="grey">{oneUser.fullName} </div>
-                  </div>
-                </Link>
+                  </Link>
+                  <Link
+                    to={"/" + oneLiker.username}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <div className="username-marg">
+                      <div>
+                        <b>{oneLiker.username}</b>
+                      </div>
+                      <div className="grey">{oneLiker.fullName} </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <ButtonFollowUnfollow
+                  size="d-flex align-items-center"
+                  profileUser={oneLiker}
+                  currentUser={currentUser}
+                  onFollowCurrentUser={this.props.onFollowCurrentUser}
+                />
               </div>
-              // </div>
             );
           })}
-        </div> */}
+        </div>
       </div>
     );
   }
