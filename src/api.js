@@ -58,6 +58,12 @@ export function postPicture(files) {
   return backendApi.post("/api/single-upload", uploadData).catch(errorHandler);
 }
 
+export function postPictureFilter(files) {
+  // const uploadData = new FormData();
+  // uploadData.append("userFile", files[0]);
+  return backendApi.post("/api/filter-upload", files[0]).catch(errorHandler);
+}
+
 export function newPost(newPost) {
   return backendApi.post("/api/process-post", newPost).catch(errorHandler);
 }

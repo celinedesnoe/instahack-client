@@ -30,14 +30,20 @@ class EditProfilePhoto extends Component {
             className="addphoneinput"
           />
           <button
-            onClick={event => this.props.addNumber(event)}
+            onClick={event => {
+              this.props.addNumber(event);
+              this.props.submitForm(event);
+            }}
             className="blue-button"
           >
             Add phone number
           </button>
           <div className="holdtheskip">
             <button
-              onClick={event => this.props.addNumber(event)}
+              onClick={event => {
+                this.props.addNumber(event);
+                this.props.submitForm(event);
+              }}
               className="skip"
             >
               Skip
