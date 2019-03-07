@@ -27,5 +27,5 @@
 
 .blop img {
   height: 26px;
-  width: auto;
+  object-fit: fill;
 }

@@ -185,3 +185,23 @@ p.paragraph {
   width: 100%;
   z-index: 1;
 }
+
+.upload-picture-wrapper {
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+}
+
+input.edit-button1 {
+  margin: 0;
+  padding: 0;
+}
+
+p.textlink {
+  margin-right: 12px;
+  color: #3897f0;
+  font-weight: 600;
+}

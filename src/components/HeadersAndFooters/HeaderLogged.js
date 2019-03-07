@@ -10,19 +10,15 @@ class HeaderLogged extends Component {
   render() {
     return (
       <section className={`blop`}>
-        <p className="nope">
-          <a href={this.props.link}>
-            <img src={optionpicture} alt="Arrow Go Back" />
-          </a>
-        </p>
+        <a href={this.props.link}>
+          <img src={optionpicture} alt="Arrow Go Back" />
+        </a>
 
         <p className="text-profile">{this.props.text}</p>
 
-        <p className="nope">
-          <a href={this.props.link}>
-            <img src={plusprofile} alt="Arrow Go Back" />
-          </a>
-        </p>
+        <a href={this.props.link}>
+          <img src={plusprofile} alt="Arrow Go Back" />
+        </a>
       </section>
     );
   }
