@@ -70,7 +70,7 @@ class FooterLogged extends Component {
       <div className="FooterLogged">
         <div className="home">
           {this.state.homed ? (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredHome(event)}
                 // className="Unlike"
@@ -79,9 +79,9 @@ class FooterLogged extends Component {
                 className="okbutton"
               />
               <Redirect to="/" />
-            </button>
+            </div>
           ) : (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredHome(event)}
                 // className="Like"
@@ -89,13 +89,13 @@ class FooterLogged extends Component {
                 alt="home full"
                 className="okbutton"
               />
-            </button>
+            </div>
           )}
         </div>
 
         <div className="search">
           {this.state.searched ? (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredSearch(event)}
                 // className="Unlike"
@@ -104,9 +104,9 @@ class FooterLogged extends Component {
                 className="okbutton"
               />
               <Redirect to="#" />
-            </button>
+            </div>
           ) : (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredSearch(event)}
                 // className="Like"
@@ -114,7 +114,7 @@ class FooterLogged extends Component {
                 alt="search full"
                 className="okbutton"
               />
-            </button>
+            </div>
           )}
         </div>
 
@@ -124,7 +124,7 @@ class FooterLogged extends Component {
 
         <div className="likes">
           {this.state.liked ? (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredLike(event)}
                 src={likefull}
@@ -132,22 +132,22 @@ class FooterLogged extends Component {
                 className="okbutton"
               />
               <Redirect to="#" />
-            </button>
+            </div>
           ) : (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredLike(event)}
                 src={likeempty}
                 alt="like full"
                 className="okbutton"
               />
-            </button>
+            </div>
           )}
         </div>
 
         <div className="profile">
           {this.state.profiled ? (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredProfile(event)}
                 src={profilefull}
@@ -155,16 +155,16 @@ class FooterLogged extends Component {
                 className="okbutton"
               />
               <Redirect to={`/${this.props.currentUser.username}`} />
-            </button>
+            </div>
           ) : (
-            <button class="buton">
+            <div class="buton">
               <img
                 onClick={event => this.colouredProfile(event)}
                 src={profileempty}
                 alt="profile full"
                 className="okbutton"
               />
-            </button>
+            </div>
           )}
         </div>
       </div>

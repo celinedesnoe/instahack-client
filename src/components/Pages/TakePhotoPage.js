@@ -34,9 +34,9 @@ class TakePhotoPage extends Component {
               onChange={event => this.uploadChange(event)}
               name="image"
             />
-            <button class="buton">
+            <div class="buton">
               <img src={plus} alt="profile icon" className="okbutton" />
-            </button>
+            </div>
             {/* </form> */}
           </div>
         ) : (
