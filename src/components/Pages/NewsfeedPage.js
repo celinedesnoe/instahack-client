@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getNewsfeedPosts } from "../../api.js";
+import InfiniteScroll from "react-infinite-scroller";
 
 import "./NewsfeedPage.css";
 import PostDetailPage from "./PostDetailPage.js";
@@ -11,7 +12,8 @@ class Newsfeed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postsToRender: []
+      posts: [],
+      hasMoreItems: true
     };
   }
 
@@ -20,19 +22,48 @@ class Newsfeed extends Component {
     // queries to get a giant array of posts from each user someone is following
     getNewsfeedPosts(this.props.currentUser).then(response => {
       console.log("ALL POSTS in NEWSFEED: ", response.data);
-      const allPostIds = response.data.map(oneId => {
-        return { match: { params: { postId: oneId } } };
-      });
-
       console.log(this.props);
 
       // this.state.postsToRender.unshift(response.data);
-      this.setState({ postsToRender: allPostIds });
+      this.setState({ postsToRender: response.data });
+    });
+  }
+
+  loadItems(page) {
+    var self = this;
+
+    getNewsfeedPosts(this.props.currentUser).then(response => {
+      console.log("ALL POSTS in NEWSFEED: ", response.data);
+      if (response) {
+        var posts = self.state.posts;
+
+        response.data.map(onePost => {
+          posts.push(onePost);
+        });
+      }
     });
   }
 
   render() {
     // console.log("POSTS in NEWSFEED RENDER: ", this.state.postsToRender);
+    const loader = (
+      <div className="loader" key={0}>
+        Loading ...
+      </div>
+    );
+
+    let items = [];
+    this.state.posts.map(onePost => {
+      items.push(
+        <PostDetailPage
+          className="newsfeed-post"
+          key={onePost.id}
+          postInfo={onePost}
+          currentUser={this.props.currentUser}
+          rerouteUrl={this.props.rerouteUrl}
+        />
+      );
+    });
 
     return (
       <section className="Newsfeed">
@@ -42,17 +73,14 @@ class Newsfeed extends Component {
           <img src={plusprofile} alt="follow suggestions" />
         </header>
 
-        {this.state.postsToRender.map(onePost => {
-          return (
-            <PostDetailPage
-              className="newsfeed-post"
-              key={onePost.id}
-              postInfo={onePost}
-              currentUser={this.props.currentUser}
-              rerouteUrl={this.props.rerouteUrl}
-            />
-          );
-        })}
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.loadItems.bind(this)}
+          hasMore={this.state.hasMoreItems}
+          loader={loader}
+        >
+          <div className="newsfeed">{items}</div>
+        </InfiniteScroll>
       </section>
     );
   }
