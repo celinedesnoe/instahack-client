@@ -89,19 +89,23 @@ class ModifyProfile extends Component {
             <h3 className="currentusername">{currentUser.username}</h3>
 
             <p className="smaller-size paragraph">
-              <div>
-                <b>
-                  <form onSubmit={event => this.handleSubmit(event)}>
-                    Change profile picture
-                    <input
-                      onChange={event => {
-                        this.uploadChange(event);
-                      }}
-                      name="profilePic"
-                      type="file"
-                    />
-                  </form>
-                </b>
+              <div
+                className="upload-picture-wrapper"
+                onSubmit={event => this.handleSubmit(event)}
+              >
+                <input
+                  class="edit-button1"
+                  onChange={event => {
+                    this.uploadChange(event);
+                  }}
+                  name="profilePic"
+                  type="file"
+                  text="Change profile picture"
+                />
+
+                <p className="smaller-size paragraph changeprofilepic">
+                  Change profile picture
+                </p>
               </div>
             </p>
           </div>

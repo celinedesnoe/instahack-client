@@ -175,3 +175,13 @@ p.paragraph {
   width: 32px;
   z-index: 1;
 }
+
+.upload-picture-wrapper input[type="file"] {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: 1;
+}
