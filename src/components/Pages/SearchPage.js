@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getAllUsers } from "../../api.js";
-
+import SearchResults from "../Pages/SearchResults.js";
 import "./SearchPage.css";
 
 class SearchPage extends Component {
@@ -8,7 +8,7 @@ class SearchPage extends Component {
     super(props);
     this.state = {
       allUsers: [],
-      searchUser: {}
+      searchUser: ""
     };
   }
 
@@ -31,26 +31,36 @@ class SearchPage extends Component {
     console.log(this.state.searchUser);
   }
 
-  searchProducts() {
+  searchUser() {
     const { searchUser, allUsers } = this.state;
-    var allResults = allUsers.data.filter(oneProduct => {
-      return oneProduct.name.indexOf(searchUser) > -1;
+    var allResults = allUsers.filter(oneUser => {
+      return oneUser.username.indexOf(searchUser) > -1;
     });
     return allResults;
   }
 
   render() {
-    const { allUsers } = this.state;
+    const { allUsers, searchUser } = this.state;
     return (
       <div>
         {/* <SearchBar
-          search={this.state.searchedProduct}
+          search={this.state.searchUser}
           searchChange={event => this.updateSearch(event)}
         /> */}
 
-        {allUsers.map(oneUser => {
+        <input
+          onChange={event => this.updateSearch(event)}
+          name="search"
+          value={searchUser}
+          type="text"
+          placeholder="Search"
+        />
+
+        <SearchResults allUsers={this.searchUser()} />
+
+        {/* {allUsers.map(oneUser => {
           return <div>{oneUser.username}</div>;
-        })}
+        })} */}
       </div>
     );
   }

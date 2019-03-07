@@ -17,7 +17,7 @@ class EditProfilePhoto extends Component {
 
   uploadChange(event) {
     const { name, files } = event.target;
-    postPicture(files).then(response => {
+    postPicture(files[0]).then(response => {
       // this.setState({ [name]: response.data.fileUrl });
       this.props.addPhoto(response.data.fileUrl);
     });
