@@ -1,13 +1,17 @@
+.App {
+  width: 100%;
+  height: 100%;
+}
 .newsfeed-header {
   /* width: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px 15px;
+  padding: 10px 15px;
 }
 
 .newsfeed-header img {
-  height: 30px;
+  height: 26px;
   width: auto;
 }
 
