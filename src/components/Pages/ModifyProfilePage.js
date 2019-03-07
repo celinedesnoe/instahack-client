@@ -48,12 +48,10 @@ class ModifyProfile extends Component {
 
   uploadChange(event) {
     const { name, files } = event.target;
-    const { profilePic } = this.state;
-    postPicture(files).then(response => {
+    postPicture(files[0]).then(response => {
       console.log("Upload File Info", response.data);
       this.setState({ [name]: response.data.fileUrl });
     });
-    console.log("Upload profile pic", profilePic);
   }
 
   render() {
@@ -98,7 +96,6 @@ class ModifyProfile extends Component {
                     <input
                       onChange={event => {
                         this.uploadChange(event);
-                        this.genericOnChange(event);
                       }}
                       name="profilePic"
                       type="file"

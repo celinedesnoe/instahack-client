@@ -52,16 +52,10 @@ export function getUserProfileFollowing(username) {
   return backendApi.get(`/api/${username}/following`).catch(errorHandler);
 }
 
-export function postPicture(files) {
+export function postPicture(file) {
   const uploadData = new FormData();
-  uploadData.append("userFile", files[0]);
+  uploadData.append("userFile", file);
   return backendApi.post("/api/single-upload", uploadData).catch(errorHandler);
-}
-
-export function postPictureFilter(files) {
-  // const uploadData = new FormData();
-  // uploadData.append("userFile", files[0]);
-  return backendApi.post("/api/filter-upload", files[0]).catch(errorHandler);
 }
 
 export function newPost(newPost) {
@@ -103,7 +97,12 @@ export function unlikePost(action) {
 }
 
 export function getNewsfeedPosts(userInfo) {
-  return backendApi.post("api/process-newsfeed", userInfo);
+  return backendApi.post("/api/process-newsfeed", userInfo);
+}
+
+// FOR THE SEARCH BY USERNAME
+export function getAllUsers() {
+  return backendApi.get("/api/explore/search");
 }
 
 // export function checkEmail(someEmail) {

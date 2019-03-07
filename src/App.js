@@ -10,6 +10,7 @@ import LoginPage from "./components/Pages/LoginPage.js";
 import PostDetailPage from "./components/Pages/PostDetailPage.js";
 import ModifyProfilePage from "./components/Pages/ModifyProfilePage.js";
 import NewsfeedPage from "./components/Pages/NewsfeedPage.js";
+import SearchPage from "./components/Pages/SearchPage.js";
 import LikesPage from "./components/Pages/LikesPage.js";
 import FooterLogged from "./components/HeadersAndFooters/FooterLogged.js";
 // import ButtonSubmit from "./components/General/ButtonSubmit.js";
@@ -236,6 +237,13 @@ class App extends Component {
               );
             }}
           />
+
+          {/* ######################################
+              SEARCH PAGE BY USERNAME
+              ######################################
+          */}
+
+          <Route exact path="/explore/search" component={SearchPage} />
         </Switch>
 
         <footer className="footerprofilelogged">

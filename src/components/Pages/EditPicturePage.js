@@ -13,22 +13,27 @@ import "./EditPicturePage.css";
 // #################################################
 
 class EditPicturePage extends Component {
-  // state = {
-  //   src: "",
-  //   err: null,
-  //   imageUploaded: "",
-  //   bw: ""
-  // };
+  state = {
+    src: "",
+    err: null,
+    imageUploaded: "",
+    bw: ""
+  };
 
-  // uploadChange(src) {
-  //   postPicture(this.state.bw).then(response => {
-  //     this.setState({ imageUploaded: response.data.fileUrl });
-  //   });
-  // }
+  uploadChange() {
+    fetch(this.state.bw)
+      .then(res => res.blob())
+      .then(blob => {
+        const file = new File([blob], "bw");
+        postPicture(file).then(response => {
+          this.setState({ imageUploaded: response.data.fileUrl });
+        });
+      });
+  }
 
   render() {
     console.log("Image received", this.props.props.location.state.image);
-    // console.log(this.state.src);
+    console.log(this.state.src);
     return (
       <div className="EditPicturePage w-100">
         {/* HEADER */}
@@ -58,7 +63,7 @@ class EditPicturePage extends Component {
             className="square-img"
           />
         </div>
-        {/* <ProcessImage
+        <ProcessImage
           image={this.props.props.location.state.image}
           // resize={{ width: 200, height: 200, mode: "bicubic" }}
           // crop={{ w: 200, h: 200, x: 20, y: 40 }}
@@ -73,7 +78,7 @@ class EditPicturePage extends Component {
           processedImage={(src, err) => {
             this.setState({ bw: src, err });
             // this.uploadChange(src);
-          }} */}
+          }}
         />
         <button onClick={() => this.uploadChange()}>SEND BW </button>
       </div>
