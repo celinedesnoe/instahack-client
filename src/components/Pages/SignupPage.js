@@ -71,9 +71,13 @@ class SignupPage extends Component {
 
     postSignUp(this.state).then(response => {
       console.log("sign up result", response.data);
-      this.setState({ fullNameSubmitted: true, passwordSubmitted: true });
       this.props.signupSuccess(response.data);
+      this.setState({ addPhoneNumber: true });
     });
+  }
+
+  handlefullNameSubmitted(event) {
+    this.setState({ fullNameSubmitted: true, passwordSubmitted: true });
   }
 
   handleAgree(event) {
@@ -88,8 +92,8 @@ class SignupPage extends Component {
     this.setState({ connectToFacebook: true });
   }
 
-  handleProfilePhoto(event) {
-    this.setState({ addPhoto: true });
+  handleProfilePhoto(pic) {
+    this.setState({ addPhoto: true, profilePic: pic });
   }
 
   handlePhoneNumber(event) {
@@ -121,12 +125,13 @@ class SignupPage extends Component {
                     // check if user has added a number
                     this.state.addPhoneNumber ? (
                       // signup is complete and the user goes to newsfeed
-                      <Redirect to={`/${this.state.username}`} />
+                      <Redirect to={`/`} />
                     ) : (
                       <div className="AddPhoneNumber">
                         <HeaderInstagram text="" link="/" />
                         <AddPhoneNumber
                           addNumber={event => this.handlePhoneNumber(event)}
+                          submitForm={event => this.handleSubmit(event)}
                         />
                       </div>
                     )
@@ -137,7 +142,7 @@ class SignupPage extends Component {
                     <div className="AddPhoto">
                       <HeaderInstagram text="" link="/" />
                       <EditProfilePhoto
-                        addPhoto={event => this.handleProfilePhoto(event)}
+                        addPhoto={pic => this.handleProfilePhoto(pic)}
                       />
                     </div>
                   )
@@ -182,7 +187,9 @@ class SignupPage extends Component {
               <HeaderArrowBack text="Register" link="/accounts/signup" />
               <AddUsernameAndPsw
                 updateState={event => this.genericOnChange(event)}
-                submitForm={event => this.handleSubmit(event)}
+                handlefullNameSubmitted={event =>
+                  this.handlefullNameSubmitted(event)
+                }
               />
             </div>
           )

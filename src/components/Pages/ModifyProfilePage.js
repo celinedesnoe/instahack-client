@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ProfilePic from "../General/ProfilePic.js";
 
-import { editUser } from "../../api.js";
+import { editUser, postPicture } from "../../api.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
 import HeaderArrowBack from "../HeadersAndFooters/HeaderArrowBack";
 
@@ -20,18 +20,20 @@ class ModifyProfile extends Component {
       email: this.props.currentUser.email,
       phoneNumber: this.props.currentUser.phoneNumber,
       gender: this.props.currentUser.gender,
-      isSubmit: false
+      isSubmit: false,
+      profilePic: this.props.currentUser.profilePic
     };
   }
 
   genericOnChange(event) {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-
     const updatedUser = {
       newInfo: this.state,
       oldInfo: this.props.currentUser
@@ -41,18 +43,23 @@ class ModifyProfile extends Component {
       console.log("edit result", response.data);
       this.props.editSuccess(response.data);
       this.setState({ isSubmit: true });
-      if (this.state.profilePic === "") {
-        this.setState({
-          profilePic:
-            "https://scontent-frx5-1.cdninstagram.com/vp/973f5d72a5217d4b771ed4a941e6f138/5D0566F1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com"
-        });
-      }
     });
+  }
+
+  uploadChange(event) {
+    const { name, files } = event.target;
+    const { profilePic } = this.state;
+    postPicture(files).then(response => {
+      console.log("Upload File Info", response.data);
+      this.setState({ [name]: response.data.fileUrl });
+    });
+    console.log("Upload profile pic", profilePic);
   }
 
   render() {
     const { currentUser } = this.props;
-    const { profilePic } = this.props.currentUser;
+
+    console.log("CURRENT USER", currentUser);
 
     return this.state.isSubmit ? (
       <Redirect to={`/${currentUser.username}`} />
@@ -64,21 +71,42 @@ class ModifyProfile extends Component {
           link={`/${currentUser.username}`}
         />
         <div className="header-edit d-flex">
-          <ProfilePic
-            profilePic={profilePic}
-            size="profile-page-litle"
-            margin="m-20"
-          />
+          {this.state.profilePic === "" ? (
+            <ProfilePic
+              profilePic={currentUser.profilePic}
+              size="profile-page-litle"
+              margin="m-20"
+            />
+          ) : (
+            <ProfilePic
+              profilePic={this.state.profilePic}
+              size="profile-page-litle"
+              margin="m-20"
+            />
+          )}
 
           {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
 
           <div className="d-flex flex-column justify-content-center">
             <h3 className="currentusername">{currentUser.username}</h3>
-            <Link to="#">
-              <p className="smaller-size paragraph">
-                <b>Change profile picture</b>
-              </p>
-            </Link>
+
+            <p className="smaller-size paragraph">
+              <div>
+                <b>
+                  <form onSubmit={event => this.handleSubmit(event)}>
+                    Change profile picture
+                    <input
+                      onChange={event => {
+                        this.uploadChange(event);
+                        this.genericOnChange(event);
+                      }}
+                      name="profilePic"
+                      type="file"
+                    />
+                  </form>
+                </b>
+              </div>
+            </p>
           </div>
         </div>
 

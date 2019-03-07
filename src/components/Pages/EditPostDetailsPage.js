@@ -3,6 +3,7 @@ import ProfilePic from "../General/ProfilePic.js";
 import { Link } from "react-router-dom";
 import { newPost } from "../../api.js";
 import ArrowGoBack from "../../images/arrowbackbold.png";
+import ArrowNextLightGreyEmpty from "../../images/arrownextlightgreyempty.png";
 
 import "./EditPostDetailsPage.css";
 
@@ -75,7 +76,16 @@ class EditPostDetailsPage extends Component {
               alt="uploaded"
               className="col-3 w-100 contain-img"
             />
-            {/* TO PUT IN THE HEADER */}
+
+            <div>
+              <p>Add location</p>
+              <img src={ArrowNextLightGreyEmpty} alt="arrow" />
+            </div>
+
+            <div>
+              <p>Tag People</p>
+              <img src={ArrowNextLightGreyEmpty} alt="arrow" />
+            </div>
           </div>
         </div>
       </div>

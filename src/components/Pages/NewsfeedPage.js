@@ -3,8 +3,9 @@ import { getNewsfeedPosts } from "../../api.js";
 
 import "./NewsfeedPage.css";
 import PostDetailPage from "./PostDetailPage.js";
-import HeaderLogged from "../HeadersAndFooters/HeaderLogged.js";
-import HeaderCross from "../HeadersAndFooters/HeaderCross.js";
+import optionpicture from "../../images/optionpicture.png";
+import iglogo from "../../images/iglogo.png";
+import plusprofile from "../../images/plusprofile.png";
 
 class Newsfeed extends Component {
   constructor(props) {
@@ -31,15 +32,21 @@ class Newsfeed extends Component {
   }
 
   render() {
-    const { postsToRender } = this.state;
-    console.log("POSTSTORENDER in NEWSFEED RENDER: ", postsToRender);
+    // console.log("POSTS in NEWSFEED RENDER: ", this.state.postsToRender);
 
     return (
       <section className="Newsfeed">
-        {/* <HeaderCross /> */}
-        {postsToRender.map(onePost => {
+        <header className="newsfeed-header">
+          <img src={optionpicture} alt="options" />
+          <img src={iglogo} alt="instagram logo" />
+          <img src={plusprofile} alt="follow suggestions" />
+        </header>
+
+        {this.state.postsToRender.map(onePost => {
           return (
             <PostDetailPage
+              className="newsfeed-post"
+              key={onePost.id}
               postInfo={onePost}
               currentUser={this.props.currentUser}
               rerouteUrl={this.props.rerouteUrl}

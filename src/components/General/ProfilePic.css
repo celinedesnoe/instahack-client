@@ -15,7 +15,6 @@
 .profile-page-litle {
   height: 40px;
   width: 40px;
-  background-color: blue;
 }
 
 .profile-row {
@@ -23,12 +22,13 @@
   width: 40px;
 }
 
-.ProfilePic .img-in-circle {
+.img-in-circle {
   height: 100%;
   left: 0;
   top: 0;
   width: 100%;
   position: absolute;
+  object-fit: cover;
 }
 
 .m-20 {

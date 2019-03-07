@@ -61,7 +61,7 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        {/* <nav>
+        <nav>
           {this.state.currentUser ? (
             <span>
               <button onClick={() => this.logoutClick()}>
@@ -75,7 +75,7 @@ class App extends Component {
               <NavLink to="/accounts/login">Log In</NavLink>
             </span>
           )}
-        </nav> */}
+        </nav>
 
         <Switch>
           {/* ########################################

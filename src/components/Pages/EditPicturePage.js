@@ -15,13 +15,14 @@ import "./EditPicturePage.css";
 class EditPicturePage extends Component {
   // state = {
   //   src: "",
-  //   err: null
+  //   err: null,
+  //   imageUploaded: "",
+  //   bw: ""
   // };
 
-  // uploadChange(event) {
-  //   const { name, files } = event.target;
-  //   postPicture(files[0]).then(response => {
-  //     this.setState({ [name]: response.data.fileUrl });
+  // uploadChange(src) {
+  //   postPicture(this.state.bw).then(response => {
+  //     this.setState({ imageUploaded: response.data.fileUrl });
   //   });
   // }
 
@@ -49,7 +50,6 @@ class EditPicturePage extends Component {
             Next
           </Link>
         </div>
-
         {/* TO PUT IN THE NAV BAR */}
         <div className="square w-100">
           <img
@@ -58,21 +58,24 @@ class EditPicturePage extends Component {
             className="square-img"
           />
         </div>
-
         {/* <ProcessImage
-            image={this.props.props.location.state.image}
-            // resize={{ width: 200, height: 200, mode: "bicubic" }}
-            // crop={{ w: 200, h: 200, x: 20, y: 40 }}
-            cover={{ width: 200, height: 200, mode: "horizontal_center" }}
-            greyscale={true}
-            // colors={{
-            //   mix: {
-            //     color: "mistyrose",
-            //     amount: 20
-            //   }
-            // }}
-            processedImage={(src, err) => this.setState({ src, err })}
-          /> */}
+          image={this.props.props.location.state.image}
+          // resize={{ width: 200, height: 200, mode: "bicubic" }}
+          // crop={{ w: 200, h: 200, x: 20, y: 40 }}
+          cover={{ width: 200, height: 200, mode: "horizontal_center" }}
+          greyscale={true}
+          // colors={{
+          //   mix: {
+          //     color: "mistyrose",
+          //     amount: 20
+          //   }
+          // }}
+          processedImage={(src, err) => {
+            this.setState({ bw: src, err });
+            // this.uploadChange(src);
+          }} */}
+        />
+        <button onClick={() => this.uploadChange()}>SEND BW </button>
       </div>
     );
   }

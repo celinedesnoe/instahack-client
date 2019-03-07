@@ -1,15 +1,28 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { postPicture } from "../../api.js";
 
 import profileperson from "../../images/roundprofileline.png";
+import TakePhotoPage from "../Pages/TakePhotoPage.js";
 
 import "./EditProfilePhoto.css";
 
 class EditProfilePhoto extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      image: ""
+    };
   }
+
+  uploadChange(event) {
+    const { name, files } = event.target;
+    postPicture(files).then(response => {
+      // this.setState({ [name]: response.data.fileUrl });
+      this.props.addPhoto(response.data.fileUrl);
+    });
+  }
+
   render() {
     return (
       <div className="EditProfilePhoto">
@@ -23,12 +36,16 @@ class EditProfilePhoto extends Component {
           <p className="soyourfriends1">
             Add a profile photo so your friends know it's you.
           </p>
-          <button
-            onClick={event => this.props.addPhoto(event)}
-            className="blue-button"
-          >
+
+          <div className="upload-btn-wrapper">
+            <input
+              class="edit-button"
+              type="file"
+              onChange={event => this.uploadChange(event)}
+              name="profilePic"
+            />
             Next
-          </button>
+          </div>
         </div>
         <Link
           onClick={event => this.props.addPhoto(event)}

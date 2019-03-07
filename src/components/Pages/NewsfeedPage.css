@@ -1,0 +1,18 @@
+.newsfeed-header {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 15px;
+}
+
+.newsfeed-header img {
+  height: 30px;
+  width: auto;
+}
+
+.newsfeed-post {
+  margin: 0;
+  padding: 0;
+  margin-top: 0;
+}
