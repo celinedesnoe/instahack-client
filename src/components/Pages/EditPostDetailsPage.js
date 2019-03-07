@@ -17,6 +17,13 @@ class EditPostDetailsPage extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      username_id: this.props.currentUser._id,
+      image: this.props.props.location.state.image
+    });
+  }
+
   genericOnChange(event) {
     const { name, value } = event.target;
     this.setState({
@@ -34,7 +41,7 @@ class EditPostDetailsPage extends Component {
 
   render() {
     console.log("STATE", this.state);
-    console.log("PROPS", this.props.props);
+    console.log("PROPS", this.props);
     return (
       <div className="EditPostDetailsPage w-100">
         {/* HEADER */}
