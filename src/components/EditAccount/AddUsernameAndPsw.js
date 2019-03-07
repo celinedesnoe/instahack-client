@@ -13,7 +13,7 @@ class AddUsernameAndPsw extends Component {
     return (
       <div className="EditNameAndPsw">
         <form
-          onSubmit={event => this.props.submitForm(event)}
+          onSubmit={event => this.props.handlefullNameSubmitted(event)}
           className="EditNamePsw"
         >
           <p className="entername">Enter name and password</p>
@@ -41,11 +41,7 @@ class AddUsernameAndPsw extends Component {
             />
           </div>
 
-          <ButtonNext
-            text="Next"
-            styling="blue-button large"
-            link="/accounts/login"
-          />
+          <ButtonNext text="Next" styling="blue-button large" />
         </form>
       </div>
     );
