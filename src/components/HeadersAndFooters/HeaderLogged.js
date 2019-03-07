@@ -29,3 +29,21 @@ class HeaderLogged extends Component {
 }
 
 export default HeaderLogged;
+
+{
+  /* <nav>
+  {this.state.currentUser ? (
+    <span>
+      <button onClick={() => this.logoutClick()}>
+        <Link exact to="/">
+          Log Out
+        </Link>
+      </button>
+    </span>
+  ) : (
+    <span className="navbar">
+      <NavLink to="/accounts/login">Log In</NavLink>
+    </span>
+  )}
+</nav>; */
+}
