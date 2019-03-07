@@ -70,6 +70,10 @@ export function getPostDetails(postId) {
   return backendApi.get(`/api/p/${postId}`).catch(errorHandler);
 }
 
+export function getLikers(postId) {
+  return backendApi.get(`/api/p/${postId}/liked_by`).catch(errorHandler);
+}
+
 export function getUserToUnfollow(userId) {
   return backendApi.post("/api/process-unfollow", userId).catch(errorHandler);
 }

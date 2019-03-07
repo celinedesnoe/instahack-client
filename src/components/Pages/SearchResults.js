@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Link, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import ProfilePic from "../General/ProfilePic";
 import "./SearchResults.css";

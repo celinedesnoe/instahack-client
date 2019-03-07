@@ -183,7 +183,7 @@ class PostDetailPage extends Component {
           <div className="comment-info">
             <div className="margin-bottom-10">
               {this.state.liked ? (
-                <Link to={`/p/${postItem._id}/liked_by`}>
+                <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
                   <b>
                     {postItem.likedBy.length}
                     <span> likes</span>

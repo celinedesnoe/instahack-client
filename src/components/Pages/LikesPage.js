@@ -1,25 +1,26 @@
 import React, { Component } from "react";
 
-import { Link, Switch, Route } from "react-router-dom";
-import { getUserProfileFollowers } from "../../api";
-import ProfileRow from "../General/ProfileRow";
-import "./ProfilesList.css";
+import { Link } from "react-router-dom";
+import { getPostDetails } from "../../api.js";
+import ProfilePic from "../General/ProfilePic";
+import "./LikesPage.css";
 
-class ProfilesList extends Component {
+class LikesPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileUser: {}
+      post: {},
+      likers: []
     };
   }
 
   componentDidMount() {
     const { params } = this.props.match;
-    getUserProfileFollowers(params.username)
+    getPostDetails(params.postId)
       .then(response =>
         // console.log("Profile Details", response.data)
         this.setState({
-          profileUser: response.data.userDoc
+          post: response.data
         })
       )
       .catch(() => {
@@ -28,72 +29,44 @@ class ProfilesList extends Component {
   }
 
   render() {
-    const { profileUser } = this.state;
-    const { currentUser } = this.props;
-    // console.log(this.props.match);
-    console.log("Profile User", profileUser);
-
-    console.log("Profile User FOLLOWERS", profileUser.followers);
-    console.log("Current User", currentUser);
-
+    const { post } = this.state;
     return (
       <div className="ProfilesList">
-        <Switch>
-          {/************ FOR FOLLOWERS PAGE *************/}
-          {profileUser.followers && (
-            <Route
-              path="/:username/followers"
-              render={() => {
-                return (
+        {/* <div>
+          {allUsers.map(oneUser => {
+            return (
+              // <div key={oneFollower._id} className="col-4 myCol p-0">
+              <div className="d-flex row m-0">
+                <Link
+                  to={"/" + oneUser.username}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
                   <div>
-                    Page for followers
-                    {profileUser.followers.map(oneFollower => {
-                      return (
-                        // <div key={oneFollower._id} className="col-4 myCol p-0">
-                        <ProfileRow
-                          profileUser={oneFollower}
-                          currentUser={currentUser}
-                          onFollowCurrentUser={this.props.onFollowCurrentUser}
-                          key={oneFollower._id}
-                        />
-                        // </div>
-                      );
-                    })}
+                    <ProfilePic
+                      profilePic={oneUser.profilePic}
+                      size="profile-row"
+                    />
                   </div>
-                );
-              }}
-            />
-          )}
-
-          {/************ FOR FOLLOWING PAGE *************/}
-          {profileUser.following && (
-            <Route
-              path="/:username/following"
-              render={() => {
-                return (
-                  <div>
-                    Page for following
-                    {profileUser.following.map(oneFollowing => {
-                      return (
-                        // <div key={oneFollowing._id} className="col-4 myCol p-0">
-                        <ProfileRow
-                          profileUser={oneFollowing}
-                          currentUser={currentUser}
-                          onFollowCurrentUser={this.props.onFollowCurrentUser}
-                          key={oneFollowing._id}
-                        />
-                        // </div>
-                      );
-                    })}
+                </Link>
+                <Link
+                  to={"/" + oneUser.username}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="username-marg">
+                    <div>
+                      <b>{oneUser.username}</b>
+                    </div>
+                    <div className="grey">{oneUser.fullName} </div>
                   </div>
-                );
-              }}
-            />
-          )}
-        </Switch>
+                </Link>
+              </div>
+              // </div>
+            );
+          })}
+        </div> */}
       </div>
     );
   }
 }
 
-export default ProfilesList;
+export default LikesPage;
