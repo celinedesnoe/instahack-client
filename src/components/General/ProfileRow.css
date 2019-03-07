@@ -3,6 +3,7 @@
   font-size: 14px;
   margin: 0;
   padding: 8px 20px;
+  background-color: rgb(249, 249, 249);
 }
 
 .username-marg {
@@ -10,7 +11,7 @@
 }
 
 .grey {
-  color: #999;
+  color: #999999;
 }
 
 /* .ProfilePage .profile-pic {

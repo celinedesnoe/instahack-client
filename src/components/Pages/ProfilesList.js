@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-
 import { Link, Switch, Route } from "react-router-dom";
 import { getUserProfileFollowers } from "../../api";
-import ProfileRow from "../General/ProfileRow";
+
+import ProfileRow from "../General/ProfileRow.js";
+import HeaderFollow from "../HeadersAndFooters/HeaderFollow.js";
+
 import "./ProfilesList.css";
 
 class ProfilesList extends Component {
@@ -46,6 +48,8 @@ class ProfilesList extends Component {
               render={() => {
                 return (
                   <div>
+                    {" "}
+                    <HeaderFollow text="Followers" />
                     {profileUser.followers.map(oneFollower => {
                       return (
                         // <div key={oneFollower._id} className="col-4 myCol p-0">
@@ -54,6 +58,7 @@ class ProfilesList extends Component {
                           currentUser={currentUser}
                           onFollowCurrentUser={this.props.onFollowCurrentUser}
                           key={oneFollower._id}
+                          className="profileraw"
                         />
                         // </div>
                       );
@@ -71,6 +76,7 @@ class ProfilesList extends Component {
               render={() => {
                 return (
                   <div>
+                    <HeaderFollow text="Following" />
                     {profileUser.following.map(oneFollowing => {
                       return (
                         // <div key={oneFollowing._id} className="col-4 myCol p-0">
@@ -79,6 +85,7 @@ class ProfilesList extends Component {
                           currentUser={currentUser}
                           onFollowCurrentUser={this.props.onFollowCurrentUser}
                           key={oneFollowing._id}
+                          className="profileraw"
                         />
                         // </div>
                       );
