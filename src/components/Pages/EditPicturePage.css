@@ -15,12 +15,14 @@
 .EditPicturePage .link-next {
   position: absolute;
   right: 14px;
+  font-weight: 600;
 }
 
 .newPhotoPost {
   width: 100%;
   text-align: center;
   margin: 0;
+  font-weight: 500;
 }
 
 .EditPicturePage .square-main {
