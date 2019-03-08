@@ -13,14 +13,16 @@ class EditPostDetailsPage extends Component {
     this.state = {
       username_id: "",
       image: "",
-      caption: ""
+      caption: "",
+      style: ""
     };
   }
 
   componentDidMount() {
     this.setState({
       username_id: this.props.currentUser._id,
-      image: this.props.props.location.state.image
+      image: this.props.props.location.state.image,
+      style: this.props.props.location.state.style
     });
   }
 
@@ -29,7 +31,8 @@ class EditPostDetailsPage extends Component {
     this.setState({
       [name]: value,
       username_id: this.props.currentUser._id,
-      image: this.props.props.location.state.image
+      image: this.props.props.location.state.image,
+      style: this.props.props.location.state.style
     });
   }
 
@@ -40,8 +43,9 @@ class EditPostDetailsPage extends Component {
   }
 
   render() {
-    console.log("STATE", this.state);
-    console.log("PROPS", this.props);
+    // console.log("STATE", this.state);
+    // console.log("PROPS", this.props);
+    console.log("STYLE", this.props.props.location.state);
     return (
       <div className="EditPostDetailsPage w-100">
         {/* HEADER */}
@@ -69,7 +73,7 @@ class EditPostDetailsPage extends Component {
                 size="profile-row"
               />
               <textarea
-                class="caption-input caption-margin-left colouredcaption"
+                class="caption-input caption-margin-left"
                 onChange={event => this.genericOnChange(event)}
                 type="text"
                 rows="1"
@@ -81,7 +85,7 @@ class EditPostDetailsPage extends Component {
             <img
               src={this.props.props.location.state.image}
               alt="uploaded"
-              className="col-3 w-100 contain-img"
+              className={`col-3 w-100 contain-img ${this.state.style}`}
             />
 
             <div className="d-flex column w-100 m-t-20">

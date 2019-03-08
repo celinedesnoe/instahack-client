@@ -167,7 +167,11 @@ class PostDetailPage extends Component {
         </div>
 
         {/* show the actual pic of the post */}
-        <img src={postItem.image} alt="mainpic" className="mainpic" />
+        <img
+          src={postItem.image}
+          alt="mainpic"
+          className={`mainpic ${postItem.style}`}
+        />
 
         {/* component that allows viewers of a post to like or comment */}
         <LikesAndCommentBar

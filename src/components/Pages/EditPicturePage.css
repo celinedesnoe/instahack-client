@@ -79,6 +79,22 @@
   height: 100;
 }
 
+.object-fit {
+  object-fit: cover;
+}
+
+.sepia-mode {
+  filter: sepia(70%);
+}
+
+.bw-mode {
+  filter: grayscale(70%);
+}
+
+.no-padding {
+  padding-bottom: 0;
+}
+
 /* .oneFilter {
   width: 100px;
   height: 139.5px;
