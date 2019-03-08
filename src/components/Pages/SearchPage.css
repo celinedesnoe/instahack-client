@@ -28,7 +28,7 @@ div.searchbar {
 
 .searchbar input[type="text"] {
   background-image: url(../../images/searchicon.png);
-  background-position: 80px;
+  background-position: 10px;
   background-repeat: no-repeat;
   background-size: 10px;
 }
@@ -54,7 +54,7 @@ div.searchbar {
 }
 
 input.searchinput {
-  padding-left: 98px;
+  padding-left: 28px;
   margin-bottom: 0;
 }
 
@@ -63,24 +63,6 @@ input.searchinput {
   background-position: 10px;
   background-repeat: no-repeat;
   background-size: 10px;
-}
-
-input.searchinput:active {
-  padding-left: 32px;
-}
-
-.searchbar:focus input[type="text"] {
-  background-position: 0;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
-input.searchinput:focus {
-  padding-left: 32px;
-}
-
-.searchbar:active {
-  padding: 0;
 }
 
 .cancel {
