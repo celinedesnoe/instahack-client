@@ -9,8 +9,8 @@ class NewsfeedEmptyPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allUsers: [],
-      shuffleUsers: []
+      allUsers: []
+      // shuffleUsers: []
     };
   }
 
@@ -25,32 +25,13 @@ class NewsfeedEmptyPage extends Component {
       .catch(() => {
         alert("Sorry cannot find all the users for the empty newsfeed ");
       });
-    this.setState({ shuffleUsers: this.shuffle(this.state.allUsers) });
-  }
-
-  shuffle(array) {
-    var currentIndex = array.length;
-    var temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
   }
 
   render() {
     console.log(this.state);
+    console.log("CURRENT USER", this.props);
     const { currentUser } = this.props;
-    const { shuffleUsers, allUsers } = this.state;
+    const { allUsers } = this.state;
     return (
       <div className="ProfilesList">
         <div className="welcome">
@@ -58,40 +39,41 @@ class NewsfeedEmptyPage extends Component {
           <p>Suggested accounts to follow:</p>
         </div>
         <div>
-          {allUsers.map(oneLiker => {
+          {allUsers.map(oneUser => {
+            console.log("ONE USER", oneUser);
             return (
               <div className="ProfileRow d-flex row justify-content-between">
                 <div className="d-flex row m-0">
                   <Link
-                    to={"/" + oneLiker.username}
+                    to={"/" + oneUser.username}
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <div>
                       <ProfilePic
-                        profilePic={oneLiker.profilePic}
+                        profilePic={oneUser.profilePic}
                         size="profile-row"
                       />
                     </div>
                   </Link>
                   <Link
-                    to={"/" + oneLiker.username}
+                    to={"/" + oneUser.username}
                     style={{ textDecoration: "none", color: "black" }}
                   >
                     <div className="username-marg">
                       <div>
-                        <b>{oneLiker.username}</b>
+                        <b>{oneUser.username}</b>
                       </div>
-                      <div className="grey">{oneLiker.fullName} </div>
+                      <div className="grey">{oneUser.fullName} </div>
                     </div>
                   </Link>
                 </div>
 
-                {/* <ButtonFollowUnfollow
+                <ButtonFollowUnfollow
                   size="d-flex align-items-center"
-                  profileUser={oneLiker}
+                  profileUser={oneUser}
                   currentUser={currentUser}
                   onFollowCurrentUser={this.props.onFollowCurrentUser}
-                /> */}
+                />
               </div>
             );
           })}

@@ -11,7 +11,7 @@
   height: 46px;
   color: black;
   border-bottom: 1px solid rgba(122, 122, 122, 0.1);
-  position: absolute;
+  position: fixed;
   z-index: 105;
 }
 

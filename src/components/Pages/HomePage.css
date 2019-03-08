@@ -19,12 +19,25 @@
   width: 74%;
 }
 
+.HomePageDesktopFacebookButton {
+  display: none;
+}
+
+.bysigningup {
+  display: none;
+}
+
 .signup {
   width: 100%;
   color: #999999;
   margin-top: 4%;
   font-size: 13px;
   margin-bottom: 7%;
+}
+
+.HomePageDesktopDownload {
+  margin-top: 80px;
+  margin-bottom: 100px;
 }
 
 .instagramlogofirstpage {
@@ -52,8 +65,15 @@ a.downloadapple {
   margin-bottom: 100px;
 }
 
+.imagegoogle {
+  display: none;
+}
+
+.imgDesktopScreen {
+  display: none;
+}
+
 img.imageapple {
-  margin-bottom: 100px;
   width: 132px;
 }
 
@@ -62,6 +82,11 @@ img.imageapple {
   color: #3897f0;
   font-size: 13.6px;
   font-weight: 600;
+}
+
+.HomePageDesktopDownloadIcon {
+  margin-top: 80px;
+  margin-bottom: 100px;
 }
 
 .signupemail:hover {
@@ -83,9 +108,379 @@ img.imageapple {
   width: 100%;
 }
 
+.HomePageDesktopGetTheApp {
+  display: none;
+}
+
 .sectiondown {
   margin-top: 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+img.phoneDesktop {
+  display: none;
+}
+
+.footerHomePageDesktop {
+  display: none;
+}
+
+.buttonnexthide {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+
+  .HomePage {
+    width: 100%;
+    height: 100%;
+
+    background-color: #fafafa;
+  }
+
+  .HomePageBody {
+    width: 100%;
+  }
+
+  .HeaderLanguage {
+    display: none;
+  }
+
+  .HomePageBodyDesktop {
+    width: 100%;
+    height: 850px;
+    margin: 30px 96px;
+  }
+
+  .HomePagePicturePhone {
+    margin-top: 60px;
+    align-self: center;
+    background-position: 0 0;
+    background-size: 454px 618px;
+    height: 618px;
+    flex-basis: 400px;
+  }
+
+  img.phoneDesktop {
+    display: flex;
+    margin-top: 82px;
+  }
+
+  .footerHomePageDesktop {
+    width: 100%;
+    height: 104px;
+    display: block;
+    padding: 0 20px;
+    bottom: 0;
+    position: fixed;
+  }
+
+  .footerHomePageDesktopSpace {
+    max-width: 935px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 100%;
+    justify-content: space-between;
+    padding: 38px 0;
+    flex-direction: row;
+  }
+
+  nav {
+    z-index: 401;
+    width: 780px;
+  }
+
+  .navHomePageDesktop {
+    align-items: stretch;
+    display: flex;
+    position: relative;
+  }
+
+  .ulHomePageDesktop {
+    margin-right: 16px;
+    margin-bottom: 3px;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-bottom: 7px;
+    margin-right: 16px;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  .spanHomePageDesktop {
+    color: #999;
+    width: 150px;
+  }
+
+  .HomePageBodyWrap {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 0;
+    max-width: 935px;
+    padding-bottom: 44px;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .HomePageDesktopRightForm {
+    margin: 12px 0 0;
+    max-width: 350px;
+    width: 100%;
+    border: 0 solid #000;
+    flex-shrink: 0;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  img.imagegoogle {
+    display: block;
+    width: 132px;
+  }
+
+  .HomePageDesktopDownloadPart {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 350px;
+    top: 714px;
+  }
+
+  .HomePageDesktopHide {
+    display: none;
+  }
+
+  .HomePageDesktopUpPart {
+    height: 628px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+  }
+
+  img.instagramlogofirstpage {
+    margin: 22px auto 12px;
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+  }
+
+  .HomePageDesktopTextForm {
+    margin-bottom: 20px;
+  }
+
+  .signup {
+    font-weight: 600;
+    line-height: 20px;
+    font-size: 17px;
+    padding: 0 40px 10px;
+    margin: 0;
+    color: #999;
+    text-align: center;
+  }
+
+  .HomePageDesktopFacebookButton {
+    margin: 8px 40px;
+    display: block;
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+  }
+
+  .HomePageDesktopGetTheApp {
+    display: block;
+    color: black;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 10px 20px 0;
+    text-align: center;
+  }
+
+  .HomePageDesktopDownloadIcon {
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .downloadapple {
+    margin-right: 8px;
+  }
+
+  img.imageapple {
+    width: 125px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  img.imagegoogle {
+    width: 125px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: inline-block;
+  }
+
+  a.buttonlink {
+    margin-top: 300px;
+  }
+
+  div.Footerfirstscreen {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    height: 80px;
+    left: 555px;
+    position: absolute;
+    bottom: 230px;
+    max-width: 350px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    padding: 20px 0;
+    top: 710px;
+    color: black;
+    left: 51.6%;
+  }
+
+  #text.Footerfirstscreen {
+    color: #262626;
+    font-size: 14px;
+    margin: 15px;
+    text-align: center;
+  }
+
+  a.linkpadding {
+    color: #3897f0;
+  }
+
+  a.buttonlink {
+    display: none;
+  }
+
+  .bysigningup {
+    color: #999;
+    margin: 10px 60px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    position: absolute;
+    bottom: 50px;
+  }
+
+  .bysigningup {
+    display: block;
+    color: #999;
+    margin: 10px 60px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .coreSpriteFacebookIconInverted {
+    background-image: url(../../images/facebookiconwhite.png);
+    background-repeat: no-repeat;
+    background-size: 4%;
+    background-position: 0 2px;
+  }
+
+  span.coreSpriteFacebookIconInverted::placeholder {
+    position: absolute;
+    font-size: 16px;
+    top: 2px;
+    left: 0;
+  }
+
+  img.fbicon {
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+
+    height: 16px;
+    width: 16px;
+
+    font-size: 12px;
+  }
+
+  /* .HomePageDesktopFacebookButton {
+    height: 30px;
+  } */
+
+  .blackwords2 {
+    font-weight: 700;
+  }
+
+  .DesktopHP {
+    display: none;
+  }
+
+  .buttonnexthide {
+    display: block;
+  }
+
+  button.HomePageDesktopFacebookButton {
+    width: 80%;
+  }
+
+  span.HomePageDesktopFacebookButton {
+    width: 90px;
+    font-size: 16px;
+    position: relative;
+    top: -34px;
+    text-align: center;
+  }
+
+  .imgDesktopScreen {
+    display: inline-flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  img.imgDesktopScreen {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  div.imgDesktopScreen1 {
+    display: flex;
+    justify-content: center;
+    width: 271px;
+    margin: auto;
+  }
+
+  .hrop {
+    margin: 0;
+  }
+
+  .hroi1,
+  .hroi2 {
+    display: none;
+  }
+
+  .oro {
+    display: none;
+  }
 }

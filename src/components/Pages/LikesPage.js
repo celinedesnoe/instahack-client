@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-
 import { Link } from "react-router-dom";
 import { getPostDetails } from "../../api.js";
+
+import HeaderCross from "../HeadersAndFooters/HeaderCross.js";
+
 import ProfilePic from "../General/ProfilePic";
 import ButtonFollowUnfollow from "../General/ProfilePic";
+
 import "./LikesPage.css";
 
 class LikesPage extends Component {
@@ -33,19 +36,15 @@ class LikesPage extends Component {
   render() {
     const { likers } = this.state;
     const { currentUser } = this.props;
-    console.log(this.state);
-    console.log("CURRENT USER", currentUser._id);
-    console.log("PROFILE USER", likers[0]);
+    // console.log(this.state);
+    // console.log("CURRENT USER", currentUser);
+    // console.log("PROFILE USER", likers);
     return (
       <div className="ProfilesList">
-        <div>
+        <HeaderCross text="Likes" link={`/p/${this.state.post._id}`} />
+        <div className="coucou">
           {likers.map(oneLiker => {
-            console.log(
-              "ONE LIKER ID",
-              oneLiker._id,
-              "CURRENT USER ID",
-              currentUser._id
-            );
+            console.log("ONE LIKER", oneLiker, "CURRENT USER", currentUser);
             return (
               <div className="ProfileRow d-flex row justify-content-between">
                 <div className="d-flex row m-0">

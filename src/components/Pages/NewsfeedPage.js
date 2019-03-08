@@ -144,7 +144,10 @@ class Newsfeed extends Component {
             <div className="newsfeed">{items}</div>
           </InfiniteScroll>
         ) : (
-          <NewsfeedEmptyPage />
+          <NewsfeedEmptyPage
+            currentUser={this.props.currentUser}
+            onFollowCurrentUser={this.props.onFollowCurrentUser}
+          />
         )}
       </section>
     );
