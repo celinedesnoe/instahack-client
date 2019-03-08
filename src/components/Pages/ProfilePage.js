@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import {
-  getUserProfile,
-  getUserToUnfollow,
-  getUserToFollow
-} from "../../api.js";
-import { Link, Redirect } from "react-router-dom";
+import { getUserProfile } from "../../api.js";
+import { Redirect } from "react-router-dom";
 
 import ProfilePic from "../General/ProfilePic.js";
 import ButtonLink from "../General/ButtonLink.js";
@@ -13,8 +9,10 @@ import ProfileStatistics from "../General/ProfileStatistics";
 import GridView from "../General/GridView.js";
 import HeaderLogged from "../HeadersAndFooters/HeaderLogged.js";
 import MiddleNavBar from "../HeadersAndFooters/MiddleNavBar.js";
+import TimelineView from "../General/TimelineView.js";
 
 import "./ProfilePage.css";
+import PostDetailPage from "./PostDetailPage.js";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -22,7 +20,9 @@ class ProfilePage extends Component {
     this.state = {
       profileUser: {},
       profilePosts: [],
-      isLoaded: false
+      isLoaded: false,
+      gridView: false,
+      timelineView: false
     };
   }
 
@@ -46,6 +46,13 @@ class ProfilePage extends Component {
   updateProfileUser(newUser) {
     this.setState({ profileUser: newUser });
   }
+
+  // updateView(event) {
+  //   const { name, value } = event.target;
+  //   console.log(name, value);
+
+  //   if()
+  // }
 
   render() {
     const { profileUser, profilePosts } = this.state;
@@ -113,7 +120,26 @@ class ProfilePage extends Component {
         />
         <MiddleNavBar className="middlenavbarlogged" />
 
-        <GridView profilePosts={profilePosts} />
+        {this.state.gridView ? (
+          <GridView profilePosts={profilePosts} />
+        ) : (
+          profilePosts.map(onePost => {
+            return (
+              <TimelineView
+                className="timeline-post"
+                key={onePost._id}
+                postInfo={{ match: { params: { postId: onePost._id } } }}
+                currentUser={this.props.currentUser}
+                // rerouteUrl={this.props.rerouteUrl}
+              />
+            );
+          })
+          // <div>TIMELINE VIEW</div>
+          // // <TimelineView
+          // //   toLogout={() => this.props.toLogout()}
+          // //   currentUser={this.state.currentUser}
+          // // />
+        )}
       </div>
     ) : (
       <Redirect exact to="/" />

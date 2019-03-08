@@ -110,6 +110,11 @@ export function getAllUsers() {
   return backendApi.get("/api/explore/search");
 }
 
+// GET TIMELINE POSTS
+export function getTimelinePosts() {
+  return backendApi.post("/api/explores/search");
+}
+
 // export function checkEmail(someEmail) {
 //   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
 // }
