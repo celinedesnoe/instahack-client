@@ -16,8 +16,8 @@ class MiddleNavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      greeded: false,
-      listed: false,
+      // greeded: false,
+      // listed: false,
       picked: false,
       profilesquared: false
     };
@@ -27,8 +27,8 @@ class MiddleNavBar extends Component {
 
   colouredGreed() {
     this.setState({
-      greeded: true,
-      listed: false,
+      // greeded: true,
+      // listed: false,
       picked: false,
       profilesquared: false
     });
@@ -36,8 +36,8 @@ class MiddleNavBar extends Component {
 
   colouredList() {
     this.setState({
-      greeded: false,
-      listed: true,
+      // greeded: false,
+      // listed: true,
       picked: false,
       profilesquared: false
     });
@@ -45,8 +45,8 @@ class MiddleNavBar extends Component {
 
   colouredPick() {
     this.setState({
-      greeded: false,
-      listed: false,
+      // greeded: false,
+      // listed: false,
       picked: true,
       profilesquared: false
     });
@@ -54,8 +54,8 @@ class MiddleNavBar extends Component {
 
   colouredProfile() {
     this.setState({
-      greeded: false,
-      listed: false,
+      // greeded: false,
+      // listed: false,
       picked: false,
       profilesquared: true
     });
@@ -65,7 +65,7 @@ class MiddleNavBar extends Component {
     return (
       <div className="MiddleNavBar">
         <div className="greed">
-          {this.state.greeded ? (
+          {this.props.greeded ? (
             <div class="buton">
               <img
                 onClick={event => this.colouredGreed(event)}
@@ -79,7 +79,10 @@ class MiddleNavBar extends Component {
           ) : (
             <div class="buton">
               <img
-                onClick={event => this.colouredGreed(event)}
+                onClick={event => {
+                  this.colouredGreed(event);
+                  this.props.changeToGrid(event);
+                }}
                 // className="Like"
                 src={greedempty}
                 alt="greed full"
@@ -90,7 +93,7 @@ class MiddleNavBar extends Component {
         </div>
 
         <div className="list">
-          {this.state.listed ? (
+          {this.props.listed ? (
             <div class="buton">
               <img
                 onClick={event => this.colouredList(event)}
@@ -104,7 +107,10 @@ class MiddleNavBar extends Component {
           ) : (
             <div class="buton">
               <img
-                onClick={event => this.colouredList(event)}
+                onClick={event => {
+                  this.colouredList(event);
+                  this.props.changeToTimeline(event);
+                }}
                 // className="Like"
                 src={listempty}
                 alt="list full"

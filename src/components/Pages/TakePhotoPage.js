@@ -3,6 +3,7 @@ import { Redirect, Route } from "react-router-dom";
 import { postPicture } from "../../api.js";
 import EditPicturePage from "../Pages/EditPicturePage.js";
 import plus from "../../images/plus.png";
+import camera from "../../images/cameralinebold.png";
 
 import "./TakePhotoPage.css";
 
@@ -31,6 +32,7 @@ class TakePhotoPage extends Component {
 
   render() {
     const { image } = this.state;
+    const { icon } = this.props;
     console.log(image);
     return (
       <section className="TakePhoto">
@@ -44,7 +46,11 @@ class TakePhotoPage extends Component {
               name="image"
             />
             <div class="buton">
-              <img src={plus} alt="profile icon" className="okbutton" />
+              <img
+                src={icon === "camera" ? camera : plus}
+                alt="profile icon"
+                className="okbutton"
+              />
             </div>
             {/* </form> */}
           </div>

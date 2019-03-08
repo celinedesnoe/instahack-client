@@ -139,7 +139,7 @@ class PostDetailPage extends Component {
       <div className="PostDetailPage w-100">
         {/* show poster's profilepic & username */}
         <div className="ProfileRow d-flex row justify-content-between m-0">
-          <div className="d-flex flex-row">
+          <div className="d-flex flex-row align-items-center">
             <Link
               to={"/" + postUser.username}
               style={{ textDecoration: "none", color: "black" }}
@@ -194,6 +194,31 @@ class PostDetailPage extends Component {
                     {postItem.likedBy.length}
                     <span> likes</span>
                   </b>
+                  {/********************************************/}
+                  {/************** LIKED BY ********************/}
+                  {/********************************************/}
+                  {postItem.likedBy.length === 1 && (
+                    <div>
+                      {" "}
+                      Liked by <b>{postItem.likedBy[0].username}</b>{" "}
+                    </div>
+                  )}
+
+                  {postItem.likedBy.length === 2 && (
+                    <div>
+                      {" "}
+                      Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                      <b> {postItem.likedBy.length - 1} other person</b>
+                    </div>
+                  )}
+
+                  {postItem.likedBy.length > 2 && (
+                    <div>
+                      {" "}
+                      Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                      <b> {postItem.likedBy.length - 1} other people</b>
+                    </div>
+                  )}
                 </Link>
               ) : (
                 <Link to={`/p/${postItem._id}/liked_by`}>

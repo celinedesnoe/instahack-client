@@ -21,8 +21,8 @@ class ProfilePage extends Component {
       profileUser: {},
       profilePosts: [],
       isLoaded: false,
-      gridView: false,
-      timelineView: true
+      gridView: true,
+      timelineView: false
     };
   }
 
@@ -47,12 +47,13 @@ class ProfilePage extends Component {
     this.setState({ profileUser: newUser });
   }
 
-  // updateView(event) {
-  //   const { name, value } = event.target;
-  //   console.log(name, value);
+  switchToGrid(event) {
+    this.setState({ gridView: true, timelineView: false });
+  }
 
-  //   if()
-  // }
+  switchToTimeline(event) {
+    this.setState({ gridView: false, timelineView: true });
+  }
 
   render() {
     const { profileUser, profilePosts } = this.state;
@@ -118,7 +119,13 @@ class ProfilePage extends Component {
           profilePosts={profilePosts}
           currentUser={currentUser}
         />
-        <MiddleNavBar className="middlenavbarlogged" />
+        <MiddleNavBar
+          listed={this.state.timelineView}
+          greeded={this.state.gridView}
+          className="middlenavbarlogged"
+          changeToGrid={event => this.switchToGrid(event)}
+          changeToTimeline={event => this.switchToTimeline(event)}
+        />
 
         {this.state.gridView ? (
           <GridView profilePosts={profilePosts} />

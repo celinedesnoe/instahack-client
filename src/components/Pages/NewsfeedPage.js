@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { getNewsfeedPosts } from "../../api.js";
 import InfiniteScroll from "react-infinite-scroller";
+import { Link, Route } from "react-router-dom";
 
 import "./NewsfeedPage.css";
 import PostDetailPage from "./PostDetailPage.js";
-import optionpicture from "../../images/optionpicture.png";
+import camera from "../../images/cameralinebold.png";
+import options from "../../images/optionpicture.png";
 import iglogo from "../../images/iglogo.png";
 import plusprofile from "../../images/plusprofile.png";
 import NewsfeedEmptyPage from "./NewsfeedEmptyPage.js";
+import TakePhotoPage from "./TakePhotoPage.js";
 
 class Newsfeed extends Component {
   constructor(props) {
@@ -16,8 +19,10 @@ class Newsfeed extends Component {
       postsAvailable: [],
       postsToRender: [],
       hasMoreItems: true,
-      nextIndex: null
+      nextIndex: null,
+      showComponent: false
     };
+    this._onButtonClick = this._onButtonClick.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +33,12 @@ class Newsfeed extends Component {
     //   console.log(this.props);
     //   this.setState({ postsToRender: response.data });
     // });
+  }
+
+  _onButtonClick() {
+    this.setState({
+      showComponent: true
+    });
   }
 
   loadItems(page) {
@@ -100,6 +111,10 @@ class Newsfeed extends Component {
     }
   }
 
+  takePic() {
+    return <TakePhotoPage />;
+  }
+
   render() {
     // console.log("POSTS in NEWSFEED RENDER: ", this.state.postsToRender);
     const loader = (
@@ -124,14 +139,15 @@ class Newsfeed extends Component {
     return (
       <section className="Newsfeed w-100">
         <header className="newsfeed-header">
-          <img
-            src={optionpicture}
-            alt="options"
-            onClick={() => this.props.toLogout()}
-          />
+          <TakePhotoPage icon="camera" />
           <img src={iglogo} alt="instagram logo" />
           <img src={plusprofile} alt="follow suggestions" />
         </header>
+        {/* <header className="newsfeed-header">
+          <img src={camera} alt="take a picture" />
+          <img src={iglogo} alt="instagram logo" />
+          <img src={plusprofile} alt="follow suggestions" />
+        </header> */}
 
         {this.props.currentUser.following.length > 0 ? (
           <InfiniteScroll
@@ -149,6 +165,7 @@ class Newsfeed extends Component {
             onFollowCurrentUser={this.props.onFollowCurrentUser}
           />
         )}
+        {/* <Route path="/take-pic" component={TakePhotoPage} /> */}
       </section>
     );
   }

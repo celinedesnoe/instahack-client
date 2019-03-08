@@ -19,6 +19,7 @@ import EditPicturePage from "./components/Pages/EditPicturePage.js";
 import EditPostDetailsPage from "./components/Pages/EditPostDetailsPage.js";
 
 import "./App.css";
+import TakePhotoPage from "./components/Pages/TakePhotoPage";
 
 class App extends Component {
   constructor(props) {
@@ -211,6 +212,8 @@ class App extends Component {
               ROUTES TO CREATE A POST
               ######################################
           */}
+
+          {/* <Route path="/take-pic" component={TakePhotoPage} /> */}
 
           <Route
             exact
