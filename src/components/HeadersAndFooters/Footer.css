@@ -12,7 +12,7 @@
   color: #999999;
   border-top: 1px solid rgba(122, 122, 122, 0.1);
   width: 100%;
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   bottom: 0;
   text-align: center;
