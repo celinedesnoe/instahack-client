@@ -138,7 +138,11 @@ class PostDetailPage extends Component {
     // console.log("COMMENTS in PDP: ", allComments);
     return (
       <div className="PostDetailPage w-100">
-        {this.state.fromNewsfeed ? <div /> : <HeaderArrowBack text="Photo" />}
+        {this.state.fromNewsfeed ? (
+          <div />
+        ) : (
+          <HeaderArrowBack text="Photo" link={`/${postUser.username}`} />
+        )}
         {/* show poster's profilepic & username */}
         <div className="ProfileRow d-flex row justify-content-between m-0">
           <div className="d-flex flex-row">

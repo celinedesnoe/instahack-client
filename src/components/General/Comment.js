@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import "./Comment.css";
 
 class Comment extends Component {
@@ -9,7 +11,10 @@ class Comment extends Component {
   render() {
     return (
       <p className="Comment">
-        <b> {this.props.commenter}</b>
+        <Link to={`/${this.props.commenter}`}>
+          {" "}
+          <b> {this.props.commenter}</b>
+        </Link>
         <span className="content">{this.props.comment}</span>
       </p>
     );

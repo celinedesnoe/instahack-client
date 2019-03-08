@@ -41,7 +41,7 @@ class LikesPage extends Component {
     // console.log("PROFILE USER", likers);
     return (
       <div className="ProfilesList">
-        <HeaderCross text="Likes" />
+        <HeaderCross text="Likes" link={`/p/${this.state.post._id}`} />
         <div className="coucou">
           {likers.map(oneLiker => {
             console.log("ONE LIKER", oneLiker, "CURRENT USER", currentUser);
