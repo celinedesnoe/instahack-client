@@ -37,7 +37,7 @@ class EditProfilePhoto extends Component {
             Add a profile photo so your friends know it's you.
           </p>
 
-          <div className="upload-btn-wrapper">
+          <div className="upload-btn-wrapper blue-button">
             <input
               class="edit-button"
               type="file"
