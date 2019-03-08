@@ -21,26 +21,11 @@ class EditPicturePage extends Component {
     bwSelect: false,
     sp: "",
     spSelect: false,
-    normalSelect: false
+    normalSelect: true
   };
 
-  // componentDidMount() {
-  //   this.props.props.location.state.resetImage();
-  // }
-
-  uploadChangeBW() {
-    fetch(this.state.bw)
-      .then(res => res.blob())
-      .then(blob => {
-        const file = new File([blob], "bw");
-        postPicture(file).then(response => {
-          this.setState({ image: response.data.fileUrl });
-        });
-      });
-  }
-
-  uploadChangeSepia() {
-    fetch(this.state.sp)
+  uploadChange() {
+    fetch(this.state.image)
       .then(res => res.blob())
       .then(blob => {
         const file = new File([blob], "sp");
@@ -78,17 +63,78 @@ class EditPicturePage extends Component {
         </div>
 
         <div className="square w-100 m-top-45">
-          <img
-            src={this.props.props.location.state.image}
-            alt="uploaded"
-            className="square-img"
-            onClick={() =>
-              this.setState({
-                image: this.props.props.location.state.image
-              })
-            }
-          />
+          {/* ********** WITHOUT CONDITION ***************** */}
+          {/* <ProcessImage
+            className="square-img w-100 height-limit"
+            image={this.props.props.location.state.image}
+            cover={{
+              width: 375,
+              height: 375,
+              // width: this.props.props.location.state.width,
+              // height: 100,
+              mode: "horizontal_center"
+            }}
+            greyscale={this.state.bwSelect}
+            sepia={this.state.spSelect}
+            processedImage={(src, err) => {
+              this.setState({ image: src, err });
+            }}
+          /> */}
+          {/* ************ WITH CONDITION ******************* */}
+          {this.state.normalSelect && (
+            <ProcessImage
+              className="square-img w-100 height-limit"
+              image={this.props.props.location.state.image}
+              cover={{
+                width: 375,
+                height: 375,
+                // width: this.props.props.location.state.width,
+                // height: 100,
+                mode: "horizontal_center"
+              }}
+              processedImage={(src, err) => {
+                this.setState({ image: src, err });
+              }}
+            />
+          )}
+          {this.state.bwSelect && (
+            <ProcessImage
+              className="square-img w-100 height-limit"
+              image={this.props.props.location.state.image}
+              cover={{
+                width: 375,
+                height: 375,
+                // width: this.props.props.location.state.width,
+                // height: 100,
+                mode: "horizontal_center"
+              }}
+              greyscale={true}
+              processedImage={(src, err) => {
+                this.setState({ image: src, err });
+              }}
+            />
+          )}
+          {this.state.spSelect && (
+            <ProcessImage
+              className="square-img w-100 height-limit"
+              image={this.props.props.location.state.image}
+              cover={{
+                width: 375,
+                height: 375,
+                // width: this.props.props.location.state.width,
+                // height: 100,
+                mode: "horizontal_center"
+              }}
+              sepia={true}
+              processedImage={(src, err) => {
+                this.setState({ image: src, err });
+              }}
+            />
+          )}
+          }
         </div>
+
+        {/* 3 FILTERS - MINIATURES */}
 
         <div className="d-flex row justify-content-around filters-row">
           <div className="oneFilter">
@@ -103,15 +149,13 @@ class EditPicturePage extends Component {
               image={this.props.props.location.state.image}
               cover={{ width: 100, height: 100, mode: "horizontal_center" }}
               quality={95}
-              // processedImage={(src, err) => {
-              //   this.setState({ bw: src, err });
-              // }}
               onClick={() => {
-                // this.uploadChangeBW();
                 this.setState({
-                  image: this.props.props.location.state.image,
-                  normalSelect: true
+                  normalSelect: true,
+                  bwSelect: false,
+                  spSelect: false
                 });
+                this.uploadChange();
               }}
             />
           </div>
@@ -133,8 +177,11 @@ class EditPicturePage extends Component {
                 this.setState({ bw: src, err });
               }}
               onClick={() => {
-                this.uploadChangeBW();
-                this.setState({ bwSelect: true });
+                this.setState({
+                  bwSelect: true,
+                  normalSelect: false,
+                  spSelect: false
+                });
               }}
               className="oneFilter-fit"
             />
@@ -157,8 +204,11 @@ class EditPicturePage extends Component {
                 this.setState({ sp: src, err });
               }}
               onClick={() => {
-                this.uploadChangeSepia();
-                this.setState({ spSelect: true });
+                this.setState({
+                  spSelect: true,
+                  bwSelect: false,
+                  normalSelect: false
+                });
               }}
             />
           </div>

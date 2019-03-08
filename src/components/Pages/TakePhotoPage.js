@@ -16,7 +16,12 @@ class TakePhotoPage extends Component {
   uploadChange(event) {
     const { name, files } = event.target;
     postPicture(files[0]).then(response => {
-      this.setState({ [name]: response.data.fileUrl });
+      this.setState({
+        [name]: response.data.fileUrl,
+        width: response.data.fileUrl,
+        height: response.data.height
+      });
+      console.log(response.data);
     });
   }
 
@@ -47,7 +52,12 @@ class TakePhotoPage extends Component {
           <Redirect
             to={{
               pathname: "/create/style/",
-              state: { image: this.state.image, resetImage: this.resetImage() }
+              state: {
+                image: this.state.image,
+                width: this.state.width,
+                height: this.state.height,
+                resetImage: this.resetImage()
+              }
             }}
           />
         )}

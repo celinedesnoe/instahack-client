@@ -71,6 +71,10 @@
   margin-top: 45px;
 }
 
+.height-limit {
+  height: 100;
+}
+
 /* .oneFilter {
   width: 100px;
   height: 139.5px;
