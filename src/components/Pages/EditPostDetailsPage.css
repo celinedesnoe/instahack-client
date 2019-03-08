@@ -19,6 +19,7 @@
 .EditPostDetailsPage .link-next {
   position: absolute;
   right: 14px;
+  font-weight: 600;
 }
 
 .newPhotoPost {
@@ -58,4 +59,13 @@
 
 .m-t-20 {
   margin-top: 20px;
+}
+
+.colouredcaption {
+  background-color: rgb(249, 249, 249);
+  border: none;
+}
+
+.colouredcaption:focus {
+  outline: none;
 }

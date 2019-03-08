@@ -69,7 +69,7 @@ class EditPostDetailsPage extends Component {
                 size="profile-row"
               />
               <textarea
-                class="caption-input caption-margin-left"
+                class="caption-input caption-margin-left colouredcaption"
                 onChange={event => this.genericOnChange(event)}
                 type="text"
                 rows="1"
