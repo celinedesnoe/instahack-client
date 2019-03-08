@@ -91,6 +91,7 @@ class App extends Component {
                     toLogout={() => this.logoutClick()}
                     currentUser={this.state.currentUser}
                     rerouteUrl="/"
+                    onFollowCurrentUser={user => this.updateUser(user)}
                   />
                 );
               }}
