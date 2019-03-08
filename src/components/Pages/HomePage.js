@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import ButtonLink from "../General/ButtonLink.js";
 import HeaderLanguage from "../HeadersAndFooters/HeaderLanguage.js";
 import Footer from "../HeadersAndFooters/Footer.js";
-import ButtonNext from "../General/ButtonNext.js";
+// import ButtonNext from "../General/ButtonNext.js";
 
 import InstagramLogo from "../../images/Instagram_logo.png";
 import DownloadApple from "../../images/getinonappstore.png";
 import DownloadGoogle from "../../images/getinongoogleplay.png";
 import ImageDesktop from "../../images/imagedesktop.jpeg";
+import imgDesktopScreen from "../../images/imgDesktopScreen.jpeg";
 
 import "./HomePage.css";
 
@@ -55,7 +56,14 @@ class HomePage extends Component {
                   <hr className="hroi2" />
                 </div>
 
-                <ButtonNext className="buttonnexthide" />
+                <div className="imgDesktopScreen1">
+                  <img
+                    src={imgDesktopScreen}
+                    alt="sign up"
+                    className="imgDesktopScreen"
+                  />
+                </div>
+                {/* <ButtonNext className="buttonnexthide" /> */}
 
                 <p className="bysigningup">
                   By signing up, you agree to our
