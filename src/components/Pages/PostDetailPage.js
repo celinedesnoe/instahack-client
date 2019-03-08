@@ -143,152 +143,155 @@ class PostDetailPage extends Component {
         ) : (
           <HeaderArrowBack text="Photo" link={`/${postUser.username}`} />
         )}
-        {/* show poster's profilepic & username */}
-        <div className="ProfileRow d-flex row justify-content-between m-0">
-          <div className="d-flex flex-row align-items-center">
-            <Link
-              to={"/" + postUser.username}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <div>
-                <ProfilePic
-                  profilePic={postUser.profilePic}
-                  size="profile-row"
-                />
-              </div>
-            </Link>
-            <Link
-              to={"/" + postUser.username}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <div className="poster-name">
-                <div className="bold">{postUser.username}</div>
-              </div>
-            </Link>
+
+        <div className="margin-top-45">
+          {/* show poster's profilepic & username */}
+          <div className="ProfileRow d-flex row justify-content-between m-0">
+            <div className="d-flex flex-row align-items-center">
+              <Link
+                to={"/" + postUser.username}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <div>
+                  <ProfilePic
+                    profilePic={postUser.profilePic}
+                    size="profile-row"
+                  />
+                </div>
+              </Link>
+              <Link
+                to={"/" + postUser.username}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <div className="poster-name">
+                  <div className="bold">{postUser.username}</div>
+                </div>
+              </Link>
+            </div>
+            <img src={threeDotsBlack} alt="menu" className="post-menu" />
           </div>
-          <img src={threeDotsBlack} alt="menu" className="post-menu" />
-        </div>
 
-        {/* show the actual pic of the post */}
-        <img
-          src={postItem.image}
-          alt="mainpic"
-          className={`mainpic ${postItem.style}`}
-        />
+          {/* show the actual pic of the post */}
+          <img
+            src={postItem.image}
+            alt="mainpic"
+            className={`mainpic ${postItem.style}`}
+          />
 
-        {/* component that allows viewers of a post to like or comment */}
-        <LikesAndCommentBar
-          liked={this.state.liked}
-          allLikers={postItem.likedBy}
-          commentBox={event => this.showCommentBox(event)}
-          addLike={event => this.like(event)}
-          removeLike={event => this.unlike(event)}
-        />
+          {/* component that allows viewers of a post to like or comment */}
+          <LikesAndCommentBar
+            liked={this.state.liked}
+            allLikers={postItem.likedBy}
+            commentBox={event => this.showCommentBox(event)}
+            addLike={event => this.like(event)}
+            removeLike={event => this.unlike(event)}
+          />
 
-        <div className="comment-list">
-          {/* info about the number of likes and the pictures of those who have liked
+          <div className="comment-list">
+            {/* info about the number of likes and the pictures of those who have liked
             - onClick for the link
             - go to route /p/:postId/liked_by
             - get all people in the likedBy array for a post with :postId
             - render profileRow for each (send username, profilePic, follow/unfollow)
         */}
-          <div className="comment-info">
-            <div className="margin-bottom-10">
-              {/* {this.state.liked ? ( */}
+            <div className="comment-info">
+              <div className="margin-bottom-10">
+                {/* {this.state.liked ? ( */}
 
-              {postItem.likedBy ? (
-                <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
-                  {/********************************************/}
-                  {/************** NUMBER OF LIKES *************/}
-                  {/********************************************/}
-                  <b>
-                    {postItem.likedBy.length}
-                    <span> likes</span>
-                  </b>
-                  {/********************************************/}
-                  {/************** LIKED BY ********************/}
-                  {/********************************************/}
-                  {postItem.likedBy.length === 1 && (
-                    <div>
-                      {" "}
-                      Liked by <b>{postItem.likedBy[0].username}</b>{" "}
-                    </div>
-                  )}
+                {postItem.likedBy ? (
+                  <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
+                    {/********************************************/}
+                    {/************** NUMBER OF LIKES *************/}
+                    {/********************************************/}
+                    <b>
+                      {postItem.likedBy.length}
+                      <span> likes</span>
+                    </b>
+                    {/********************************************/}
+                    {/************** LIKED BY ********************/}
+                    {/********************************************/}
+                    {postItem.likedBy.length === 1 && (
+                      <div>
+                        {" "}
+                        Liked by <b>{postItem.likedBy[0].username}</b>{" "}
+                      </div>
+                    )}
 
-                  {postItem.likedBy.length === 2 && (
-                    <div>
-                      {" "}
-                      Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
-                      <b> {postItem.likedBy.length - 1} other person</b>
-                    </div>
-                  )}
+                    {postItem.likedBy.length === 2 && (
+                      <div>
+                        {" "}
+                        Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                        <b> {postItem.likedBy.length - 1} other person</b>
+                      </div>
+                    )}
 
-                  {postItem.likedBy.length > 2 && (
-                    <div>
-                      {" "}
-                      Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
-                      <b> {postItem.likedBy.length - 1} other people</b>
-                    </div>
-                  )}
-                </Link>
-              ) : (
-                // <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
-                //   <b>
-                //     {postItem.likedBy.length}
-                //     <span> likes</span>
+                    {postItem.likedBy.length > 2 && (
+                      <div>
+                        {" "}
+                        Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                        <b> {postItem.likedBy.length - 1} other people</b>
+                      </div>
+                    )}
+                  </Link>
+                ) : (
+                  // <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
+                  //   <b>
+                  //     {postItem.likedBy.length}
+                  //     <span> likes</span>
 
-                //     {postItem.likedBy[0].username}
-                //   </b>
-                // </Link>
-                <Link to={`/p/${postItem._id}/liked_by`}>
-                  <b>
-                    0<span> likes</span>
-                  </b>
-                </Link>
-              )}
+                  //     {postItem.likedBy[0].username}
+                  //   </b>
+                  // </Link>
+                  <Link to={`/p/${postItem._id}/liked_by`}>
+                    <b>
+                      0<span> likes</span>
+                    </b>
+                  </Link>
+                )}
+              </div>
+              {/* the poster's username & caption */}
+              <div>
+                <b>{postUser.username} </b>
+                {postItem.caption}
+              </div>
+              {/* displaying all comments on a post */}
+              <p className="margin-top-10 color-gray">
+                View all {allComments.length} comments
+              </p>
+              {allComments.map(oneComment => {
+                return (
+                  <Comment
+                    key={oneComment._id}
+                    commenter={oneComment.username_id.username}
+                    comment={oneComment.content}
+                  />
+                );
+              })}
             </div>
-            {/* the poster's username & caption */}
-            <div>
-              <b>{postUser.username} </b>
-              {postItem.caption}
-            </div>
-            {/* displaying all comments on a post */}
-            <p className="margin-top-10 color-gray">
-              View all {allComments.length} comments
+
+            {/* the date at which the post was originally posted */}
+            <p>
+              {moment(postItem.createdAt)
+                .startOf("hour")
+                .fromNow()}
             </p>
-            {allComments.map(oneComment => {
-              return (
-                <Comment
-                  key={oneComment._id}
-                  commenter={oneComment.username_id.username}
-                  comment={oneComment.content}
-                />
-              );
-            })}
-          </div>
 
-          {/* the date at which the post was originally posted */}
-          <p>
-            {moment(postItem.createdAt)
-              .startOf("hour")
-              .fromNow()}
-          </p>
-
-          {/* the component through which a user can add a comment
+            {/* the component through which a user can add a comment
           - displays after the comment button is clicked on the LikesAndCommentBar component above
          */}
-          {this.state.showComment ? (
-            // true, therefore render the Comment component
-            <AddComment
-              updateState={event => this.genericOnChange(event)}
-              saveComment={event => this.appendComment(event)}
-              originalPost={this.state.postItem._id}
-              rerouteUrl={this.props.rerouteUrl}
-            />
-          ) : (
-            // false, therefore show nothing
-            <div />
-          )}
+            {this.state.showComment ? (
+              // true, therefore render the Comment component
+              <AddComment
+                updateState={event => this.genericOnChange(event)}
+                saveComment={event => this.appendComment(event)}
+                originalPost={this.state.postItem._id}
+                rerouteUrl={this.props.rerouteUrl}
+              />
+            ) : (
+              // false, therefore show nothing
+              <div />
+            )}
+          </div>
         </div>
       </div>
     );
