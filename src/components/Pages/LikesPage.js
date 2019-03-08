@@ -5,7 +5,7 @@ import { getPostDetails } from "../../api.js";
 import HeaderCross from "../HeadersAndFooters/HeaderCross.js";
 
 import ProfilePic from "../General/ProfilePic";
-import ButtonFollowUnfollow from "../General/ProfilePic";
+import ButtonFollowUnfollow from "../General/ButtonFollowUnfollow";
 
 import "./LikesPage.css";
 

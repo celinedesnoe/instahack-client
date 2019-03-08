@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import {
-  getUserProfile,
-  getUserToUnfollow,
-  getUserToFollow
-} from "../../api.js";
+import { getUserToUnfollow, getUserToFollow } from "../../api.js";
 import ButtonSubmit from "../General/ButtonSubmit.js";
-import ButtonLink from "../General/ButtonLink.js";
 import "./ButtonFollowUnfollow.css";
 
 class ButtonFollowUnfollow extends Component {
@@ -14,7 +9,7 @@ class ButtonFollowUnfollow extends Component {
     const { currentUser } = this.props;
 
     if (profileUser._id === currentUser._id) {
-      return <div />;
+      return null;
     }
 
     if (profileUser) {
@@ -75,13 +70,11 @@ class ButtonFollowUnfollow extends Component {
         this.props.onFollowCurrentUser(response.data.currentUserDoc);
       })
       .catch(err => {
-        console.log("wat follow", err);
         alert("Sorry cannot cannot follow the profile");
       });
   }
 
   render() {
-    console.log(this.props.profileUser);
     return <div className={this.props.size}>{this.buttonFollowUnfollow()}</div>;
   }
 }
