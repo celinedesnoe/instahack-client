@@ -122,7 +122,7 @@ class Newsfeed extends Component {
     });
 
     return (
-      <section className="Newsfeed">
+      <section className="Newsfeed w-100">
         <header className="newsfeed-header">
           <img src={optionpicture} alt="options" />
           <img src={iglogo} alt="instagram logo" />

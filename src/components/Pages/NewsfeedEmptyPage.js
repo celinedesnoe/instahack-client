@@ -53,6 +53,10 @@ class NewsfeedEmptyPage extends Component {
     const { shuffleUsers, allUsers } = this.state;
     return (
       <div className="ProfilesList">
+        <div className="welcome">
+          <p>Welcome to Instagram!</p>
+          <p>Suggested accounts to follow:</p>
+        </div>
         <div>
           {allUsers.map(oneLiker => {
             return (
