@@ -11,13 +11,17 @@ class HeaderLogged extends Component {
     return (
       <section className={`blop`}>
         <a href={this.props.link}>
-          <img src={optionpicture} alt="Arrow Go Back" />
+          <img
+            src={optionpicture}
+            alt="settings"
+            onClick={() => this.props.logout()}
+          />
         </a>
 
         <p className="text-profile">{this.props.text}</p>
 
         <a href={this.props.link}>
-          <img src={plusprofile} alt="Arrow Go Back" />
+          <img src={plusprofile} alt="follow users" />
         </a>
       </section>
     );

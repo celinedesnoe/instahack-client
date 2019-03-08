@@ -124,7 +124,11 @@ class Newsfeed extends Component {
     return (
       <section className="Newsfeed">
         <header className="newsfeed-header">
-          <img src={optionpicture} alt="options" />
+          <img
+            src={optionpicture}
+            alt="options"
+            onClick={() => this.props.toLogout()}
+          />
           <img src={iglogo} alt="instagram logo" />
           <img src={plusprofile} alt="follow suggestions" />
         </header>

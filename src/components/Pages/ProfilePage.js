@@ -4,7 +4,7 @@ import {
   getUserToUnfollow,
   getUserToFollow
 } from "../../api.js";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import ProfilePic from "../General/ProfilePic.js";
 import ButtonLink from "../General/ButtonLink.js";
@@ -53,9 +53,13 @@ class ProfilePage extends Component {
     console.log("Current User is", currentUser);
     console.log("Profile User is", profileUser);
 
-    return (
+    return currentUser ? (
       <div className="ProfilePage">
-        <HeaderLogged text="Profile" className="headerprofilelogged" />
+        <HeaderLogged
+          logout={() => this.props.toLogout()}
+          text="Profile"
+          className="headerprofilelogged"
+        />
         <header className="d-flex headerprofilepage">
           <span className="profile-pic">
             <ProfilePic
@@ -111,6 +115,8 @@ class ProfilePage extends Component {
 
         <GridView profilePosts={profilePosts} />
       </div>
+    ) : (
+      <Redirect exact to="/" />
     );
   }
 }

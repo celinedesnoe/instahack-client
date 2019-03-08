@@ -54,7 +54,6 @@ class App extends Component {
       console.log("Log Out", response.data);
       // set the currentUser state to empty
       this.updateUser(null);
-      return <Redirect exact to="/" />;
     });
   }
 
@@ -62,7 +61,7 @@ class App extends Component {
     // console.log(this.state.currentUser);
     return (
       <div className="App">
-        <nav>
+        {/* <nav>
           {this.state.currentUser ? (
             <span>
               <button onClick={() => this.logoutClick()}>
@@ -72,11 +71,9 @@ class App extends Component {
               </button>
             </span>
           ) : (
-            <span className="navbar">
-              <NavLink to="/accounts/login">Log In</NavLink>
-            </span>
+            <div /> // <Redirect exact to={`/`} />
           )}
-        </nav>
+        </nav> */}
 
         <Switch>
           {/* ########################################
@@ -91,6 +88,7 @@ class App extends Component {
               render={() => {
                 return (
                   <NewsfeedPage
+                    toLogout={() => this.logoutClick()}
                     currentUser={this.state.currentUser}
                     rerouteUrl="/"
                   />
@@ -157,6 +155,7 @@ class App extends Component {
                   currentUser={this.state.currentUser}
                   onFollowCurrentUser={user => this.updateUser(user)}
                   match={props.match}
+                  toLogout={() => this.logoutClick()}
                 />
               );
             }}
