@@ -100,6 +100,11 @@ export function getNewsfeedPosts(userInfo) {
   return backendApi.post("/api/process-newsfeed", userInfo);
 }
 
+// FOR THE NEWSFEED IF EMPTY
+export function getNewsfeedEmpty(userInfo) {
+  return backendApi.get("/api/process-newsfeed-empty", userInfo);
+}
+
 // FOR THE SEARCH BY USERNAME
 export function getAllUsers() {
   return backendApi.get("/api/explore/search");

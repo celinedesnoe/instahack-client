@@ -19,7 +19,7 @@ class GridView extends Component {
                     <img
                       src={onePost.image}
                       alt="oneImage"
-                      className="square-img"
+                      className={`square-img ${onePost.style}`}
                     />
                   </Link>
                 </div>

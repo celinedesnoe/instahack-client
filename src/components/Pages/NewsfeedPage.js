@@ -7,6 +7,7 @@ import PostDetailPage from "./PostDetailPage.js";
 import optionpicture from "../../images/optionpicture.png";
 import iglogo from "../../images/iglogo.png";
 import plusprofile from "../../images/plusprofile.png";
+import NewsfeedEmptyPage from "./NewsfeedEmptyPage.js";
 
 class Newsfeed extends Component {
   constructor(props) {
@@ -128,15 +129,19 @@ class Newsfeed extends Component {
           <img src={plusprofile} alt="follow suggestions" />
         </header>
 
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={this.loadItems.bind(this)}
-          hasMore={this.state.hasMoreItems}
-          loader={loader}
-          initialLoad={true}
-        >
-          <div className="newsfeed">{items}</div>
-        </InfiniteScroll>
+        {this.props.currentUser.following.length > 0 ? (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.loadItems.bind(this)}
+            hasMore={this.state.hasMoreItems}
+            loader={loader}
+            initialLoad={true}
+          >
+            <div className="newsfeed">{items}</div>
+          </InfiniteScroll>
+        ) : (
+          <NewsfeedEmptyPage />
+        )}
       </section>
     );
   }
