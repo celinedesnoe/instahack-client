@@ -145,7 +145,7 @@ class PostDetailPage extends Component {
         )}
         {/* show poster's profilepic & username */}
         <div className="ProfileRow d-flex row justify-content-between m-0">
-          <div className="d-flex flex-row">
+          <div className="d-flex flex-row align-items-center">
             <Link
               to={"/" + postUser.username}
               style={{ textDecoration: "none", color: "black" }}
@@ -194,17 +194,52 @@ class PostDetailPage extends Component {
         */}
           <div className="comment-info">
             <div className="margin-bottom-10">
-              {this.state.liked ? (
+              {/* {this.state.liked ? ( */}
+
+              {postItem.likedBy ? (
                 <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
-                  {" "}
-                  Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                  {/********************************************/}
+                  {/************** NUMBER OF LIKES *************/}
+                  {/********************************************/}
                   <b>
-                    {" "}
-                    {postItem.likedBy.length - 1}
-                    <span> other people</span>
+                    {postItem.likedBy.length}
+                    <span> likes</span>
                   </b>
+                  {/********************************************/}
+                  {/************** LIKED BY ********************/}
+                  {/********************************************/}
+                  {postItem.likedBy.length === 1 && (
+                    <div>
+                      {" "}
+                      Liked by <b>{postItem.likedBy[0].username}</b>{" "}
+                    </div>
+                  )}
+
+                  {postItem.likedBy.length === 2 && (
+                    <div>
+                      {" "}
+                      Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                      <b> {postItem.likedBy.length - 1} other person</b>
+                    </div>
+                  )}
+
+                  {postItem.likedBy.length > 2 && (
+                    <div>
+                      {" "}
+                      Liked by <b>{postItem.likedBy[0].username}</b> and{" "}
+                      <b> {postItem.likedBy.length - 1} other people</b>
+                    </div>
+                  )}
                 </Link>
               ) : (
+                // <Link to={`/p/${postItem._id}/liked_by`} postItem={postItem}>
+                //   <b>
+                //     {postItem.likedBy.length}
+                //     <span> likes</span>
+
+                //     {postItem.likedBy[0].username}
+                //   </b>
+                // </Link>
                 <Link to={`/p/${postItem._id}/liked_by`}>
                   <b>
                     0<span> likes</span>

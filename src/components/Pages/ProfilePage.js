@@ -22,7 +22,7 @@ class ProfilePage extends Component {
       profilePosts: [],
       isLoaded: false,
       gridView: false,
-      timelineView: false
+      timelineView: true
     };
   }
 
@@ -134,12 +134,12 @@ class ProfilePage extends Component {
               />
             );
           })
-          // <div />
+
           // <div>TIMELINE VIEW</div>
-          // // <TimelineView
-          // //   toLogout={() => this.props.toLogout()}
-          // //   currentUser={this.state.currentUser}
-          // // />
+          // <TimelineView
+          //   toLogout={() => this.props.toLogout()}
+          //   currentUser={this.state.currentUser}
+          // />
         )}
       </div>
     ) : (
