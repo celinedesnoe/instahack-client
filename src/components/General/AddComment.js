@@ -15,7 +15,7 @@ class AddComment extends Component {
       <section className="AddComment">
         <hr className="w-100" />
         <textarea
-          class="comment-input"
+          class="comment-input colouredcaption"
           onChange={event => this.props.updateState(event)}
           type="text"
           rows="1"
