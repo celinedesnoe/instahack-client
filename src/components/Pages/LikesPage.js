@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-
 import { Link } from "react-router-dom";
 import { getPostDetails } from "../../api.js";
+
+import HeaderCross from "../HeadersAndFooters/HeaderCross.js";
+
 import ProfilePic from "../General/ProfilePic";
 import ButtonFollowUnfollow from "../General/ProfilePic";
+
 import "./LikesPage.css";
 
 class LikesPage extends Component {
@@ -38,7 +41,8 @@ class LikesPage extends Component {
     console.log("PROFILE USER", likers[0]);
     return (
       <div className="ProfilesList">
-        <div>
+        <HeaderCross text="Likes" />
+        <div className="coucou">
           {likers.map(oneLiker => {
             console.log(
               "ONE LIKER ID",

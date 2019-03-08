@@ -36,3 +36,30 @@ a {
   color: #3897f0;
   outline: none;
 }
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+
+  .App {
+    background-color: rgb(249, 249, 249);
+  }
+
+  nav {
+    display: none;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .footerprofilelogged {
+    display: none;
+  }
+
+  a {
+    color: #003569;
+    text-decoration: none;
+    outline: none;
+    font-weight: 700;
+  }
+}

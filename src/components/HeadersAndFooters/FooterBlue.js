@@ -7,10 +7,12 @@ class FooterBlue extends Component {
   render() {
     return (
       <div className="FooterBlue">
-        {this.props.text}
-        <a href={this.props.link} className="linkpadding">
-          {this.props.textLink}
-        </a>
+        <p className="AlignText">
+          {this.props.text}
+          <a href={this.props.link} className="linkpadding">
+            {this.props.textLink}
+          </a>
+        </p>
       </div>
     );
   }

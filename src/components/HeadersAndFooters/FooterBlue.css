@@ -38,3 +38,7 @@
 .linkpadding {
   margin-left: 1%;
 }
+
+p.AlignText {
+  margin: 0;
+}
