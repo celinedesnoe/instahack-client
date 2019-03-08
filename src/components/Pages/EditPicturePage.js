@@ -36,6 +36,10 @@ class EditPicturePage extends Component {
   //     });
   // }
 
+  componentDidMount() {
+    this.setState({ image: this.props.props.location.state.image });
+  }
+
   uploadChange() {
     postPicture(this.props.props.location.state.image).then(response => {
       this.setState({ image: response.data.fileUrl });
@@ -70,7 +74,7 @@ class EditPicturePage extends Component {
           </Link>
         </div>
 
-        <div className="square w-100 m-top-45 no-padding">
+        <div className="square w-100 m-top-45 no-padding d-flex justify-content-around">
           {/* ********** WITHOUT CONDITION ***************** */}
 
           <img
@@ -220,7 +224,7 @@ class EditPicturePage extends Component {
               width="100"
               height="100"
               className="bw-mode object-fit"
-              alt="sepia"
+              alt="bw"
               onClick={() => {
                 this.setState({
                   spSelect: false,
