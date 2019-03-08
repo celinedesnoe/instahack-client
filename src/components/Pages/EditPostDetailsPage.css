@@ -41,6 +41,12 @@
   padding: 15px 0;
 }
 
+.breathe {
+  width: 80%;
+  padding: 10px;
+  min-height: 80px;
+}
+
 .caption-margin-left {
   margin-left: 10px;
 }

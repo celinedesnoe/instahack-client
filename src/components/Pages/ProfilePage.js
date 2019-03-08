@@ -134,6 +134,7 @@ class ProfilePage extends Component {
               />
             );
           })
+          // <div />
           // <div>TIMELINE VIEW</div>
           // // <TimelineView
           // //   toLogout={() => this.props.toLogout()}
