@@ -94,9 +94,9 @@ class LoginPage extends Component {
             <ButtonSubmit text="Log In" styling="blue-button large" />
           </form>
 
-          <a href="#" className="forgotpassword">
+          {/* <a href="#" className="forgotpassword">
             Forgot password?
-          </a>
+          </a> */}
         </div>
 
         <FooterBlue

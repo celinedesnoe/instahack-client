@@ -132,6 +132,7 @@ img.phoneDesktop {
 }
 
 @media only screen and (min-width: 768px) {
+  x
   /* For desktop: */
 
   .HomePage {
@@ -420,10 +421,6 @@ img.phoneDesktop {
 
     font-size: 12px;
   }
-
-  /* .HomePageDesktopFacebookButton {
-    height: 30px;
-  } */
 
   .blackwords2 {
     font-weight: 700;

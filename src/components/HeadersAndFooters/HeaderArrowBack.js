@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import ArrowGoBack from "../../images/arrowbackbold.png";
 

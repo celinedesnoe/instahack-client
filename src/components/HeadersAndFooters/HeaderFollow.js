@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-import logoIg from "../../images/iglogo.png";
 
 import "./HeaderFollow.css";
 

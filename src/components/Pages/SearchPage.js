@@ -42,7 +42,7 @@ class SearchPage extends Component {
   }
 
   render() {
-    const { allUsers, searchUser } = this.state;
+    const { searchUser } = this.state;
     return (
       <div className="SearchPage">
         {/* <SearchBar

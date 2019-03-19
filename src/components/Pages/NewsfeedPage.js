@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { getNewsfeedPosts } from "../../api.js";
 import InfiniteScroll from "react-infinite-scroller";
-import { Link, Route } from "react-router-dom";
 
 import "./NewsfeedPage.css";
 import PostDetailPage from "./PostDetailPage.js";
-import camera from "../../images/cameralinebold.png";
-import options from "../../images/optionpicture.png";
 import iglogo from "../../images/iglogo.png";
 import plusprofile from "../../images/plusprofile.png";
 import NewsfeedEmptyPage from "./NewsfeedEmptyPage.js";

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ButtonLink from "../General/ButtonLink.js";
 import HeaderLanguage from "../HeadersAndFooters/HeaderLanguage.js";
 import Footer from "../HeadersAndFooters/Footer.js";
-// import ButtonNext from "../General/ButtonNext.js";
 
 import InstagramLogo from "../../images/Instagram_logo.png";
 import DownloadApple from "../../images/getinonappstore.png";
@@ -13,12 +12,17 @@ import ImageDesktop from "../../images/imagedesktop.jpeg";
 import imgDesktopScreen from "../../images/imgDesktopScreen.jpeg";
 
 import "./HomePage.css";
+import CheckScreen from "../Pages/CheckScreen.js";
 
 class HomePage extends Component {
   render() {
     return (
       <section className="HomePage">
         <HeaderLanguage />
+
+        {/* MODAL TO MAKE SURE THE USER IS ON A PHONE SCREEN SIZE */}
+
+        <CheckScreen />
         <div className="HomePageBody HomePageBodyDesktop">
           <div className="HomePageBodyWrap">
             <div className="HomePagePicturePhone">
@@ -119,7 +123,7 @@ class HomePage extends Component {
           textLink="Log in"
         />
 
-        <div className="footerHomePageDesktop">
+        {/* <div className="footerHomePageDesktop">
           <div className="footerHomePageDesktopSpace">
             <nav className="navHomePageDesktop">
               <ul className="ulHomePageDesktop">
@@ -161,7 +165,7 @@ class HomePage extends Component {
 
             <span className="spanHomePageDesktop">© 2019 Instagram</span>
           </div>
-        </div>
+        </div> */}
       </section>
     );
   }

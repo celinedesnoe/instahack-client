@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import optionpicture from "../../images/optionpicture.png";
 import plusprofile from "../../images/plusprofile.png";
@@ -29,21 +28,3 @@ class HeaderLogged extends Component {
 }
 
 export default HeaderLogged;
-
-{
-  /* <nav>
-  {this.state.currentUser ? (
-    <span>
-      <button onClick={() => this.logoutClick()}>
-        <Link exact to="/">
-          Log Out
-        </Link>
-      </button>
-    </span>
-  ) : (
-    <span className="navbar">
-      <NavLink to="/accounts/login">Log In</NavLink>
-    </span>
-  )}
-</nav>; */
-}

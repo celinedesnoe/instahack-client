@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import greedempty from "../../images/greedempty.png";
 import greedfull from "../../images/greedfull.png";

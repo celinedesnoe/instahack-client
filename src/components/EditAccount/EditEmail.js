@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import HeaderLanguage from "../HeadersAndFooters/HeaderLanguage.js";
 import ButtonNext from "../General/ButtonNext";
 

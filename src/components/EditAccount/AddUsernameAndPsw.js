@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import ButtonNext from "../General/ButtonNext.js";
 
 import "./AddUsernameAndPsw.css";

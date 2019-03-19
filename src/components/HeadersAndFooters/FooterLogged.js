@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Route, Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import homeempty from "../../images/homeempty.png";
 import homefull from "../../images/homefull.png";
@@ -10,8 +10,6 @@ import likefull from "../../images/likefull.png";
 import profileempty from "../../images/profileempty.png";
 import profilefull from "../../images/profilefull.png";
 
-import Newsfeed from "../Pages/NewsfeedPage.js";
-import Profile from "../Pages/ProfilePage.js";
 import TakePhotoPage from "../Pages/TakePhotoPage.js";
 
 import "./FooterLogged.css";

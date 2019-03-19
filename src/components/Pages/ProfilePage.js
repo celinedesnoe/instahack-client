@@ -12,7 +12,6 @@ import MiddleNavBar from "../HeadersAndFooters/MiddleNavBar.js";
 import TimelineView from "../General/TimelineView.js";
 
 import "./ProfilePage.css";
-import PostDetailPage from "./PostDetailPage.js";
 
 class ProfilePage extends Component {
   constructor(props) {

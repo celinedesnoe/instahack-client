@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
 import { postPicture } from "../../api.js";
 
 import profileperson from "../../images/roundprofileline.png";
-import TakePhotoPage from "../Pages/TakePhotoPage.js";
-
 import "./EditProfilePhoto.css";
 
 class EditProfilePhoto extends Component {
@@ -16,7 +13,7 @@ class EditProfilePhoto extends Component {
   }
 
   uploadChange(event) {
-    const { name, files } = event.target;
+    const { files } = event.target;
     postPicture(files[0]).then(response => {
       // this.setState({ [name]: response.data.fileUrl });
       this.props.addPhoto(response.data.fileUrl);
@@ -47,13 +44,13 @@ class EditProfilePhoto extends Component {
             Next
           </div>
         </div>
-        <Link
+        {/* <Link
           onClick={event => this.props.addPhoto(event)}
           to="#"
           className="skip2"
         >
           Skip
-        </Link>
+        </Link> */}
       </div>
     );
   }

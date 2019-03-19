@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { getLogOut } from "./api";
-// import { getUserProfile, getUserToUnfollow, getUserToFollow } from "./api.js";
 import HomePage from "./components/Pages/HomePage.js";
 import ProfilePage from "./components/Pages/ProfilePage.js";
 import ProfilesList from "./components/Pages/ProfilesList.js";
@@ -13,13 +12,11 @@ import NewsfeedPage from "./components/Pages/NewsfeedPage.js";
 import SearchPage from "./components/Pages/SearchPage.js";
 import LikesPage from "./components/Pages/LikesPage.js";
 import FooterLogged from "./components/HeadersAndFooters/FooterLogged.js";
-// import ButtonSubmit from "./components/General/ButtonSubmit.js";
-// import ButtonLink from "./components/General/ButtonLink.js";
+
 import EditPicturePage from "./components/Pages/EditPicturePage.js";
 import EditPostDetailsPage from "./components/Pages/EditPostDetailsPage.js";
 
 import "./App.css";
-import TakePhotoPage from "./components/Pages/TakePhotoPage";
 
 class App extends Component {
   constructor(props) {

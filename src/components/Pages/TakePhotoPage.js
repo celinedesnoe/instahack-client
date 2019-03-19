@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { postPicture } from "../../api.js";
-import EditPicturePage from "../Pages/EditPicturePage.js";
+
 import plus from "../../images/plus.png";
 import camera from "../../images/cameralinebold.png";
 

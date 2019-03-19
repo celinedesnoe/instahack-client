@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import { Link, Redirect, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postPicture } from "../../api.js";
 
-import ProcessImage from "react-imgpro";
 import CrossBlack from "../../images/crossblack2.png";
-import EditPostDetailsPage from "./EditPostDetailsPage";
 
 import "./EditPicturePage.css";
-
-// #################################################
-// IN COMMENTED ARE THE FILTER THINGS
-// #################################################
 
 class EditPicturePage extends Component {
   state = {
@@ -24,17 +18,6 @@ class EditPicturePage extends Component {
     normalSelect: true,
     style: ""
   };
-
-  // uploadChange() {
-  //   fetch(this.state.image)
-  //     .then(res => res.blob())
-  //     .then(blob => {
-  //       const file = new File([blob], "sp");
-  //       postPicture(file).then(response => {
-  //         this.setState({ image: response.data.fileUrl });
-  //       });
-  //     });
-  // }
 
   componentDidMount() {
     this.setState({ image: this.props.props.location.state.image });
@@ -56,7 +39,7 @@ class EditPicturePage extends Component {
       <div className="EditPicturePage w-100">
         {/* HEADER */}
         <div className={`headerAge ${this.props.position}`}>
-          <a href="#!">
+          <a href="/">
             <img className="gocross" src={CrossBlack} alt="Arrow Go Back" />
           </a>
 
@@ -66,7 +49,6 @@ class EditPicturePage extends Component {
             className="link-next"
             to={{
               pathname: "/create/details/",
-              // state: { image: this.state.src }
               state: { image: image, style: style }
             }}
           >
@@ -91,79 +73,6 @@ class EditPicturePage extends Component {
               });
             }}
           />
-
-          {/* <ProcessImage
-            className="square-img w-100 height-limit"
-            image={this.props.props.location.state.image}
-            cover={{
-              width: 375,
-              height: 375,
-              // width: this.props.props.location.state.width,
-              // height: 100,
-              mode: "horizontal_center"
-            }}
-            greyscale={this.state.bwSelect}
-            sepia={this.state.spSelect}
-            processedImage={(src, err) => {
-              this.setState({ image: src, err });
-            }}
-          /> */}
-          {/* ************ WITH CONDITION ******************* */}
-
-          {/* ****************************************** */}
-          {/* ************ PROCESS IMAGE ******************* */}
-          {/* ****************************************** */}
-
-          {/* {this.state.normalSelect && (
-            <ProcessImage
-              className="square-img w-100 height-limit"
-              image={this.props.props.location.state.image}
-              cover={{
-                width: 375,
-                height: 375,
-                // width: this.props.props.location.state.width,
-                // height: 100,
-                mode: "horizontal_center"
-              }}
-              processedImage={(src, err) => {
-                this.setState({ image: src, err });
-              }}
-            />
-          )}
-          {this.state.bwSelect && (
-            <ProcessImage
-              className="square-img w-100 height-limit"
-              image={this.props.props.location.state.image}
-              cover={{
-                width: 375,
-                height: 375,
-                // width: this.props.props.location.state.width,
-                // height: 100,
-                mode: "horizontal_center"
-              }}
-              greyscale={true}
-              processedImage={(src, err) => {
-                this.setState({ image: src, err });
-              }}
-            />
-          )}
-          {this.state.spSelect && (
-            <ProcessImage
-              className="square-img w-100 height-limit"
-              image={this.props.props.location.state.image}
-              cover={{
-                width: 375,
-                height: 375,
-                // width: this.props.props.location.state.width,
-                // height: 100,
-                mode: "horizontal_center"
-              }}
-              sepia={true}
-              processedImage={(src, err) => {
-                this.setState({ image: src, err });
-              }}
-            />
-          )} */}
         </div>
 
         {/* 3 FILTERS - MINIATURES */}

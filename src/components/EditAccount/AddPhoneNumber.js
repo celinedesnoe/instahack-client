@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
 import circlephone from "../../images/roundphoneline.png";
 
 import "./AddPhoneNumber.css";

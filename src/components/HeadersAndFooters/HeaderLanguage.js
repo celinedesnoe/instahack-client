@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import arrowdown from "../../images/arrowdowngrey.png";
 import threedots from "../../images/3dots.png";
