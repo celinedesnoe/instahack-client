@@ -30,7 +30,6 @@ class ProfilePage extends Component {
 
     getUserProfile(params.username)
       .then(response =>
-        // console.log("Profile Details", response.data)
         this.setState({
           profileUser: response.data.userDoc,
           profilePosts: response.data.postResults,
@@ -57,8 +56,6 @@ class ProfilePage extends Component {
   render() {
     const { profileUser, profilePosts } = this.state;
     const { currentUser } = this.props;
-    console.log("Current User is", currentUser);
-    console.log("Profile User is", profileUser);
 
     return currentUser ? (
       <div className="ProfilePage">
@@ -79,8 +76,8 @@ class ProfilePage extends Component {
             <div className="d-flex username-settings">
               <h1 className="profileusername">{profileUser.username}</h1>
             </div>
-            {/* BUTTON EDIT PROFILE */}
 
+            {/* BUTTON EDIT PROFILE */}
             {profileUser._id === currentUser._id && (
               <div className="w-90">
                 <ButtonLink
@@ -136,16 +133,9 @@ class ProfilePage extends Component {
                 key={onePost._id}
                 postInfo={{ match: { params: { postId: onePost._id } } }}
                 currentUser={this.props.currentUser}
-                // rerouteUrl={this.props.rerouteUrl}
               />
             );
           })
-
-          // <div>TIMELINE VIEW</div>
-          // <TimelineView
-          //   toLogout={() => this.props.toLogout()}
-          //   currentUser={this.state.currentUser}
-          // />
         )}
       </div>
     ) : (

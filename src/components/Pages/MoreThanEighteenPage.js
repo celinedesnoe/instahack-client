@@ -25,7 +25,6 @@ class MoreThanEighteen extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.age);
   }
 
   render() {

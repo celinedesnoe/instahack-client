@@ -30,7 +30,6 @@ class LoginPage extends Component {
 
     //submit login info to the back-end...
     postLogIn(this.state).then(response => {
-      console.log("Log In", response.data);
       this.props.loginSuccess(response.data);
     });
   }
@@ -47,8 +46,6 @@ class LoginPage extends Component {
             src={InstagramLogo}
             alt="instagram logo"
           />
-
-          {/* <img className="whitefb" src={whitefb} alt="facebook icon" /> */}
 
           <ButtonLinkFacebook
             text="Continue with Facebook"
@@ -93,10 +90,6 @@ class LoginPage extends Component {
 
             <ButtonSubmit text="Log In" styling="blue-button large" />
           </form>
-
-          {/* <a href="#" className="forgotpassword">
-            Forgot password?
-          </a> */}
         </div>
 
         <FooterBlue

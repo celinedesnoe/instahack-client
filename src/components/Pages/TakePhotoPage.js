@@ -22,7 +22,6 @@ class TakePhotoPage extends Component {
         width: response.data.fileUrl,
         height: response.data.height
       });
-      console.log(response.data);
     });
   }
 
@@ -33,12 +32,10 @@ class TakePhotoPage extends Component {
   render() {
     const { image } = this.state;
     const { icon } = this.props;
-    console.log(image);
     return (
       <section className="TakePhoto">
         {image === "" ? (
           <div className="upload-btn-wrapper">
-            {/* <form className=" upload-btn-wrapper"> */}
             <input
               class="edit-button"
               type="file"
@@ -52,7 +49,6 @@ class TakePhotoPage extends Component {
                 className="okbutton"
               />
             </div>
-            {/* </form> */}
           </div>
         ) : (
           <Redirect
@@ -67,8 +63,6 @@ class TakePhotoPage extends Component {
             }}
           />
         )}
-
-        {/* <input type="file" accept="image/*" capture="camera" /> */}
       </section>
     );
   }

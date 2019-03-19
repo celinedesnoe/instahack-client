@@ -13,7 +13,6 @@ class SearchResults extends Component {
         <div>
           {allUsers.map(oneUser => {
             return (
-              // <div key={oneFollower._id} className="col-4 myCol p-0">
               <div className="ProfileRow d-flex row justify-content-between">
                 <div className="d-flex row m-0">
                   <Link

@@ -27,13 +27,9 @@ class EditPicturePage extends Component {
     postPicture(this.props.props.location.state.image).then(response => {
       this.setState({ image: response.data.fileUrl });
     });
-    console.log(this.state.image);
   }
 
   render() {
-    console.log("Image received", this.props.props.location.state.image);
-    // console.log(this.state.src);
-    console.log("IMAGE ABOUT TO SEND", this.state.image);
     const { image, style } = this.state;
     return (
       <div className="EditPicturePage w-100">
@@ -103,20 +99,6 @@ class EditPicturePage extends Component {
                 });
               }}
             />
-
-            {/* <ProcessImage
-              image={this.props.props.location.state.image}
-              cover={{ width: 100, height: 100, mode: "horizontal_center" }}
-              quality={95}
-              onClick={() => {
-                this.setState({
-                  normalSelect: true,
-                  bwSelect: false,
-                  spSelect: false
-                });
-                this.uploadChange();
-              }}
-            /> */}
           </div>
 
           <div className="oneFilter">
@@ -144,24 +126,6 @@ class EditPicturePage extends Component {
                 });
               }}
             />
-
-            {/* <ProcessImage
-              image={this.props.props.location.state.image}
-              cover={{ width: 100, height: 100, mode: "horizontal_center" }}
-              quality={95}
-              greyscale={true}
-              processedImage={(src, err) => {
-                this.setState({ bw: src, err });
-              }}
-              onClick={() => {
-                this.setState({
-                  bwSelect: true,
-                  normalSelect: false,
-                  spSelect: false
-                });
-              }}
-              className="oneFilter-fit"
-            /> */}
           </div>
 
           <div className="oneFilter">
@@ -189,23 +153,6 @@ class EditPicturePage extends Component {
                 });
               }}
             />
-
-            {/* <ProcessImage
-              image={this.props.props.location.state.image}
-              cover={{ width: 100, height: 100, mode: "horizontal_center" }}
-              quality={95}
-              sepia={true}
-              processedImage={(src, err) => {
-                this.setState({ sp: src, err });
-              }}
-              onClick={() => {
-                this.setState({
-                  spSelect: true,
-                  bwSelect: false,
-                  normalSelect: false
-                });
-              }}
-            /> */}
           </div>
         </div>
       </div>

@@ -20,8 +20,7 @@ class HomePage extends Component {
       <section className="HomePage">
         <HeaderLanguage />
 
-        {/* MODAL TO MAKE SURE THE USER IS ON A PHONE SCREEN SIZE */}
-
+        {/* MODAL CheckScreen TO MAKE SURE THE USER IS ON A PHONE SCREEN SIZE */}
         <CheckScreen />
         <div className="HomePageBody HomePageBodyDesktop">
           <div className="HomePageBodyWrap">
@@ -67,7 +66,6 @@ class HomePage extends Component {
                     className="imgDesktopScreen"
                   />
                 </div>
-                {/* <ButtonNext className="buttonnexthide" /> */}
 
                 <p className="bysigningup">
                   By signing up, you agree to our
@@ -122,50 +120,6 @@ class HomePage extends Component {
           link="/accounts/login"
           textLink="Log in"
         />
-
-        {/* <div className="footerHomePageDesktop">
-          <div className="footerHomePageDesktopSpace">
-            <nav className="navHomePageDesktop">
-              <ul className="ulHomePageDesktop">
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="https://help.instagram.com/">Support</a>
-                </li>
-                <li>
-                  <a href="https://instagram-press.com/">Press</a>
-                </li>
-                <li>
-                  <a href="#">API</a>
-                </li>
-                <li>
-                  <a href="#">Jobs</a>
-                </li>
-                <li>
-                  <a href="#">Privacy</a>
-                </li>
-                <li>
-                  <a href="#">Terms</a>
-                </li>
-                <li>
-                  <a href="#">Directory</a>
-                </li>
-                <li>
-                  <a href="#">Profiles</a>
-                </li>
-                <li>
-                  <a href="#">Hastags</a>
-                </li>
-                <li>
-                  <a href="#">Language</a>
-                </li>
-              </ul>
-            </nav>
-
-            <span className="spanHomePageDesktop">© 2019 Instagram</span>
-          </div>
-        </div> */}
       </section>
     );
   }

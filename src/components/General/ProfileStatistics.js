@@ -6,7 +6,7 @@ import "./ProfileStatistics.css";
 class ProfileStatistics extends Component {
   render() {
     const { profileUser, profilePosts } = this.props;
-    // console.log(currentUser);
+
     return (
       <div className="ProfileStatistics d-flex flex-row justify-content-around align-items-center">
         <div className="text-center">

@@ -19,7 +19,6 @@ class ProfilesList extends Component {
     const { params } = this.props.match;
     getUserProfileFollowers(params.username)
       .then(response =>
-        // console.log("Profile Details", response.data)
         this.setState({
           profileUser: response.data.userDoc
         })
@@ -32,12 +31,6 @@ class ProfilesList extends Component {
   render() {
     const { profileUser } = this.state;
     const { currentUser } = this.props;
-
-    // console.log(this.props.match);
-    console.log("Profile User", profileUser);
-    console.log("Profile User FOLLOWERS", profileUser.followers);
-
-    console.log("Current User", currentUser);
     return (
       <div className="ProfilesList">
         <Switch>
@@ -51,7 +44,6 @@ class ProfilesList extends Component {
                     <HeaderFollow text="Followers" />
                     {profileUser.followers.map(oneFollower => {
                       return (
-                        // <div key={oneFollower._id} className="col-4 myCol p-0">
                         <ProfileRow
                           profileUser={oneFollower}
                           currentUser={currentUser}
@@ -59,7 +51,6 @@ class ProfilesList extends Component {
                           key={oneFollower._id}
                           className="profileraw"
                         />
-                        // </div>
                       );
                     })}
                   </div>
@@ -78,7 +69,6 @@ class ProfilesList extends Component {
                     <HeaderFollow text="Following" />
                     {profileUser.following.map(oneFollowing => {
                       return (
-                        // <div key={oneFollowing._id} className="col-4 myCol p-0">
                         <ProfileRow
                           profileUser={oneFollowing}
                           currentUser={currentUser}
@@ -86,7 +76,6 @@ class ProfilesList extends Component {
                           key={oneFollowing._id}
                           className="profileraw"
                         />
-                        // </div>
                       );
                     })}
                   </div>
@@ -94,8 +83,6 @@ class ProfilesList extends Component {
               }}
             />
           )}
-
-          {/************ FOR LIKERS PAGE *************/}
         </Switch>
       </div>
     );

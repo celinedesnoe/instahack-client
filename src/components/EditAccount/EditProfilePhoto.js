@@ -15,7 +15,6 @@ class EditProfilePhoto extends Component {
   uploadChange(event) {
     const { files } = event.target;
     postPicture(files[0]).then(response => {
-      // this.setState({ [name]: response.data.fileUrl });
       this.props.addPhoto(response.data.fileUrl);
     });
   }
@@ -44,13 +43,6 @@ class EditProfilePhoto extends Component {
             Next
           </div>
         </div>
-        {/* <Link
-          onClick={event => this.props.addPhoto(event)}
-          to="#"
-          className="skip2"
-        >
-          Skip
-        </Link> */}
       </div>
     );
   }

@@ -43,9 +43,6 @@ class EditPostDetailsPage extends Component {
   }
 
   render() {
-    // console.log("STATE", this.state);
-    // console.log("PROPS", this.props);
-    console.log("STYLE", this.props.props.location.state);
     return (
       <div className="EditPostDetailsPage w-100">
         {/* HEADER */}

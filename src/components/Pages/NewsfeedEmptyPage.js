@@ -10,14 +10,12 @@ class NewsfeedEmptyPage extends Component {
     super(props);
     this.state = {
       allUsers: []
-      // shuffleUsers: []
     };
   }
 
   componentDidMount() {
     getNewsfeedEmpty()
       .then(response =>
-        // console.log("Profile Details", response.data)
         this.setState({
           allUsers: response.data
         })
@@ -28,8 +26,6 @@ class NewsfeedEmptyPage extends Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log("CURRENT USER", this.props);
     const { currentUser } = this.props;
     const { allUsers } = this.state;
     return (
@@ -40,7 +36,6 @@ class NewsfeedEmptyPage extends Component {
         </div>
         <div>
           {allUsers.map(oneUser => {
-            console.log("ONE USER", oneUser);
             return (
               <div className="ProfileRow d-flex row justify-content-between">
                 <div className="d-flex row m-0">

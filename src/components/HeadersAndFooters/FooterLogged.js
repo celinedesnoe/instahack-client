@@ -24,8 +24,6 @@ class FooterLogged extends Component {
       profiled: false
     };
   }
-  //   <img src={homefull} alt="home icon" className="okbutton" />
-  //   <img src={profilefull} alt="profile icon" className="okbutton" />
 
   colouredHome() {
     this.setState({
@@ -72,18 +70,15 @@ class FooterLogged extends Component {
               <div class="buton">
                 <img
                   onClick={event => this.colouredHome(event)}
-                  // className="Unlike"
                   src={homefull}
                   alt="home empty"
                   className="okbutton"
                 />
-                {/* <Redirect to="/" /> */}
               </div>
             ) : (
               <div class="buton">
                 <img
                   onClick={event => this.colouredHome(event)}
-                  // className="Like"
                   src={homeempty}
                   alt="home full"
                   className="okbutton"
@@ -99,18 +94,15 @@ class FooterLogged extends Component {
               <div class="buton">
                 <img
                   onClick={event => this.colouredSearch(event)}
-                  // className="Unlike"
                   src={searchfull}
                   alt="search empty"
                   className="okbutton"
                 />
-                {/* <Redirect to="/explore/search" /> */}
               </div>
             ) : (
               <div class="buton">
                 <img
                   onClick={event => this.colouredSearch(event)}
-                  // className="Like"
                   src={searchempty}
                   alt="search full"
                   className="okbutton"
@@ -134,7 +126,6 @@ class FooterLogged extends Component {
                   alt="like empty"
                   className="okbutton"
                 />
-                {/* <Redirect to="#" /> */}
               </div>
             ) : (
               <div class="buton">
@@ -174,8 +165,6 @@ class FooterLogged extends Component {
           </Link>
         </div>
       </div>
-      // NEED TO LAUNCH THE CAMERA OR TO CHOOSE A PICTURE FROM THE IPHONE
-      // NEED TO SEND THIS PICTURE UPLOADED TO THE NEXT PAGE TO EDIT/ADD FILTERS
     );
   }
 }

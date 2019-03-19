@@ -22,7 +22,6 @@ class LikesPage extends Component {
     const { params } = this.props.match;
     getPostDetails(params.postId)
       .then(response =>
-        // console.log("Profile Details", response.data)
         this.setState({
           post: response.data.post,
           likers: response.data.post.likedBy
@@ -36,15 +35,12 @@ class LikesPage extends Component {
   render() {
     const { likers } = this.state;
     const { currentUser } = this.props;
-    // console.log(this.state);
-    // console.log("CURRENT USER", currentUser);
-    // console.log("PROFILE USER", likers);
+
     return (
       <div className="ProfilesList">
         <HeaderCross text="Likes" link={`/p/${this.state.post._id}`} />
         <div className="coucou">
           {likers.map(oneLiker => {
-            console.log("ONE LIKER", oneLiker, "CURRENT USER", currentUser);
             return (
               <div className="ProfileRow d-flex row justify-content-between">
                 <div className="d-flex row m-0">

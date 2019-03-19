@@ -63,10 +63,6 @@ export function newPost(newPost) {
   return backendApi.post("/api/process-post", newPost).catch(errorHandler);
 }
 
-// export function getPosts(someUser) {
-//   return backendApi.post("/api/posts", someUser).catch(errorHandler);
-// }
-
 export function getPostDetails(postId) {
   return backendApi.get(`/api/p/${postId}`).catch(errorHandler);
 }
@@ -115,13 +111,3 @@ export function getAllUsers() {
 export function getTimelinePosts() {
   return backendApi.post("/api/explores/search");
 }
-
-// export function checkEmail(someEmail) {
-//   return backendApi.post("/api/process-email", someEmail).catch(errorHandler);
-// }
-
-// export function checkUsername(someUsername) {
-//   return backendApi
-//     .post("/api/process-username", someUsername)
-//     .catch(errorHandler);
-// }

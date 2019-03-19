@@ -40,7 +40,6 @@ class ModifyProfile extends Component {
     };
 
     editUser(updatedUser).then(response => {
-      console.log("edit result", response.data);
       this.props.editSuccess(response.data);
       this.setState({ isSubmit: true });
     });
@@ -49,15 +48,12 @@ class ModifyProfile extends Component {
   uploadChange(event) {
     const { name, files } = event.target;
     postPicture(files[0]).then(response => {
-      console.log("Upload File Info", response.data);
       this.setState({ [name]: response.data.fileUrl });
     });
   }
 
   render() {
     const { currentUser } = this.props;
-
-    console.log("CURRENT USER", currentUser);
 
     return this.state.isSubmit ? (
       <Redirect to={`/${currentUser.username}`} />
@@ -82,8 +78,6 @@ class ModifyProfile extends Component {
               margin="m-20"
             />
           )}
-
-          {/* <img className="user-thumbnail" src={currentUser.profilePic} /> */}
 
           <div className="d-flex flex-column justify-content-center">
             <h3 className="currentusername">{currentUser.username}</h3>

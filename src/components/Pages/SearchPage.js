@@ -14,10 +14,10 @@ class SearchPage extends Component {
     };
   }
 
+  // DISPLAY ALL THE USERS FROM INSTAHACK
   componentDidMount() {
     getAllUsers()
       .then(response =>
-        // console.log("Profile Details", response.data)
         this.setState({
           allUsers: response.data
         })
@@ -27,12 +27,13 @@ class SearchPage extends Component {
       });
   }
 
+  // UPDATE THE STATE ACCORDING TO THE USER INPUT
   updateSearch(event) {
     const { value } = event.target;
     this.setState({ searchUser: value });
-    console.log(this.state.searchUser);
   }
 
+  // GIVE THE RESULTS OF THE USER SEARCH
   searchUser() {
     const { searchUser, allUsers } = this.state;
     var allResults = allUsers.filter(oneUser => {
@@ -45,11 +46,6 @@ class SearchPage extends Component {
     const { searchUser } = this.state;
     return (
       <div className="SearchPage">
-        {/* <SearchBar
-          search={this.state.searchUser}
-          searchChange={event => this.updateSearch(event)}
-        /> */}
-
         <div className="searchheader">
           <div className="searchbar">
             <input
@@ -65,11 +61,8 @@ class SearchPage extends Component {
         </div>
 
         <p className="suggested">Suggested</p>
-        <SearchResults allUsers={this.searchUser()} />
 
-        {/* {allUsers.map(oneUser => {
-          return <div>{oneUser.username}</div>;
-        })} */}
+        <SearchResults allUsers={this.searchUser()} />
       </div>
     );
   }

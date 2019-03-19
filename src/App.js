@@ -49,30 +49,14 @@ class App extends Component {
 
   logoutClick() {
     getLogOut().then(response => {
-      console.log("Log Out", response.data);
       // set the currentUser state to empty
       this.updateUser(null);
     });
   }
 
   render() {
-    // console.log(this.state.currentUser);
     return (
       <div className="App">
-        {/* <nav>
-          {this.state.currentUser ? (
-            <span>
-              <button onClick={() => this.logoutClick()}>
-                <Link exact to="/">
-                  Log Out
-                </Link>
-              </button>
-            </span>
-          ) : (
-            <div /> // <Redirect exact to={`/`} />
-          )}
-        </nav> */}
-
         <Switch>
           {/* ########################################
               ROUTES FOR HOMEPAGE (LOGGED/NOT LOGGED)
@@ -191,7 +175,6 @@ class App extends Component {
               );
             }}
           />
-          {/* <Route path="/p/:postId/liked_by" component={LikesPage} /> */}
           <Route
             path="/p/:postId/liked_by"
             render={props => {

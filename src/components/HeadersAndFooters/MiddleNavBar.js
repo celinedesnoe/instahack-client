@@ -16,19 +16,13 @@ class MiddleNavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // greeded: false,
-      // listed: false,
       picked: false,
       profilesquared: false
     };
   }
-  //   <img src={homefull} alt="home icon" className="okbutton" />
-  //   <img src={profilefull} alt="profile icon" className="okbutton" />
 
   colouredGreed() {
     this.setState({
-      // greeded: true,
-      // listed: false,
       picked: false,
       profilesquared: false
     });
@@ -36,8 +30,6 @@ class MiddleNavBar extends Component {
 
   colouredList() {
     this.setState({
-      // greeded: false,
-      // listed: true,
       picked: false,
       profilesquared: false
     });
@@ -45,8 +37,6 @@ class MiddleNavBar extends Component {
 
   colouredPick() {
     this.setState({
-      // greeded: false,
-      // listed: false,
       picked: true,
       profilesquared: false
     });
@@ -54,8 +44,6 @@ class MiddleNavBar extends Component {
 
   colouredProfile() {
     this.setState({
-      // greeded: false,
-      // listed: false,
       picked: false,
       profilesquared: true
     });
@@ -69,7 +57,6 @@ class MiddleNavBar extends Component {
             <div class="buton">
               <img
                 onClick={event => this.colouredGreed(event)}
-                // className="Unlike"
                 src={greedfull}
                 alt="greed empty"
                 className="okbutton"
@@ -83,7 +70,6 @@ class MiddleNavBar extends Component {
                   this.colouredGreed(event);
                   this.props.changeToGrid(event);
                 }}
-                // className="Like"
                 src={greedempty}
                 alt="greed full"
                 className="okbutton"
@@ -97,7 +83,6 @@ class MiddleNavBar extends Component {
             <div class="buton">
               <img
                 onClick={event => this.colouredList(event)}
-                // className="Unlike"
                 src={listfull}
                 alt="list empty"
                 className="okbutton"
@@ -111,7 +96,6 @@ class MiddleNavBar extends Component {
                   this.colouredList(event);
                   this.props.changeToTimeline(event);
                 }}
-                // className="Like"
                 src={listempty}
                 alt="list full"
                 className="okbutton"
@@ -166,8 +150,6 @@ class MiddleNavBar extends Component {
           )}
         </div>
       </div>
-      // NEED TO LAUNCH THE CAMERA OR TO CHOOSE A PICTURE FROM THE IPHONE
-      // NEED TO SEND THIS PICTURE UPLOADED TO THE NEXT PAGE TO EDIT/ADD FILTERS
     );
   }
 }

@@ -29,28 +29,19 @@ class PostDetailPage extends Component {
   }
 
   componentDidMount() {
-    console.log("Props in PDP: ", this.props);
     const { params } = this.props.postInfo.match;
-    console.log("Post Id in PDP: ", params.postId);
     getPostDetails(params.postId)
       .then(response => {
         var likeState = response.data.post.likedBy.some(oneLiker => {
           return oneLiker._id === this.props.currentUser._id;
         });
 
-        // console.log(response.data.post.likedBy);
-
-        // array methods: find
-        // some:
-
         var lastPageNewsfeed = false;
 
         if (this.props.rerouteUrl === "/") {
-          console.log("last page newsfeed");
           lastPageNewsfeed = true;
         }
 
-        console.log("Post Details", response.data);
         this.setState({
           postItem: response.data.post,
           postUser: response.data.post.username_id,
@@ -79,8 +70,6 @@ class PostDetailPage extends Component {
 
     // send this info to the back end (fnc exported from api.js)
     likePost(addLike).then(response => {
-      console.log("RESPONSE TO LIKE: ", response.data);
-
       // update boolean in order to show the right like button
       // update the postItem in order to display the right number of likes
       this.setState({ liked: true, postItem: response.data });
@@ -98,8 +87,6 @@ class PostDetailPage extends Component {
 
     // send this info to the back end (fnc exported from api.js)
     unlikePost(removeLike).then(response => {
-      console.log("RESPONSE TO UNLIKE: ", response.data);
-
       // update boolean in order to show the right like button
       // update the postItem in order to display the right number of likes
       this.setState({ liked: false, postItem: response.data });
@@ -119,10 +106,7 @@ class PostDetailPage extends Component {
       content: this.state.newComment
     };
 
-    // console.log("COMMENT INFO: ", commentInfo);
-
     postComment(commentInfo).then(response => {
-      console.log("comment added to array: ", response.data);
       // add new comment info to the front of the comments array to be rendered at the top
       this.state.allComments.unshift(response.data);
 
@@ -133,8 +117,7 @@ class PostDetailPage extends Component {
 
   render() {
     const { postItem, postUser, allComments } = this.state;
-    // console.log("Current User in Post Details: ", this.props.currentUser);
-    // console.log("COMMENTS in PDP: ", allComments);
+
     return (
       <div className="PostDetailPage w-100">
         {/* show poster's profilepic & username */}

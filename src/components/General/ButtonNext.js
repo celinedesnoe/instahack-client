@@ -4,7 +4,11 @@ import "./ButtonNext.css";
 
 class ButtonNext extends Component {
   render() {
-    return <button className={this.props.styling}>{this.props.text}</button>;
+    return (
+      <button type="submit" className={this.props.styling}>
+        {this.props.text}
+      </button>
+    );
   }
 }
 

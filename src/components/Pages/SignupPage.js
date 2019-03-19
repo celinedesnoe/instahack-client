@@ -49,13 +49,6 @@ class SignupPage extends Component {
   handleEmail(event) {
     event.preventDefault();
 
-    // check if email is already with an account
-    // write checkEmail fnc in api.js
-
-    // checkEmail(this.state.email).then(response => {
-    //   console.log("email not in use", response.data);
-    // });
-
     // assign tempUsername
     const tempUsername = this.state.email.slice(
       0,
@@ -70,7 +63,6 @@ class SignupPage extends Component {
     event.preventDefault();
 
     postSignUp(this.state).then(response => {
-      console.log("sign up result", response.data);
       this.props.signupSuccess(response.data);
       this.setState({ addPhoneNumber: true });
     });
