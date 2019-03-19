@@ -6,7 +6,10 @@ import "./AddUsernameAndPsw.css";
 class AddUsernameAndPsw extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      fullName: "",
+      originalPassword: ""
+    };
   }
   render() {
     return (
