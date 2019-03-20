@@ -36,8 +36,24 @@ class CheckScreen extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>Our Instagram clone only works on a phone screen mode.</p>
-            <p>Who use Instagram on its desktop by the way? </p>
+            <div className="modal-align">
+              <p>
+                Our Instagram clone only works on a <br />
+                <b>phone screen mode.</b>
+              </p>
+              <p>Who use Instagram on its desktop by the way? </p>
+              <div className="smaller-modal-text">
+                <p>
+                  Pssst you can use this account to log in if you don't want to
+                  sign up
+                </p>
+                <p>
+                  <b>Email:</b> visitor@ironhack.com
+                  <br />
+                  <b>Password:</b> abc123
+                </p>
+              </div>
+            </div>
           </Modal.Body>
         </Modal>
       </>
